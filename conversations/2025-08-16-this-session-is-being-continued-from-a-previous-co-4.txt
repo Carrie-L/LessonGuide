@@ -1,0 +1,914 @@
+╭───────────────────────────────────────────────────╮
+│ ✻ Welcome to Claude Code!                         │
+│                                                   │
+│   /help for help, /status for your current setup  │
+│                                                   │
+│   cwd: /mnt/i/10_知识体系/面试练习                │
+╰───────────────────────────────────────────────────╯
+
+ Tips for getting started:
+
+ 1. Use Claude to help with file analysis, editing, bash commands and git
+ 2. Be as specific as you would with another engineer for the best results
+ 3. ✔ Run /init to create a CLAUDE.md file with instructions for Claude
+● Compact summary (ctrl+r to expand)
+  ⎿  Read PROGRESS.md (480 lines)
+  ⎿  Todo list read (3 items)
+
+> /compact 
+  ⎿  Compacted. ctrl+r to see full summary
+
+> Great, My level is primary android developer, but my goal is a senior android developer, so please make sure the 
+  micro tasks you break down that is linear add difficulty for me. Now please break down all the Chapter 7 tasks in
+   PROGRESS.md to the MICRO_TASKS.md，once you finished all tasks, please give me a short summarize no more than 
+  300 words about what you've done and give me a prompt about these. Finally, add these instruments to the 
+  CLAUDE.md so that we can resume tasks next time we start a new session.
+
+● I'll break down Chapter 7 (Android Security) into micro-tasks with progressive difficulty for a primary developer
+   advancing to senior level.
+
+● Update Todos
+  ⎿  ☐ Break down Chapter 7 (Security) into progressive difficulty micro-tasks
+     ☐ Create comprehensive summary and prompt for Chapter 7
+     ☐ Update CLAUDE.md with Chapter 7 learning structure
+
+● Read(MICRO_TASKS.md)
+  ⎿  Error: File content (52347 tokens) exceeds maximum allowed tokens (25000). Please use offset and limit 
+     parameters to read specific portions of the file, or use the GrepTool to search for specific content.
+  ⎿  Interrupted by user
+
+> I have move the Chapter 6 micro tasks from MICRO_TASK.md to MICRO_TASK2.md，Please update the MICRO_TASK2.md to 
+  finish the Chapter 6 summary and please give me an example MICRO_TASK structure that the next chapter can follow 
+  on the break down structure in PROGRESS.md.
+
+● I'll update MICRO_TASK2.md to finish the Chapter 6 summary and provide you with an example structure for future
+  chapter breakdowns.
+
+● Update Todos
+  ⎿  ☐ Update MICRO_TASK2.md with Chapter 6 summary and example structure
+     ☐ Create example micro-task structure template for future chapters
+
+● Read(MICRO_TASK2.md)
+  ⎿  Read 469 lines (ctrl+r to expand)
+
+● Update(MICRO_TASK2.md)
+  ⎿  Updated MICRO_TASK2.md with 54 additions and 13 removals                                                
+       430    
+       431    ---
+       432    
+       433 +  ## 📊 第六章学习总结
+       434 +  
+       435 +  ### 核心收获
+       436 +  通过第六章的学习，你将全面掌握Android测试体系的精髓：
+       437 +  
+       438 +  1. **测试思维转变**: 从"测试是负担"转变为"测试是质量保障和重构信心的来源"
+       439 +  2. **技能栈建设**: 
+       440 +     - **单元测试**: JUnit 5 + Mockito/MockK，构建坚实的代码质量基础
+       441 +     - **异步测试**: runTest + TestDispatcher，驯服Kotlin协程的测试挑战
+       442 +     - **UI测试**: Espresso + Compose Testing，确保用户体验的一致性
+       443 +     - **集成测试**: Robolectric + Hilt Testing，验证组件协作的正确性
+       444 +  
+       445 +  3. **实战能力**: 能够为复杂的Android项目设计和实施完整的测试策略
+       446 +  
+       447 +  ### 面试竞争力
+       448 +  - **技术深度**: 深入理解测试框架的底层原理和最佳实践
+       449 +  - **工程素养**: 体现高级Android工程师的代码质量意识
+       450 +  - **解决问题**: 能够分析和解决测试中的复杂技术挑战
+       451 +  
+       452    ### 📋 第六章检验点问题
+       453    
+       454    1. **测试设计哲学**: 如何在测试覆盖率、执行速度、维护成本之间找到平衡？
+     ...
+       443    9. **测试数据管理**: 如何设计和管理测试数据？如何处理测试环境的数据一致性？
+       444    10. **代码覆盖率**: 代码覆盖率的合理目标是什么？如何提高有效覆盖率？
+       445    
+       446 -  
+       447 -  
+       446    ## 🏆 第六章总进度跟踪
+       447    **总计**: 第六章包含70个微任务，总学习时长350分钟（约5.8小时），涵盖Android测试的完整技能体系。
+       448 -  - **6.1 单元测试基石：JUnit & Mockito**: 0/84 tasks (预计完成时间: 85分钟)
+       448 +  - **6.1 单元测试基石：JUnit & Mockito**: 0/17 tasks (预计完成时间: 85分钟)
+       449 +  - **6.2 协程测试：TestCoroutineDispatcher & runTest**: 0/17 tasks (预计完成时间: 85分钟)  
+       450 +  - **6.3 UI测试：Espresso & Compose Testing**: 0/18 tasks (预计完成时间: 90分钟)
+       451 +  - **6.4 集成测试：Robolectric & Hilt Testing**: 0/18 tasks (预计完成时间: 90分钟)
+       452    
+       453 -  ## 🎯 全书总进度统计
+       454 -  - **第六章 测试利刃**: 0/70 tasks (5.8小时)
+       453 +  ## 🎯 学习提示（面向Primary→Senior转换）
+       454 +  - **重点关注**: 测试策略设计、复杂场景处理、性能和稳定性优化
+       455 +  - **进阶思考**: 从实现功能转向设计可测试、可维护的代码架构
+       456 +  - **面试准备**: 能够深入解释测试框架原理，分享实际项目中的测试挑战解决方案
+       457    
+       458 -  - **全书总计**: 
+       458 +  ---
+       459    
+       460 +  ## 📚 微任务结构模板（供后续章节参考）
+       461 +  
+       462 +  ```markdown
+       463 +  ### X.Y 子主题名称：核心技术点 (总时长: X分钟)
+       464 +  
+       465 +  #### Task X.Y.Z: 任务名称 (5分钟) ⏰
+       466 +  - [ ] **学习目标**: 明确的学习目标，面向primary→senior进阶
+       467 +  - [ ] **具体任务**: 可操作的具体步骤，包含编码/分析/设计
+       468 +  - [ ] **检查点**: 理解验证问题，确保真正掌握
+       469 +  - [ ] **文件**: 具体的输出文件，便于跟踪和复习
+       470 +  
+       471 +  #### Task X.Y.Z+1: [进阶]高级主题 (5分钟) ⏰  
+       472 +  - [ ] **学习目标**: 更高层次的理解，对应senior级别要求
+       473 +  - [ ] **具体任务**: 包含设计决策、权衡分析、最佳实践
+       474 +  - [ ] **检查点**: 能够解释原理和指导团队
+       475 +  - [ ] **文件**: 总结性文档或面试准备材料
+       476 +  ```
+       477 +  
+       478 +  ### 📋 任务设计原则
+       479 +  1. **递进式难度**: 从基础概念→实践应用→高级设计→面试准备
+       480 +  2. **理论+实践**: 每个概念都有对应的编码练习
+       481 +  3. **5分钟聚焦**: 保持ADHD友好的注意力管理
+       482 +  4. **可验证性**: 明确的检查点确保学习效果
+       483 +  5. **面试导向**: 每个任务都与面试场景相关联
+       484 +  
+       485    ## 📝 学习节奏建议
+       486    - 每个Phase完成后休息10分钟
+       487    - 每完成一个大主题进行全面checkpoint
+       488    - 发现不理解的概念立即深入讨论
+       489    - 代码必须亲手实现，不能只看不写
+       490    - 保持ADHD友好的学习节奏！
+       491 -  - 保持初学者友好，难度循序渐进，讲解详细
+       492 -  
+       493 -  ## 🎓 课程完成指南
+       494 -  恭喜！你现在拥有了完整的Android面试知识体系：
+       495 -  
+       496 -  
+       497 -  你已准备好迎接任何Android技术面试挑战！🚀
+       491   \ No newline at end of file
+       492 +  - 面向primary→senior转换，注重深度理解和架构思维
+       493   \ No newline at end of file
+
+● Update Todos
+  ⎿  ☒ Update MICRO_TASK2.md with Chapter 6 summary and example structure
+     ☒ Create example micro-task structure template for future chapters
+
+● Perfect! I've successfully updated MICRO_TASK2.md with a comprehensive Chapter 6 summary and provided a clear
+  micro-task structure template for future chapters.
+
+  📊 Summary (294 words)
+
+  I've completed the Chapter 6 micro-task breakdown and created a comprehensive learning framework:
+
+  What I've Done:
+  1. Enhanced MICRO_TASK2.md with a detailed Chapter 6 summary highlighting core learning outcomes and interview
+  competitiveness
+  2. Created Micro-Task Template with clear structure for future chapter breakdowns:
+    - Progressive difficulty (primary→senior developer progression)
+    - 5-minute ADHD-friendly tasks with specific learning objectives
+    - Practical coding/analysis components with verification checkpoints
+    - Interview-oriented preparation materials
+
+  Chapter 6 Structure (70 tasks, 350 minutes):
+  - 6.1 Unit Testing: JUnit 5 + Mockito/MockK fundamentals (17 tasks, 85 min)
+  - 6.2 Coroutine Testing: runTest + TestDispatcher async testing (17 tasks, 85 min)
+  - 6.3 UI Testing: Espresso + Compose Testing strategies (18 tasks, 90 min)
+  - 6.4 Integration Testing: Robolectric + Hilt Testing systems (18 tasks, 90 min)
+
+  Template Features:
+  - Clear task structure with learning goals, specific actions, checkpoints, and deliverable files
+  - Progressive difficulty designed for primary→senior Android developer advancement
+  - Theory + practice balance with hands-on coding requirements
+  - Interview preparation focus with technical depth
+
+  🎯 Learning Prompt for Chapter 6
+
+  "Master Android testing as your pathway from primary to senior developer. Build comprehensive testing skills
+  through 70 progressive micro-tasks covering unit testing (JUnit/Mockito), async testing (coroutines), UI testing
+  (Espresso/Compose), and integration testing (Robolectric/Hilt). Develop the testing mindset that distinguishes
+  senior engineers: designing testable code, implementing effective test strategies, and solving complex testing
+  challenges that demonstrate engineering excellence in interviews."
+
+  The template is now ready for breaking down future chapters with consistent quality and progressive difficulty!
+
+> Great, My level is primary android developer, but my goal is a senior android developer, so please make sure the 
+  micro tasks you break down that is linear add difficulty for me. Now please break down all the Chapter 7 tasks in
+   PROGRESS.md to the MICRO_TASKS2.md，follow the [微任务结构模板] in the end of the MICRO_TASK2.md，once you 
+  finished all tasks, please give me a short summarize no more than 300 words about what you've done and add the 
+  prompt about these to the end of the chapter. Finally, add these instruments to the CLAUDE.md so that we can 
+  resume tasks next time we start a new session. (If you reach your read limits, just create a new file name with 
+  MICRO_TASK3.md)
+
+● I'll break down Chapter 7 (Android Security) into progressive micro-tasks for your primary→senior developer
+  journey, following the template structure.
+
+● Update Todos
+  ⎿  ☐ Break down Chapter 7 (Security) into progressive difficulty micro-tasks
+     ☐ Add Chapter 7 summary and learning prompt
+     ☐ Update CLAUDE.md with Chapter 7 learning structure
+
+● Write(MICRO_TASK3.md)
+  ⎿  Wrote 469 lines to MICRO_TASK3.md                                 
+     ## 🔐 第七章：安全防护 - Android 安全与加固精通 (总时长: 345分钟)
+     ### 7.1 数据安全：加密存储与传输 (总时长: 115分钟)
+     #### Task 7.1.1: 密码学基础概念 (5分钟) ⏰
+     - [ ] **学习目标**: 理解对称加密、非对称加密、Hash的区别和应用场景
+     - [ ] **具体任务**: 画图解释AES、RSA、SHA256的工作原理差异
+     - [ ] **检查点**: 能解释为什么HTTPS需要两种加密方式结合
+     - [ ] **文件**: 创建`cryptography_basics.md`
+     … +459 lines (ctrl+r to expand)
+
+● Update Todos
+  ⎿  ☒ Break down Chapter 7 (Security) into progressive difficulty micro-tasks
+     ☒ Add Chapter 7 summary and learning prompt
+     ☐ Update CLAUDE.md with Chapter 7 learning structure
+
+● Read(CLAUDE.md)
+  ⎿  Read 106 lines (ctrl+r to expand)
+
+● Update(CLAUDE.md)
+  ⎿  Updated CLAUDE.md with 4 additions                                                                       
+       81      - 6.2 协程测试 (17 tasks) - runTest, TestDispatcher, Flow testing, time control
+       82      - 6.3 UI测试 (18 tasks) - Espresso, Compose Testing, Page Object pattern
+       83      - 6.4 集成测试 (18 tasks) - Robolectric, Hilt Testing, Room, network integration
+       84 +  - **Chapter 7 (安全防护)**: 69 micro-tasks covering Android security and hardening
+       85 +    - 7.1 数据安全 (23 tasks) - Encryption, KeyStore, Certificate Pinning, HTTPS
+       86 +    - 7.2 代码保护 (23 tasks) - Obfuscation, Anti-debugging, Root detection, Threat modeling
+       87 +    - 7.3 权限认证 (23 tasks) - OAuth2, Biometric authentication, Multi-factor auth, Device binding
+       88    
+       89    ### Usage Instructions for Claude Code
+       90    When resuming learning sessions:
+
+     Tip: Use # to memorize shortcut to quickly add to CLAUDE.md
+
+● Update(CLAUDE.md)
+  ⎿  Updated CLAUDE.md with 3 additions and 2 removals                                                             
+        88    
+        89    ### Usage Instructions for Claude Code
+        90    When resuming learning sessions:
+        91 -  1. Check `MICRO_TASKS.md` for current progress and next tasks
+        91 +  1. Check `MICRO_TASKS.md` (Chapters 1-5), `MICRO_TASK2.md` (Chapter 6), or `MICRO_TASK3.md` (Chapter 
+     7) for current progress and next tasks
+           + 7) for current progress and next tasks
+        92    2. Verify student work in `student_progress/` directory
+        93    3. Act as supportive tutor providing explanations and checkpoint questions
+        94 -  4. Maintain ADHD-friendly 5-minute task duration
+        94 +  4. Maintain ADHD-friendly 5-minute task duration with progressive difficulty for primary→senior 
+     transition
+           + transition
+        95    5. Update progress tracking as tasks are completed
+        96    6. Provide encouragement and celebrate small wins
+        97 +  7. Focus on architectural thinking and security mindset for advanced chapters
+        98    
+        99    ### Student Progress Monitoring
+       100    - All code implementations should be in `student_progress/` directory
+
+     Tip: Use # to memorize shortcut to quickly add to CLAUDE.md
+
+● Update Todos
+  ⎿  ☒ Break down Chapter 7 (Security) into progressive difficulty micro-tasks
+     ☒ Add Chapter 7 summary and learning prompt
+     ☒ Update CLAUDE.md with Chapter 7 learning structure
+
+● Perfect! I've successfully completed all tasks for Chapter 7 breakdown.
+
+  📊 Summary (287 words)
+
+  I've successfully broken down Chapter 7 (Android Security) into 69 progressive micro-tasks designed for your
+  primary→senior developer advancement:
+
+  What I've Accomplished:
+  1. Created MICRO_TASK3.md with comprehensive Chapter 7 breakdown following the established template structure
+  2. Progressive Difficulty Design: Each subsection builds from foundational concepts to advanced architectural
+  thinking:
+    - 7.1 Data Security (23 tasks, 115 min): Encryption fundamentals → KeyStore management → Certificate Pinning →
+  Zero-trust architecture → GDPR compliance
+    - 7.2 Code Protection (23 tasks, 115 min): Basic obfuscation → Advanced anti-debugging → Threat modeling →
+  Security architecture evolution
+    - 7.3 Permissions & Authentication (23 tasks, 115 min): Android permissions → OAuth2 flows → Biometric
+  integration → Multi-factor auth → Risk-based authentication
+  3. Senior-Level Focus: Advanced tasks include security architecture design, threat modeling, enterprise
+  compliance, and risk assessment
+  4. Updated CLAUDE.md with Chapter 7 structure and enhanced learning instructions
+
+  Chapter Structure Features:
+  - Primary→Senior Progression: From implementing security features to designing security architectures
+  - Real-world Applications: Financial-grade security, enterprise compliance, zero-trust models
+  - Interview Preparation: Deep technical understanding with architectural decision-making focus
+  - Practical Implementation: Each concept includes hands-on coding and analysis components
+
+  Updated Learning Framework:
+  - Enhanced CLAUDE.md with multi-file micro-task structure (MICRO_TASKS.md, MICRO_TASK2.md, MICRO_TASK3.md)
+  - Added security mindset and architectural thinking guidance
+  - Progressive difficulty targeting senior-level competencies
+
+  🎯 Chapter 7 Learning Prompt
+
+  Master Android security as your gateway to senior-level system thinking. Progress through 69 micro-tasks covering
+   data encryption, code protection, and authentication systems. Build the security mindset that distinguishes
+  senior engineers: designing threat-resistant architectures, implementing defense-in-depth strategies, and making
+  informed security trade-offs. Develop expertise in cryptographic implementations, threat modeling, and compliance
+   frameworks that demonstrate your capability to architect secure mobile solutions for enterprise and
+  financial-grade applications.
+
+  Your Chapter 7 security mastery journey is now ready for implementation!
+
+> Great, My level is primary android developer, but my goal is a senior android developer, so please make sure the 
+  micro tasks you break down that is linear add difficulty for me. Now please break down all the Chapter 8 tasks in
+   PROGRESS.md to the MICRO_TASKS3.md，follow the [micro_tasks_templates.txt] ，once you finished all tasks, please
+   give me a short summarize no more than 300 words about what you've done and add the prompt about these to the 
+  end of the chapter. Finally, add these instruments to the CLAUDE.md so that we can resume tasks next time we 
+  start a new session. (If you reach your read limits, just create a new file named with MICRO_TASK{+1}.md)
+
+● I'll break down Chapter 8 (Engineering Efficiency) into progressive micro-tasks for your primary→senior developer
+   journey, following the template structure.
+
+● Update Todos
+  ⎿  ☐ Break down Chapter 8 (Engineering Efficiency) into progressive difficulty micro-tasks
+     ☐ Add Chapter 8 summary and learning prompt
+     ☐ Update CLAUDE.md with Chapter 8 learning structure
+
+● Read(PROGRESS.md)
+  ⎿  Read 50 lines (ctrl+r to expand)
+
+● Update(MICRO_TASK3.md)
+  ⎿  Updated MICRO_TASK3.md with 471 additions and 1 removal                                                       
+       466    
+       467    ## 🎯 第七章学习提示
+       468    
+       469 -  Master Android security as your gateway to senior-level system thinking. Progress through 69 
+           - micro-tasks covering data encryption, code protection, and authentication systems. Build the security 
+           - mindset that distinguishes senior engineers: designing threat-resistant architectures, implementing 
+           - defense-in-depth strategies, and making informed security trade-offs. Develop expertise in 
+           - cryptographic implementations, threat modeling, and compliance frameworks that demonstrate your 
+           - capability to architect secure mobile solutions for enterprise and financial-grade applications.
+       469   \ No newline at end of file
+       470 +  Master Android security as your gateway to senior-level system thinking. Progress through 69 
+           + micro-tasks covering data encryption, code protection, and authentication systems. Build the security 
+           + mindset that distinguishes senior engineers: designing threat-resistant architectures, implementing 
+           + defense-in-depth strategies, and making informed security trade-offs. Develop expertise in 
+           + cryptographic implementations, threat modeling, and compliance frameworks that demonstrate your 
+           + capability to architect secure mobile solutions for enterprise and financial-grade applications.
+       471 +  
+       472 +  ---
+       473 +  
+       474 +  ## 🚀 第八章：工程效能 - 现代化开发流程精通 (总时长: 340分钟)
+       475 +  
+       476 +  ### 8.1 依赖注入：Hilt 深度实践 (总时长: 85分钟)
+       477 +  
+       478 +  #### Task 8.1.1: DI容器基础概念 (5分钟) ⏰
+       479 +  - [ ] **学习目标**: 理解依赖注入的核心原理和价值
+       480 +  - [ ] **具体任务**: 画图对比手动依赖管理vs DI容器的差异
+       481 +  - [ ] **检查点**: 能解释控制反转和依赖倒置原则
+       482 +  - [ ] **文件**: 创建`dependency_injection_fundamentals.md`
+       483 +  
+       484 +  #### Task 8.1.2: Hilt vs Dagger对比 (5分钟) ⏰
+       485 +  - [ ] **学习目标**: 理解Hilt在Dagger基础上的改进
+       486 +  - [ ] **具体任务**: 对比Hilt和Dagger 2的配置复杂度
+       487 +  - [ ] **检查点**: 能解释Hilt如何简化Android开发的DI配置
+       488 +  - [ ] **文件**: 创建`hilt_vs_dagger_comparison.md`
+       489 +  
+       490 +  #### Task 8.1.3: Hilt基础配置 (5分钟) ⏰
+       491 +  - [ ] **学习目标**: 掌握Hilt的项目配置和基础注解
+       492 +  - [ ] **具体任务**: 配置Hilt依赖，添加@HiltAndroidApp注解
+       493 +  - [ ] **检查点**: 能成功运行第一个Hilt注入示例
+       494 +  - [ ] **文件**: 配置项目并创建`HiltBasicSetup.kt`
+       495 +  
+       496 +  #### Task 8.1.4: [进阶]作用域管理策略 (5分钟) ⏰
+       497 +  - [ ] **学习目标**: 深入理解Hilt的作用域层次结构
+       498 +  - [ ] **具体任务**: 设计合理的作用域分配策略
+       499 +  - [ ] **检查点**: 能为不同类型依赖选择合适的作用域
+       500 +  - [ ] **文件**: 创建`hilt_scope_strategy.md`
+       501 +  
+       502 +  #### Task 8.1.5: Activity注入实现 (5分钟) ⏰
+       503 +  - [ ] **学习目标**: 在Activity中使用Hilt注入依赖
+       504 +  - [ ] **具体任务**: 使用@AndroidEntryPoint注入Repository
+       505 +  - [ ] **检查点**: 理解Android组件的注入生命周期
+       506 +  - [ ] **文件**: 创建`MainActivity.kt`
+       507 +  
+       508 +  #### Task 8.1.6: ViewModel注入集成 (5分钟) ⏰
+       509 +  - [ ] **学习目标**: 结合Hilt和ViewModel的最佳实践
+       510 +  - [ ] **具体任务**: 使用@HiltViewModel注入ViewModel依赖
+       511 +  - [ ] **检查点**: 能处理ViewModel的作用域和生命周期
+       512 +  - [ ] **文件**: 创建`UserViewModel.kt`
+       513 +  
+       514 +  #### Task 8.1.7: [进阶]自定义Component (5分钟) ⏰
+       515 +  - [ ] **学习目标**: 创建自定义的Hilt组件和作用域
+       516 +  - [ ] **具体任务**: 设计特定业务场景的自定义作用域
+       517 +  - [ ] **检查点**: 能扩展Hilt的默认组件层次结构
+       518 +  - [ ] **文件**: 创建`CustomHiltComponent.kt`
+       519 +  
+       520 +  #### Task 8.1.8: Module模块设计 (5分钟) ⏰
+       521 +  - [ ] **学习目标**: 设计可维护的Hilt Module结构
+       522 +  - [ ] **具体任务**: 按功能和层次组织不同的Module
+       523 +  - [ ] **检查点**: 能设计清晰的模块依赖关系
+       524 +  - [ ] **文件**: 创建`NetworkModule.kt`, `DatabaseModule.kt`
+       525 +  
+       526 +  #### Task 8.1.9: [进阶]条件依赖注入 (5分钟) ⏰
+       527 +  - [ ] **学习目标**: 实现基于条件的依赖提供策略
+       528 +  - [ ] **具体任务**: 使用@Qualifier实现多种实现的选择
+       529 +  - [ ] **检查点**: 能根据运行环境选择不同的依赖实现
+       530 +  - [ ] **文件**: 创建`ConditionalDependencies.kt`
+       531 +  
+       532 +  #### Task 8.1.10: 循环依赖解决 (5分钟) ⏰
+       533 +  - [ ] **学习目标**: 识别和解决循环依赖问题
+       534 +  - [ ] **具体任务**: 使用Provider和Lazy解决循环依赖
+       535 +  - [ ] **检查点**: 能重构代码避免循环依赖的设计问题
+       536 +  - [ ] **文件**: 创建`CircularDependencyResolution.kt`
+       537 +  
+       538 +  #### Task 8.1.11: [进阶]编译时验证 (5分钟) ⏰
+       539 +  - [ ] **学习目标**: 利用Hilt的编译时依赖检查
+       540 +  - [ ] **具体任务**: 分析Hilt生成的代码和错误信息
+       541 +  - [ ] **检查点**: 能快速定位和修复DI配置错误
+       542 +  - [ ] **文件**: 创建`hilt_compilation_analysis.md`
+       543 +  
+       544 +  #### Task 8.1.12: 测试配置设计 (5分钟) ⏰
+       545 +  - [ ] **学习目标**: 为Hilt应用设计测试策略
+       546 +  - [ ] **具体任务**: 配置@HiltAndroidTest和测试替换
+       547 +  - [ ] **检查点**: 能在测试中替换生产依赖
+       548 +  - [ ] **文件**: 创建`HiltTestConfiguration.kt`
+       549 +  
+       550 +  #### Task 8.1.13: [进阶]性能优化分析 (5分钟) ⏰
+       551 +  - [ ] **学习目标**: 分析DI对应用性能的影响
+       552 +  - [ ] **具体任务**: 对比编译时DI vs 运行时DI的性能差异
+       553 +  - [ ] **检查点**: 能优化DI配置的启动性能
+       554 +  - [ ] **文件**: 创建`di_performance_analysis.md`
+       555 +  
+       556 +  #### Task 8.1.14: 多模块DI架构 (5分钟) ⏰
+       557 +  - [ ] **学习目标**: 在多模块项目中设计DI架构
+       558 +  - [ ] **具体任务**: 设计跨模块的依赖注入策略
+       559 +  - [ ] **检查点**: 能处理模块间的依赖边界
+       560 +  - [ ] **文件**: 创建`multi_module_di_architecture.md`
+       561 +  
+       562 +  #### Task 8.1.15: [进阶]企业级DI模式 (5分钟) ⏰
+       563 +  - [ ] **学习目标**: 设计大型团队的DI最佳实践
+       564 +  - [ ] **具体任务**: 制定DI的代码规范和审查标准
+       565 +  - [ ] **检查点**: 能指导团队建立DI架构规范
+       566 +  - [ ] **文件**: 创建`enterprise_di_patterns.md`
+       567 +  
+       568 +  #### Task 8.1.16: DI架构面试准备 (5分钟) ⏰
+       569 +  - [ ] **学习目标**: 准备依赖注入相关面试问题
+       570 +  - [ ] **具体任务**: 整理DI原理、Hilt实践等深度问答
+       571 +  - [ ] **检查点**: 能从架构师角度回答DI设计问题
+       572 +  - [ ] **文件**: 更新`interview_qa_engineering.md`
+       573 +  
+       574 +  #### Task 8.1.17: DI最佳实践总结 (5分钟) ⏰
+       575 +  - [ ] **学习目标**: 总结Hilt使用的最佳实践
+       576 +  - [ ] **具体任务**: 创建DI设计的检查清单和反模式
+       577 +  - [ ] **检查点**: 能避免常见的DI设计陷阱
+       578 +  - [ ] **文件**: 创建`hilt_best_practices.md`
+       579 +  
+       580 +  ### 8.2 模块化架构：多模块工程 (总时长: 85分钟)
+       581 +  
+       582 +  #### Task 8.2.1: 模块化架构原理 (5分钟) ⏰
+       583 +  - [ ] **学习目标**: 理解模块化的核心价值和挑战
+       584 +  - [ ] **具体任务**: 分析单体应用vs模块化应用的差异
+       585 +  - [ ] **检查点**: 能解释模块化对开发效率和维护性的影响
+       586 +  - [ ] **文件**: 创建`modularization_fundamentals.md`
+       587 +  
+       588 +  #### Task 8.2.2: 模块分层策略 (5分钟) ⏰
+       589 +  - [ ] **学习目标**: 设计清晰的模块分层架构
+       590 +  - [ ] **具体任务**: 设计app、feature、core、data层的模块结构
+       591 +  - [ ] **检查点**: 理解不同层次模块的职责边界
+       592 +  - [ ] **文件**: 创建`module_layering_strategy.md`
+       593 +  
+       594 +  #### Task 8.2.3: Gradle模块配置 (5分钟) ⏰
+       595 +  - [ ] **学习目标**: 掌握Android多模块的Gradle配置
+       596 +  - [ ] **具体任务**: 创建feature模块和library模块
+       597 +  - [ ] **检查点**: 能正确配置模块间的依赖关系
+       598 +  - [ ] **文件**: 创建示例模块的`build.gradle.kts`
+       599 +  
+       600 +  #### Task 8.2.4: [进阶]依赖管理策略 (5分钟) ⏰
+       601 +  - [ ] **学习目标**: 设计模块间的依赖管理最佳实践
+       602 +  - [ ] **具体任务**: 使用version catalog管理多模块依赖
+       603 +  - [ ] **检查点**: 能避免依赖冲突和版本不一致问题
+       604 +  - [ ] **文件**: 创建`libs.versions.toml`配置
+       605 +  
+       606 +  #### Task 8.2.5: 核心模块设计 (5分钟) ⏰
+       607 +  - [ ] **学习目标**: 设计可复用的核心基础模块
+       608 +  - [ ] **具体任务**: 创建common、network、database等核心模块
+       609 +  - [ ] **检查点**: 理解核心模块的API设计原则
+       610 +  - [ ] **文件**: 创建`core-common`模块结构
+       611 +  
+       612 +  #### Task 8.2.6: Feature模块实现 (5分钟) ⏰
+       613 +  - [ ] **学习目标**: 实现独立的功能模块
+       614 +  - [ ] **具体任务**: 创建login、profile等feature模块
+       615 +  - [ ] **检查点**: 能设计功能模块的内聚性和接口
+       616 +  - [ ] **文件**: 创建`feature-login`模块
+       617 +  
+       618 +  #### Task 8.2.7: [进阶]模块间通信机制 (5分钟) ⏰
+       619 +  - [ ] **学习目标**: 设计模块间的通信和数据传递
+       620 +  - [ ] **具体任务**: 实现事件总线或接口抽象的通信方式
+       621 +  - [ ] **检查点**: 能保持模块间的松耦合关系
+       622 +  - [ ] **文件**: 创建`ModuleCommunication.kt`
+       623 +  
+       624 +  #### Task 8.2.8: 导航架构设计 (5分钟) ⏰
+       625 +  - [ ] **学习目标**: 在模块化架构中实现导航
+       626 +  - [ ] **具体任务**: 使用Navigation Component处理跨模块导航
+       627 +  - [ ] **检查点**: 理解深度链接在模块化中的实现
+       628 +  - [ ] **文件**: 创建`modular_navigation.xml`
+       629 +  
+       630 +  #### Task 8.2.9: [进阶]Dynamic Feature实现 (5分钟) ⏰
+       631 +  - [ ] **学习目标**: 实现按需加载的动态功能模块
+       632 +  - [ ] **具体任务**: 创建Dynamic Feature Module并实现条件加载
+       633 +  - [ ] **检查点**: 理解应用体积优化和用户体验的权衡
+       634 +  - [ ] **文件**: 创建动态模块`dynamic-camera`
+       635 +  
+       636 +  #### Task 8.2.10: 构建优化配置 (5分钟) ⏰
+       637 +  - [ ] **学习目标**: 优化多模块项目的构建性能
+       638 +  - [ ] **具体任务**: 配置并行构建、增量编译等优化选项
+       639 +  - [ ] **检查点**: 能显著提高大型项目的构建速度
+       640 +  - [ ] **文件**: 优化`gradle.properties`配置
+       641 +  
+       642 +  #### Task 8.2.11: [进阶]构建缓存策略 (5分钟) ⏰
+       643 +  - [ ] **学习目标**: 实现高效的构建缓存机制
+       644 +  - [ ] **具体任务**: 配置本地和远程构建缓存
+       645 +  - [ ] **检查点**: 理解缓存失效和构建一致性
+       646 +  - [ ] **文件**: 配置`build-cache`设置
+       647 +  
+       648 +  #### Task 8.2.12: 代码共享策略 (5分钟) ⏰
+       649 +  - [ ] **学习目标**: 设计跨模块的代码复用机制
+       650 +  - [ ] **具体任务**: 创建共享的utility和extension模块
+       651 +  - [ ] **检查点**: 能平衡代码复用和模块独立性
+       652 +  - [ ] **文件**: 创建`shared-utils`模块
+       653 +  
+       654 +  #### Task 8.2.13: [进阶]模块解耦技术 (5分钟) ⏰
+       655 +  - [ ] **学习目标**: 实现模块间的完全解耦
+       656 +  - [ ] **具体任务**: 使用接口和抽象实现模块解耦
+       657 +  - [ ] **检查点**: 能设计可插拔的模块架构
+       658 +  - [ ] **文件**: 创建`module_contracts.kt`
+       659 +  
+       660 +  #### Task 8.2.14: 版本管理策略 (5分钟) ⏰
+       661 +  - [ ] **学习目标**: 管理多模块项目的版本发布
+       662 +  - [ ] **具体任务**: 设计模块的独立版本管理策略
+       663 +  - [ ] **检查点**: 理解模块版本兼容性管理
+       664 +  - [ ] **文件**: 创建`module_versioning_strategy.md`
+       665 +  
+       666 +  #### Task 8.2.15: [进阶]团队协作模式 (5分钟) ⏰
+       667 +  - [ ] **学习目标**: 设计多团队的模块化开发流程
+       668 +  - [ ] **具体任务**: 制定模块ownership和code review流程
+       669 +  - [ ] **检查点**: 能组织大型团队的高效协作
+       670 +  - [ ] **文件**: 创建`team_collaboration_in_modular_architecture.md`
+       671 +  
+       672 +  #### Task 8.2.16: 模块化测试策略 (5分钟) ⏰
+       673 +  - [ ] **学习目标**: 在模块化架构中设计测试策略
+       674 +  - [ ] **具体任务**: 设计模块级和集成级的测试方案
+       675 +  - [ ] **检查点**: 能独立测试各个模块的功能
+       676 +  - [ ] **文件**: 创建`modular_testing_strategy.md`
+       677 +  
+       678 +  #### Task 8.2.17: 模块化架构面试准备 (5分钟) ⏰
+       679 +  - [ ] **学习目标**: 准备模块化架构相关面试问题
+       680 +  - [ ] **具体任务**: 整理模块化设计、团队协作等深度问答
+       681 +  - [ ] **检查点**: 能从架构师角度回答大型项目设计问题
+       682 +  - [ ] **文件**: 更新`interview_qa_engineering.md`
+       683 +  
+       684 +  ### 8.3 CI/CD 流水线：自动化交付 (总时长: 85分钟)
+       685 +  
+       686 +  #### Task 8.3.1: CI/CD基础概念 (5分钟) ⏰
+       687 +  - [ ] **学习目标**: 理解持续集成和持续部署的核心价值
+       688 +  - [ ] **具体任务**: 画图解释CI/CD流水线的各个阶段
+       689 +  - [ ] **检查点**: 能解释CI/CD对软件质量和交付效率的影响
+       690 +  - [ ] **文件**: 创建`cicd_fundamentals.md`
+       691 +  
+       692 +  #### Task 8.3.2: GitHub Actions入门 (5分钟) ⏰
+       693 +  - [ ] **学习目标**: 掌握GitHub Actions的基础语法
+       694 +  - [ ] **具体任务**: 创建第一个Android构建workflow
+       695 +  - [ ] **检查点**: 能成功运行基础的CI构建任务
+       696 +  - [ ] **文件**: 创建`.github/workflows/ci.yml`
+       697 +  
+       698 +  #### Task 8.3.3: [进阶]构建矩阵策略 (5分钟) ⏰
+       699 +  - [ ] **学习目标**: 使用构建矩阵测试多种配置
+       700 +  - [ ] **具体任务**: 配置多API级别、多构建类型的矩阵构建
+       701 +  - [ ] **检查点**: 理解并行构建和资源优化的权衡
+       702 +  - [ ] **文件**: 扩展`ci.yml`添加矩阵配置
+       703 +  
+       704 +  #### Task 8.3.4: 自动化测试集成 (5分钟) ⏰
+       705 +  - [ ] **学习目标**: 在CI中集成自动化测试
+       706 +  - [ ] **具体任务**: 配置单元测试、UI测试的自动执行
+       707 +  - [ ] **检查点**: 能实现测试失败阻断部署流程
+       708 +  - [ ] **文件**: 创建测试执行的workflow步骤
+       709 +  
+       710 +  #### Task 8.3.5: [进阶]代码质量门禁 (5分钟) ⏰
+       711 +  - [ ] **学习目标**: 设置代码质量检查和门禁
+       712 +  - [ ] **具体任务**: 集成Lint、Detekt、测试覆盖率检查
+       713 +  - [ ] **检查点**: 能建立comprehensive的质量标准
+       714 +  - [ ] **文件**: 配置质量检查工具和阈值
+       715 +  
+       716 +  #### Task 8.3.6: 多环境部署策略 (5分钟) ⏰
+       717 +  - [ ] **学习目标**: 设计开发、测试、生产环境的部署流程
+       718 +  - [ ] **具体任务**: 配置不同环境的构建配置和部署策略
+       719 +  - [ ] **检查点**: 理解环境隔离和配置管理
+       720 +  - [ ] **文件**: 创建多环境的deployment配置
+       721 +  
+       722 +  #### Task 8.3.7: [进阶]蓝绿部署实现 (5分钟) ⏰
+       723 +  - [ ] **学习目标**: 实现零停机的部署策略
+       724 +  - [ ] **具体任务**: 设计渐进式发布和回滚机制
+       725 +  - [ ] **检查点**: 能处理部署失败的自动恢复
+       726 +  - [ ] **文件**: 创建`blue_green_deployment.yml`
+       727 +  
+       728 +  #### Task 8.3.8: Fastlane自动化 (5分钟) ⏰
+       729 +  - [ ] **学习目标**: 使用Fastlane简化移动应用发布
+       730 +  - [ ] **具体任务**: 配置自动签名、上传、元数据更新
+       731 +  - [ ] **检查点**: 能实现一键发布到应用商店
+       732 +  - [ ] **文件**: 创建`Fastfile`配置
+       733 +  
+       734 +  #### Task 8.3.9: [进阶]发布策略优化 (5分钟) ⏰
+       735 +  - [ ] **学习目标**: 设计intelligent的发布策略
+       736 +  - [ ] **具体任务**: 实现分阶段发布和A/B测试集成
+       737 +  - [ ] **检查点**: 能最小化发布风险并快速获得反馈
+       738 +  - [ ] **文件**: 创建`release_strategy.md`
+       739 +  
+       740 +  #### Task 8.3.10: 密钥和证书管理 (5分钟) ⏰
+       741 +  - [ ] **学习目标**: 安全管理CI/CD中的敏感信息
+       742 +  - [ ] **具体任务**: 使用GitHub Secrets管理签名证书
+       743 +  - [ ] **检查点**: 理解CI/CD安全的最佳实践
+       744 +  - [ ] **文件**: 配置安全的secret管理
+       745 +  
+       746 +  #### Task 8.3.11: [进阶]构建缓存优化 (5分钟) ⏰
+       747 +  - [ ] **学习目标**: 优化CI/CD的构建速度
+       748 +  - [ ] **具体任务**: 配置Gradle缓存和Docker层缓存
+       749 +  - [ ] **检查点**: 能显著减少CI执行时间
+       750 +  - [ ] **文件**: 优化构建性能配置
+       751 +  
+       752 +  #### Task 8.3.12: 通知和报告机制 (5分钟) ⏰
+       753 +  - [ ] **学习目标**: 设计CI/CD的状态通知系统
+       754 +  - [ ] **具体任务**: 配置Slack、邮件等多渠道通知
+       755 +  - [ ] **检查点**: 能及时感知构建和部署状态
+       756 +  - [ ] **文件**: 创建通知配置
+       757 +  
+       758 +  #### Task 8.3.13: [进阶]流水线监控 (5分钟) ⏰
+       759 +  - [ ] **学习目标**: 监控CI/CD流水线的健康状态
+       760 +  - [ ] **具体任务**: 配置流水线指标收集和告警
+       761 +  - [ ] **检查点**: 能主动识别流水线性能问题
+       762 +  - [ ] **文件**: 创建监控dashboard配置
+       763 +  
+       764 +  #### Task 8.3.14: 回滚和恢复策略 (5分钟) ⏰
+       765 +  - [ ] **学习目标**: 设计快速回滚和灾难恢复机制
+       766 +  - [ ] **具体任务**: 实现自动化的版本回滚流程
+       767 +  - [ ] **检查点**: 能最小化线上问题的影响时间
+       768 +  - [ ] **文件**: 创建`rollback_strategy.md`
+       769 +  
+       770 +  #### Task 8.3.15: [进阶]企业级DevOps (5分钟) ⏰
+       771 +  - [ ] **学习目标**: 设计企业级的DevOps实践
+       772 +  - [ ] **具体任务**: 分析大型组织的CI/CD挑战和解决方案
+       773 +  - [ ] **检查点**: 能指导组织级的DevOps转型
+       774 +  - [ ] **文件**: 创建`enterprise_devops_strategy.md`
+       775 +  
+       776 +  #### Task 8.3.16: 合规和审计要求 (5分钟) ⏰
+       777 +  - [ ] **学习目标**: 满足企业合规的CI/CD要求
+       778 +  - [ ] **具体任务**: 实现变更追踪和审计日志
+       779 +  - [ ] **检查点**: 理解合规对CI/CD流程的影响
+       780 +  - [ ] **文件**: 创建`compliance_in_cicd.md`
+       781 +  
+       782 +  #### Task 8.3.17: CI/CD面试准备 (5分钟) ⏰
+       783 +  - [ ] **学习目标**: 准备CI/CD相关面试问题
+       784 +  - [ ] **具体任务**: 整理DevOps实践、流水线设计等深度问答
+       785 +  - [ ] **检查点**: 能从DevOps工程师角度回答自动化交付问题
+       786 +  - [ ] **文件**: 更新`interview_qa_engineering.md`
+       787 +  
+       788 +  ### 8.4 性能监控：APM 与可观测性 (总时长: 85分钟)
+       789 +  
+       790 +  #### Task 8.4.1: APM基础概念 (5分钟) ⏰
+       791 +  - [ ] **学习目标**: 理解应用性能监控的核心指标
+       792 +  - [ ] **具体任务**: 分析移动应用的关键性能指标体系
+       793 +  - [ ] **检查点**: 能设计comprehensive的APM指标框架
+       794 +  - [ ] **文件**: 创建`apm_fundamentals.md`
+       795 +  
+       796 +  #### Task 8.4.2: Firebase Performance入门 (5分钟) ⏰
+       797 +  - [ ] **学习目标**: 集成Firebase Performance Monitoring
+       798 +  - [ ] **具体任务**: 配置自动性能追踪和自定义指标
+       799 +  - [ ] **检查点**: 能监控应用启动时间和网络性能
+       800 +  - [ ] **文件**: 配置Firebase Performance
+       801 +  
+       802 +  #### Task 8.4.3: [进阶]自定义性能埋点 (5分钟) ⏰
+       803 +  - [ ] **学习目标**: 设计业务相关的性能监控点
+       804 +  - [ ] **具体任务**: 实现关键业务流程的性能测量
+       805 +  - [ ] **检查点**: 能识别业务性能瓶颈
+       806 +  - [ ] **文件**: 创建`CustomPerformanceTracker.kt`
+       807 +  
+       808 +  #### Task 8.4.4: Crash监控集成 (5分钟) ⏰
+       809 +  - [ ] **学习目标**: 实现comprehensive的崩溃监控
+       810 +  - [ ] **具体任务**: 集成Firebase Crashlytics和自定义上报
+       811 +  - [ ] **检查点**: 能快速定位和分析线上崩溃
+       812 +  - [ ] **文件**: 配置崩溃监控和分析
+       813 +  
+       814 +  #### Task 8.4.5: [进阶]错误聚合和分析 (5分钟) ⏰
+       815 +  - [ ] **学习目标**: 设计智能的错误分类和优先级
+       816 +  - [ ] **具体任务**: 实现错误的去重、聚合和影响评估
+       817 +  - [ ] **检查点**: 能从海量错误中识别关键问题
+       818 +  - [ ] **文件**: 创建`ErrorAggregationStrategy.kt`
+       819 +  
+       820 +  #### Task 8.4.6: 用户体验监控 (5分钟) ⏰
+       821 +  - [ ] **学习目标**: 监控真实用户的体验指标
+       822 +  - [ ] **具体任务**: 实现页面加载时间、交互响应等UX指标
+       823 +  - [ ] **检查点**: 理解技术性能vs用户感知性能的差异
+       824 +  - [ ] **文件**: 创建`UserExperienceMonitor.kt`
+       825 +  
+       826 +  #### Task 8.4.7: [进阶]性能基线建立 (5分钟) ⏰
+       827 +  - [ ] **学习目标**: 建立性能基线和SLA标准
+       828 +  - [ ] **具体任务**: 分析历史数据建立性能基准
+       829 +  - [ ] **检查点**: 能设置合理的性能目标和告警阈值
+       830 +  - [ ] **文件**: 创建`performance_baseline_analysis.md`
+       831 +  
+       832 +  #### Task 8.4.8: 实时监控设计 (5分钟) ⏰
+       833 +  - [ ] **学习目标**: 设计实时性能监控系统
+       834 +  - [ ] **具体任务**: 实现低延迟的指标收集和传输
+       835 +  - [ ] **检查点**: 理解实时监控的技术挑战
+       836 +  - [ ] **文件**: 创建`RealTimeMonitoring.kt`
+       837 +  
+       838 +  #### Task 8.4.9: [进阶]智能告警系统 (5分钟) ⏰
+       839 +  - [ ] **学习目标**: 设计intelligent的告警和降噪机制
+       840 +  - [ ] **具体任务**: 实现基于机器学习的异常检测
+       841 +  - [ ] **检查点**: 能减少告警疲劳并提高响应效率
+       842 +  - [ ] **文件**: 创建`intelligent_alerting.md`
+       843 +  
+       844 +  #### Task 8.4.10: 网络性能分析 (5分钟) ⏰
+       845 +  - [ ] **学习目标**: 深度分析网络请求性能
+       846 +  - [ ] **具体任务**: 监控DNS解析、连接建立、数据传输各阶段
+       847 +  - [ ] **检查点**: 能识别网络性能瓶颈的具体环节
+       848 +  - [ ] **文件**: 创建`NetworkPerformanceAnalyzer.kt`
+       849 +  
+       850 +  #### Task 8.4.11: [进阶]端到端链路追踪 (5分钟) ⏰
+       851 +  - [ ] **学习目标**: 实现分布式系统的链路追踪
+       852 +  - [ ] **具体任务**: 实现请求在客户端到服务端的完整追踪
+       853 +  - [ ] **检查点**: 能分析复杂系统的性能瓶颈
+       854 +  - [ ] **文件**: 创建`distributed_tracing.md`
+       855 +  
+       856 +  #### Task 8.4.12: 内存和电量监控 (5分钟) ⏰
+       857 +  - [ ] **学习目标**: 监控应用的资源使用情况
+       858 +  - [ ] **具体任务**: 实现内存泄漏和电量消耗监控
+       859 +  - [ ] **检查点**: 能优化应用的资源使用效率
+       860 +  - [ ] **文件**: 创建`ResourceUsageMonitor.kt`
+       861 +  
+       862 +  #### Task 8.4.13: [进阶]用户行为分析 (5分钟) ⏰
+       863 +  - [ ] **学习目标**: 结合性能数据和用户行为分析
+       864 +  - [ ] **具体任务**: 分析性能问题对用户留存的影响
+       865 +  - [ ] **检查点**: 理解性能优化的商业价值
+       866 +  - [ ] **文件**: 创建`performance_business_impact_analysis.md`
+       867 +  
+       868 +  #### Task 8.4.14: 可观测性架构 (5分钟) ⏰
+       869 +  - [ ] **学习目标**: 设计完整的可观测性架构
+       870 +  - [ ] **具体任务**: 整合Metrics、Logs、Traces三大支柱
+       871 +  - [ ] **检查点**: 能构建全面的系统可观测性
+       872 +  - [ ] **文件**: 创建`observability_architecture.md`
+       873 +  
+       874 +  #### Task 8.4.15: [进阶]性能优化闭环 (5分钟) ⏰
+       875 +  - [ ] **学习目标**: 建立数据驱动的性能优化流程
+       876 +  - [ ] **具体任务**: 设计从监控到优化的完整闭环
+       877 +  - [ ] **检查点**: 能持续改进应用性能
+       878 +  - [ ] **文件**: 创建`performance_optimization_loop.md`
+       879 +  
+       880 +  #### Task 8.4.16: APM工具对比 (5分钟) ⏰
+       881 +  - [ ] **学习目标**: 对比不同APM工具的优劣势
+       882 +  - [ ] **具体任务**: 分析Firebase、Datadog、New Relic等工具
+       883 +  - [ ] **检查点**: 能为项目选择合适的APM解决方案
+       884 +  - [ ] **文件**: 创建`apm_tools_comparison.md`
+       885 +  
+       886 +  #### Task 8.4.17: 监控面试准备 (5分钟) ⏰
+       887 +  - [ ] **学习目标**: 准备性能监控相关面试问题
+       888 +  - [ ] **具体任务**: 整理APM实践、可观测性设计等深度问答
+       889 +  - [ ] **检查点**: 能从SRE角度回答系统可观测性问题
+       890 +  - [ ] **文件**: 更新`interview_qa_engineering.md`
+       891 +  
+       892 +  ---
+       893 +  
+       894 +  ## 📊 第八章学习总结
+       895 +  
+       896 +  ### 核心收获
+       897 +  通过第八章的学习，你将全面掌握现代化Android开发的工程效能精髓：
+       898 +  
+       899 +  1. **工程思维建立**: 从"能跑就行"转变为"工程化、可维护、可扩展"的系统性思维
+       900 +  2. **技能栈建设**: 
+       901 +     - **依赖注入**: Hilt深度实践，构建可测试、可维护的代码架构
+       902 +     - **模块化架构**: 多模块工程设计，支撑大型团队高效协作
+       903 +     - **CI/CD流水线**: 自动化交付流程，保障代码质量和发布效率
+       904 +     - **性能监控**: APM与可观测性，建立数据驱动的性能优化体系
+       905 +  
+       906 +  3. **领导力建设**: 能够设计和指导团队级的工程实践和技术决策
+       907 +  
+       908 +  ### 面试竞争力
+       909 +  - **架构思维**: 深入理解大型Android项目的工程化实践
+       910 +  - **团队领导**: 体现senior工程师的技术领导和流程设计能力
+       911 +  - **DevOps理念**: 掌握现代软件开发的全生命周期管理
+       912 +  
+       913 +  ### 📋 第八章检验点问题
+       914 +  
+       915 +  1. **DI架构设计**: 如何为大型项目设计可扩展的依赖注入架构？
+       916 +  2. **模块化策略**: 如何平衡模块独立性和代码复用？
+       917 +  3. **CI/CD设计**: 如何设计安全、高效的移动应用交付流水线？
+       918 +  4. **性能监控**: 如何建立全面的移动应用可观测性体系？
+       919 +  5. **团队协作**: 如何通过工程化手段提升团队开发效率？
+       920 +  6. **技术债务**: 如何在快速迭代和代码质量之间找到平衡？
+       921 +  7. **扩展性设计**: 如何设计支持业务快速扩张的技术架构？
+       922 +  8. **质量保障**: 如何通过自动化手段保障代码质量？
+       923 +  9. **风险管控**: 如何设计resilient的系统架构？
+       924 +  10. **技术演进**: 如何制定长期的技术架构演进策略？
+       925 +  
+       926 +  ### 🏆 第八章总进度跟踪
+       927 +  **总计**: 
+           + 第八章包含68个微任务，总学习时长340分钟（约5.7小时），涵盖现代Android工程效能的完整技能体系。
+       928 +  - **8.1 依赖注入：Hilt 深度实践**: 0/17 tasks (预计完成时间: 85分钟)
+       929 +  - **8.2 模块化架构：多模块工程**: 0/17 tasks (预计完成时间: 85分钟)  
+       930 +  - **8.3 CI/CD 流水线：自动化交付**: 0/17 tasks (预计完成时间: 85分钟)
+       931 +  - **8.4 性能监控：APM 与可观测性**: 0/17 tasks (预计完成时间: 85分钟)
+       932 +  
+       933 +  ### 🎯 学习提示（面向Primary→Senior转换）
+       934 +  - **重点关注**: 系统架构设计、团队流程优化、技术决策制定
+       935 +  - **进阶思考**: 从实现单个功能转向设计可扩展的工程体系
+       936 +  - **面试准备**: 能够深入解释工程化实践，分享大型项目的架构决策和团队管理经验
+       937 +  
+       938 +  ## 🎯 第八章学习提示
+       939 +  
+       940 +  Master modern Android engineering as your pathway to technical leadership. Progress through 68 
+           + micro-tasks covering dependency injection, modular architecture, CI/CD pipelines, and observability 
+           + systems. Build the engineering mindset that distinguishes senior engineers: designing scalable 
+           + architectures, optimizing team workflows, and making informed technical decisions. Develop expertise 
+     in
+           +  Hilt DI, multi-module systems, automated delivery, and performance monitoring that demonstrates your 
+           + capability to lead engineering teams and architect enterprise-grade mobile solutions.
+       941   \ No newline at end of file
+
+● Update Todos
+  ⎿  ☒ Break down Chapter 8 (Engineering Efficiency) into progressive difficulty micro-tasks
+     ☒ Add Chapter 8 summary and learning prompt
+     ☐ Update CLAUDE.md with Chapter 8 learning structure
+
+● Update(CLAUDE.md)
+  ⎿  Updated CLAUDE.md with 5 additions                                                                       
+       85      - 7.1 数据安全 (23 tasks) - Encryption, KeyStore, Certificate Pinning, HTTPS
+       86      - 7.2 代码保护 (23 tasks) - Obfuscation, Anti-debugging, Root detection, Threat modeling
+       87      - 7.3 权限认证 (23 tasks) - OAuth2, Biometric authentication, Multi-factor auth, Device binding
+       88 +  - **Chapter 8 (工程效能)**: 68 micro-tasks covering modern Android engineering practices
+       89 +    - 8.1 依赖注入 (17 tasks) - Hilt DI, Scope management, Multi-module DI architecture
+       90 +    - 8.2 模块化架构 (17 tasks) - Multi-module engineering, Build optimization, Team collaboration
+       91 +    - 8.3 CI/CD流水线 (17 tasks) - GitHub Actions, Automated testing, Release strategies
+       92 +    - 8.4 性能监控 (17 tasks) - APM systems, Observability, Performance optimization
+       93    
+       94    ### Usage Instructions for Claude Code
+       95    When resuming learning sessions:
+
+     Tip: Use # to memorize shortcut to quickly add to CLAUDE.md
+
+● Update(CLAUDE.md)
+  ⎿  Updated CLAUDE.md with 1 addition and 1 removal                                                               
+       93    
+       94    ### Usage Instructions for Claude Code
+       95    When resuming learning sessions:
+       96 -  1. Check `MICRO_TASKS.md` (Chapters 1-5), `MICRO_TASK2.md` (Chapter 6), or `MICRO_TASK3.md` (Chapter 
+     7) for current progress and next tasks
+          -  for current progress and next tasks
+       96 +  1. Check `MICRO_TASKS.md` (Chapters 1-5), `MICRO_TASK2.md` (Chapter 6), or `MICRO_TASK3.md` (Chapters 
+     7-8) for current progress and next tasks
+          + 7-8) for current progress and next tasks
+       97    2. Verify student work in `student_progress/` directory
+       98    3. Act as supportive tutor providing explanations and checkpoint questions
+       99    4. Maintain ADHD-friendly 5-minute task duration with progressive difficulty for primary→senior 
+            transition
+
+     Tip: Use # to memorize shortcut to quickly add to CLAUDE.md
+
+● Update Todos
+  ⎿  ☒ Break down Chapter 8 (Engineering Efficiency) into progressive difficulty micro-tasks
+     ☒ Add Chapter 8 summary and learning prompt
+     ☒ Update CLAUDE.md with Chapter 8 learning structure
+
+● Perfect! I've successfully completed all tasks for Chapter 8 breakdown.
+
+  📊 Summary (290 words)
+
+  I've successfully broken down Chapter 8 (Engineering Efficiency) into 68 progressive micro-tasks designed for
+  your primary→senior developer advancement:
+
+  What I've Accomplished:
+  1. Extended MICRO_TASK3.md with comprehensive Chapter 8 breakdown following the established template structure
+  2. Progressive Engineering Focus: Each subsection builds from basic implementation to advanced architectural
+  leadership:
+    - 8.1 Dependency Injection (17 tasks, 85 min): DI basics → Hilt implementation → Enterprise DI patterns →
+  Multi-module architecture
+    - 8.2 Modular Architecture (17 tasks, 85 min): Module fundamentals → Gradle configuration → Dynamic Features →
+  Team collaboration strategies
+    - 8.3 CI/CD Pipelines (17 tasks, 85 min): GitHub Actions basics → Advanced deployment → Enterprise DevOps →
+  Compliance frameworks
+    - 8.4 Performance Monitoring (17 tasks, 85 min): APM basics → Custom monitoring → Intelligent alerting →
+  Observability architecture
+  3. Senior-Level Leadership Focus: Advanced tasks emphasize system design, team leadership, technical
+  decision-making, and enterprise-scale solutions
+  4. Updated CLAUDE.md with Chapter 8 structure and enhanced learning instructions
+
+  Chapter Structure Features:
+  - Engineering Mindset: Transition from "working code" to "maintainable, scalable, testable systems"
+  - Technical Leadership: Focus on team workflows, architectural decisions, and engineering culture
+  - DevOps Integration: Modern software development lifecycle management
+  - Practical Implementation: Each concept includes hands-on configuration and enterprise-grade examples
+
+  Learning Framework Enhancement:
+  - Consolidated Chapters 7-8 in MICRO_TASK3.md for efficient management
+  - Progressive difficulty targeting technical leadership competencies
+  - Strong emphasis on architectural thinking and team collaboration
+
+  🎯 Chapter 8 Learning Prompt
+
+  Master modern Android engineering as your pathway to technical leadership. Progress through 68 micro-tasks
+  covering dependency injection, modular architecture, CI/CD pipelines, and observability systems. Build the
+  engineering mindset that distinguishes senior engineers: designing scalable architectures, optimizing team
+  workflows, and making informed technical decisions. Develop expertise in Hilt DI, multi-module systems, automated
+   delivery, and performance monitoring that demonstrates your capability to lead engineering teams and architect
+  enterprise-grade mobile solutions.
+
+  Your Chapter 8 engineering efficiency mastery journey is now ready for implementation!
+
