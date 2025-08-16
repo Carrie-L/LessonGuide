@@ -64,7 +64,12 @@ This repository includes a comprehensive ADHD-friendly learning system:
   - 2.4 事件分发 (11 tasks) - Touch event dispatch mechanism
   - 2.5 Handler机制 (13 tasks) - Message loop, Looper, MessageQueue
   - 2.6 Binder IPC (10 tasks) - Inter-process communication
-- **Chapters 3-5**: To be implemented with similar micro-task structure
+- **Chapter 3 (蓝图篇)**: 65 micro-tasks covering architecture and third-party libraries
+  - 3.1 架构模式 (16 tasks) - MVC to Clean Architecture evolution
+  - 3.2 OkHttp拦截器 (16 tasks) - Interceptor chain pattern
+  - 3.3 Glide缓存 (19 tasks) - Multi-level caching strategy
+  - 3.4 RxJava响应式 (14 tasks) - Reactive programming with operators
+- **Chapters 4-5**: To be implemented with similar micro-task structure
 
 ### Usage Instructions for Claude Code
 When resuming learning sessions:
