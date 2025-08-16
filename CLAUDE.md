@@ -90,10 +90,21 @@ This repository includes a comprehensive ADHD-friendly learning system:
   - 8.2 模块化架构 (17 tasks) - Multi-module engineering, Build optimization, Team collaboration
   - 8.3 CI/CD流水线 (17 tasks) - GitHub Actions, Automated testing, Release strategies
   - 8.4 性能监控 (17 tasks) - APM systems, Observability, Performance optimization
+- **Chapter 9 (系统设计)**: 135 micro-tasks covering mobile architecture design capabilities
+  - 9.1 数据层设计 (22 tasks) - Room + network protocol selection, IM database design
+  - 9.2 实时通信 (26 tasks) - WebSocket + push mechanisms, live chat system design
+  - 9.3 缓存策略 (26 tasks) - Multi-level caching + data consistency, video app cache architecture
+  - 9.4 大型应用架构 (26 tasks) - Microservices + modularization, super app architecture design
+  - 9.5 性能与扩展性 (27 tasks) - Load balancing + CDN optimization, global architecture design
+- **Chapter 10 (底层内核)**: 106 micro-tasks covering Android system services deep analysis
+  - 10.1 AMS核心机制 (28 tasks) - Activity startup flow, process lifecycle, ANR analysis
+  - 10.2 View系统底层机制 (25 tasks) - Rendering pipeline, ViewRootImpl, SurfaceFlinger
+  - 10.3 Binder深度原理 (24 tasks) - IPC mechanisms, ServiceManager, custom protocol design
+  - 10.4 PMS与应用管理 (29 tasks) - APK installation, permission system, security model
 
 ### Usage Instructions for Claude Code
 When resuming learning sessions:
-1. Check `MICRO_TASKS.md` (Chapters 1-5), `MICRO_TASK2.md` (Chapter 6), or `MICRO_TASK3.md` (Chapters 7-8) for current progress and next tasks
+1. Check `MICRO_TASKS.md` (Chapters 1-5), `MICRO_TASK2.md` (Chapter 6), `MICRO_TASK3.md` (Chapters 7-8), `MICRO_TASKS4.md` (Chapter 9), or `MICRO_TASKS5.md` (Chapter 10) for current progress and next tasks
 2. Verify student work in `student_progress/` directory
 3. Act as supportive tutor providing explanations and checkpoint questions
 4. Maintain ADHD-friendly 5-minute task duration with progressive difficulty for primary→senior transition
