@@ -175,6 +175,48 @@
 - [ ] **面试模拟**: 设计Compose应用的状态架构
 - [ ] **深度理解**: 理解状态管理在现代UI开发中的重要性
 
+## 第六章：测试利刃 - Android 测试体系精通
+
+### 6.1 单元测试基石：JUnit & Mockito
+- [ ] **理论学习**: 测试金字塔、单元测试原则、Mock vs Spy vs Stub
+- [ ] **编码实践**:
+  - [ ] 使用JUnit 5编写各种类型的单元测试
+  - [ ] 掌握Mockito核心API（when-thenReturn, verify, ArgumentCaptor）
+  - [ ] 实现Repository/ViewModel的单元测试
+  - [ ] 使用MockK测试Kotlin代码（object mock, extension functions）
+- [ ] **面试模拟**: 解释Test Double的不同类型和应用场景
+- [ ] **深度理解**: 理解可测试代码设计原则和依赖注入
+
+### 6.2 协程测试：TestCoroutineDispatcher & runTest
+- [ ] **理论学习**: 协程测试挑战、测试时间控制、异步代码测试策略
+- [ ] **编码实践**:
+  - [ ] 使用runTest和TestDispatcher测试挂起函数
+  - [ ] 测试Flow和StateFlow的数据流
+  - [ ] 验证协程的取消和异常处理
+  - [ ] 实现ViewModel中协程逻辑的测试
+- [ ] **面试模拟**: 解释如何测试复杂的异步操作
+- [ ] **深度理解**: 理解协程测试库的设计原理
+
+### 6.3 UI测试：Espresso & Compose Testing
+- [ ] **理论学习**: UI测试策略、页面对象模式、测试稳定性
+- [ ] **编码实践**:
+  - [ ] 使用Espresso编写Activity/Fragment测试
+  - [ ] 实现Compose UI的测试（ComposeTestRule）
+  - [ ] 处理异步UI更新和网络请求
+  - [ ] 编写端到端的用户流程测试
+- [ ] **面试模拟**: 设计复杂场景的UI测试策略
+- [ ] **深度理解**: 理解UI测试的成本收益权衡
+
+### 6.4 集成测试：Robolectric & Hilt Testing
+- [ ] **理论学习**: 测试环境隔离、依赖注入测试、Android组件测试
+- [ ] **编码实践**:
+  - [ ] 使用Robolectric进行JVM上的Android测试
+  - [ ] 配置Hilt进行依赖注入测试
+  - [ ] 测试数据库操作（Room + 内存数据库）
+  - [ ] 实现网络层的集成测试
+- [ ] **面试模拟**: 解释不同测试类型的选择策略
+- [ ] **深度理解**: 理解测试金字塔在Android中的实际应用
+
 ## 学习方法 (Learning Methodology)
 1. **理论先行**: 每个知识点先理解核心概念和原理
 2. **实践强化**: 通过编码练习加深理解
