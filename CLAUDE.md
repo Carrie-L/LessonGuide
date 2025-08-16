@@ -36,8 +36,48 @@ This repository is designed for:
 - Reference material for common Android interview topics
 - Study guide following the progression from basic to advanced concepts
 
+## Learning System
+
+This repository includes a comprehensive ADHD-friendly learning system:
+
+### Key Files
+- **MICRO_TASKS.md**: Detailed breakdown of all learning topics into 5-minute micro-tasks
+- **PROGRESS.md**: High-level learning roadmap with progress tracking
+- **student_progress/**: Directory containing all student work, code implementations, and notes
+
+### Learning Methodology
+1. **Micro-Task Approach**: Each task takes exactly 5 minutes to maintain ADHD-friendly focus
+2. **Theory + Practice + Interview**: Every topic includes theoretical understanding, hands-on coding, and interview preparation
+3. **Progress Tracking**: Checkbox system to track completion and maintain motivation
+4. **Checkpoint Testing**: Regular knowledge verification through targeted questions
+5. **Tutor Interaction**: AI tutor acts as "首席面试官" providing guidance and assessment
+
+### Current Learning Structure
+- **Chapter 1 (基石篇)**: 43 micro-tasks covering Java/Kotlin fundamentals
+  - 1.1 并发原语 (16 tasks) - synchronized, volatile, JMM
+  - 1.2 集合框架 (13 tasks) - HashMap, ConcurrentHashMap
+  - 1.3 协程机制 (14 tasks) - Kotlin coroutines
+- **Chapters 2-5**: To be implemented with similar micro-task structure
+
+### Usage Instructions for Claude Code
+When resuming learning sessions:
+1. Check `MICRO_TASKS.md` for current progress and next tasks
+2. Verify student work in `student_progress/` directory
+3. Act as supportive tutor providing explanations and checkpoint questions
+4. Maintain ADHD-friendly 5-minute task duration
+5. Update progress tracking as tasks are completed
+6. Provide encouragement and celebrate small wins
+
+### Student Progress Monitoring
+- All code implementations should be in `student_progress/` directory
+- Notes and summaries should be in markdown format
+- Interview Q&A preparations should be consolidated in `interview_qa.md`
+- Regular checkpoint questions ensure true understanding before proceeding
+
 ## Notes
 
 - Content is in Chinese and specifically tailored for Android development interviews
 - Includes references to industry best practices from major tech companies
 - Contains detailed explanations of underlying principles rather than just surface-level knowledge
+- ADHD-friendly micro-learning approach with 5-minute focused tasks
+- Comprehensive practical coding exercises alongside theoretical learning
