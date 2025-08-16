@@ -73,7 +73,9 @@ This repository includes a comprehensive ADHD-friendly learning system:
   - 4.1 ANR诊断 (20 tasks) - ANR analysis, traces.txt, monitoring
   - 4.2 OOM分析 (15 tasks) - Memory optimization, MAT analysis, leak detection
   - 4.3 APK构建 (13 tasks) - Build process, signing, size optimization
-- **Chapter 5**: To be implemented with similar micro-task structure
+- **Chapter 5 (地平线)**: 36 micro-tasks covering modern Android UI
+  - 5.1 Compose核心 (16 tasks) - Declarative UI, composition, recomposition
+  - 5.2 状态管理 (20 tasks) - State lifting, unidirectional data flow, side effects
 
 ### Usage Instructions for Claude Code
 When resuming learning sessions:
