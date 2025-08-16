@@ -69,7 +69,11 @@ This repository includes a comprehensive ADHD-friendly learning system:
   - 3.2 OkHttp拦截器 (16 tasks) - Interceptor chain pattern
   - 3.3 Glide缓存 (19 tasks) - Multi-level caching strategy
   - 3.4 RxJava响应式 (14 tasks) - Reactive programming with operators
-- **Chapters 4-5**: To be implemented with similar micro-task structure
+- **Chapter 4 (淬炼篇)**: 48 micro-tasks covering performance and stability
+  - 4.1 ANR诊断 (20 tasks) - ANR analysis, traces.txt, monitoring
+  - 4.2 OOM分析 (15 tasks) - Memory optimization, MAT analysis, leak detection
+  - 4.3 APK构建 (13 tasks) - Build process, signing, size optimization
+- **Chapter 5**: To be implemented with similar micro-task structure
 
 ### Usage Instructions for Claude Code
 When resuming learning sessions:
