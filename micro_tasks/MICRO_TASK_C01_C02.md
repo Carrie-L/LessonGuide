@@ -50,17 +50,82 @@
 
 ### Phase 3: 动手编码验证 (30分钟总计)
 
-#### Task 1.1.8: 创建基础测试类 (5分钟) ⏰
-- [ ] **学习目标**: 搭建测试环境
-- [ ] **具体任务**: 创建`SynchronizedDemo.java`类框架
-- [ ] **检查点**: 类能编译运行
-- [ ] **文件**: `student_progress/SynchronizedDemo.java`
+#### Task 1.1.8: 创建多线程同步实验室 (5分钟) ⏰
+- [ ] **学习目标**: 搭建多线程测试环境，观察数据竞争
+- [ ] **具体任务**: 
+  ```java
+  public class ConcurrencyLab {
+      private static int counter = 0;
+      private static final Object lock = new Object();
+      
+      // 第一步：实现不安全的计数器增加
+      public static void unsafeIncrement() {
+          for (int i = 0; i < 1000; i++) {
+              counter++; // 观察数据竞争
+          }
+      }
+      
+      // 第二步：使用synchronized实现安全增加
+      public static void safeIncrement() {
+          synchronized (lock) {
+              for (int i = 0; i < 1000; i++) {
+                  counter++; // 观察同步效果
+              }
+          }
+      }
+  }
+  ```
+- [ ] **检查点**: 运行多线程测试，观察unsafe vs safe的结果差异
+- [ ] **编程练习**: 创建10个线程，每个线程调用unsafeIncrement()，观察最终counter值是否等于10000
+- [ ] **文件**: `student_progress/ConcurrencyLab.java`
 
-#### Task 1.1.9: synchronized方法测试 (5分钟) ⏰
-- [ ] **学习目标**: 验证synchronized方法的互斥性
-- [ ] **具体任务**: 写一个synchronized方法，多线程调用
-- [ ] **检查点**: 观察到线程串行执行
-- [ ] **文件**: 完善`SynchronizedDemo.java`
+#### Task 1.1.9: synchronized锁升级观察实验 (5分钟) ⏰
+- [ ] **学习目标**: 验证synchronized的锁升级机制
+- [ ] **具体任务**: 
+  ```java
+  public class LockEscalationDemo {
+      private final Object monitor = new Object();
+      
+      // 练习1：单线程偏向锁观察
+      public void biasedLockTest() {
+          long startTime = System.nanoTime();
+          for (int i = 0; i < 1000000; i++) {
+              synchronized (monitor) {
+                  // 空操作，观察偏向锁的性能
+              }
+          }
+          long endTime = System.nanoTime();
+          System.out.println("偏向锁耗时: " + (endTime - startTime) + "ns");
+      }
+      
+      // 练习2：多线程轻量级锁
+      public void lightweightLockTest() throws InterruptedException {
+          Thread t1 = new Thread(() -> {
+              for (int i = 0; i < 100000; i++) {
+                  synchronized (monitor) {
+                      // 观察CAS自旋
+                  }
+              }
+          });
+          
+          Thread t2 = new Thread(() -> {
+              for (int i = 0; i < 100000; i++) {
+                  synchronized (monitor) {
+                      // 观察锁竞争
+                  }
+              }
+          });
+          
+          t1.start();
+          t2.start();
+          t1.join();
+          t2.join();
+      }
+  }
+  ```
+- [ ] **检查点**: 运行时添加JVM参数 `-XX:+PrintGCDetails -XX:+TraceBiasedLocking` 观察锁状态
+- [ ] **编程练习**: 对比单线程vs多线程场景下的执行时间差异
+- [ ] **文件**: 完善`ConcurrencyLab.java`，添加锁升级实验
 
 #### Task 1.1.10: synchronized代码块测试 (5分钟) ⏰
 - [ ] **学习目标**: 对比方法锁vs对象锁
@@ -68,10 +133,65 @@
 - [ ] **检查点**: 理解不同锁对象的影响
 - [ ] **文件**: 继续完善`SynchronizedDemo.java`
 
-#### Task 1.1.11: 创建volatile测试 (5分钟) ⏰
-- [ ] **学习目标**: 验证volatile的可见性
-- [ ] **具体任务**: 创建`VolatileDemo.java`，测试可见性问题
-- [ ] **检查点**: 观察有无volatile的区别
+#### Task 1.1.11: volatile可见性实战验证 (5分钟) ⏰
+- [ ] **学习目标**: 验证volatile的可见性和禁止重排序
+- [ ] **具体任务**: 
+  ```java
+  public class VolatileDemo {
+      // 练习1：可见性问题演示
+      private static boolean flag = false; // 先不加volatile
+      
+      public static void visibilityTest() throws InterruptedException {
+          Thread writerThread = new Thread(() -> {
+              try {
+                  Thread.sleep(1000);
+                  flag = true; // 写线程修改flag
+                  System.out.println("Writer: flag设置为true");
+              } catch (InterruptedException e) {
+                  e.printStackTrace();
+              }
+          });
+          
+          Thread readerThread = new Thread(() -> {
+              while (!flag) {
+                  // 读线程可能永远看不到flag的变化
+              }
+              System.out.println("Reader: 检测到flag为true");
+          });
+          
+          readerThread.start();
+          writerThread.start();
+          writerThread.join();
+          readerThread.join();
+      }
+      
+      // 练习2：然后将flag改为volatile，对比结果
+      private static volatile boolean volatileFlag = false;
+      
+      // 练习3：volatile不保证原子性演示
+      private static volatile int counter = 0;
+      
+      public static void atomicityTest() throws InterruptedException {
+          Thread[] threads = new Thread[10];
+          for (int i = 0; i < 10; i++) {
+              threads[i] = new Thread(() -> {
+                  for (int j = 0; j < 1000; j++) {
+                      counter++; // volatile不能保证原子性
+                  }
+              });
+              threads[i].start();
+          }
+          
+          for (Thread thread : threads) {
+              thread.join();
+          }
+          
+          System.out.println("期望值: 10000, 实际值: " + counter);
+      }
+  }
+  ```
+- [ ] **检查点**: 先运行不加volatile的版本，观察死循环；再加volatile观察正常结束
+- [ ] **编程练习**: 验证volatile在i++操作中的数据丢失问题
 - [ ] **文件**: `student_progress/VolatileDemo.java`
 
 #### Task 1.1.12: volatile不保证原子性测试 (5分钟) ⏰
@@ -199,10 +319,56 @@
 
 ## Phase 7: 手写HashMap实现 (30分钟总计)
 
-#### Task 1.2.11: 创建基础框架 (5分钟) ⏰
-- [ ] **学习目标**: 搭建自定义HashMap的基本结构
-- [ ] **具体任务**: 创建MyHashMap类和Node内部类
-- [ ] **检查点**: 基础类结构能编译通过
+#### Task 1.2.11: 手写HashMap核心实现 (5分钟) ⏰
+- [ ] **学习目标**: 从零实现HashMap的核心数据结构和算法
+- [ ] **具体任务**: 
+  ```java
+  public class MyHashMap<K, V> {
+      // 练习1：设计Node节点结构
+      static class Node<K, V> {
+          final int hash;
+          final K key;
+          V value;
+          Node<K, V> next;
+          
+          Node(int hash, K key, V value, Node<K, V> next) {
+              // TODO: 学生实现构造方法
+          }
+      }
+      
+      private Node<K, V>[] table;
+      private int size = 0;
+      private static final int DEFAULT_CAPACITY = 16;
+      private static final float LOAD_FACTOR = 0.75f;
+      
+      // 练习2：实现高效的hash函数
+      private int hash(K key) {
+          if (key == null) return 0;
+          int h = key.hashCode();
+          // TODO: 为什么要进行扰动函数？ h ^ (h >>> 16)
+          return h ^ (h >>> 16);
+      }
+      
+      // 练习3：实现索引计算
+      private int indexFor(int hash, int length) {
+          // TODO: 为什么用 (length-1) & hash 而不是 hash % length？
+          // 学生需要理解位运算的性能优势
+          return hash & (length - 1);
+      }
+      
+      // 练习4：实现核心put方法
+      public V put(K key, V value) {
+          // TODO: 实现完整的put逻辑
+          // 1. 计算hash值
+          // 2. 找到对应bucket
+          // 3. 处理hash冲突（链表插入）
+          // 4. 检查是否需要扩容
+          return null;
+      }
+  }
+  ```
+- [ ] **检查点**: 理解为什么容量必须是2的幂次方，扰动函数的作用
+- [ ] **编程练习**: 测试不同hash函数的分布均匀性
 - [ ] **文件**: `student_progress/MyHashMap.java`
 
 #### Task 1.2.12: 实现hash函数 (5分钟) ⏰
@@ -243,11 +409,81 @@
 - [ ] **检查点**: 能模拟高并发场景
 - [ ] **文件**: `student_progress/ConcurrencyTest.java`
 
-#### Task 1.2.18: HashMap并发问题演示 (5分钟) ⏰
-- [ ] **学习目标**: 观察HashMap在并发环境下的问题
-- [ ] **具体任务**: 演示数据丢失、无限循环等问题
-- [ ] **检查点**: 能重现JDK1.7的死循环bug
-- [ ] **文件**: 完善`ConcurrencyTest.java`
+#### Task 1.2.18: HashMap并发安全性实战验证 (5分钟) ⏰
+- [ ] **学习目标**: 观察HashMap在并发环境下的问题和ConcurrentHashMap的解决方案
+- [ ] **具体任务**: 
+  ```java
+  public class ConcurrentMapTest {
+      private static final int THREAD_COUNT = 10;
+      private static final int OPERATIONS_PER_THREAD = 1000;
+      
+      // 练习1：HashMap并发问题重现
+      public static void testHashMapConcurrency() throws InterruptedException {
+          Map<Integer, Integer> map = new HashMap<>();
+          CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
+          
+          for (int i = 0; i < THREAD_COUNT; i++) {
+              final int threadId = i;
+              new Thread(() -> {
+                  try {
+                      for (int j = 0; j < OPERATIONS_PER_THREAD; j++) {
+                          map.put(threadId * OPERATIONS_PER_THREAD + j, j);
+                      }
+                  } finally {
+                      latch.countDown();
+                  }
+              }).start();
+          }
+          
+          latch.await();
+          System.out.println("HashMap 期望大小: " + (THREAD_COUNT * OPERATIONS_PER_THREAD));
+          System.out.println("HashMap 实际大小: " + map.size());
+          // 观察数据丢失问题
+      }
+      
+      // 练习2：ConcurrentHashMap安全性验证
+      public static void testConcurrentHashMapSafety() throws InterruptedException {
+          Map<Integer, Integer> map = new ConcurrentHashMap<>();
+          CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
+          
+          long startTime = System.currentTimeMillis();
+          
+          for (int i = 0; i < THREAD_COUNT; i++) {
+              final int threadId = i;
+              new Thread(() -> {
+                  try {
+                      for (int j = 0; j < OPERATIONS_PER_THREAD; j++) {
+                          map.put(threadId * OPERATIONS_PER_THREAD + j, j);
+                          // 模拟读操作
+                          map.get(threadId * OPERATIONS_PER_THREAD + j);
+                      }
+                  } finally {
+                      latch.countDown();
+                  }
+              }).start();
+          }
+          
+          latch.await();
+          long endTime = System.currentTimeMillis();
+          
+          System.out.println("ConcurrentHashMap 期望大小: " + (THREAD_COUNT * OPERATIONS_PER_THREAD));
+          System.out.println("ConcurrentHashMap 实际大小: " + map.size());
+          System.out.println("执行时间: " + (endTime - startTime) + "ms");
+      }
+      
+      // 练习3：性能对比测试
+      public static void performanceComparison() throws InterruptedException {
+          System.out.println("=== HashMap并发测试 ===");
+          testHashMapConcurrency();
+          
+          System.out.println("\n=== ConcurrentHashMap并发测试 ===");
+          testConcurrentHashMapSafety();
+      }
+  }
+  ```
+- [ ] **检查点**: 观察HashMap的数据丢失，ConcurrentHashMap的数据完整性
+- [ ] **编程练习**: 尝试重现HashMap的死循环问题（需要特定JDK版本和条件）
+- [ ] **文件**: 完善`student_progress/ConcurrentMapTest.java`
 
 #### Task 1.2.19: ConcurrentHashMap安全性验证 (5分钟) ⏰
 - [ ] **学习目标**: 验证ConcurrentHashMap的线程安全性
@@ -319,11 +555,97 @@
 
 ## Phase 11: 协程核心API实践 (30分钟总计)
 
-#### Task 1.3.6: launch和async对比 (5分钟) ⏰
-- [ ] **学习目标**: 理解两种启动方式的区别
-- [ ] **具体任务**: 实现"发射后不管"vs"需要返回值"的场景
-- [ ] **检查点**: 知道何时用Job何时用Deferred
-- [ ] **文件**: `student_progress/CoroutineBasics.kt`
+#### Task 1.3.6: 协程基础API实战练习 (5分钟) ⏰
+- [ ] **学习目标**: 掌握launch、async、runBlocking的使用场景和区别
+- [ ] **具体任务**: 
+  ```kotlin
+  class CoroutineBasicsLab {
+      
+      // 练习1：对比阻塞vs非阻塞调用
+      fun compareBlockingVsSuspend() {
+          // TODO: 先实现传统回调方式的网络请求
+          fun fetchUserCallback(userId: String, callback: (User?) -> Unit) {
+              Thread {
+                  Thread.sleep(1000) // 模拟网络延迟
+                  callback(User(userId, "张三"))
+              }.start()
+          }
+          
+          // TODO: 改写为suspend函数，体验简洁性
+          suspend fun fetchUserSuspend(userId: String): User? {
+              return withContext(Dispatchers.IO) {
+                  delay(1000) // 非阻塞延迟
+                  User(userId, "张三")
+              }
+          }
+          
+          // 对比两种方式的代码复杂度
+      }
+      
+      // 练习2：launch vs async的选择决策
+      fun practiceJobTypes() = runBlocking {
+          println("=== Launch vs Async 对比 ===")
+          
+          // 场景1：发射后不管 - 使用launch
+          val job = launch {
+              repeat(3) {
+                  delay(500)
+                  println("后台任务执行中... $it")
+              }
+          }
+          
+          // 场景2：需要返回值 - 使用async
+          val deferred1 = async {
+              delay(1000)
+              "数据源1的结果"
+          }
+          
+          val deferred2 = async {
+              delay(1500)
+              "数据源2的结果"
+          }
+          
+          // 等待并获取结果
+          val result1 = deferred1.await()
+          val result2 = deferred2.await()
+          
+          println("合并结果: $result1 + $result2")
+          job.join() // 等待后台任务完成
+      }
+      
+      // 练习3：并发vs串行执行对比
+      suspend fun concurrentVsSequential() {
+          // 串行执行
+          val sequentialTime = measureTimeMillis {
+              val result1 = fetchData("数据1") // 1秒
+              val result2 = fetchData("数据2") // 1秒  
+              println("串行结果: $result1, $result2")
+          }
+          
+          // 并发执行
+          val concurrentTime = measureTimeMillis {
+              val deferred1 = async { fetchData("数据1") }
+              val deferred2 = async { fetchData("数据2") }
+              val result1 = deferred1.await()
+              val result2 = deferred2.await()
+              println("并发结果: $result1, $result2")
+          }
+          
+          println("串行耗时: ${sequentialTime}ms")
+          println("并发耗时: ${concurrentTime}ms")
+      }
+      
+      private suspend fun fetchData(name: String): String {
+          delay(1000)
+          return "${name}的结果"
+      }
+  }
+  
+  data class User(val id: String, val name: String)
+  ```
+- [ ] **检查点**: 理解launch适合"发射后不管"，async适合"需要返回值"
+- [ ] **编程练习**: 对比串行vs并发执行的性能差异
+- [ ] **文件**: `student_progress/CoroutineBasicsLab.kt`
 
 #### Task 1.3.7: runBlocking使用场景 (5分钟) ⏰
 - [ ] **学习目标**: 理解阻塞式协程的适用性
@@ -331,11 +653,116 @@
 - [ ] **检查点**: 理解为什么生产代码要避免runBlocking
 - [ ] **文件**: 完善`CoroutineBasics.kt`
 
-#### Task 1.3.8: withContext线程切换 (5分钟) ⏰
-- [ ] **学习目标**: 实现协程间的线程切换
-- [ ] **具体任务**: 模拟网络请求+UI更新的场景
-- [ ] **检查点**: 能安全地在不同线程间切换
-- [ ] **文件**: 创建`student_progress/ThreadSwitching.kt`
+#### Task 1.3.8: 线程切换实战演练 (5分钟) ⏰
+- [ ] **学习目标**: 掌握withContext进行线程切换的实际应用
+- [ ] **具体任务**: 
+  ```kotlin
+  class ThreadSwitchingPractice {
+      
+      // 练习：模拟真实的Android开发场景
+      suspend fun realWorldNetworkCall() {
+          println("开始执行 - 线程: ${Thread.currentThread().name}")
+          
+          // 第一步：网络线程获取数据
+          val userData = withContext(Dispatchers.IO) {
+              println("网络请求 - 线程: ${Thread.currentThread().name}")
+              delay(1000) // 模拟网络延迟
+              "User Data from Network"
+          }
+          
+          // 第二步：计算线程处理数据
+          val processedData = withContext(Dispatchers.Default) {
+              println("数据处理 - 线程: ${Thread.currentThread().name}")
+              // 模拟CPU密集计算
+              Thread.sleep(500) // 阻塞当前线程
+              userData.uppercase().reversed()
+          }
+          
+          // 第三步：主线程更新UI
+          withContext(Dispatchers.Main) {
+              println("UI更新 - 线程: ${Thread.currentThread().name}")
+              // 模拟TextView更新
+              println("UI Updated: $processedData")
+          }
+          
+          println("完成执行 - 线程: ${Thread.currentThread().name}")
+      }
+      
+      // 高级练习：错误处理和取消传播
+      suspend fun advancedErrorHandling() {
+          val job = CoroutineScope(Dispatchers.IO).launch {
+              try {
+                  // 模拟可取消的长时间操作
+                  repeat(10) { i ->
+                      if (!isActive) { // 检查协程是否被取消
+                          println("协程被取消，停止执行")
+                          return@launch
+                      }
+                      
+                      println("执行步骤 $i")
+                      delay(500)
+                  }
+              } catch (e: CancellationException) {
+                  println("捕获取消异常: ${e.message}")
+                  // 清理资源
+                  withContext(NonCancellable) {
+                      println("执行清理工作")
+                      delay(200) // 确保清理完成
+                  }
+                  throw e // 重新抛出取消异常
+              } catch (e: Exception) {
+                  println("捕获其他异常: ${e.message}")
+              }
+          }
+          
+          delay(2000) // 让协程运行2秒
+          job.cancel("用户取消操作") // 取消协程
+          job.join() // 等待协程完成清理
+      }
+      
+      // 练习：协程作用域管理
+      class ViewModelSimulation {
+          private val viewModelScope = CoroutineScope(
+              SupervisorJob() + Dispatchers.Main
+          )
+          
+          fun loadUserData(userId: String) {
+              viewModelScope.launch {
+                  try {
+                      val userData = withContext(Dispatchers.IO) {
+                          // 模拟网络请求
+                          delay(1000)
+                          if (userId == "error") {
+                              throw RuntimeException("网络错误")
+                          }
+                          "用户数据: $userId"
+                      }
+                      
+                      // 更新UI（主线程）
+                      updateUI(userData)
+                  } catch (e: Exception) {
+                      handleError(e)
+                  }
+              }
+          }
+          
+          private fun updateUI(data: String) {
+              println("UI更新: $data - 线程: ${Thread.currentThread().name}")
+          }
+          
+          private fun handleError(error: Exception) {
+              println("错误处理: ${error.message}")
+          }
+          
+          fun onDestroy() {
+              viewModelScope.cancel() // 清理所有协程
+          }
+      }
+  }
+  ```
+- [ ] **检查点**: 观察每步操作在不同线程上执行，理解线程切换的开销
+- [ ] **编程练习**: 实现一个完整的网络请求→数据处理→UI更新的流程
+- [ ] **文件**: 创建`student_progress/ThreadSwitchingPractice.kt`
 
 #### Task 1.3.9: 协程取消机制 (5分钟) ⏰
 - [ ] **学习目标**: 理解协程的取消和异常处理
@@ -369,11 +796,143 @@
 - [ ] **检查点**: 理解并发vs并行的区别
 - [ ] **文件**: 完善`NetworkComparison.kt`
 
-#### Task 1.3.14: Flow基础使用 (5分钟) ⏰
-- [ ] **学习目标**: 理解Flow的响应式数据流
-- [ ] **具体任务**: 创建简单的数据流和变换操作
-- [ ] **检查点**: 能区分Flow和传统的观察者模式
-- [ ] **文件**: `student_progress/FlowBasics.kt`
+#### Task 1.3.14: Flow响应式编程实践 (5分钟) ⏰
+- [ ] **学习目标**: 掌握Flow的响应式数据流编程
+- [ ] **具体任务**: 
+  ```kotlin
+  class FlowPracticalExercises {
+      
+      // 练习1：构建实时数据流
+      fun createRealtimeDataStream(): Flow<String> = flow {
+          println("Flow开始发射数据")
+          repeat(5) { i ->
+              delay(500) // 模拟数据到达间隔
+              emit("实时数据 $i 来自线程: ${Thread.currentThread().name}")
+          }
+          println("Flow发射完成")
+      }
+      
+      // 练习2：流的变换和处理
+      suspend fun practiceFlowTransformations() {
+          println("=== Flow变换操作演示 ===")
+          
+          createRealtimeDataStream()
+              .map { data ->
+                  println("转换: $data")
+                  data.uppercase() // 转换为大写
+              }
+              .filter { data ->
+                  val shouldKeep = data.contains("2") || data.contains("4")
+                  println("过滤: $data -> ${if (shouldKeep) "保留" else "丢弃"}")
+                  shouldKeep
+              }
+              .collect { processedData ->
+                  println("消费: $processedData")
+              }
+      }
+      
+      // 练习3：冷流vs热流对比
+      suspend fun coldVsHotFlowDemo() {
+          println("=== 冷流演示 ===")
+          val coldFlow = flow {
+              println("冷流：开始执行")
+              repeat(3) {
+                  emit(it)
+                  delay(300)
+              }
+          }
+          
+          // 每次collect都会重新执行flow代码块
+          println("第一个收集者:")
+          coldFlow.collect { println("收集到: $it") }
+          
+          println("第二个收集者:")
+          coldFlow.collect { println("收集到: $it") }
+          
+          println("\n=== 热流演示 ===")
+          val hotFlow = MutableSharedFlow<Int>()
+          
+          // 启动发射者
+          launch {
+              repeat(3) {
+                  hotFlow.emit(it)
+                  delay(300)
+              }
+          }
+          
+          delay(100) // 稍微延迟
+          println("第一个收集者:")
+          launch {
+              hotFlow.collect { println("收集者1: $it") }
+          }
+          
+          delay(500) // 延迟更久
+          println("第二个收集者:")
+          launch {
+              hotFlow.collect { println("收集者2: $it") }
+          }
+          
+          delay(1000) // 等待完成
+      }
+      
+      // 练习4：StateFlow状态管理
+      class ViewModelSimulation {
+          private val _uiState = MutableStateFlow("初始状态")
+          val uiState: StateFlow<String> = _uiState.asStateFlow()
+          
+          private val _userInfo = MutableStateFlow<User?>(null)
+          val userInfo: StateFlow<User?> = _userInfo.asStateFlow()
+          
+          fun updateState(newState: String) {
+              println("状态更新: ${_uiState.value} -> $newState")
+              _uiState.value = newState
+          }
+          
+          suspend fun loadUser(userId: String) {
+              _uiState.value = "加载中..."
+              
+              try {
+                  delay(1000) // 模拟网络请求
+                  val user = User(userId, "用户$userId")
+                  _userInfo.value = user
+                  _uiState.value = "加载完成"
+              } catch (e: Exception) {
+                  _uiState.value = "加载失败: ${e.message}"
+              }
+          }
+          
+          // 组合多个状态流
+          val combinedState: Flow<String> = combine(uiState, userInfo) { state, user ->
+              when {
+                  user == null -> state
+                  else -> "$state - 当前用户: ${user.name}"
+              }
+          }
+      }
+      
+      // 练习5：Flow异常处理
+      suspend fun flowErrorHandling() {
+          flow {
+              repeat(5) { i ->
+                  if (i == 3) {
+                      throw RuntimeException("模拟网络错误")
+                  }
+                  emit(i)
+              }
+          }
+          .catch { e ->
+              println("捕获异常: ${e.message}")
+              emit(-1) // 发射默认值
+          }
+          .collect { value ->
+              println("接收到值: $value")
+          }
+      }
+  }
+  ```
+- [ ] **检查点**: 理解冷流vs热流的区别，StateFlow的状态管理特性
+- [ ] **编程练习**: 实现一个包含状态管理和错误处理的完整数据流
+- [ ] **文件**: `student_progress/FlowPracticalExercises.kt`
 
 #### Task 1.3.15: StateFlow和SharedFlow (5分钟) ⏰
 - [ ] **学习目标**: 理解状态流和事件流的区别

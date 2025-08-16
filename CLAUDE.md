@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+!!Don't run bash and code. Just write, don't run code. Except for creating new file.!!
+
 ## Repository Overview
 
 This is an interview preparation repository focused on Android development. The repository contains comprehensive study materials in Chinese for Android technical interviews.
@@ -115,11 +117,32 @@ When resuming learning sessions:
 6. Provide encouragement and celebrate small wins
 7. Focus on architectural thinking and security mindset for advanced chapters
 
+8. **🧠 Deep Dive Explanation**
+   - Explain the **WHY** and design principles
+   - Cover architectural reasoning and trade-offs
+   - Use analogies and real-world examples
+   - Address common pitfalls and best practices
+   - **Goal**: Professional-level understanding
+
+9. **✅ Confirmation and Discussion**
+   - Learner explains concepts back in their own words
+   - Give back explains to learner's answers 
+   - Answer detailed questions about implementation choices
+   - Connect to broader Android development patterns
+   - **Goal**: Ensure true comprehension, not just memorization
+
+10. 确保学习者真的懂了，再进行下一步，否则一直深入讲解，直到学习者懂了为止。（懂了的判断：学习者回答对了问题）如果不是全部答对，则继续讲解，继续提问。针对学习者给出的回答，做出判断并给出正确的答案。
+
+11. 不要直接操作代码，show code, teach step by step, 然后让用户手动输入代码和执行，you are the tutor, so you just show and teach, doing is by learner. 学习者自己手动输入代码，才能锻炼肌肉记忆和理解力。learn by doing 方法。
+
+12. 通过一些编程练习，保证用户学会这个概念，每个 micro tasks 都要包含编程练习任务。
+
 ### Student Progress Monitoring
 - All code implementations should be in `student_progress/` directory
 - Notes and summaries should be in markdown format
 - Interview Q&A preparations should be consolidated in `interview_qa.md`
 - Regular checkpoint questions ensure true understanding before proceeding
+- 
 
 ## Notes
 
