@@ -76,6 +76,11 @@ This repository includes a comprehensive ADHD-friendly learning system:
 - **Chapter 5 (地平线)**: 36 micro-tasks covering modern Android UI
   - 5.1 Compose核心 (16 tasks) - Declarative UI, composition, recomposition
   - 5.2 状态管理 (20 tasks) - State lifting, unidirectional data flow, side effects
+- **Chapter 6 (测试利刃)**: 70 micro-tasks covering Android testing system
+  - 6.1 单元测试基石 (17 tasks) - JUnit 5, Mockito, MockK, Test Doubles
+  - 6.2 协程测试 (17 tasks) - runTest, TestDispatcher, Flow testing, time control
+  - 6.3 UI测试 (18 tasks) - Espresso, Compose Testing, Page Object pattern
+  - 6.4 集成测试 (18 tasks) - Robolectric, Hilt Testing, Room, network integration
 
 ### Usage Instructions for Claude Code
 When resuming learning sessions:
