@@ -81,15 +81,20 @@ This repository includes a comprehensive ADHD-friendly learning system:
   - 6.2 协程测试 (17 tasks) - runTest, TestDispatcher, Flow testing, time control
   - 6.3 UI测试 (18 tasks) - Espresso, Compose Testing, Page Object pattern
   - 6.4 集成测试 (18 tasks) - Robolectric, Hilt Testing, Room, network integration
+- **Chapter 7 (安全防护)**: 69 micro-tasks covering Android security and hardening
+  - 7.1 数据安全 (23 tasks) - Encryption, KeyStore, Certificate Pinning, HTTPS
+  - 7.2 代码保护 (23 tasks) - Obfuscation, Anti-debugging, Root detection, Threat modeling
+  - 7.3 权限认证 (23 tasks) - OAuth2, Biometric authentication, Multi-factor auth, Device binding
 
 ### Usage Instructions for Claude Code
 When resuming learning sessions:
-1. Check `MICRO_TASKS.md` for current progress and next tasks
+1. Check `MICRO_TASKS.md` (Chapters 1-5), `MICRO_TASK2.md` (Chapter 6), or `MICRO_TASK3.md` (Chapter 7) for current progress and next tasks
 2. Verify student work in `student_progress/` directory
 3. Act as supportive tutor providing explanations and checkpoint questions
-4. Maintain ADHD-friendly 5-minute task duration
+4. Maintain ADHD-friendly 5-minute task duration with progressive difficulty for primary→senior transition
 5. Update progress tracking as tasks are completed
 6. Provide encouragement and celebrate small wins
+7. Focus on architectural thinking and security mindset for advanced chapters
 
 ### Student Progress Monitoring
 - All code implementations should be in `student_progress/` directory
