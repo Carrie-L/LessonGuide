@@ -101,10 +101,15 @@ This repository includes a comprehensive ADHD-friendly learning system:
   - 10.2 View系统底层机制 (25 tasks) - Rendering pipeline, ViewRootImpl, SurfaceFlinger
   - 10.3 Binder深度原理 (24 tasks) - IPC mechanisms, ServiceManager, custom protocol design
   - 10.4 PMS与应用管理 (29 tasks) - APK installation, permission system, security model
+- **Chapter 11 (设计模式)**: 106 micro-tasks covering code design artistry
+  - 11.1 创建型模式 (21 tasks) - Singleton, Factory, Builder patterns and Android applications
+  - 11.2 结构型模式 (22 tasks) - Adapter, Decorator, Facade, Proxy patterns in practice
+  - 11.3 行为型模式 (24 tasks) - Observer, Strategy, Command, State patterns and frameworks
+  - 11.4 Android特有模式 (23 tasks) - MVC, MVP, MVVM, MVI architecture evolution
 
 ### Usage Instructions for Claude Code
 When resuming learning sessions:
-1. Check `MICRO_TASKS.md` (Chapters 1-5), `MICRO_TASK2.md` (Chapter 6), `MICRO_TASK3.md` (Chapters 7-8), `MICRO_TASKS4.md` (Chapter 9), or `MICRO_TASKS5.md` (Chapter 10) for current progress and next tasks
+1. Check `MICRO_TASKS.md` (Chapters 1-5), `MICRO_TASK2.md` (Chapter 6), `MICRO_TASK3.md` (Chapters 7-8), `MICRO_TASKS4.md` (Chapter 9), `MICRO_TASKS5.md` (Chapter 10), or `MICRO_TASKS_C11.md` (Chapter 11) for current progress and next tasks
 2. Verify student work in `student_progress/` directory
 3. Act as supportive tutor providing explanations and checkpoint questions
 4. Maintain ADHD-friendly 5-minute task duration with progressive difficulty for primary→senior transition
