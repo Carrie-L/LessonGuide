@@ -14,14 +14,6 @@ This is an interview preparation repository focused on Android development. The 
   - Contains real interview questions and follow-up examples
   - Structured in 5 main chapters covering progressively advanced topics
 
-## Key Study Areas Covered
-
-1. **基石篇 (Foundation)**: Java & Kotlin fundamentals including concurrency, collections, and coroutines
-2. **支柱篇 (Pillars)**: Android framework internals including ART runtime, Activity lifecycle, UI rendering, event handling, Handler/Looper, and Binder IPC
-3. **蓝图篇 (Architecture)**: High-level architecture patterns (MVC, MVP, MVVM, MVI, Clean Architecture) and third-party library internals (OkHttp, Glide, ARouter)
-4. **淬炼篇 (Refinement)**: Performance and stability including ANR diagnosis, OOM analysis, and APK building
-5. **地平线 (Horizon)**: Modern Android UI with Jetpack Compose
-
 ## Repository Structure
 
 - Single markdown file containing structured interview preparation content
@@ -41,7 +33,7 @@ This repository is designed for:
 This repository includes a comprehensive ADHD-friendly learning system:
 
 ### Key Files
-- **MICRO_TASKS.md**: Detailed breakdown of all learning topics into 5-minute micro-tasks
+- **micro_tasks/**: Detailed breakdown of all learning topics into 5-minute micro-tasks
 - **PROGRESS.md**: High-level learning roadmap with progress tracking
 - **student_progress/**: Directory containing all student work, code implementations, and notes
 
@@ -51,6 +43,7 @@ This repository includes a comprehensive ADHD-friendly learning system:
 3. **Progress Tracking**: Checkbox system to track completion and maintain motivation
 4. **Checkpoint Testing**: Regular knowledge verification through targeted questions
 5. **Tutor Interaction**: AI tutor acts as "首席面试官" providing guidance and assessment
+6. **Relex** : Relax and no pressure atmosphere
 
 ### Current Learning Structure
 - **Chapter 1 (基石篇)**: 43 micro-tasks covering Java/Kotlin fundamentals
@@ -106,10 +99,15 @@ This repository includes a comprehensive ADHD-friendly learning system:
   - 11.2 结构型模式 (22 tasks) - Adapter, Decorator, Facade, Proxy patterns in practice
   - 11.3 行为型模式 (24 tasks) - Observer, Strategy, Command, State patterns and frameworks
   - 11.4 Android特有模式 (23 tasks) - MVC, MVP, MVVM, MVI architecture evolution
+- **Chapter 12 (网络与系统)**: 68 micro-tasks covering computer infrastructure fundamentals
+  - 12.1 HTTP协议深度 (17 tasks) - HTTP/1.0 to HTTP/3 evolution, caching, HTTPS security
+  - 12.2 TCP/IP与网络编程 (17 tasks) - Socket programming, mobile network adaptation, long connections
+  - 12.3 操作系统概念 (17 tasks) - Process/thread management, memory models, Android system optimization
+  - 12.4 并发编程 (17 tasks) - Lock mechanisms, atomic operations, memory models, high-concurrency design
 
 ### Usage Instructions for Claude Code
 When resuming learning sessions:
-1. Check `MICRO_TASKS.md` (Chapters 1-5), `MICRO_TASK2.md` (Chapter 6), `MICRO_TASK3.md` (Chapters 7-8), `MICRO_TASKS4.md` (Chapter 9), `MICRO_TASKS5.md` (Chapter 10), or `MICRO_TASKS_C11.md` (Chapter 11) for current progress and next tasks
+1. Check folder [micro_tasks/]: `MICRO_TASK_C01_C02.md` (Chapters 1-2), `MICRO_TASK_C03.md` (Chapter 3), `MICRO_TASK_C04_C05.md` (Chapters 4-5),`MICRO_TASK_C06.md` (Chapter 6), `MICRO_TASK_C07_C08.md` (Chapters 7-8), `MICRO_TASKS_C09.md` (Chapter 9), `MICRO_TASKS_C10.md` (Chapter 10), `MICRO_TASKS_C11.md` (Chapter 11), or `MICRO_TASKS_C12.md` (Chapter 12) for current progress and next tasks
 2. Verify student work in `student_progress/` directory
 3. Act as supportive tutor providing explanations and checkpoint questions
 4. Maintain ADHD-friendly 5-minute task duration with progressive difficulty for primary→senior transition
