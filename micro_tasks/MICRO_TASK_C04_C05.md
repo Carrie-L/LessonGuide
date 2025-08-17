@@ -9,14 +9,402 @@
 ## Phase 48: ANR基础理论 (25分钟总计)
 
 #### Task 4.1.1: ANR定义和触发条件 (5分钟) ⏰
-- [ ] **学习目标**: 理解ANR的本质和各种触发场景
-- [ ] **具体任务**: 学习输入事件5秒、BroadcastReceiver 10秒、Service 20秒的超时规则
+
+🔬 **代码实验室 - ANR触发机制深度分析**
+
+```java
+// ✅ ANR触发条件实战分析
+public class ANRAnalysisDemo {
+    
+    // ANR超时规则枚举
+    public enum ANRType {
+        INPUT_EVENT(5000, "用户输入事件", "点击、滑动等操作"),
+        BROADCAST_RECEIVER(10000, "广播接收器", "前台广播处理"),
+        BACKGROUND_BROADCAST(60000, "后台广播", "后台应用广播处理"),
+        SERVICE_CREATE(20000, "Service创建", "onCreate()方法执行"),
+        SERVICE_START(20000, "Service启动", "onStartCommand()方法执行"),
+        CONTENT_PROVIDER(10000, "内容提供者", "ContentProvider查询操作");
+        
+        private final long timeoutMs;
+        private final String component;
+        private final String description;
+        
+        ANRType(long timeoutMs, String component, String description) {
+            this.timeoutMs = timeoutMs;
+            this.component = component;
+            this.description = description;
+        }
+        
+        public void printAnalysis() {
+            System.out.println(String.format("📱 %s ANR:", component));
+            System.out.println(String.format("   ⏰ 超时时间: %d秒", timeoutMs / 1000));
+            System.out.println(String.format("   📋 触发场景: %s", description));
+            System.out.println(String.format("   🎯 监控位置: 主线程消息循环"));
+        }
+    }
+    
+    // ANR机制核心原理模拟
+    public static class ANRWatchdog {
+        private final Handler mainHandler = new Handler(Looper.getMainLooper());
+        private final Map<String, Long> operationStartTimes = new HashMap<>();
+        private final Map<String, Long> timeoutLimits = new HashMap<>();
+        
+        // 模拟系统ANR监控机制
+        public void startOperation(String operationType, long timeoutMs) {
+            long startTime = System.currentTimeMillis();
+            operationStartTimes.put(operationType, startTime);
+            timeoutLimits.put(operationType, timeoutMs);
+            
+            System.out.println(String.format("🎬 开始监控 %s，超时限制: %dms", operationType, timeoutMs));
+            
+            // 启动超时检查
+            scheduleTimeoutCheck(operationType, timeoutMs);
+        }
+        
+        private void scheduleTimeoutCheck(String operationType, long timeoutMs) {
+            // 模拟系统的超时检查机制
+            new Thread(() -> {
+                try {
+                    Thread.sleep(timeoutMs);
+                    
+                    // 检查操作是否还在进行
+                    if (operationStartTimes.containsKey(operationType)) {
+                        triggerANR(operationType);
+                    }
+                } catch (InterruptedException e) {
+                    // 操作被正常完成，取消超时检查
+                }
+            }).start();
+        }
+        
+        public void finishOperation(String operationType) {
+            Long startTime = operationStartTimes.remove(operationType);
+            timeoutLimits.remove(operationType);
+            
+            if (startTime != null) {
+                long duration = System.currentTimeMillis() - startTime;
+                System.out.println(String.format("✅ %s 完成，耗时: %dms", operationType, duration));
+            }
+        }
+        
+        private void triggerANR(String operationType) {
+            long startTime = operationStartTimes.get(operationType);
+            long timeoutLimit = timeoutLimits.get(operationType);
+            long actualDuration = System.currentTimeMillis() - startTime;
+            
+            System.out.println("\n🚨 ANR触发！🚨");
+            System.out.println(String.format("💥 操作类型: %s", operationType));
+            System.out.println(String.format("⏱️ 实际耗时: %dms", actualDuration));
+            System.out.println(String.format("🚩 超时限制: %dms", timeoutLimit));
+            System.out.println("📝 系统开始生成 traces.txt 文件...");
+            
+            // 模拟traces.txt生成
+            generateMockTraces(operationType);
+        }
+        
+        private void generateMockTraces(String operationType) {
+            System.out.println("\n📄 traces.txt 示例片段:");
+            System.out.println("--------- beginning of main");
+            System.out.println("\"main\" prio=5 tid=1 Runnable");
+            System.out.println("  | group=\"main\" sCount=0 dsCount=0 flags=0 obj=0x12345678");
+            System.out.println("  | sysTid=1234 nice=0 cgrp=default sched=0/0 handle=0x12345678");
+            System.out.println("  | state=R schedstat=( 1000000 2000000 50 ) utm=100 stm=20 core=0 HZ=100");
+            System.out.println("  | stack=0x12345678-0x87654321 stackSize=8MB");
+            System.out.println("  at " + operationType + ".blockingOperation(MainActivity.java:123)");
+            System.out.println("  at android.app.Activity.performClick(Activity.java:456)");
+            System.out.println("  at android.os.Handler.handleCallback(Handler.java:789)");
+        }
+    }
+    
+    // ANR实际场景模拟
+    public static class ANRScenarioSimulator {
+        
+        // 模拟输入事件ANR
+        public static void simulateInputEventANR() {
+            System.out.println("=== 模拟输入事件ANR场景 ===");
+            ANRWatchdog watchdog = new ANRWatchdog();
+            
+            // 用户点击按钮
+            watchdog.startOperation("用户点击事件", 5000);
+            
+            // 模拟主线程被阻塞（实际中可能是网络请求、文件IO等）
+            try {
+                System.out.println("🔄 主线程执行耗时操作...");
+                Thread.sleep(6000); // 超过5秒限制
+                watchdog.finishOperation("用户点击事件");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        // 模拟BroadcastReceiver ANR
+        public static void simulateBroadcastANR() {
+            System.out.println("\n=== 模拟广播接收器ANR场景 ===");
+            ANRWatchdog watchdog = new ANRWatchdog();
+            
+            watchdog.startOperation("广播接收器处理", 10000);
+            
+            try {
+                System.out.println("📡 BroadcastReceiver.onReceive() 执行中...");
+                Thread.sleep(12000); // 超过10秒限制
+                watchdog.finishOperation("广播接收器处理");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        // ANR统计分析
+        public static void printANRStatistics() {
+            System.out.println("\n📊 ANR触发条件统计分析:");
+            for (ANRType type : ANRType.values()) {
+                type.printAnalysis();
+                System.out.println();
+            }
+            
+            System.out.println("💡 ANR核心原理:");
+            System.out.println("1. 系统监控主线程消息处理");
+            System.out.println("2. 特定操作有严格的时间限制");
+            System.out.println("3. 超时后系统强制生成traces.txt");
+            System.out.println("4. 用户看到 'Application Not Responding' 对话框");
+        }
+    }
+}
+```
+
+🎯 **学习重点**:
+1. **超时规则精确性**: 不同组件有严格的超时限制，必须精确掌握
+2. **主线程阻塞监控**: 系统通过消息循环监控主线程响应性
+3. **ANR生成机制**: 超时后系统自动收集线程信息并生成traces.txt
+4. **用户体验影响**: ANR直接导致应用无响应，严重影响用户体验
+
+📋 **实验检查清单**:
+- [ ] 运行ANR场景模拟，观察超时检测机制
+- [ ] 理解不同组件ANR超时时间的设计原理
+- [ ] 分析traces.txt文件的生成时机和内容
 - [ ] **检查点**: 能准确说出不同组件的ANR超时时间
 - [ ] **文件**: 创建`student_progress/anr_analysis_notes.md`
 
 #### Task 4.1.2: ANR根本原因分类 (5分钟) ⏰
-- [ ] **学习目标**: 理解导致ANR的五大根本原因
-- [ ] **具体任务**: 学习耗时I/O、复杂计算、锁竞争、死锁、Binder长调用
+
+🔬 **代码实验室 - ANR根本原因诊断系统**
+
+```java
+// ✅ ANR根本原因分类与诊断
+public class ANRRootCauseAnalyzer {
+    
+    // ANR根本原因分类枚举
+    public enum ANRRootCause {
+        IO_BLOCKING("I/O阻塞", "文件、网络、数据库操作", "最常见，占60%+"),
+        CPU_INTENSIVE("CPU密集计算", "图片处理、算法运算", "占20%左右"),
+        LOCK_CONTENTION("锁竞争", "多线程同步问题", "占10%左右"),
+        DEADLOCK("死锁", "循环等待锁资源", "占5%左右"),
+        BINDER_CALL("跨进程调用", "系统服务、ContentProvider", "占5%左右");
+        
+        private final String type;
+        private final String description;
+        private final String frequency;
+        
+        ANRRootCause(String type, String description, String frequency) {
+            this.type = type;
+            this.description = description;
+            this.frequency = frequency;
+        }
+        
+        public void printAnalysis() {
+            System.out.println(String.format("🔍 %s:", type));
+            System.out.println(String.format("   📝 描述: %s", description));
+            System.out.println(String.format("   📊 频率: %s", frequency));
+        }
+    }
+    
+    // ANR原因诊断工具
+    public static class ANRDiagnosticTool {
+        
+        // 1. I/O阻塞诊断和模拟
+        public static void demonstrateIOBlocking() {
+            System.out.println("=== I/O阻塞ANR模拟 ===");
+            
+            // ❌ 错误做法：主线程进行网络请求
+            try {
+                System.out.println("🌐 主线程执行网络请求...");
+                simulateNetworkCall(); // 这会阻塞主线程
+                System.out.println("✅ 网络请求完成");
+            } catch (Exception e) {
+                System.out.println("❌ 网络请求异常: " + e.getMessage());
+            }
+            
+            // 诊断建议
+            System.out.println("\n💡 I/O阻塞诊断特征:");
+            System.out.println("- traces.txt显示主线程在I/O相关系统调用上");
+            System.out.println("- 堆栈包含Socket、FileInputStream、Database等关键词");
+            System.out.println("- 线程状态通常是RUNNABLE或BLOCKED");
+            
+            System.out.println("\n🛠️ 解决方案:");
+            System.out.println("- 使用AsyncTask、Thread、线程池处理I/O");
+            System.out.println("- 采用Retrofit + RxJava/协程进行网络请求");
+            System.out.println("- 数据库操作使用Room的异步API");
+        }
+        
+        private static void simulateNetworkCall() throws InterruptedException {
+            // 模拟网络延迟
+            Thread.sleep(3000);
+        }
+        
+        // 2. CPU密集计算诊断
+        public static void demonstrateCPUIntensive() {
+            System.out.println("\n=== CPU密集计算ANR模拟 ===");
+            
+            System.out.println("🔢 主线程执行复杂计算...");
+            long startTime = System.currentTimeMillis();
+            
+            // ❌ 错误做法：主线程进行大量计算
+            performComplexCalculation();
+            
+            long duration = System.currentTimeMillis() - startTime;
+            System.out.println(String.format("⏱️ 计算耗时: %dms", duration));
+            
+            System.out.println("\n💡 CPU密集ANR诊断特征:");
+            System.out.println("- CPU使用率持续100%");
+            System.out.println("- 主线程堆栈显示应用代码在执行计算");
+            System.out.println("- 没有系统调用阻塞，纯CPU消耗");
+            
+            System.out.println("\n🛠️ 解决方案:");
+            System.out.println("- 分片处理：将大任务拆分成小块");
+            System.out.println("- 后台线程：使用Worker线程处理计算");
+            System.out.println("- 算法优化：改进算法复杂度");
+        }
+        
+        private static void performComplexCalculation() {
+            // 模拟复杂计算（例如图片处理、算法运算）
+            double result = 0;
+            for (int i = 0; i < 10000000; i++) {
+                result += Math.sqrt(i) * Math.sin(i);
+            }
+        }
+        
+        // 3. 锁竞争诊断
+        public static void demonstrateLockContention() {
+            System.out.println("\n=== 锁竞争ANR模拟 ===");
+            
+            Object sharedLock = new Object();
+            
+            // 子线程先获取锁
+            Thread backgroundThread = new Thread(() -> {
+                synchronized (sharedLock) {
+                    System.out.println("🔒 后台线程获取锁，模拟长时间持有...");
+                    try {
+                        Thread.sleep(8000); // 持有锁8秒
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("🔓 后台线程释放锁");
+                }
+            });
+            backgroundThread.start();
+            
+            // 稍后主线程尝试获取同一个锁
+            try {
+                Thread.sleep(1000); // 确保后台线程先获取锁
+                System.out.println("⏳ 主线程尝试获取锁...");
+                
+                synchronized (sharedLock) {
+                    System.out.println("✅ 主线程获取锁成功");
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            
+            System.out.println("\n💡 锁竞争ANR诊断特征:");
+            System.out.println("- 主线程状态显示BLOCKED或WAITING");
+            System.out.println("- 堆栈显示在synchronized或Lock.lock()上等待");
+            System.out.println("- traces.txt显示锁的持有者线程信息");
+            
+            System.out.println("\n🛠️ 解决方案:");
+            System.out.println("- 减少锁的持有时间");
+            System.out.println("- 使用更细粒度的锁");
+            System.out.println("- 避免主线程参与锁竞争");
+        }
+        
+        // 4. 死锁诊断
+        public static void demonstrateDeadlock() {
+            System.out.println("\n=== 死锁ANR诊断演示 ===");
+            
+            Object lock1 = new Object();
+            Object lock2 = new Object();
+            
+            // 线程1：先获取lock1，再获取lock2
+            Thread thread1 = new Thread(() -> {
+                synchronized (lock1) {
+                    System.out.println("🔒 线程1获取lock1");
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    
+                    System.out.println("⏳ 线程1尝试获取lock2...");
+                    synchronized (lock2) {
+                        System.out.println("✅ 线程1获取lock2");
+                    }
+                }
+            }, "Thread-1");
+            
+            // 线程2：先获取lock2，再获取lock1
+            Thread thread2 = new Thread(() -> {
+                synchronized (lock2) {
+                    System.out.println("🔒 线程2获取lock2");
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    
+                    System.out.println("⏳ 线程2尝试获取lock1...");
+                    synchronized (lock1) {
+                        System.out.println("✅ 线程2获取lock1");
+                    }
+                }
+            }, "Thread-2");
+            
+            thread1.start();
+            thread2.start();
+            
+            System.out.println("\n💡 死锁ANR诊断特征:");
+            System.out.println("- 多个线程相互等待对方持有的锁");
+            System.out.println("- traces.txt显示循环依赖关系");
+            System.out.println("- 线程状态都是BLOCKED");
+            
+            System.out.println("\n🛠️ 解决方案:");
+            System.out.println("- 统一锁的获取顺序");
+            System.out.println("- 使用tryLock()避免无限等待");
+            System.out.println("- 减少锁的嵌套使用");
+        }
+        
+        // ANR诊断流程
+        public static void printDiagnosticProcess() {
+            System.out.println("\n🔍 ANR根本原因诊断流程:");
+            System.out.println("1. 📄 获取traces.txt文件");
+            System.out.println("2. 🎯 定位主线程(main)状态");
+            System.out.println("3. 📊 分析线程堆栈信息");
+            System.out.println("4. 🔗 追踪锁依赖关系");
+            System.out.println("5. ⚡ 检查系统资源使用");
+            System.out.println("6. 🎯 确定根本原因类型");
+            System.out.println("7. 🛠️ 制定针对性解决方案");
+        }
+    }
+}
+```
+
+🎯 **学习重点**:
+1. **根本原因分类**: I/O阻塞占主导(60%+)，需重点关注网络和文件操作
+2. **诊断特征识别**: 每种原因在traces.txt中有独特的表现特征
+3. **解决方案针对性**: 不同原因需要不同的解决策略和技术方案
+4. **预防性编程**: 通过良好的编程习惯避免大部分ANR问题
+
+📋 **实验检查清单**:
+- [ ] 运行各种ANR原因模拟，观察不同表现
+- [ ] 理解traces.txt中不同原因的诊断特征
+- [ ] 掌握针对每种原因的解决方案
 - [ ] **检查点**: 能分类识别不同类型的ANR原因
 - [ ] **文件**: 添加ANR原因分类分析
 
