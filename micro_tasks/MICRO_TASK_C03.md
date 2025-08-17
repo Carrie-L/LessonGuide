@@ -8,8 +8,60 @@
 ## Phase 34: 架构模式基础对比 (30分钟总计)
 
 #### Task 3.1.1: MVC模式理解 (5分钟) ⏰
-- [ ] **学习目标**: 理解Model-View-Controller的基本思想
-- [ ] **具体任务**: 学习MVC在Android中的局限性
+
+🔬 **代码实验室 - 传统MVC在Android中的耦合问题**
+
+```java
+// ❌ 典型的Android MVC问题 - Activity身兼多职
+public class UserActivity extends AppCompatActivity {
+    private TextView userNameText, userEmailText;
+    private Button loadButton;
+    
+    // Controller职责 - 处理用户交互
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user);
+        
+        userNameText = findViewById(R.id.userName);
+        userEmailText = findViewById(R.id.userEmail);
+        loadButton = findViewById(R.id.loadButton);
+        
+        // View职责 - UI逻辑
+        loadButton.setOnClickListener(v -> {
+            // Model职责 - 数据获取和业务逻辑
+            String userData = loadUserFromDatabase();
+            String[] parts = userData.split(",");
+            
+            // 直接操作UI - 违反分离原则
+            userNameText.setText(parts[0]);
+            userEmailText.setText(parts[1]);
+            
+            // 业务逻辑混入UI层
+            if (parts[0].length() > 20) {
+                userNameText.setTextSize(12);
+            }
+        });
+    }
+    
+    // 数据层代码混在Controller中
+    private String loadUserFromDatabase() {
+        // 模拟数据库访问
+        return "张三,zhangsan@example.com";
+    }
+}
+```
+
+🎯 **学习重点**:
+1. **耦合分析**: Activity同时承担MVC三种角色
+2. **测试困难**: 业务逻辑与Android框架深度绑定
+3. **维护问题**: 代码职责不清，难以复用和修改
+4. **扩展性差**: 新增功能需要修改多个层级的代码
+
+📋 **实验检查清单**:
+- [ ] 识别代码中MVC角色混乱的地方
+- [ ] 分析为什么这种架构难以单元测试
+- [ ] 思考如何分离各层职责
 - [ ] **检查点**: 能解释为什么Android中MVC耦合严重
 - [ ] **文件**: 创建`student_progress/architecture_notes.md`
 
