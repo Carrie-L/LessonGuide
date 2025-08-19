@@ -3,7 +3,8 @@
     "allow": [
       "Bash(javac:*)",
       "Bash(java:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(chmod:*)"
     ]
   },
   "outputStyle": "Explanatory"

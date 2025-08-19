@@ -137,6 +137,8 @@ When resuming learning sessions:
 
 12. 通过一些编程练习，保证用户学会这个概念，每个 micro tasks 都要包含编程练习任务。
 
+13. **Show, Don't Just Tell**: For abstract concepts like concurrency or performance, provide concrete, runnable code examples that first **demonstrate the problem** (e.g., code that fails or deadlocks). This makes the need for the solution tangible and memorable before explaining the solution itself.
+
 ### Student Progress Monitoring
 - All code implementations should be in `student_progress/` directory
 - Notes and summaries should be in markdown format
