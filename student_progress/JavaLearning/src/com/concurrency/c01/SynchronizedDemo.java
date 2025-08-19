@@ -1,3 +1,5 @@
+package com.concurrency.c01;
+
 import java.util.concurrent.CountDownLatch;
 
 public class SynchronizedDemo {

@@ -1,3 +1,5 @@
+package com.concurrency.c01;
+
 public class HappensBefore_Example {
 
     private volatile boolean isRunning = true;
