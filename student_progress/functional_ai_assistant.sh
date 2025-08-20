@@ -17,6 +17,15 @@ ROADMAP_FILE="../ANDROID_SENIOR_DEVELOPER_ROADMAP.md"
 MICRO_TASKS_DIR="../micro_tasks"
 PROGRESS_FILE="learning_data/roadmap_progress.json"
 
+# Get current date and time
+DATE=$(date '+%Y-%m-%d')
+TIME=$(date '+%H:%M')
+TIMESTAMP=$(date '+%s')
+
+# Learning data files
+LOG_FILE="learning_data/learning_log.csv"
+DAILY_LOG="learning_data/daily_${DATE}.md"
+
 # Create directories
 mkdir -p learning_data
 
@@ -641,7 +650,7 @@ EOF
         
         if [[ "$next_task" != "Check roadmap for next task" ]]; then
             echo -e "${GREEN}🎯 Your next task: Task $next_task${NC}"
-            echo -e "${CYAN}Quick start: ./functional_ai_assistant.sh start-task $next_task${NC}"
+            echo -e "${CYAN}Quick start: ./ai s $next_task${NC}"
         fi
         
         # Open roadmap in VS Code if available
@@ -654,25 +663,26 @@ EOF
     # Show learning report after completion (from simple_learning_tracker.sh)
     echo ""
     echo -e "${BLUE}📊 Quick Learning Analytics${NC}"
-    generate_quick_report
+    # generate_quick_report
+    generate_report
+    show_calendar
 }
 
 # Generate quick learning report (adapted from simple_learning_tracker.sh)
 generate_quick_report() {
-    local log_file="learning_data/learning_log.csv"
     
-    if [[ ! -f "$log_file" ]]; then
+    if [[ ! -f "$LOG_FILE" ]]; then
         echo -e "${YELLOW}⚠️ No learning data found yet${NC}"
         return
     fi
     
     # Basic statistics
-    local total_sessions=$(tail -n +2 "$log_file" | wc -l)
-    local total_minutes=$(tail -n +2 "$log_file" | cut -d',' -f4 | awk '{sum+=$1} END {print sum+0}')
+    local total_sessions=$(tail -n +2 "$LOG_FILE" | wc -l)
+    local total_minutes=$(tail -n +2 "$LOG_FILE" | cut -d',' -f4 | awk '{sum+=$1} END {print sum+0}')
     
     # This week's data
     local current_week=$(date '+%Y-%m-%d' -d 'monday')
-    local this_week_sessions=$(tail -n +2 "$log_file" | awk -F',' -v week="$current_week" '$1 >= week' | wc -l)
+    local this_week_sessions=$(tail -n +2 "$LOG_FILE" | awk -F',' -v week="$current_week" '$1 >= week' | wc -l)
     
     echo "═══════════════════════════════════════════════════════"
     echo -e "${YELLOW}🎯 Your Progress Summary:${NC}"
@@ -684,7 +694,7 @@ generate_quick_report() {
     if [[ $total_sessions -gt 0 ]]; then
         echo ""
         echo -e "${YELLOW}📊 Recent Learning:${NC}"
-        tail -n 3 "$log_file" | while IFS=',' read -r date time task duration quality difficulty status notes task_file task_id; do
+        tail -n 3 "$LOG_FILE" | while IFS=',' read -r date time task duration quality difficulty status notes task_file task_id; do
             if [[ "$date" != "Date" && -n "$date" ]]; then
                 echo "   • $date: $task (${duration}min, Quality: ${quality}/10)"
             fi
@@ -698,6 +708,115 @@ generate_quick_report() {
     fi
     
     echo "═══════════════════════════════════════════════════════"
+}
+
+generate_report() {
+    echo -e "${BLUE}📊 Your Learning Analytics Report${NC}"
+    echo "═══════════════════════════════════════════════════════"
+    
+    if [[ ! -f "$LOG_FILE" ]]; then
+        echo -e "${RED}❌ No learning data found. Start tracking first!${NC}"
+        exit 1
+    fi
+    
+    # Basic statistics
+    total_sessions=$(tail -n +2 "$LOG_FILE" | wc -l)
+    total_minutes=$(tail -n +2 "$LOG_FILE" | cut -d',' -f4 | awk '{sum+=$1} END {print sum}')
+    avg_quality=$(tail -n +2 "$LOG_FILE" | cut -d',' -f5 | awk '{sum+=$1; count++} END {print sum/count}')
+    
+    # This week's data
+    current_week=$(date '+%Y-%m-%d' -d 'monday')
+    this_week_sessions=$(tail -n +2 "$LOG_FILE" | awk -F',' -v week="$current_week" '$1 >= week' | wc -l)
+    
+    # Recent streak
+    recent_dates=$(tail -n +2 "$LOG_FILE" | cut -d',' -f1 | sort -u | tail -7)
+    streak_days=$(echo "$recent_dates" | wc -l)
+    
+    echo ""
+    echo -e "${YELLOW}🎯 Overall Progress:${NC}"
+    echo "   📈 Total Sessions: $total_sessions"
+    echo "   ⏰ Total Learning Time: $total_minutes minutes ($(($total_minutes / 60))h $(($total_minutes % 60))m)"
+    echo "   🎯 Average Quality Score: $(printf "%.1f" $avg_quality)/10"
+    echo "   📅 This Week: $this_week_sessions sessions"
+    echo "   🔥 Recent Activity: $streak_days days"
+    
+    echo ""
+    echo -e "${YELLOW}📊 Recent Sessions:${NC}"
+    tail -n 5 "$LOG_FILE" | while IFS=',' read -r date time task duration quality difficulty status notes; do
+        if [[ "$date" != "Date" ]]; then
+            echo "   • $date: $task (${duration}min, Quality: ${quality}/10)"
+        fi
+    done
+    
+    echo ""
+    echo -e "${YELLOW}💡 Learning Insights:${NC}"
+    
+    # Find most challenging tasks
+    challenging_tasks=$(tail -n +2 "$LOG_FILE" | awk -F',' '$6 >= 8 {print $3}' | sort | uniq -c | sort -nr | head -3)
+    if [[ -n "$challenging_tasks" ]]; then
+        echo "   🧠 Most Challenging Topics:"
+        echo "$challenging_tasks" | while read count task; do
+            echo "      • $task ($count times)"
+        done
+    fi
+    
+    # Find high-quality work
+    quality_work=$(tail -n +2 "$LOG_FILE" | awk -F',' '$5 >= 8 {print $3}' | sort | uniq -c | sort -nr | head -3)
+    if [[ -n "$quality_work" ]]; then
+        echo "   ⭐ High Quality Work:"
+        echo "$quality_work" | while read count task; do
+            echo "      • $task ($count times)"
+        done
+    fi
+    
+    echo ""
+    echo -e "${BLUE}🎯 Recommendations:${NC}"
+    
+    # Generate simple recommendations
+    if (( $(echo "$avg_quality < 7" | bc -l) )); then
+        echo "   📈 Focus on improving code quality - take more time for review"
+    fi
+    
+    if [[ $this_week_sessions -lt 3 ]]; then
+        echo "   📅 Try to maintain at least 3 learning sessions per week"
+    fi
+    
+    recent_completion=$(tail -n 3 "$LOG_FILE" | cut -d',' -f7 | grep -c "struggling")
+    if [[ $recent_completion -gt 1 ]]; then
+        echo "   💪 Consider reviewing fundamentals or seeking help with recent topics"
+    fi
+    
+    echo ""
+    echo -e "${GREEN}✅ Keep up the great work! Every session counts! 🚀${NC}"
+}
+
+# Function to show learning calendar
+show_calendar() {
+    echo -e "${BLUE}📅 Your Learning Calendar${NC}"
+    echo "═══════════════════════════════════════════════════════"
+    
+    if [[ ! -f "$LOG_FILE" ]]; then
+        echo -e "${RED}❌ No learning data found.${NC}"
+        exit 1
+    fi
+    
+    # Show last 14 days
+    for i in {13..0}; do
+        check_date=$(date -d "$i days ago" '+%Y-%m-%d')
+        day_name=$(date -d "$i days ago" '+%a')
+        
+        sessions=$(tail -n +2 "$LOG_FILE" | grep "^$check_date" | wc -l)
+        total_time=$(tail -n +2 "$LOG_FILE" | grep "^$check_date" | cut -d',' -f4 | awk '{sum+=$1} END {print sum}')
+        
+        if [[ $sessions -gt 0 ]]; then
+            echo -e "${GREEN}✅ $check_date ($day_name): $sessions sessions, ${total_time}min${NC}"
+        else
+            echo -e "${RED}❌ $check_date ($day_name): No learning${NC}"
+        fi
+    done
+    
+    echo ""
+    echo -e "${BLUE}💡 Consistency is key to mastering programming concepts!${NC}"
 }
 
 # Show actual file browser
@@ -781,20 +900,20 @@ case "${1:-help}" in
         echo "═══════════════════════════════════════════════════════"
         echo ""
         echo -e "${YELLOW}🚀 Main Commands:${NC}"
-        echo "  ./functional_ai_assistant.sh today              → Show today's recommended tasks"
-        echo "  ./functional_ai_assistant.sh open-task 1.1.1    → Actually open and show task content"
-        echo "  ./functional_ai_assistant.sh start-task 1.1.1   → Full setup: open file + create code + track"
-        echo "  ./functional_ai_assistant.sh finish-task        → Complete current task"
+        echo "  ./ai today              → Show today's recommended tasks"
+        echo "  ./ai o 1.1.1            → Actually open and show task content"
+        echo "  ./ai s 1.1.1            → Full setup: open file + create code + track"
+        echo "  ./ai f                  → Complete current task"
         echo ""
         echo -e "${YELLOW}🛠️ Utility Commands:${NC}"
-        echo "  ./functional_ai_assistant.sh setup-workspace 1  → Create week directory structure"
-        echo "  ./functional_ai_assistant.sh browse             → Browse available micro task files"
+        echo "  ./ai w 1                → Create week directory structure -workspace"
+        echo "  ./ai b                  → Browse available micro task files"
         echo ""
         echo -e "${CYAN}🎯 Example Workflow:${NC}"
-        echo "  1. ./functional_ai_assistant.sh today           → See today's tasks"
-        echo "  2. ./functional_ai_assistant.sh start-task 1.1.1 → Setup everything + open IDEs"
+        echo "  1. ./ai t               → See today's tasks"
+        echo "  2. ./ai s 1.1.1     → Setup everything + open IDEs"
         echo "  3. [Code for 5-90 minutes in Android Studio/IntelliJ/VS Code]"
-        echo "  4. ./functional_ai_assistant.sh finish-task     → Complete and review (ONLY command to use)"
+        echo "  4. ./ai f               → Complete and review (ONLY command to use)"
         echo ""
         echo -e "${PURPLE}💡 Updated for correct file structure:${NC}"
         echo "  ✅ MICRO_TASK_C01.md (Chapter 1)"

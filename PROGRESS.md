@@ -7,14 +7,10 @@
 
 ### 1.1 并发原语：synchronized, volatile 与 JMM
 - [ ] **理论学习**: 理解JMM、happens-before原则
-- [ ] **编码实践**: 
-  - [ ] 分析Java内存模型（JMM）和happens-before
-  - [ ] 实现无锁数据结构（CAS、原子类）
-  - [ ] 实现synchronized锁升级演示代码
-  - [ ] 编写volatile可见性验证程序
-  - [ ] 对比synchronized vs volatile在不同场景下的表现
-  - [ ] 理解volatile和synchronized的底层实现
-  - [ ] 分析协程与线程的调度差异
+  - [ ] Phase 1: 并发编程基础
+  - [ ] Phase 2: synchronized互斥锁原理
+  - [ ] Phase 3: JMM实践
+  - [ ] Phase 4: Senior Application (架构应用)
 - [ ] **面试模拟**: 回答经典问题并接受追问
 - [ ] **面试模拟**: 设计高并发的数据处理系统
 - [ ] **深度理解**: 能够从JVM底层解释原理
@@ -22,6 +18,7 @@
 
 ### 1.2 主力集合：HashMap & ConcurrentHashMap 源码剖析
 - [ ] **理论学习**: HashMap 1.7 vs 1.8演进、ConcurrentHashMap分段锁到CAS+synchronized
+  - [ ] Phase 5: 集合基础
 - [ ] **编码实践**:
   - [ ] 手写简化版HashMap（数组+链表+红黑树转换）
   - [ ] 实现线程安全的Map操作对比测试
