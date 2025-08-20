@@ -177,9 +177,9 @@ student_progress/
 │       ├── HiltVsDaggerComparison.java
 │       └── ...
 ├── CHAPTER_8_PROGRESS.md           # Progress tracking
-├── LEARNING_NOTES.md               # Personal insights and questions
+├── notes/               # Personal insights and questions
 ├── INTERVIEW_PREPARATION.md        # Interview Q&A compilation
-└── PROJECT_PRACTICE/               # Real project applications
+└── student_code/               # Real project applications
     ├── MyHiltApp/                  # Practice Android project
     └── MultiModuleExample/         # Modularization practice
 ```

@@ -34,9 +34,9 @@
 | **Handler System** | Message Queue Monitor | 300+ lines | 系统性能监控 |
 | **Binder IPC** | IPC Framework | 600+ lines | 系统服务开发 |
 
-# 🎯 2.1 运行时引擎：ART 的混合编译模式
+## 🎯 2.1 运行时引擎：ART 的混合编译模式
 
-## Phase 15: ART vs Dalvik基础 (25分钟总计)
+### Phase 15: ART vs Dalvik基础 (25分钟总计)
 
 #### Task 2.1.1: Dalvik虚拟机原理 + 编程验证 (5分钟) ⏰
 - [ ] **学习目标**: 理解Dalvik的JIT编译机制
@@ -92,7 +92,7 @@ public class Dex2OatAnalyzer {
 - [ ] **检查点**: 能说明编译优化的完整生命周期
 - [ ] **文件**: 完善编译时机说明
 
-## Phase 16: 性能分析实践 (20分钟总计)
+### Phase 16: 性能分析实践 (20分钟总计)
 
 #### Task 2.1.6: APK深度分析工具开发 (5分钟) ⏰
 - [ ] **学习目标**: 深度分析APK结构，理解ART编译产物
@@ -277,12 +277,14 @@ public class APKAnalyzer {
   echo "- 应用启动时的CPU使用情况"  
   echo "- ART编译器活动"
   echo "- 进程创建和初始化时间"
-  ```
+```
+
 - [ ] **检查点**: 能在Perfetto UI中识别ART相关活动和性能瓶颈
 - [ ] **编程练习**: 对比不同编译状态下的启动性能差异
 - [ ] **文件**: `student_progress/PerfettoTrace.sh` 和分析报告
 
-## Phase 17: ART面试准备 (15分钟总计)
+
+### Phase 17: ART面试准备 (15分钟总计)
 
 #### Task 2.1.10: 经典问题准备 (5分钟) ⏰
 - [ ] **学习目标**: 准备ART相关面试问题
@@ -304,9 +306,9 @@ public class APKAnalyzer {
 
 ---
 
-# 🎯 2.2 四大组件深度：Activity 启动模式
+## 🎯 2.2 四大组件深度：Activity 启动模式
 
-## Phase 18: 任务栈基础理念 (20分钟总计)
+### Phase 18: 任务栈基础理念 (20分钟总计)
 
 #### Task 2.2.1: Task和Back Stack概念 (5分钟) ⏰
 - [ ] **学习目标**: 理解Android的任务栈机制
@@ -332,11 +334,12 @@ public class APKAnalyzer {
 - [ ] **检查点**: 能解释最近任务列表的工作原理
 - [ ] **文件**: 完善任务管理机制说明
 
-## Phase 19: 四种启动模式实战 (30分钟总计)
+### Phase 19: 四种启动模式实战 (30分钟总计)
 
 #### Task 2.2.5: Activity启动模式可视化工具开发 (5分钟) ⏰
 - [ ] **学习目标**: 通过可视化理解四种启动模式的任务栈行为
 - [ ] **🔥 强制编程实验**: 开发完整的Task Stack视觉化工具
+
 ```java
 // student_progress/AndroidLearning/src/TaskStackVisualizer.java
 public class TaskStackVisualizer {
@@ -1145,7 +1148,7 @@ public class TaskStackVisualizer {
 - [ ] **编程练习**: 创建推送消息处理场景，验证Intent数据更新的正确性
 - [ ] **文件**: `student_progress/NewIntentHandlerDemo.java`
 
-## Phase 20: 用户体验考量 (15分钟总计)
+### Phase 20: 用户体验考量 (15分钟总计)
 
 #### Task 2.2.11: 导航体验分析 (5分钟) ⏰
 - [ ] **学习目标**: 从UX角度分析启动模式选择，理解技术决策对用户体验的影响
@@ -1923,9 +1926,9 @@ public class TaskStackVisualizer {
 
 ---
 
-# 🎯 2.3 UI 渲染管线：Measure, Layout, Draw
+## 🎯 2.3 UI 渲染管线：Measure, Layout, Draw
 
-## Phase 21: 渲染流程基础 (25分钟总计)
+### Phase 21: 渲染流程基础 (25分钟总计)
 
 #### Task 2.3.1: ViewRootImpl入口分析 (5分钟) ⏰
 - [ ] **学习目标**: 理解UI渲染的总控制器
@@ -1957,7 +1960,7 @@ public class TaskStackVisualizer {
 - [ ] **检查点**: 能说明draw()的六个步骤
 - [ ] **文件**: 完善Draw阶段分析
 
-## Phase 22: 自定义View实战 (25分钟总计)
+### Phase 22: 自定义View实战 (25分钟总计)
 
 #### Task 2.3.6: 渲染性能分析自定义View (5分钟) ⏰
 - [ ] **学习目标**: 创建能分析渲染性能的自定义View，理解Measure-Layout-Draw流程
@@ -3192,7 +3195,7 @@ public class TaskStackVisualizer {
 - [ ] **编程练习**: 对比同一界面的嵌套布局和ConstraintLayout实现，测量性能差异
 - [ ] **文件**: `student_progress/ConstraintLayoutPerformanceComparator.java`
 
-## Phase 23: 渲染优化实践 (20分钟总计)
+### Phase 23: 渲染优化实践 (20分钟总计)
 
 #### Task 2.3.11: 渲染触发机制分析实验 (5分钟) ⏰
 - [ ] **学习目标**: 深入理解requestLayout()和invalidate()的触发条件和性能影响
@@ -5388,9 +5391,9 @@ public class TaskStackVisualizer {
 
 ---
 
-# 🎯 2.4 事件分发机制
+## 🎯 2.4 事件分发机制
 
-## Phase 24: 事件分发基础 (25分钟总计)
+### Phase 24: 事件分发基础 (25分钟总计)
 
 #### Task 2.4.1: 责任链模式理解 (5分钟) ⏰
 - [ ] **学习目标**: 理解事件分发的设计模式
@@ -5422,7 +5425,7 @@ public class TaskStackVisualizer {
 - [ ] **检查点**: 能预测不消费DOWN事件的后果
 - [ ] **文件**: 完善事件消费机制
 
-## Phase 25: 事件流追踪实战 (30分钟总计)
+### Phase 25: 事件流追踪实战 (30分钟总计)
 
 #### Task 2.4.6: 事件流可视化追踪器 (5分钟) ⏰
 - [ ] **学习目标**: 建立完整的事件分发流程追踪系统
@@ -7363,7 +7366,7 @@ class ConflictResolutionFramework {
 - [ ] 观察基于速度的冲突解决效果
 - [ ] 分析状态机在复杂场景下的行为
 
-## Phase 26: 高级事件处理 (15分钟总计)
+### Phase 26: 高级事件处理 (15分钟总计)
 
 #### Task 2.4.12: 多点触控处理 (5分钟) ⏰
 - [ ] **学习目标**: 理解多指触摸的事件分发
@@ -8400,474 +8403,9 @@ class GestureConflictResolver {
 - [ ] **检查点**: 能现场分析复杂的事件传递场景
 - [ ] **文件**: 更新面试问答集
 
-**🎯 面试重点突破 - 事件分发机制核心问答**
+## 🎯 2.5 异步心跳：Handler, Looper, MessageQueue
 
-### 1. 基础概念深度问答
-
-**Q1: Android事件分发的三个核心方法是什么？它们的调用时机和返回值含义？**
-
-**A1 (高级回答):**
-```
-三个核心方法及其职责：
-
-1. dispatchTouchEvent(MotionEvent ev)
-   - 职责：事件分发的总入口，决定事件流向
-   - 调用时机：每个事件都会首先到达此方法
-   - 返回值：true表示消费事件，false表示不处理
-   - 关键点：ViewGroup会在此方法中调用onInterceptTouchEvent
-
-2. onInterceptTouchEvent(MotionEvent ev) [仅ViewGroup有]
-   - 职责：决定是否拦截事件，不让子View处理
-   - 调用时机：在dispatchTouchEvent中被调用
-   - 返回值：true拦截事件，false不拦截传递给子View
-   - 关键点：一旦拦截，后续MOVE和UP事件直接由当前ViewGroup处理
-
-3. onTouchEvent(MotionEvent event)
-   - 职责：具体的事件处理逻辑
-   - 调用时机：当事件需要被当前View处理时
-   - 返回值：true消费事件，false向父View传递
-   - 关键点：onClick等监听器最终在这里被触发
-```
-
-**Q2: 请详细描述一个DOWN事件在View树中的完整传递流程**
-
-**A2 (架构级回答):**
-```java
-// 完整事件分发流程分析
-public class TouchEventFlowAnalysis {
-    
-    /*
-     * 事件分发完整链路：
-     * Activity.dispatchTouchEvent() 
-     *   -> ViewGroup.dispatchTouchEvent()
-     *     -> ViewGroup.onInterceptTouchEvent() [检查是否拦截]
-     *       -> 如果不拦截：遍历子View，找到目标子View
-     *         -> ChildView.dispatchTouchEvent()
-     *           -> ChildView.onTouchEvent()
-     *             -> 如果子View不消费：回传给父ViewGroup
-     *               -> ViewGroup.onTouchEvent()
-     *                 -> 如果父View也不消费：回传给Activity
-     *                   -> Activity.onTouchEvent()
-     */
-    
-    // 1. Activity层面
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        // Step 1: 分发给Window的DecorView
-        if (getWindow().superDispatchTouchEvent(ev)) {
-            return true; // View树中有人消费了事件
-        }
-        // Step 2: 没人消费，Activity自己处理
-        return onTouchEvent(ev);
-    }
-    
-    // 2. ViewGroup层面（如LinearLayout）
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        boolean handled = false;
-        
-        // Step 1: 检查是否拦截
-        boolean intercepted = onInterceptTouchEvent(ev);
-        
-        if (!intercepted) {
-            // Step 2: 不拦截，寻找目标子View
-            for (int i = getChildCount() - 1; i >= 0; i--) {
-                View child = getChildAt(i);
-                if (isTransformedTouchPointInView(ev.getX(), ev.getY(), child)) {
-                    // Step 3: 找到目标，分发给子View
-                    handled = child.dispatchTouchEvent(ev);
-                    if (handled) break; // 子View消费了，停止遍历
-                }
-            }
-        }
-        
-        // Step 4: 子View都不处理或者被拦截，自己处理
-        if (!handled) {
-            handled = onTouchEvent(ev);
-        }
-        
-        return handled;
-    }
-    
-    // 3. View层面（如Button）
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        // Step 1: 检查OnTouchListener
-        if (mOnTouchListener != null && 
-            mOnTouchListener.onTouch(this, event)) {
-            return true; // Listener消费了事件
-        }
-        
-        // Step 2: 调用自己的onTouchEvent
-        return onTouchEvent(event);
-    }
-}
-```
-
-### 2. 高级场景分析
-
-**Q3: ViewPager嵌套ListView出现滑动冲突，如何分析和解决？**
-
-**A3 (解决方案架构师回答):**
-```java
-// 滑动冲突分析和解决方案
-public class ScrollConflictSolution {
-    
-    /*
-     * 问题分析：
-     * 1. ViewPager响应水平滑动，ListView响应垂直滑动
-     * 2. 当用户斜向滑动时，两者都想处理事件
-     * 3. 导致滑动体验不流畅或功能失效
-     */
-    
-    // 解决方案1：智能方向判断
-    public class SmartViewPager extends ViewPager {
-        private float startX, startY;
-        private boolean isHorizontalScroll = false;
-        
-        @Override
-        public boolean onInterceptTouchEvent(MotionEvent ev) {
-            switch (ev.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    startX = ev.getX();
-                    startY = ev.getY();
-                    // 重置状态，先不拦截
-                    super.onInterceptTouchEvent(ev);
-                    return false;
-                    
-                case MotionEvent.ACTION_MOVE:
-                    float deltaX = Math.abs(ev.getX() - startX);
-                    float deltaY = Math.abs(ev.getY() - startY);
-                    
-                    // 方向判断：水平距离 > 垂直距离 * 阈值
-                    if (deltaX > deltaY * 1.5f && deltaX > 30) {
-                        isHorizontalScroll = true;
-                        return true; // 明确是水平滑动，开始拦截
-                    } else if (deltaY > deltaX * 1.5f) {
-                        return false; // 明确是垂直滑动，不拦截
-                    }
-                    break;
-            }
-            return super.onInterceptTouchEvent(ev);
-        }
-    }
-    
-    // 解决方案2：协作式处理
-    public class CooperativeScrollView extends ScrollView {
-        private ListView childList;
-        
-        @Override
-        public boolean onInterceptTouchEvent(MotionEvent ev) {
-            // 检查子ListView的滚动状态
-            if (childList != null && ev.getAction() == MotionEvent.ACTION_MOVE) {
-                boolean canChildScrollUp = childList.canScrollVertically(-1);
-                boolean canChildScrollDown = childList.canScrollVertically(1);
-                
-                float deltaY = ev.getY() - startY;
-                
-                // 智能协作策略
-                if (deltaY > 0 && !canChildScrollUp) {
-                    // 向下滑动且子View无法继续向上滑动，父View接管
-                    return true;
-                } else if (deltaY < 0 && !canChildScrollDown) {
-                    // 向上滑动且子View无法继续向下滑动，父View接管
-                    return true;
-                }
-                
-                return false; // 让子View处理
-            }
-            return super.onInterceptTouchEvent(ev);
-        }
-    }
-}
-```
-
-**Q4: 如何理解"一旦ViewGroup拦截了事件，后续事件会直接发给它"？**
-
-**A4 (系统级理解):**
-```java
-public class InterceptMechanism {
-    
-    /*
-     * 拦截机制的本质：
-     * 1. DOWN事件决定事件序列的归属
-     * 2. 一旦某个ViewGroup拦截，它就成为这个事件序列的"负责人"
-     * 3. 系统会记住这个决定，后续MOVE、UP直接发给它
-     */
-    
-    // ViewGroup的事件分发核心逻辑
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        boolean handled = false;
-        
-        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            // DOWN事件：重新决策
-            mFirstTouchTarget = null; // 清空之前的目标
-            boolean intercepted = onInterceptTouchEvent(ev);
-            
-            if (!intercepted) {
-                // 寻找能处理的子View
-                for (View child : children) {
-                    if (child.dispatchTouchEvent(ev)) {
-                        mFirstTouchTarget = child; // 记住这个子View
-                        handled = true;
-                        break;
-                    }
-                }
-            }
-        } else {
-            // MOVE/UP事件：沿用之前的决定
-            if (mFirstTouchTarget != null) {
-                // 之前有子View处理，继续给它
-                // 但仍然检查是否要中途拦截
-                boolean intercepted = onInterceptTouchEvent(ev);
-                if (intercepted) {
-                    // 中途拦截：发送CANCEL给子View
-                    mFirstTouchTarget.dispatchTouchEvent(cancelEvent);
-                    mFirstTouchTarget = null;
-                    handled = onTouchEvent(ev); // 自己处理
-                } else {
-                    handled = mFirstTouchTarget.dispatchTouchEvent(ev);
-                }
-            } else {
-                // 之前就是自己处理，继续自己处理
-                handled = onTouchEvent(ev);
-            }
-        }
-        
-        return handled;
-    }
-    
-    /*
-     * 关键概念：
-     * 1. mFirstTouchTarget：记录处理DOWN事件的子View
-     * 2. 中途拦截：MOVE时onInterceptTouchEvent返回true
-     * 3. CANCEL事件：通知子View事件被夺取
-     */
-}
-```
-
-### 3. 性能优化深度问答
-
-**Q5: 在复杂View树中，事件分发的性能瓶颈在哪里？如何优化？**
-
-**A5 (性能专家回答):**
-```java
-public class TouchEventPerformanceOptimization {
-    
-    /*
-     * 性能瓶颈分析：
-     * 1. 深度遍历子View（O(n)复杂度）
-     * 2. 坐标变换计算（矩阵运算）
-     * 3. 频繁的对象分配（MotionEvent拷贝）
-     * 4. 过度复杂的拦截逻辑
-     */
-    
-    // 优化策略1：智能命中测试
-    public class OptimizedViewGroup extends ViewGroup {
-        private SparseArray<View> mTouchTargetCache = new SparseArray<>();
-        
-        @Override
-        public boolean dispatchTouchEvent(MotionEvent ev) {
-            if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-                // 使用空间索引快速定位
-                View target = findTouchTargetOptimized(ev.getX(), ev.getY());
-                if (target != null) {
-                    mTouchTargetCache.put(ev.getPointerId(0), target);
-                    return target.dispatchTouchEvent(ev);
-                }
-            } else {
-                // 直接使用缓存的目标
-                View cachedTarget = mTouchTargetCache.get(ev.getPointerId(0));
-                if (cachedTarget != null) {
-                    return cachedTarget.dispatchTouchEvent(ev);
-                }
-            }
-            return super.dispatchTouchEvent(ev);
-        }
-        
-        private View findTouchTargetOptimized(float x, float y) {
-            // 使用四叉树或其他空间数据结构优化查找
-            // 避免遍历所有子View
-            return null; // 简化实现
-        }
-    }
-    
-    // 优化策略2：事件节流
-    public class ThrottledTouchView extends View {
-        private long lastMoveTime = 0;
-        private static final long MOVE_THROTTLE_MS = 16; // 60fps
-        
-        @Override
-        public boolean onTouchEvent(MotionEvent event) {
-            if (event.getAction() == MotionEvent.ACTION_MOVE) {
-                long currentTime = System.currentTimeMillis();
-                if (currentTime - lastMoveTime < MOVE_THROTTLE_MS) {
-                    return true; // 跳过这次MOVE事件
-                }
-                lastMoveTime = currentTime;
-            }
-            return super.onTouchEvent(event);
-        }
-    }
-    
-    // 优化策略3：减少对象分配
-    public class ObjectPoolingTouchHandler {
-        private static final Pool<MotionEvent> sEventPool = 
-            new Pool<MotionEvent>(10) {
-                @Override
-                protected MotionEvent newObject() {
-                    return MotionEvent.obtain();
-                }
-            };
-        
-        public void handleTouch(MotionEvent original) {
-            MotionEvent copy = sEventPool.acquire();
-            try {
-                copy.copyFrom(original);
-                // 处理事件...
-            } finally {
-                sEventPool.release(copy);
-            }
-        }
-    }
-}
-```
-
-### 4. 架构设计深度问答
-
-**Q6: 如果让你设计一个通用的手势识别框架，你会如何架构？**
-
-**A6 (架构师级回答):**
-```java
-public class GestureFrameworkDesign {
-    
-    // 1. 核心抽象层
-    public interface GestureRecognizer {
-        boolean canRecognize(MotionEvent event);
-        GestureResult recognize(MotionEvent event);
-        void reset();
-    }
-    
-    public abstract class BaseGestureRecognizer implements GestureRecognizer {
-        protected GestureState state = GestureState.POSSIBLE;
-        protected List<GestureListener> listeners = new ArrayList<>();
-        
-        protected enum GestureState {
-            POSSIBLE, BEGAN, CHANGED, ENDED, CANCELLED, FAILED
-        }
-    }
-    
-    // 2. 具体实现层
-    public class TapGestureRecognizer extends BaseGestureRecognizer {
-        private int requiredTaps = 1;
-        private long maxDelay = 300;
-        private float maxDistance = 30;
-        
-        @Override
-        public GestureResult recognize(MotionEvent event) {
-            // 具体的点击识别逻辑
-            return new TapGestureResult(tapCount, location);
-        }
-    }
-    
-    public class PanGestureRecognizer extends BaseGestureRecognizer {
-        private VelocityTracker velocityTracker;
-        private float minDistance = 20;
-        
-        @Override
-        public GestureResult recognize(MotionEvent event) {
-            // 具体的拖拽识别逻辑
-            return new PanGestureResult(translation, velocity);
-        }
-    }
-    
-    // 3. 管理协调层
-    public class GestureManager {
-        private List<GestureRecognizer> recognizers = new ArrayList<>();
-        private ConflictResolver conflictResolver = new ConflictResolver();
-        
-        public void addGestureRecognizer(GestureRecognizer recognizer) {
-            recognizers.add(recognizer);
-        }
-        
-        public boolean handleTouchEvent(MotionEvent event) {
-            List<GestureResult> results = new ArrayList<>();
-            
-            // 1. 所有识别器尝试识别
-            for (GestureRecognizer recognizer : recognizers) {
-                if (recognizer.canRecognize(event)) {
-                    GestureResult result = recognizer.recognize(event);
-                    if (result != null) {
-                        results.add(result);
-                    }
-                }
-            }
-            
-            // 2. 解决冲突
-            List<GestureResult> finalResults = 
-                conflictResolver.resolve(results);
-            
-            // 3. 分发结果
-            for (GestureResult result : finalResults) {
-                result.getRecognizer().notifyListeners(result);
-            }
-            
-            return !finalResults.isEmpty();
-        }
-    }
-    
-    // 4. 冲突解决策略
-    public class ConflictResolver {
-        public List<GestureResult> resolve(List<GestureResult> results) {
-            // 策略1：优先级排序
-            results.sort((a, b) -> Integer.compare(
-                b.getRecognizer().getPriority(),
-                a.getRecognizer().getPriority()
-            ));
-            
-            // 策略2：互斥关系检查
-            List<GestureResult> filtered = new ArrayList<>();
-            for (GestureResult result : results) {
-                if (!hasConflict(result, filtered)) {
-                    filtered.add(result);
-                }
-            }
-            
-            return filtered;
-        }
-        
-        private boolean hasConflict(GestureResult result, 
-                                   List<GestureResult> existing) {
-            // 检查手势间的互斥关系
-            return false; // 简化实现
-        }
-    }
-}
-```
-
-### 5. 实战面试题速答
-
-**Q7: 快速回答：为什么View的onTouchEvent返回false，事件会传递给父View？**
-**A7:** dispatchTouchEvent中，如果子View的onTouchEvent返回false，表示不消费事件，父ViewGroup会继续调用自己的onTouchEvent处理。
-
-**Q8: 快速回答：ACTION_CANCEL什么时候会被触发？**
-**A8:** 三种情况：1)父View中途拦截事件时发给子View 2)滑动超出View边界 3)系统中断（如来电）
-
-**Q9: 快速回答：如何让ViewGroup不拦截事件？**
-**A9:** 重写onInterceptTouchEvent返回false，或调用requestDisallowInterceptTouchEvent(true)
-
-**Q10: 快速回答：onTouch和onTouchEvent的执行顺序？**
-**A10:** onTouchListener.onTouch() → onTouchEvent() → onClick()，onTouch返回true会阻断后续调用
-
-**🎯 面试加分技巧**：
-1. **绘制事件流程图**：面试时在白板画出complete flow
-2. **举实际例子**：结合ViewPager、RecyclerView等常见控件
-3. **性能意识**：主动提及优化策略和性能考量
-4. **源码理解**：引用ViewGroup.dispatchTouchEvent关键代码段
-5. **实战经验**：分享解决过的滑动冲突案例
-
----
-
-# 🎯 2.5 异步心跳：Handler, Looper, MessageQueue
-
-## Phase 27: 消息机制基础 (25分钟总计)
+### Phase 27: 消息机制基础 (25分钟总计)
 
 #### Task 2.5.1: 消息循环架构 (5分钟) ⏰
 - [ ] **学习目标**: 理解Handler/Looper/MessageQueue三者关系
@@ -8899,7 +8437,7 @@ public class GestureFrameworkDesign {
 - [ ] **检查点**: 能解释为什么推荐使用obtain()
 - [ ] **文件**: 完善Message复用说明
 
-## Phase 28: 主线程Looper原理 (20分钟总计)
+### Phase 28: 主线程Looper原理 (20分钟总计)
 
 #### Task 2.5.6: 主线程Looper创建 (5分钟) ⏰
 - [ ] **学习目标**: 理解应用启动时的Looper初始化
@@ -8925,7 +8463,7 @@ public class GestureFrameworkDesign {
 - [ ] **检查点**: 能说明IdleHandler的使用场景
 - [ ] **文件**: 完善空闲处理机制
 
-## Phase 29: 子线程Handler实践 (25分钟总计)
+### Phase 29: 子线程Handler实践 (25分钟总计)
 
 #### Task 2.5.10: Handler消息机制深度实验 (5分钟) ⏰
 - [ ] **学习目标**: 深入理解Handler/Looper/MessageQueue协作机制
@@ -9775,7 +9313,7 @@ public class HandlerMemoryLeakSolutions {
 - [ ] 实现自动化的内存泄漏检测工具
 - [ ] 对比传统方案与现代架构组件的优劣
 
-## Phase 30: Handler高级应用 (15分钟总计)
+### Phase 30: Handler高级应用 (15分钟总计)
 
 #### Task 2.5.15: 延时任务和定时器 (5分钟) ⏰
 - [ ] **学习目标**: 实现延时和周期性任务
@@ -11206,9 +10744,9 @@ public class HandlerInterviewPreparation {
 
 ---
 
-# 🎯 2.6 通信骨干：Binder IPC
+## 🎯 2.6 通信骨干：Binder IPC
 
-## Phase 31: Binder基础原理 (25分钟总计)
+### Phase 31: Binder基础原理 (25分钟总计)
 
 #### Task 2.6.1: IPC需求和挑战 (5分钟) ⏰
 - [ ] **学习目标**: 理解进程间通信的必要性
@@ -13725,7 +13263,7 @@ public class BinderSecurityMechanismLab {
 - [ ] 实现动态安全策略和运行时权限验证
 - [ ] 认识Binder作为Android安全架构核心组件的重要性
 
-## Phase 32: AIDL实战开发 (30分钟总计)
+### Phase 32: AIDL实战开发 (30分钟总计)
 
 #### Task 2.6.6: AIDL进程间通信实战 (5分钟) ⏰
 - [ ] **学习目标**: 构建完整的跨进程通信架构，理解Binder机制
@@ -17342,7 +16880,7 @@ public class BinderPerformanceLab {
 - [ ] 建立Binder性能基准测试和监控体系
 - [ ] **文件**: 记录性能测试结果
 
-## Phase 33: Binder深度原理 (20分钟总计)
+### Phase 33: Binder深度原理 (20分钟总计)
 
 #### Task 2.6.12: 代理模式分析 (5分钟) ⏰
 - [ ] **学习目标**: 深度解析Binder的代理设计模式和AIDL代码生成机制
@@ -19691,7 +19229,506 @@ public class BinderInterviewPreparationLab {
 
 ---
 
-## 🏆 Chapter 2 实战项目成果展示
+# 🎯 第二章学习检查点汇总
+
+### 2.1 ART运行时检查问题:
+1. "ART的混合编译模式解决了什么问题？它是如何工作的？"
+2. "Profile-guided AOT体现了什么工程思想？"
+3. "云配置文件如何优化应用启动性能？"
+
+### 2.2 Activity启动模式检查问题:
+1. "设计一个音乐播放器，你会为播放页面选择什么启动模式？为什么？"
+2. "singleTask模式的clear top行为对用户体验有什么影响？"
+3. "taskAffinity和singleTask是如何配合工作的？"
+
+### 2.3 UI渲染检查问题:
+1. "自定义View时，为什么必须重写onMeasure？"
+2. "requestLayout和invalidate有什么区别？什么时候用哪个？"
+3. "MeasureSpec的设计体现了什么思想？"
+
+### 2.4 事件分发检查问题:
+1. "追踪一个触摸事件从Activity到最终处理的完整路径"
+2. "如何解决ScrollView嵌套RecyclerView的滑动冲突？"
+3. "为什么ViewGroup有onInterceptTouchEvent而View没有？"
+
+### 2.5 Handler机制检查问题:
+1. "Looper.loop()是死循环，为什么不会卡死主线程？"
+2. "Handler内存泄漏的根本原因是什么？如何解决？"
+3. "子线程能直接new Handler()吗？为什么？"
+
+### 2.6 Binder IPC检查问题:
+1. "Binder相比传统IPC有什么优势？一次拷贝是如何实现的？"
+2. "为什么Binder传输数据有1MB限制？"
+3. "AIDL生成的代码中Stub和Proxy分别起什么作用？"
+
+---
+# 🎯 面试重点突破 - 事件分发机制核心问答
+
+### 1. 基础概念深度问答
+
+**Q1: Android事件分发的三个核心方法是什么？它们的调用时机和返回值含义？**
+
+**A1 (高级回答):**
+```
+三个核心方法及其职责：
+
+1. dispatchTouchEvent(MotionEvent ev)
+   - 职责：事件分发的总入口，决定事件流向
+   - 调用时机：每个事件都会首先到达此方法
+   - 返回值：true表示消费事件，false表示不处理
+   - 关键点：ViewGroup会在此方法中调用onInterceptTouchEvent
+
+2. onInterceptTouchEvent(MotionEvent ev) [仅ViewGroup有]
+   - 职责：决定是否拦截事件，不让子View处理
+   - 调用时机：在dispatchTouchEvent中被调用
+   - 返回值：true拦截事件，false不拦截传递给子View
+   - 关键点：一旦拦截，后续MOVE和UP事件直接由当前ViewGroup处理
+
+3. onTouchEvent(MotionEvent event)
+   - 职责：具体的事件处理逻辑
+   - 调用时机：当事件需要被当前View处理时
+   - 返回值：true消费事件，false向父View传递
+   - 关键点：onClick等监听器最终在这里被触发
+```
+
+**Q2: 请详细描述一个DOWN事件在View树中的完整传递流程**
+
+**A2 (架构级回答):**
+```java
+// 完整事件分发流程分析
+public class TouchEventFlowAnalysis {
+    
+    /*
+     * 事件分发完整链路：
+     * Activity.dispatchTouchEvent() 
+     *   -> ViewGroup.dispatchTouchEvent()
+     *     -> ViewGroup.onInterceptTouchEvent() [检查是否拦截]
+     *       -> 如果不拦截：遍历子View，找到目标子View
+     *         -> ChildView.dispatchTouchEvent()
+     *           -> ChildView.onTouchEvent()
+     *             -> 如果子View不消费：回传给父ViewGroup
+     *               -> ViewGroup.onTouchEvent()
+     *                 -> 如果父View也不消费：回传给Activity
+     *                   -> Activity.onTouchEvent()
+     */
+    
+    // 1. Activity层面
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        // Step 1: 分发给Window的DecorView
+        if (getWindow().superDispatchTouchEvent(ev)) {
+            return true; // View树中有人消费了事件
+        }
+        // Step 2: 没人消费，Activity自己处理
+        return onTouchEvent(ev);
+    }
+    
+    // 2. ViewGroup层面（如LinearLayout）
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        boolean handled = false;
+        
+        // Step 1: 检查是否拦截
+        boolean intercepted = onInterceptTouchEvent(ev);
+        
+        if (!intercepted) {
+            // Step 2: 不拦截，寻找目标子View
+            for (int i = getChildCount() - 1; i >= 0; i--) {
+                View child = getChildAt(i);
+                if (isTransformedTouchPointInView(ev.getX(), ev.getY(), child)) {
+                    // Step 3: 找到目标，分发给子View
+                    handled = child.dispatchTouchEvent(ev);
+                    if (handled) break; // 子View消费了，停止遍历
+                }
+            }
+        }
+        
+        // Step 4: 子View都不处理或者被拦截，自己处理
+        if (!handled) {
+            handled = onTouchEvent(ev);
+        }
+        
+        return handled;
+    }
+    
+    // 3. View层面（如Button）
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        // Step 1: 检查OnTouchListener
+        if (mOnTouchListener != null && 
+            mOnTouchListener.onTouch(this, event)) {
+            return true; // Listener消费了事件
+        }
+        
+        // Step 2: 调用自己的onTouchEvent
+        return onTouchEvent(event);
+    }
+}
+```
+
+### 2. 高级场景分析
+
+**Q3: ViewPager嵌套ListView出现滑动冲突，如何分析和解决？**
+
+**A3 (解决方案架构师回答):**
+```java
+// 滑动冲突分析和解决方案
+public class ScrollConflictSolution {
+    
+    /*
+     * 问题分析：
+     * 1. ViewPager响应水平滑动，ListView响应垂直滑动
+     * 2. 当用户斜向滑动时，两者都想处理事件
+     * 3. 导致滑动体验不流畅或功能失效
+     */
+    
+    // 解决方案1：智能方向判断
+    public class SmartViewPager extends ViewPager {
+        private float startX, startY;
+        private boolean isHorizontalScroll = false;
+        
+        @Override
+        public boolean onInterceptTouchEvent(MotionEvent ev) {
+            switch (ev.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    startX = ev.getX();
+                    startY = ev.getY();
+                    // 重置状态，先不拦截
+                    super.onInterceptTouchEvent(ev);
+                    return false;
+                    
+                case MotionEvent.ACTION_MOVE:
+                    float deltaX = Math.abs(ev.getX() - startX);
+                    float deltaY = Math.abs(ev.getY() - startY);
+                    
+                    // 方向判断：水平距离 > 垂直距离 * 阈值
+                    if (deltaX > deltaY * 1.5f && deltaX > 30) {
+                        isHorizontalScroll = true;
+                        return true; // 明确是水平滑动，开始拦截
+                    } else if (deltaY > deltaX * 1.5f) {
+                        return false; // 明确是垂直滑动，不拦截
+                    }
+                    break;
+            }
+            return super.onInterceptTouchEvent(ev);
+        }
+    }
+    
+    // 解决方案2：协作式处理
+    public class CooperativeScrollView extends ScrollView {
+        private ListView childList;
+        
+        @Override
+        public boolean onInterceptTouchEvent(MotionEvent ev) {
+            // 检查子ListView的滚动状态
+            if (childList != null && ev.getAction() == MotionEvent.ACTION_MOVE) {
+                boolean canChildScrollUp = childList.canScrollVertically(-1);
+                boolean canChildScrollDown = childList.canScrollVertically(1);
+                
+                float deltaY = ev.getY() - startY;
+                
+                // 智能协作策略
+                if (deltaY > 0 && !canChildScrollUp) {
+                    // 向下滑动且子View无法继续向上滑动，父View接管
+                    return true;
+                } else if (deltaY < 0 && !canChildScrollDown) {
+                    // 向上滑动且子View无法继续向下滑动，父View接管
+                    return true;
+                }
+                
+                return false; // 让子View处理
+            }
+            return super.onInterceptTouchEvent(ev);
+        }
+    }
+}
+```
+
+**Q4: 如何理解"一旦ViewGroup拦截了事件，后续事件会直接发给它"？**
+
+**A4 (系统级理解):**
+```java
+public class InterceptMechanism {
+    
+    /*
+     * 拦截机制的本质：
+     * 1. DOWN事件决定事件序列的归属
+     * 2. 一旦某个ViewGroup拦截，它就成为这个事件序列的"负责人"
+     * 3. 系统会记住这个决定，后续MOVE、UP直接发给它
+     */
+    
+    // ViewGroup的事件分发核心逻辑
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        boolean handled = false;
+        
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            // DOWN事件：重新决策
+            mFirstTouchTarget = null; // 清空之前的目标
+            boolean intercepted = onInterceptTouchEvent(ev);
+            
+            if (!intercepted) {
+                // 寻找能处理的子View
+                for (View child : children) {
+                    if (child.dispatchTouchEvent(ev)) {
+                        mFirstTouchTarget = child; // 记住这个子View
+                        handled = true;
+                        break;
+                    }
+                }
+            }
+        } else {
+            // MOVE/UP事件：沿用之前的决定
+            if (mFirstTouchTarget != null) {
+                // 之前有子View处理，继续给它
+                // 但仍然检查是否要中途拦截
+                boolean intercepted = onInterceptTouchEvent(ev);
+                if (intercepted) {
+                    // 中途拦截：发送CANCEL给子View
+                    mFirstTouchTarget.dispatchTouchEvent(cancelEvent);
+                    mFirstTouchTarget = null;
+                    handled = onTouchEvent(ev); // 自己处理
+                } else {
+                    handled = mFirstTouchTarget.dispatchTouchEvent(ev);
+                }
+            } else {
+                // 之前就是自己处理，继续自己处理
+                handled = onTouchEvent(ev);
+            }
+        }
+        
+        return handled;
+    }
+    
+    /*
+     * 关键概念：
+     * 1. mFirstTouchTarget：记录处理DOWN事件的子View
+     * 2. 中途拦截：MOVE时onInterceptTouchEvent返回true
+     * 3. CANCEL事件：通知子View事件被夺取
+     */
+}
+```
+
+### 3. 性能优化深度问答
+
+**Q5: 在复杂View树中，事件分发的性能瓶颈在哪里？如何优化？**
+
+**A5 (性能专家回答):**
+```java
+public class TouchEventPerformanceOptimization {
+    
+    /*
+     * 性能瓶颈分析：
+     * 1. 深度遍历子View（O(n)复杂度）
+     * 2. 坐标变换计算（矩阵运算）
+     * 3. 频繁的对象分配（MotionEvent拷贝）
+     * 4. 过度复杂的拦截逻辑
+     */
+    
+    // 优化策略1：智能命中测试
+    public class OptimizedViewGroup extends ViewGroup {
+        private SparseArray<View> mTouchTargetCache = new SparseArray<>();
+        
+        @Override
+        public boolean dispatchTouchEvent(MotionEvent ev) {
+            if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+                // 使用空间索引快速定位
+                View target = findTouchTargetOptimized(ev.getX(), ev.getY());
+                if (target != null) {
+                    mTouchTargetCache.put(ev.getPointerId(0), target);
+                    return target.dispatchTouchEvent(ev);
+                }
+            } else {
+                // 直接使用缓存的目标
+                View cachedTarget = mTouchTargetCache.get(ev.getPointerId(0));
+                if (cachedTarget != null) {
+                    return cachedTarget.dispatchTouchEvent(ev);
+                }
+            }
+            return super.dispatchTouchEvent(ev);
+        }
+        
+        private View findTouchTargetOptimized(float x, float y) {
+            // 使用四叉树或其他空间数据结构优化查找
+            // 避免遍历所有子View
+            return null; // 简化实现
+        }
+    }
+    
+    // 优化策略2：事件节流
+    public class ThrottledTouchView extends View {
+        private long lastMoveTime = 0;
+        private static final long MOVE_THROTTLE_MS = 16; // 60fps
+        
+        @Override
+        public boolean onTouchEvent(MotionEvent event) {
+            if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                long currentTime = System.currentTimeMillis();
+                if (currentTime - lastMoveTime < MOVE_THROTTLE_MS) {
+                    return true; // 跳过这次MOVE事件
+                }
+                lastMoveTime = currentTime;
+            }
+            return super.onTouchEvent(event);
+        }
+    }
+    
+    // 优化策略3：减少对象分配
+    public class ObjectPoolingTouchHandler {
+        private static final Pool<MotionEvent> sEventPool = 
+            new Pool<MotionEvent>(10) {
+                @Override
+                protected MotionEvent newObject() {
+                    return MotionEvent.obtain();
+                }
+            };
+        
+        public void handleTouch(MotionEvent original) {
+            MotionEvent copy = sEventPool.acquire();
+            try {
+                copy.copyFrom(original);
+                // 处理事件...
+            } finally {
+                sEventPool.release(copy);
+            }
+        }
+    }
+}
+```
+
+### 4. 架构设计深度问答
+
+**Q6: 如果让你设计一个通用的手势识别框架，你会如何架构？**
+
+**A6 (架构师级回答):**
+```java
+public class GestureFrameworkDesign {
+    
+    // 1. 核心抽象层
+    public interface GestureRecognizer {
+        boolean canRecognize(MotionEvent event);
+        GestureResult recognize(MotionEvent event);
+        void reset();
+    }
+    
+    public abstract class BaseGestureRecognizer implements GestureRecognizer {
+        protected GestureState state = GestureState.POSSIBLE;
+        protected List<GestureListener> listeners = new ArrayList<>();
+        
+        protected enum GestureState {
+            POSSIBLE, BEGAN, CHANGED, ENDED, CANCELLED, FAILED
+        }
+    }
+    
+    // 2. 具体实现层
+    public class TapGestureRecognizer extends BaseGestureRecognizer {
+        private int requiredTaps = 1;
+        private long maxDelay = 300;
+        private float maxDistance = 30;
+        
+        @Override
+        public GestureResult recognize(MotionEvent event) {
+            // 具体的点击识别逻辑
+            return new TapGestureResult(tapCount, location);
+        }
+    }
+    
+    public class PanGestureRecognizer extends BaseGestureRecognizer {
+        private VelocityTracker velocityTracker;
+        private float minDistance = 20;
+        
+        @Override
+        public GestureResult recognize(MotionEvent event) {
+            // 具体的拖拽识别逻辑
+            return new PanGestureResult(translation, velocity);
+        }
+    }
+    
+    // 3. 管理协调层
+    public class GestureManager {
+        private List<GestureRecognizer> recognizers = new ArrayList<>();
+        private ConflictResolver conflictResolver = new ConflictResolver();
+        
+        public void addGestureRecognizer(GestureRecognizer recognizer) {
+            recognizers.add(recognizer);
+        }
+        
+        public boolean handleTouchEvent(MotionEvent event) {
+            List<GestureResult> results = new ArrayList<>();
+            
+            // 1. 所有识别器尝试识别
+            for (GestureRecognizer recognizer : recognizers) {
+                if (recognizer.canRecognize(event)) {
+                    GestureResult result = recognizer.recognize(event);
+                    if (result != null) {
+                        results.add(result);
+                    }
+                }
+            }
+            
+            // 2. 解决冲突
+            List<GestureResult> finalResults = 
+                conflictResolver.resolve(results);
+            
+            // 3. 分发结果
+            for (GestureResult result : finalResults) {
+                result.getRecognizer().notifyListeners(result);
+            }
+            
+            return !finalResults.isEmpty();
+        }
+    }
+    
+    // 4. 冲突解决策略
+    public class ConflictResolver {
+        public List<GestureResult> resolve(List<GestureResult> results) {
+            // 策略1：优先级排序
+            results.sort((a, b) -> Integer.compare(
+                b.getRecognizer().getPriority(),
+                a.getRecognizer().getPriority()
+            ));
+            
+            // 策略2：互斥关系检查
+            List<GestureResult> filtered = new ArrayList<>();
+            for (GestureResult result : results) {
+                if (!hasConflict(result, filtered)) {
+                    filtered.add(result);
+                }
+            }
+            
+            return filtered;
+        }
+        
+        private boolean hasConflict(GestureResult result, 
+                                   List<GestureResult> existing) {
+            // 检查手势间的互斥关系
+            return false; // 简化实现
+        }
+    }
+}
+```
+
+### 5. 实战面试题速答
+
+**Q7: 快速回答：为什么View的onTouchEvent返回false，事件会传递给父View？**
+**A7:** dispatchTouchEvent中，如果子View的onTouchEvent返回false，表示不消费事件，父ViewGroup会继续调用自己的onTouchEvent处理。
+
+**Q8: 快速回答：ACTION_CANCEL什么时候会被触发？**
+**A8:** 三种情况：1)父View中途拦截事件时发给子View 2)滑动超出View边界 3)系统中断（如来电）
+
+**Q9: 快速回答：如何让ViewGroup不拦截事件？**
+**A9:** 重写onInterceptTouchEvent返回false，或调用requestDisallowInterceptTouchEvent(true)
+
+**Q10: 快速回答：onTouch和onTouchEvent的执行顺序？**
+**A10:** onTouchListener.onTouch() → onTouchEvent() → onClick()，onTouch返回true会阻断后续调用
+
+**🎯 面试加分技巧**：
+1. **绘制事件流程图**：面试时在白板画出complete flow
+2. **举实际例子**：结合ViewPager、RecyclerView等常见控件
+3. **性能意识**：主动提及优化策略和性能考量
+4. **源码理解**：引用ViewGroup.dispatchTouchEvent关键代码段
+5. **实战经验**：分享解决过的滑动冲突案例
+
+---
+
+
+# 🏆 Chapter 2 实战项目成果展示
 
 ### 📁 学生作品集 Portfolio Assets
 
@@ -19729,41 +19766,9 @@ public class BinderInterviewPreparationLab {
 **💼 职业价值**: 证明具备 Android 系统开发和性能优化的实战能力
 **🏅 技术深度**: 从应用层到 Framework 层的全栈技术掌握
 
-## 🎯 第二章学习检查点汇总
 
-### 2.1 ART运行时检查问题:
-1. "ART的混合编译模式解决了什么问题？它是如何工作的？"
-2. "Profile-guided AOT体现了什么工程思想？"
-3. "云配置文件如何优化应用启动性能？"
 
-### 2.2 Activity启动模式检查问题:
-1. "设计一个音乐播放器，你会为播放页面选择什么启动模式？为什么？"
-2. "singleTask模式的clear top行为对用户体验有什么影响？"
-3. "taskAffinity和singleTask是如何配合工作的？"
-
-### 2.3 UI渲染检查问题:
-1. "自定义View时，为什么必须重写onMeasure？"
-2. "requestLayout和invalidate有什么区别？什么时候用哪个？"
-3. "MeasureSpec的设计体现了什么思想？"
-
-### 2.4 事件分发检查问题:
-1. "追踪一个触摸事件从Activity到最终处理的完整路径"
-2. "如何解决ScrollView嵌套RecyclerView的滑动冲突？"
-3. "为什么ViewGroup有onInterceptTouchEvent而View没有？"
-
-### 2.5 Handler机制检查问题:
-1. "Looper.loop()是死循环，为什么不会卡死主线程？"
-2. "Handler内存泄漏的根本原因是什么？如何解决？"
-3. "子线程能直接new Handler()吗？为什么？"
-
-### 2.6 Binder IPC检查问题:
-1. "Binder相比传统IPC有什么优势？一次拷贝是如何实现的？"
-2. "为什么Binder传输数据有1MB限制？"
-3. "AIDL生成的代码中Stub和Proxy分别起什么作用？"
-
----
-
-## 🚀 Quick Start Guide - Chapter 2 Hands-On Framework
+# 🚀 Quick Start Guide - Chapter 2 Hands-On Framework
 
 ### 🛠️ 环境准备
 

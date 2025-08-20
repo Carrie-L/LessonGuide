@@ -6,7 +6,8 @@
       "Bash(timeout:*)",
       "Bash(chmod:*)",
       "Bash(./functional_ai_assistant.sh:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(rm:*)"
     ]
   },
   "outputStyle": "Explanatory"

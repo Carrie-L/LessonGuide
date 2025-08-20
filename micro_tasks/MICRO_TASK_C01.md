@@ -16,7 +16,15 @@
 
 ---
 
-### 🌟 Level 1: Primary Foundation (基础打牢) - 20分钟
+### Phase 1: 并发编程基础 - 20分钟
+
+- [ ] **学习目标**: 深入理解JMM对并发编程的影响
+- [ ] **具体任务**:
+  - 分析主内存和工作内存的抽象模型
+  - 理解happens-before关系的建立和传递性
+  - 掌握内存屏障(Memory Barrier)的作用机制
+- [ ] **检查点**: happens-before关系如何保证内存可见性？有哪些建立方式？
+- [ ] **文件**: `student_progress/notes/ C01_java_memory_model_analysis.md`
 
 #### Task 1.1.1: JMM概念入门 + 首个编程实验 (5分钟) ⏰
 
@@ -433,8 +441,15 @@ public class VolatileDemo {
 - [ ] **性能特点**: volatile vs synchronized的性能对比
 - [ ] **面试深度**: 能分析volatile在并发框架中的应用
 
-### 🚀 Level 2: Intermediate Practice (实践深入) - 15分钟
+### Phase 2: synchronized互斥锁原理 - 15分钟
 
+- [ ] **学习目标**: 理解synchronized的实现原理和性能特性
+- [ ] **具体任务**:
+  - 分析synchronized的偏向锁、轻量级锁、重量级锁升级
+  - 理解对象头Mark Word的锁状态标识
+  - 掌握synchronized的可重入性和内存语义
+- [ ] **检查点**: synchronized如何从重量级锁优化为轻量级锁？升级条件是什么？
+- [ ] **文件**: `student_progress/notes/synchronized_lock_mechanism.md`
 #### Task 1.1.5: 锁升级机制理解 + JVM参数实验 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
@@ -1135,11 +1150,217 @@ public class HeavyweightLockDemo {
 - [ ] **优化策略**: 锁粗化、锁消除等编译器优化
 - [ ] **面试深度**: 能分析不同锁状态下的性能特征
 
-### 🏆 Level 3: Senior Application (架构应用) - 30分钟
+
+### Phase 3: JMM实践
+
+#### Task 1.1.8: [实践]synchronized性能测试 (5分钟) ⏰
+- [ ] **学习目标**: 通过实验验证synchronized的性能特性
+- [ ] **具体任务**:
+  - 测试不同并发度下synchronized的性能表现
+  - 对比偏向锁、轻量级锁、重量级锁的切换开销
+  - 分析锁粗化和锁消除优化的效果
+- [ ] **检查点**: 什么情况下synchronized性能最好？什么情况下性能很差？
+- [ ] **文件**: `student_progress/c01/SynchronizedPerformanceTest.kt`
+#### Task 1.1.9: 🚀 Intermediate - 手动实现无锁栈 (5分钟) ⏰
+**实践目标**: 亲手打造高性能无锁数据结构 ⚡
+
+- [ ] **Intermediate目标**: 使用CAS原子操作实现线程安全的栈
+- [ ] **💻 必须手动编程** (禁止复制，一次一次手动输入):
+  ```kotlin
+  import java.util.concurrent.atomic.AtomicReference
+  
+  // 目标：实现一个完全无锁的栈
+  class LockFreeStack<T> {
+      private val head = AtomicReference<Node<T>?>(null)
+      
+      private data class Node<T>(
+          val value: T,
+          val next: Node<T>?
+      )
+      
+      fun push(value: T): Boolean {
+          val newNode = Node(value, null)
+          
+          // TODO 1: 亲手实现CAS循环推入逻辑
+          while (true) {
+              val currentHead = head.get()
+              // 亲手实现这里的逻辑
+          }
+      }
+      
+      fun pop(): T? {
+          // TODO 2: 亲手实现CAS循环弹出逻辑
+          while (true) {
+              val currentHead = head.get()
+              if (currentHead == null) {
+                  return null
+              }
+              
+              // 亲手实现这里的逻辑
+          }
+      }
+      
+      fun peek(): T? {
+          // TODO 3: 亲手实现无锁查看逻辑
+      }
+      
+      fun size(): Int {
+          // TODO 4: 亲手实现大小计算(注意线程安全)
+      }
+  }
+  
+  // 解决ABA问题的版本
+  class VersionedLockFreeStack<T> {
+      private val head = AtomicReference<VersionedNode<T>?>(null)
+      
+      private data class VersionedNode<T>(
+          val value: T,
+          val next: VersionedNode<T>?,
+          val version: Long
+      )
+      
+      fun push(value: T): Boolean {
+          // TODO 5: 亲手实现带版本号的推入
+      }
+  }
+  ```
+- [ ] **实践步骤** (每一行都要亲手输入):
+  1. 📝 手动输入完整的LockFreeStack结构
+  2. 🔍 实现 `push()` 的CAS循环逻辑
+  3. 🔍 实现 `pop()` 的CAS循环逻辑
+  4. 🔍 实现 `peek()` 和 `size()` 方法
+  5. 🔍 实现带版本号的ABA问题解决方案
+- [ ] **实战测试项目**: 多线程压力测试
+  ```kotlin
+  // 亲手实现并发测试
+  class LockFreeStackTest {
+      fun concurrencyTest() {
+          val stack = LockFreeStack<Int>()
+          val threadCount = 10
+          val operationsPerThread = 10000
+          
+          // TODO: 启动多个线程同时push和pop
+          // TODO: 验证数据一致性和线程安全
+      }
+  }
+  ```
+- [ ] **实战测试场景**:
+  - 🟢 单线程功能测试
+  - 🟡 10个线程并发push/pop
+  - 🔴 100个线程极限压力测试
+  - 🟣 ABA问题复现和验证
+- [ ] **Intermediate检查点**: 你的无锁栈在高并发下能保证数据一致性吗？
+- [ ] **性能对比测试**: 对比你的无锁栈 vs Java的ConcurrentLinkedDeque性能
+- [ ] **代码质量检查**: □ 解决了ABA问题 □ 处理了内存回收 □ 有性能测试
+- [ ] **文件**: `student_progress/c12/LockFreeStack.kt`
+
+#### Task 1.1.10: ReentrantLock与AQS框架 (5分钟) ⏰
+- [ ] **学习目标**: 理解Java并发包的核心框架AQS
+- [ ] **具体任务**:
+  - 分析AbstractQueuedSynchronizer的队列管理机制
+  - 理解ReentrantLock的公平锁和非公平锁实现
+  - 掌握Condition条件变量的等待/通知机制
+- [ ] **检查点**: AQS如何实现不同类型的同步器？公平锁和非公平锁的区别？
+- [ ] **文件**: `student_progress/c12/reentrant_lock_aqs_analysis.md`
+
+#### Task 1.1.11: [实践]读写锁优化方案 (5分钟) ⏰
+- [ ] **学习目标**: 实现高效的读写分离锁机制
+- [ ] **具体任务**:
+  - 实现支持读写分离的缓存管理器
+  - 处理写锁饥饿问题和公平性保证
+  - 分析StampedLock的乐观读锁机制
+- [ ] **检查点**: 读写锁在什么场景下性能最好？如何防止写锁饥饿？
+- [ ] **文件**: `student_progress/c12/ReadWriteLockCache.kt`
+
+#### Task 1.1.12: 线程安全的集合类 (5分钟) ⏰
+- [ ] **学习目标**: 分析并发集合的实现原理和性能特性
+- [ ] **具体任务**:
+  - 分析ConcurrentHashMap的分段锁和CAS优化
+  - 理解CopyOnWriteArrayList的写时复制机制
+  - 掌握BlockingQueue的生产者-消费者模式
+- [ ] **检查点**: 不同并发集合的适用场景是什么？性能权衡如何？
+- [ ] **文件**: `student_progress/c12/concurrent_collections_analysis.md`
+
+#### 1.1.13: [实践]高性能并发缓存 (5分钟) ⏰
+- [ ] **学习目标**: 实现线程安全的高性能缓存系统
+- [ ] **具体任务**:
+  - 实现支持LRU淘汰的并发缓存
+  - 使用分段锁减少锁竞争
+  - 实现缓存的异步刷新和过期处理
+- [ ] **检查点**: 如何设计一个既线程安全又高性能的缓存？
+- [ ] **文件**: `student_progress/c12/HighPerformanceCache.kt`
+
+#### Task 1.1.14: 死锁检测与预防 (5分钟) ⏰
+- [ ] **学习目标**: 理解死锁的成因和预防策略
+- [ ] **具体任务**:
+  - 分析死锁的四个必要条件
+  - 实现银行家算法进行死锁预防
+  - 设计超时机制和死锁检测工具
+- [ ] **检查点**: 如何系统性地预防和检测死锁？有哪些实用策略？
+- [ ] **文件**: `student_progress/c12/deadlock_detection_prevention.md`
+
+#### Task 1.1.15: [实践]协程与线程性能对比 (5分钟) ⏰
+- [ ] **学习目标**: 对比协程和线程在并发编程中的优劣
+- [ ] **具体任务**:
+  - 实现相同功能的线程版本和协程版本
+  - 测试高并发场景下的内存使用和性能
+  - 分析协程的调度开销和上下文切换成本
+- [ ] **检查点**: 协程相比线程有什么优势？什么场景下选择协程？
+- [ ] **文件**: `student_progress/c12/CoroutineVsThreadPerformance.kt`
+
+#### Task 1.1.16: 内存一致性模型 (5分钟) ⏰
+- [ ] **学习目标**: 理解不同平台的内存一致性模型差异
+- [ ] **具体任务**:
+  - 对比x86的强内存模型和ARM的弱内存模型
+  - 分析内存重排序对程序正确性的影响
+  - 理解内存屏障在不同架构上的实现
+- [ ] **检查点**: 为什么移动设备(ARM)上的并发问题可能更复杂？
+- [ ] **文件**: `student_progress/c12/memory_consistency_models.md`
+
+#### Task 1.1.17: [高级]无锁编程模式 (5分钟) ⏰
+- [ ] **学习目标**: 掌握高级的无锁编程技术和模式
+- [ ] **具体任务**:
+  - 实现生产者-消费者的无锁队列
+  - 设计RCU(Read-Copy-Update)模式的应用
+  - 分析内存回收和hazard pointer技术
+- [ ] **检查点**: 无锁编程的主要挑战是什么？如何保证内存回收的安全性？
+- [ ] **文件**: `student_progress/c12/LockFreeProgramming.kt`
+
+#### Task 1.1.18: [设计]高并发系统架构 (5分钟) ⏰
+- [ ] **学习目标**: 设计支持高并发的系统架构
+- [ ] **具体任务**:
+  - 设计分层的并发控制策略
+  - 实现限流、熔断、降级等保护机制
+  - 分析异步处理和事件驱动架构
+- [ ] **检查点**: 如何设计一个能处理高并发访问的移动后端系统？
+- [ ] **文件**: `student_progress/c12/high_concurrency_architecture.md`
+
+#### Task 1.1.19: [面试]并发编程综合应用 (5分钟) ⏰
+- [ ] **学习目标**: 准备并发编程相关的面试问题
+- [ ] **具体任务**:
+  - 整理并发编程的核心概念和常见陷阱
+  - 准备线程安全问题的实战解决方案
+  - 模拟设计题：设计高并发的数据处理系统
+- [ ] **检查点**: 如何展示对并发编程的深入理解和实践能力？
+- [ ] **文件**: `student_progress/c12/concurrent_programming_interview.md`
+
+#### Task 1.1.20: [总结]并发编程知识体系 (5分钟) ⏰
+- [ ] **学习目标**: 构建完整的并发编程知识框架
+- [ ] **具体任务**:
+  - 总结并发编程的核心原理和实现模式
+  - 整理Android/移动端并发编程的最佳实践
+  - 准备技术分享：《移动应用并发编程实战指南》
+- [ ] **检查点**: 能否独立设计和实现复杂的并发系统？
+- [ ] **文件**: `student_progress/c12/concurrent_programming_system.md`
+
+---
+
+
+### Phase 4: Senior Application (架构应用) - 30分钟
 
 **学习说明**: 这个阶段要求你**亲手编码**，通过实际运行代码来验证理论知识。记住：**Learn by Doing** - 只有动手才能真正理解！
 
-#### Task 1.1.8: 企业级线程安全组件设计 (10分钟) ⏰
+#### Task 1.1.21: 企业级线程安全组件设计 (10分钟) ⏰
 
 **🎯 综合项目目标**: 设计一个生产级的线程安全缓存系统
 - **代码规模**: 200-300行
@@ -1491,7 +1712,7 @@ public class EnterpriseThreadSafeCacheSystem {
 - [ ] **代码质量**: 异常处理、资源管理、线程安全性
 - [ ] **压力测试**: 多线程并发测试验证系统稳定性
 
-#### Task 1.1.9: 性能基准测试框架 (10分钟) ⏰
+#### Task 1.1.22: 性能基准测试框架 (10分钟) ⏰
 
 **🎯 项目目标**: 创建专业的并发性能测试框架
 - **测试维度**: 吞吐量、延迟、可扩展性、稳定性  
@@ -1877,7 +2098,7 @@ public class ConcurrencyPerformanceBenchmark {
 - [ ] **数据分析**: 生成专业的性能报告和优化建议
 - [ ] **代码质量**: 测试框架的可扩展性和重用性
 
-#### Task 1.1.10: 综合项目 - 分布式锁实现 (10分钟) ⏰
+#### Task 1.1.23: 综合项目 - 分布式锁实现 (10分钟) ⏰
 
 **🎯 最终项目目标**: 实现生产级分布式锁系统
 - **技术栈**: 所有学过的并发原语 + 网络编程
@@ -2480,7 +2701,7 @@ public class DistributedLockSystem {
 
 ---
 
-### 🌟 Level 1: Primary Foundation (基础打牢) - 20分钟
+### Phase 5: 集合基础 - 20分钟
 
 #### Task 1.2.1: ArrayList动态数组实现 + 内存管理 (5分钟) ⏰
 

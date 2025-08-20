@@ -1,9 +1,9 @@
 
 # 🌅 第五章：地平线 - 掌握现代安卓UI
 
-# 🎯 5.1 Jetpack Compose 核心思想
+## 🎯 5.1 Jetpack Compose 核心思想
 
-## Phase 60: 声明式UI基础理念 (25分钟总计)
+### Phase 60: 声明式UI基础理念 (25分钟总计)
 
 #### Task 5.1.1: 命令式vs声明式UI对比 (5分钟) ⏰
 
@@ -294,7 +294,7 @@ class UIParadigmComparison {
 - [ ] **检查点**: 能解释Compose如何实现智能重组
 - [ ] **文件**: 完善编译器转换原理
 
-## Phase 61: 组合与重组深入 (30分钟总计)
+### Phase 61: 组合与重组深入 (30分钟总计)
 
 #### Task 5.1.6: State读取和订阅 (5分钟) ⏰
 - [ ] **学习目标**: 理解State如何触发重组
@@ -332,7 +332,7 @@ class UIParadigmComparison {
 - [ ] **检查点**: 界面能正常显示并响应交互
 - [ ] **文件**: `student_progress/ComposeBasicsDemo/`项目
 
-## Phase 62: 现代UI组件实战 (25分钟总计)
+### Phase 62: 现代UI组件实战 (25分钟总计)
 
 #### Task 5.1.12: Material Design 3集成 (5分钟) ⏰
 - [ ] **学习目标**: 掌握Material You设计系统在Compose中的应用
@@ -366,9 +366,9 @@ class UIParadigmComparison {
 
 ---
 
-# 🎯 5.2 Compose 中的状态管理：状态提升
+## 🎯 5.2 Compose 中的状态管理：状态提升
 
-## Phase 63: 状态提升模式 (25分钟总计)
+### Phase 63: 状态提升模式 (25分钟总计)
 
 #### Task 5.2.1: 有状态vs无状态组件 (5分钟) ⏰
 
@@ -686,7 +686,7 @@ class ComposeStateManagement {
 - [ ] **检查点**: 状态管理逻辑清晰，易于测试
 - [ ] **文件**: 创建状态容器类示例
 
-## Phase 64: 副作用处理 (30分钟总计)
+### Phase 64: 副作用处理 (30分钟总计)
 
 #### Task 5.2.6: 副作用基础概念 (5分钟) ⏰
 - [ ] **学习目标**: 理解Compose中副作用的定义和分类
@@ -724,7 +724,7 @@ class ComposeStateManagement {
 - [ ] **检查点**: 能为不同场景选择最合适的副作用API
 - [ ] **文件**: 创建副作用使用指南
 
-## Phase 65: ViewModel集成 (25分钟总计)
+### Phase 65: ViewModel集成 (25分钟总计)
 
 #### Task 5.2.12: Compose + ViewModel架构 (5分钟) ⏰
 - [ ] **学习目标**: 设计Compose与ViewModel的集成架构
@@ -756,7 +756,7 @@ class ComposeStateManagement {
 - [ ] **检查点**: 能从现代UI架构角度深度解答问题
 - [ ] **文件**: 更新面试问答集
 
-## Phase 66: 高级状态管理实战 (20分钟总计)
+### Phase 66: 高级状态管理实战 (20分钟总计)
 
 #### Task 5.2.17: 复杂表单状态管理 (5分钟) ⏰
 - [ ] **学习目标**: 实现复杂表单的状态管理方案
