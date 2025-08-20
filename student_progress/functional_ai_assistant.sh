@@ -94,9 +94,12 @@ show_todays_tasks() {
     
     echo ""
     echo -e "${PURPLE}💡 Available Commands:${NC}"
-    echo "   ${CYAN}ai open-task [task_id]${NC}     → Actually open the file and show task"
-    echo "   ${CYAN}ai setup-workspace [week]${NC}  → Create directory structure"  
-    echo "   ${CYAN}ai start-task [task_id]${NC}    → Open file + create code file + start tracking"
+    echo "   ./ai t           # Show today's tasks  "
+    echo "   ./ai s 1.1.1     # Start task 1.1.1"
+    echo "   ./ai f           # Finish current task"
+    echo "   ./ai o 1.1.1     # Open task 1.1.1"
+    echo "   ./ai w 1         # Setup workspace week 1"
+    echo "   ./ai b           # Browse files"
 }
 
 # ACTUALLY open and show specific task content
@@ -107,9 +110,6 @@ open_task() {
         echo -e "${RED}❌ Please specify task ID (e.g., 1.1.1, 2.1.1, 3.1.1)${NC}"
         return 1
     fi
-    
-    echo -e "${BLUE}🔍 Opening Task $task_id...${NC}"
-    echo ""
     
     # Determine which file to open based on task ID
     local task_file=""
@@ -158,33 +158,28 @@ open_task() {
     fi
     
     echo -e "${GREEN}📖 Found: $(basename "$task_file") - $chapter${NC}"
-    echo -e "${YELLOW}📁 Full path: $task_file${NC}"
+    local line_number=$(grep -n "Task $task_id" "$task_file" | head -1 | cut -d: -f1)
+    echo "📖 Task File: $task_file (Line: $line_number)"
     echo ""
     
-    # Find and show checkpoint levels instead of full content
-    echo -e "${BLUE}🔍 Extracting learning checkpoints for Task $task_id...${NC}"
-    
     # Extract checkpoint information
-    local checkpoint_content=$(grep -A 30 "Task $task_id" "$task_file" | grep -E "(Primary Level|Intermediate Level|Senior Level|编程任务检查点)" | head -10)
+    local checkpoint_content=$(grep -A 30 "Task $task_id" "$task_file"  | head -10)
     
     if [[ -n "$checkpoint_content" ]]; then
-        echo -e "${GREEN}✅ Task found! Learning progression:${NC}"
-        echo "═══════════════════════════════════════════════════════"
-        echo "$checkpoint_content"
-        echo "═══════════════════════════════════════════════════════"
-        echo ""
-        
         # Show next actions
-        echo -e "${CYAN}🎯 Next Actions:${NC}"
-        echo "   1. Review full task details in opened file"
-        echo "   2. Follow Primary → Intermediate → Senior progression"
-        echo "   3. Complete hands-on coding exercises"
-        echo "   4. Use finish-task when done for assessment"
+        echo -e "${CYAN}🎯 下一步行动:${NC}"
+        echo "   1. 阅读打开文件中的完整任务细节"
+        echo "   2. 按照初级 → 中级 → 高级的顺序进行学习"
+        echo "   3. 完成实际的编码练习"
+        echo "   4. 使用 finish-task 完成任务后进行评估"
+        echo "   5. 完成小结笔记，用自己的语言总结输出"
         
     else
         echo -e "${RED}❌ Task $task_id not found in $task_file${NC}"
-        echo -e "${YELLOW}💡 Try browsing the file manually or check task ID format${NC}"
+        echo -e "${YELLOW}💡 尝试手动浏览文件或检查任务ID格式${NC}"
     fi
+
+    echo "═══════════════════════════════════════════════════════"
 }
 
 # ACTUALLY setup workspace with real directory creation
@@ -396,39 +391,11 @@ EOF
     echo "$(date '+%s')" > learning_data/session_start.tmp
     echo "Task $task_id" > learning_data/current_task.tmp
     echo -e "${GREEN}✅ Session tracking started${NC}"
-    
-    # Step 4: Prepare file paths and positioning
     echo ""
-    echo -e "${BLUE}🗂️ Step 4: Preparing file paths and task positioning...${NC}"
+   
     
-    # Determine task file and get line number for task positioning
-    local task_file=""
-    local line_number=""
-    
-    case "$task_id" in
-        1.1.*|1.2.*|1.3.*)
-            task_file="$MICRO_TASKS_DIR/MICRO_TASK_C01.md"
-            # Find line number of the task
-            line_number=$(grep -n "Task $task_id" "$task_file" | head -1 | cut -d: -f1)
-            ;;
-        2.*)
-            task_file="$MICRO_TASKS_DIR/MICRO_TASK_C02.md"
-            line_number=$(grep -n "Task $task_id" "$task_file" | head -1 | cut -d: -f1)
-            ;;
-        3.*)
-            task_file="$MICRO_TASKS_DIR/MICRO_TASK_C03.md"
-            line_number=$(grep -n "Task $task_id" "$task_file" | head -1 | cut -d: -f1)
-            ;;
-    esac
-    
-    echo -e "${GREEN}✅ File paths prepared:${NC}"
-    echo "   📖 Task File: $task_file (Line: $line_number)"
-    echo "   💻 Code File: $code_file"
-    echo "   📊 Tracking: Active session started"
-    echo ""
-    
-    # Step 5: Smart IDE Detection and Opening
-    echo -e "${BLUE}🚀 Step 5: Opening IDEs automatically...${NC}"
+    # Step 4: Smart IDE Detection and Opening
+    echo -e "${BLUE}🚀 Step 4: Opening IDEs automatically...${NC}"
     
     # Open task file with positioning (VS Code or default text editor)
     if command -v code &> /dev/null && [[ -n "$task_file" && -n "$line_number" ]]; then
@@ -476,7 +443,7 @@ EOF
     # Step 6: Clear finish command instructions
     echo ""
     echo -e "${PURPLE}🎯 When you finish coding:${NC}"
-    echo -e "${CYAN}   ./functional_ai_assistant.sh finish-task${NC}  ← Use this command ONLY"
+    echo -e "${CYAN}   ./ai f ${NC}  ← Use this command ONLY"
     echo ""
     echo -e "${GREEN}✅ Setup complete! Happy coding! 🚀${NC}"
 }

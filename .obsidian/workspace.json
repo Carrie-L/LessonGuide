@@ -11,10 +11,14 @@
             "id": "c8ae495a2f2779f2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "micro_tasks/MICRO_TASKS_C12.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "MICRO_TASKS_C12"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 215.50260543823242
   },
   "right": {
     "id": "915a7cdb237b1db0",
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "micro_tasks/MICRO_TASKS_C12.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for MICRO_TASKS_C12"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "micro_tasks/MICRO_TASKS_C12.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from MICRO_TASKS_C12"
             }
           },
           {
@@ -136,20 +142,21 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "micro_tasks/MICRO_TASKS_C12.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of MICRO_TASKS_C12"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 376.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -161,21 +168,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5a996d07e33ba4fa",
+  "active": "c8ae495a2f2779f2",
   "lastOpenFiles": [
+    "student_progress/student_progress/c01/SynchronizedBasics.kt",
+    "student_progress/learning_data/current_task.tmp",
+    "student_progress/learning_data/session_start.tmp",
+    "student_progress/student_progress/c01/ThreadSleepDemo.kt",
+    "student_progress/learning_data/notes/Task_1_1_2_notes.md",
+    "student_progress/learning_data/notes",
+    "student_progress/learning_data/learning_log_temp.csv",
     "2025-08-20-this-session-is-being-continued-from-a-previous-co-13.txt",
     "ALL_7_FEEDBACK_IMPROVEMENTS_COMPLETE.md",
     "ALL_7_FEEDBACK_IMPROVEMENTS_COMPLETE.md.tmp.199208.1755671921911",
     "student_progress/ai",
     "student_progress/ai.tmp.199208.1755671732086",
     "student_progress/functional_ai_assistant.sh.tmp.199208.1755671707447",
-    "student_progress/functional_ai_assistant.sh.tmp.199208.1755671663991",
-    "student_progress/functional_ai_assistant.sh.tmp.199208.1755671629054",
-    "student_progress/functional_ai_assistant.sh.tmp.199208.1755671602781",
-    "student_progress/functional_ai_assistant.sh.tmp.199208.1755671583472",
-    "2025-08-20-this-session-is-being-continued-from-a-previous-co-12.txt",
     "FEEDBACK_IMPROVEMENTS_IMPLEMENTED.md",
-    "FEEDBACK_IMPROVEMENTS_IMPLEMENTED.md.tmp.199208.1755632079416",
     "ENHANCED_AI_ASSISTANT_FEATURES.md"
   ]
 }
