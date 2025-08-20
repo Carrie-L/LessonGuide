@@ -4,7 +4,9 @@
       "Bash(javac:*)",
       "Bash(java:*)",
       "Bash(timeout:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(./functional_ai_assistant.sh:*)",
+      "Bash(grep:*)"
     ]
   },
   "outputStyle": "Explanatory"

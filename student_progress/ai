@@ -1,0 +1,73 @@
+#!/bin/bash
+
+# 🚀 Simple AI Assistant Shortcut
+# Usage: ./ai [command] [args]
+# Examples:
+#   ./ai today
+#   ./ai start 1.1.1
+#   ./ai finish
+#   ./ai help
+
+# Forward all commands to functional_ai_assistant.sh with simplified syntax
+case "${1:-help}" in
+    "today"|"t")
+        ./functional_ai_assistant.sh today
+        ;;
+    "start"|"s")
+        if [[ -z "$2" ]]; then
+            echo "Usage: ./ai start [task_id]"
+            echo "Example: ./ai start 1.1.1"
+        else
+            ./functional_ai_assistant.sh start-task "$2"
+        fi
+        ;;
+    "finish"|"f"|"done")
+        ./functional_ai_assistant.sh finish-task
+        ;;
+    "open"|"o")
+        if [[ -z "$2" ]]; then
+            echo "Usage: ./ai open [task_id]"
+            echo "Example: ./ai open 1.1.1"
+        else
+            ./functional_ai_assistant.sh open-task "$2"
+        fi
+        ;;
+    "setup"|"workspace"|"w")
+        if [[ -z "$2" ]]; then
+            echo "Usage: ./ai setup [week]"
+            echo "Example: ./ai setup 1"
+        else
+            ./functional_ai_assistant.sh setup-workspace "$2"
+        fi
+        ;;
+    "browse"|"b"|"files")
+        ./functional_ai_assistant.sh browse
+        ;;
+    "help"|"h"|"--help")
+        echo "🤖 Simple AI Assistant Shortcuts"
+        echo "═══════════════════════════════════════════════════════"
+        echo ""
+        echo "📚 Daily Learning:"
+        echo "  ./ai today (or ./ai t)           → Show today's tasks"
+        echo "  ./ai start 1.1.1 (or ./ai s)    → Start task with full setup"
+        echo "  ./ai finish (or ./ai f)          → Finish current task"
+        echo ""
+        echo "🔧 Utilities:"
+        echo "  ./ai open 1.1.1 (or ./ai o)     → Open specific task"
+        echo "  ./ai setup 1 (or ./ai w)        → Setup workspace for week"
+        echo "  ./ai browse (or ./ai b)          → Browse task files"
+        echo ""
+        echo "🎯 Ultra-Simple Workflow:"
+        echo "  1. ./ai t                        → See what to study"
+        echo "  2. ./ai s 1.1.1                 → Start learning (opens everything)"
+        echo "  3. [Code for 5-90 minutes]"
+        echo "  4. ./ai f                        → Finish & track progress"
+        echo ""
+        echo "💡 This is a shortcut to functional_ai_assistant.sh"
+        ;;
+    *)
+        echo "❌ Unknown command: $1"
+        echo "💡 Run './ai help' for available commands"
+        echo "💡 Or use: ./ai today, ./ai start 1.1.1, ./ai finish"
+        ;;
+esac

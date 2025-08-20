@@ -21,10 +21,10 @@
 #### Task 1.1.1: JMM概念入门 + 首个编程实验 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [✅] **什么是JMM**: 想象你有一个笔记本(工作内存)和一个公共图书馆(主内存)
-- [✅] **简单理解**: JMM就是Java定义的"多个程序员如何共享数据"的规则
-- [✅] **生活类比**: 就像办公室里多人共用一台打印机，需要排队规则一样
-- [✅] **检查点**: 能说出"JMM是用来解决什么问题的"
+- [] **什么是JMM**: 想象你有一个笔记本(工作内存)和一个公共图书馆(主内存)
+- [] **简单理解**: JMM就是Java定义的"多个程序员如何共享数据"的规则
+- [] **生活类比**: 就像办公室里多人共用一台打印机，需要排队规则一样
+- [] **检查点**: 能说出"JMM是用来解决什么问题的"
 - [ ] **文件**: 在`student_progress/`创建`jmm_notes.md`，用自己的话写下理解
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -93,10 +93,10 @@ public class MemoryVisibilityDemo {
 #### Task 1.1.2: happens-before原则 + 编程验证 (5分钟) ⏰  
 
 **🎯 Primary Level (新手友好)**
-- [✅] **什么是happens-before**: 想象一个接力赛，前一个跑步者的成绩，后一个跑步者一定能看到
-- [✅] **简单理解**: "A发生在B之前"意味着"B能看到A的所有结果"
-- [✅] **记忆技巧**: happens-before = "发生在前面" + "结果可见"
-- [✅] **检查点**: 能用"接力赛"例子解释happens-before
+- [] **什么是happens-before**: 想象一个接力赛，前一个跑步者的成绩，后一个跑步者一定能看到
+- [] **简单理解**: "A发生在B之前"意味着"B能看到A的所有结果"
+- [] **记忆技巧**: happens-before = "发生在前面" + "结果可见"
+- [] **检查点**: 能用"接力赛"例子解释happens-before
 - [ ] **文件**: 在`jmm_notes.md`中用生活例子写下理解
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -173,10 +173,10 @@ public class HappensBeforeDemo {
 #### Task 1.1.3: synchronized基本原理 + 线程安全实战 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [✅] **什么是synchronized**: 想象一个厕所门锁，一次只能一个人进去
-- [✅] **简单理解**: synchronized就是给代码加了一把锁，确保不会"撞车"
-- [✅] **生活类比**: 就像银行只有一个窗口，大家要排队一个一个来
-- [✅] **检查点**: 能说出"synchronized是用来防止什么问题的"
+- [] **什么是synchronized**: 想象一个厕所门锁，一次只能一个人进去
+- [] **简单理解**: synchronized就是给代码加了一把锁，确保不会"撞车"
+- [] **生活类比**: 就像银行只有一个窗口，大家要排队一个一个来
+- [] **检查点**: 能说出"synchronized是用来防止什么问题的"
 - [ ] **文件**: 在`student_progress/`创建`synchronized_notes.md`
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -294,10 +294,10 @@ public class SynchronizedDemo {
 #### Task 1.1.4: volatile基本原理 + 可见性验证 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [✅] **什么是volatile**: 想象一个公告板，任何人更新后，所有人立即能看到
-- [✅] **简单理解**: volatile确保变量的"最新消息"能被所有线程看到
-- [✅] **常见错误**: volatile ≠ synchronized，它不能防止"撞车"
-- [✅] **检查点**: 能说出"volatile解决什么问题，不解决什么问题"
+- [] **什么是volatile**: 想象一个公告板，任何人更新后，所有人立即能看到
+- [] **简单理解**: volatile确保变量的"最新消息"能被所有线程看到
+- [] **常见错误**: volatile ≠ synchronized，它不能防止"撞车"
+- [] **检查点**: 能说出"volatile解决什么问题，不解决什么问题"
 - [ ] **文件**: 在`student_progress/`创建`volatile_notes.md`
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -2467,6 +2467,938 @@ public class DistributedLockSystem {
 - [ ] **代码质量**: 清晰的架构设计、完善的错误处理
 - [ ] **面试就绪**: 能够详细解释设计思路和技术选择
 
-<function_calls>
-<invoke name="TodoWrite">
-<parameter name="todos">[{"id": "1", "content": "Read and analyze current MICRO_TASK_C01.md structure", "status": "completed"}, {"id": "2", "content": "Design comprehensive hands-on practice framework", "status": "completed"}, {"id": "3", "content": "Add progressive coding exercises for each micro-task", "status": "completed"}, {"id": "4", "content": "Create quality assurance and verification framework", "status": "in_progress"}, {"id": "5", "content": "Integrate real-world project components", "status": "pending"}]
+---
+
+## 🎯 第二章节 1.2 集合框架：HashMap, ArrayList 与数据结构优化
+
+**学习方法说明**: 从底层数据结构入手，理解Java集合框架的设计原理和性能特性。通过手动实现核心数据结构，掌握内存管理、时间复杂度优化等关键技能。
+
+**🚨 强制性编程框架**: 
+- ✋ **从零实现**: 不依赖Java内置集合，手动实现所有数据结构
+- 🏃 **性能导向**: 每个实现都必须包含性能测试和优化
+- 📊 **渐进复杂度**: 基础实现 → 优化版本 → 生产级系统
+
+---
+
+### 🌟 Level 1: Primary Foundation (基础打牢) - 20分钟
+
+#### Task 1.2.1: ArrayList动态数组实现 + 内存管理 (5分钟) ⏰
+
+**🎯 Primary Level (新手友好)**
+- [] **什么是ArrayList**: 想象一个可以自动扩容的书架，书多了就换更大的书架
+- [] **简单理解**: 底层是数组，满了就创建更大数组并复制数据
+- [] **生活类比**: 就像搬家，房子小了就换大房子，把东西搬过去
+- [] **检查点**: 能说出"ArrayList如何实现动态扩容"
+- [ ] **文件**: 在`student_progress/`创建`collections_notes.md`，记录学习心得
+
+**🚀 Hands-On Coding Exercise (强制编程练习)**
+```java
+// 练习目标: 从零实现ArrayList核心功能
+public class MyArrayList<T> {
+    private Object[] elements;      // 底层数组
+    private int size = 0;          // 当前元素个数
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    public MyArrayList() {
+        elements = new Object[DEFAULT_CAPACITY];
+    }
+    
+    public MyArrayList(int initialCapacity) {
+        if (initialCapacity < 0) {
+            throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
+        }
+        elements = new Object[initialCapacity];
+    }
+    
+    // TODO: 学生手动实现添加元素
+    public boolean add(T element) {
+        ensureCapacity(size + 1);  // 确保容量足够
+        elements[size++] = element;
+        return true;
+    }
+    
+    // TODO: 学生实现容量扩展机制
+    private void ensureCapacity(int minCapacity) {
+        if (minCapacity > elements.length) {
+            grow(minCapacity);
+        }
+    }
+    
+    private void grow(int minCapacity) {
+        int oldCapacity = elements.length;
+        // 扩容策略: 1.5倍扩容 (为什么不是2倍?)
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
+        
+        if (newCapacity < minCapacity) {
+            newCapacity = minCapacity;
+        }
+        
+        // 数组复制 - 这是性能关键点!
+        elements = Arrays.copyOf(elements, newCapacity);
+        System.out.println("扩容: " + oldCapacity + " -> " + newCapacity);
+    }
+    
+    // TODO: 学生实现获取元素
+    @SuppressWarnings("unchecked")
+    public T get(int index) {
+        rangeCheck(index);
+        return (T) elements[index];
+    }
+    
+    // TODO: 学生实现删除元素
+    public T remove(int index) {
+        rangeCheck(index);
+        
+        @SuppressWarnings("unchecked")
+        T oldValue = (T) elements[index];
+        
+        int numMoved = size - index - 1;
+        if (numMoved > 0) {
+            // 数组复制删除元素 - 理解为什么删除操作昂贵
+            System.arraycopy(elements, index + 1, elements, index, numMoved);
+        }
+        
+        elements[--size] = null;  // 防止内存泄漏!
+        return oldValue;
+    }
+    
+    private void rangeCheck(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+    }
+    
+    public int size() {
+        return size;
+    }
+    
+    public boolean isEmpty() {
+        return size == 0;
+    }
+    
+    // 性能测试方法
+    public void performanceTest() {
+        long startTime = System.nanoTime();
+        
+        // 测试添加性能
+        for (int i = 0; i < 100000; i++) {
+            add((T) Integer.valueOf(i));
+        }
+        
+        long endTime = System.nanoTime();
+        System.out.println("添加100000个元素耗时: " + (endTime - startTime) / 1_000_000 + "ms");
+        
+        // 测试随机访问性能
+        startTime = System.nanoTime();
+        for (int i = 0; i < 10000; i++) {
+            get(i * 10);  // 随机访问
+        }
+        endTime = System.nanoTime();
+        System.out.println("随机访问10000次耗时: " + (endTime - startTime) / 1_000_000 + "ms");
+    }
+    
+    // 测试主函数
+    public static void main(String[] args) {
+        MyArrayList<String> list = new MyArrayList<>(3);  // 小容量测试扩容
+        
+        // 观察扩容过程
+        System.out.println("=== 扩容测试 ===");
+        for (int i = 0; i < 12; i++) {
+            list.add("Element-" + i);
+            System.out.println("添加第" + (i + 1) + "个元素，当前size: " + list.size());
+        }
+        
+        // 测试删除
+        System.out.println("\n=== 删除测试 ===");
+        System.out.println("删除索引5的元素: " + list.remove(5));
+        System.out.println("删除后size: " + list.size());
+        
+        // 性能测试
+        System.out.println("\n=== 性能测试 ===");
+        MyArrayList<Integer> perfList = new MyArrayList<>();
+        perfList.performanceTest();
+    }
+}
+```
+
+**📝 编程任务检查点**:
+- [ ] **手动输入**: 完整实现MyArrayList类，理解每一行代码
+- [ ] **扩容观察**: 运行程序观察1.5倍扩容过程
+- [ ] **性能分析**: 理解为什么ArrayList随机访问快，删除操作慢
+- [ ] **内存管理**: 理解为什么删除后要设置null防止内存泄漏
+- [ ] **代码位置**: `student_progress/JavaLearning/src/MyArrayList.java`
+
+#### Task 1.2.2: HashMap哈希表基础 + 冲突解决 (5分钟) ⏰
+
+**🎯 Primary Level (新手友好)**
+- [] **什么是HashMap**: 想象一个图书馆索引，通过书名快速找到书的位置
+- [] **简单理解**: 把key通过哈希函数转换成数组索引，实现O(1)查找
+- [] **生活类比**: 就像电话簿，通过姓名首字母快速定位到页码
+- [] **检查点**: 能说出"HashMap如何实现快速查找"
+
+**🚀 Hands-On Coding Exercise (强制编程练习)**
+```java
+// 练习目标: 理解哈希表的核心原理和冲突处理
+public class MyHashMap<K, V> {
+    
+    // 内部节点类 - 用链表处理冲突
+    static class Node<K, V> {
+        final int hash;
+        final K key;
+        V value;
+        Node<K, V> next;
+        
+        Node(int hash, K key, V value, Node<K, V> next) {
+            this.hash = hash;
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+        
+        @Override
+        public String toString() {
+            return key + "=" + value;
+        }
+    }
+    
+    private Node<K, V>[] table;      // 哈希表数组
+    private int size = 0;            // 当前键值对数量
+    private int threshold;           // 扩容阈值
+    private static final double LOAD_FACTOR = 0.75;  // 负载因子
+    private static final int DEFAULT_CAPACITY = 16;   // 默认容量
+    
+    @SuppressWarnings("unchecked")
+    public MyHashMap() {
+        table = (Node<K, V>[]) new Node[DEFAULT_CAPACITY];
+        threshold = (int) (DEFAULT_CAPACITY * LOAD_FACTOR);
+    }
+    
+    // TODO: 学生实现哈希函数
+    private int hash(Object key) {
+        if (key == null) return 0;
+        
+        int h = key.hashCode();
+        // 高16位异或低16位，减少冲突
+        return h ^ (h >>> 16);
+    }
+    
+    // 通过哈希值计算数组索引
+    private int indexFor(int hash, int length) {
+        return hash & (length - 1);  // 等价于 hash % length，但更快
+    }
+    
+    // TODO: 学生实现put操作
+    public V put(K key, V value) {
+        return putVal(hash(key), key, value);
+    }
+    
+    private V putVal(int hash, K key, V value) {
+        Node<K, V>[] tab = table;
+        int n = tab.length;
+        int i = indexFor(hash, n);  // 计算数组索引
+        
+        Node<K, V> p = tab[i];
+        if (p == null) {
+            // 位置为空，直接放入
+            tab[i] = new Node<>(hash, key, value, null);
+        } else {
+            // 发生哈希冲突，使用链表处理
+            Node<K, V> e = null;
+            K k = p.key;
+            
+            if (p.hash == hash && (k == key || (key != null && key.equals(k)))) {
+                // key相同，覆盖value
+                e = p;
+            } else {
+                // 遍历链表查找或添加到末尾
+                while (true) {
+                    if (p.next == null) {
+                        p.next = new Node<>(hash, key, value, null);
+                        break;
+                    }
+                    
+                    p = p.next;
+                    if (p.hash == hash && (k = p.key) == key || (key != null && key.equals(k))) {
+                        e = p;
+                        break;
+                    }
+                }
+            }
+            
+            if (e != null) {
+                // 覆盖已存在的key
+                V oldValue = e.value;
+                e.value = value;
+                return oldValue;
+            }
+        }
+        
+        size++;
+        
+        // 检查是否需要扩容
+        if (size > threshold) {
+            resize();
+        }
+        
+        return null;
+    }
+    
+    // TODO: 学生实现get操作
+    public V get(Object key) {
+        int hash = hash(key);
+        int i = indexFor(hash, table.length);
+        
+        Node<K, V> p = table[i];
+        while (p != null) {
+            if (p.hash == hash && (p.key == key || (key != null && key.equals(p.key)))) {
+                return p.value;
+            }
+            p = p.next;
+        }
+        
+        return null;  // 未找到
+    }
+    
+    // TODO: 学生实现扩容机制
+    @SuppressWarnings("unchecked")
+    private void resize() {
+        Node<K, V>[] oldTab = table;
+        int oldCap = oldTab.length;
+        int newCap = oldCap << 1;  // 容量翻倍
+        
+        Node<K, V>[] newTab = (Node<K, V>[]) new Node[newCap];
+        table = newTab;
+        threshold = (int) (newCap * LOAD_FACTOR);
+        
+        System.out.println("HashMap扩容: " + oldCap + " -> " + newCap);
+        
+        // 重新哈希所有元素
+        for (int j = 0; j < oldCap; ++j) {
+            Node<K, V> e = oldTab[j];
+            if (e != null) {
+                oldTab[j] = null;
+                
+                if (e.next == null) {
+                    // 只有一个元素，直接放入新位置
+                    newTab[indexFor(e.hash, newCap)] = e;
+                } else {
+                    // 有链表，需要分离
+                    Node<K, V> loHead = null, loTail = null;  // 低位链表
+                    Node<K, V> hiHead = null, hiTail = null;  // 高位链表
+                    
+                    Node<K, V> next;
+                    do {
+                        next = e.next;
+                        if ((e.hash & oldCap) == 0) {  // 留在原位置
+                            if (loTail == null) loHead = e;
+                            else loTail.next = e;
+                            loTail = e;
+                        } else {  // 移到新位置
+                            if (hiTail == null) hiHead = e;
+                            else hiTail.next = e;
+                            hiTail = e;
+                        }
+                    } while ((e = next) != null);
+                    
+                    if (loTail != null) {
+                        loTail.next = null;
+                        newTab[j] = loHead;
+                    }
+                    if (hiTail != null) {
+                        hiTail.next = null;
+                        newTab[j + oldCap] = hiHead;
+                    }
+                }
+            }
+        }
+    }
+    
+    public int size() {
+        return size;
+    }
+    
+    // 打印哈希表结构，观察冲突分布
+    public void printStructure() {
+        System.out.println("=== HashMap内部结构 ===");
+        for (int i = 0; i < table.length; i++) {
+            if (table[i] != null) {
+                System.out.print("Bucket[" + i + "]: ");
+                Node<K, V> p = table[i];
+                while (p != null) {
+                    System.out.print(p + " -> ");
+                    p = p.next;
+                }
+                System.out.println("null");
+            }
+        }
+    }
+    
+    // 测试冲突和性能
+    public static void main(String[] args) {
+        MyHashMap<String, Integer> map = new MyHashMap<>();
+        
+        // 测试基本操作
+        System.out.println("=== 基本操作测试 ===");
+        map.put("apple", 1);
+        map.put("banana", 2);
+        map.put("orange", 3);
+        map.put("grape", 4);
+        
+        System.out.println("apple: " + map.get("apple"));
+        System.out.println("banana: " + map.get("banana"));
+        System.out.println("size: " + map.size());
+        
+        map.printStructure();
+        
+        // 测试冲突处理
+        System.out.println("\n=== 冲突测试 ===");
+        // 故意制造冲突
+        for (int i = 0; i < 20; i++) {
+            map.put("key" + i, i);
+        }
+        
+        map.printStructure();
+        
+        // 性能测试
+        System.out.println("\n=== 性能测试 ===");
+        MyHashMap<Integer, String> perfMap = new MyHashMap<>();
+        
+        long startTime = System.nanoTime();
+        for (int i = 0; i < 100000; i++) {
+            perfMap.put(i, "value" + i);
+        }
+        long endTime = System.nanoTime();
+        System.out.println("插入100000个元素耗时: " + (endTime - startTime) / 1_000_000 + "ms");
+        
+        startTime = System.nanoTime();
+        for (int i = 0; i < 100000; i += 100) {
+            perfMap.get(i);
+        }
+        endTime = System.nanoTime();
+        System.out.println("查找1000次耗时: " + (endTime - startTime) / 1_000_000 + "ms");
+    }
+}
+```
+
+**📝 编程任务检查点**:
+- [ ] **哈希函数理解**: 理解为什么要高16位异或低16位
+- [ ] **冲突处理**: 观察链表如何处理哈希冲突
+- [ ] **扩容机制**: 理解为什么要重新哈希，以及高低位分离技巧
+- [ ] **负载因子**: 理解0.75负载因子的意义
+- [ ] **性能分析**: 对比ArrayList和HashMap的不同使用场景
+
+---
+
+## 🎯 第三章节 1.3 协程机制：Kotlin Coroutines 与异步编程
+
+**学习方法说明**: 从协程的基本概念入手，理解挂起函数、调度器、结构化并发等核心概念。通过实际编程体验协程相比传统线程的优势，掌握现代异步编程范式。
+
+**🚨 强制性编程框架**: 
+- ✋ **渐进实践**: 从简单的suspend函数到复杂的Flow数据流
+- 🏃 **Android集成**: 每个概念都要结合Android开发场景
+- 📊 **性能对比**: 协程 vs 线程的性能和内存使用对比
+
+---
+
+### 🌟 Level 1: Primary Foundation (基础打牢) - 20分钟
+
+#### Task 1.3.1: 协程基础概念 + 首个挂起函数 (5分钟) ⏰
+
+**🎯 Primary Level (新手友好)**
+- [] **什么是协程**: 想象一个超级多任务的厨师，可以同时准备多道菜
+- [] **简单理解**: 协程是轻量级的"线程"，可以在执行过程中暂停和恢复
+- [] **生活类比**: 就像看书时接电话，放下书接电话，接完继续看书
+- [] **检查点**: 能说出"协程比线程轻量在哪里"
+- [ ] **文件**: 在`student_progress/`创建`coroutines_notes.md`，记录理解
+
+**🚀 Hands-On Coding Exercise (强制编程练习)**
+```kotlin
+import kotlinx.coroutines.*
+import kotlin.system.measureTimeMillis
+
+// 练习目标: 理解协程的基本概念和挂起函数
+class CoroutineBasics {
+    
+    // TODO: 学生实现第一个挂起函数
+    suspend fun fetchUserData(userId: String): String {
+        println("开始获取用户[$userId]数据...")
+        delay(1000)  // 模拟网络请求延迟
+        println("用户[$userId]数据获取完成")
+        return "User-$userId-Data"
+    }
+    
+    suspend fun fetchUserProfile(userId: String): String {
+        println("开始获取用户[$userId]资料...")
+        delay(800)   // 模拟网络延迟
+        println("用户[$userId]资料获取完成")
+        return "Profile-$userId-Info"
+    }
+    
+    // 演示协程的并发执行
+    suspend fun demonstrateCoroutineConcurrency() {
+        println("=== 协程并发演示 ===")
+        
+        // 方式1: 顺序执行 (串行)
+        println("\n--- 顺序执行 ---")
+        val sequentialTime = measureTimeMillis {
+            val userData = fetchUserData("Alice")
+            val userProfile = fetchUserProfile("Alice")
+            println("顺序结果: $userData, $userProfile")
+        }
+        println("顺序执行总耗时: ${sequentialTime}ms")
+        
+        // 方式2: 并发执行 (并行)
+        println("\n--- 并发执行 ---")
+        val concurrentTime = measureTimeMillis {
+            val userDataDeferred = async { fetchUserData("Bob") }
+            val userProfileDeferred = async { fetchUserProfile("Bob") }
+            
+            // await等待所有结果
+            val userData = userDataDeferred.await()
+            val userProfile = userProfileDeferred.await()
+            println("并发结果: $userData, $userProfile")
+        }
+        println("并发执行总耗时: ${concurrentTime}ms")
+    }
+    
+    // 演示协程的轻量性
+    suspend fun demonstrateCoroutineLightweight() {
+        println("\n=== 协程轻量性演示 ===")
+        
+        val jobList = mutableListOf<Job>()
+        val startTime = System.currentTimeMillis()
+        
+        // 创建大量协程
+        repeat(10000) { i ->
+            val job = GlobalScope.launch {
+                delay(1000)  // 每个协程都挂起1秒
+                if (i % 1000 == 0) {
+                    println("协程$i 执行完成")
+                }
+            }
+            jobList.add(job)
+        }
+        
+        // 等待所有协程完成
+        jobList.joinAll()
+        
+        val endTime = System.currentTimeMillis()
+        println("10000个协程执行完成，总耗时: ${endTime - startTime}ms")
+    }
+    
+    // 演示不同的协程构建器
+    suspend fun demonstrateCoroutineBuilders() {
+        println("\n=== 协程构建器对比 ===")
+        
+        // 1. launch: 启动协程，不返回结果
+        println("--- launch构建器 ---")
+        val job = launch {
+            delay(500)
+            println("launch协程执行完成")
+        }
+        job.join()  // 等待完成
+        
+        // 2. async: 启动协程，返回Deferred结果
+        println("--- async构建器 ---")
+        val deferred = async {
+            delay(500)
+            "async协程的返回值"
+        }
+        val result = deferred.await()
+        println("async结果: $result")
+        
+        // 3. runBlocking: 阻塞式协程
+        println("--- runBlocking构建器 ---")
+        runBlocking {
+            delay(500)
+            println("runBlocking协程执行完成")
+        }
+    }
+    
+    // 演示协程的异常处理
+    suspend fun demonstrateExceptionHandling() {
+        println("\n=== 协程异常处理 ===")
+        
+        try {
+            val result = async {
+                delay(100)
+                throw RuntimeException("模拟网络错误")
+                "不会返回的结果"
+            }
+            result.await()
+        } catch (e: Exception) {
+            println("捕获到异常: ${e.message}")
+        }
+        
+        // 使用SupervisorJob处理子协程异常
+        supervisorScope {
+            val job1 = launch {
+                delay(100)
+                println("正常协程1执行完成")
+            }
+            
+            val job2 = launch {
+                delay(50)
+                throw RuntimeException("子协程异常")
+            }
+            
+            val job3 = launch {
+                delay(200)
+                println("正常协程3执行完成")
+            }
+            
+            // job2异常不会影响job1和job3
+            try {
+                joinAll(job1, job2, job3)
+            } catch (e: Exception) {
+                println("supervisor scope捕获异常: ${e.message}")
+            }
+        }
+    }
+}
+
+// Android场景演示
+class AndroidCoroutineExample {
+    
+    // 模拟Android中的网络请求
+    suspend fun loadDataFromNetwork(): String {
+        return withContext(Dispatchers.IO) {
+            // 模拟网络I/O操作
+            delay(2000)
+            "从网络加载的数据"
+        }
+    }
+    
+    // 模拟在UI线程更新界面
+    suspend fun updateUI(data: String) {
+        withContext(Dispatchers.Main) {
+            println("在主线程更新UI: $data")
+            // 在实际Android中这里会更新View
+        }
+    }
+    
+    // 演示Android中的典型协程使用模式
+    suspend fun androidCoroutinePattern() {
+        println("\n=== Android协程模式演示 ===")
+        
+        try {
+            // 1. 在后台线程执行网络请求
+            val data = loadDataFromNetwork()
+            
+            // 2. 切换到主线程更新UI
+            updateUI(data)
+            
+        } catch (e: Exception) {
+            // 3. 错误处理
+            println("加载数据失败: ${e.message}")
+        }
+    }
+}
+
+fun main() {
+    val coroutineBasics = CoroutineBasics()
+    val androidExample = AndroidCoroutineExample()
+    
+    runBlocking {
+        // 基础协程演示
+        coroutineBasics.demonstrateCoroutineConcurrency()
+        
+        coroutineBasics.demonstrateCoroutineBuilders()
+        
+        coroutineBasics.demonstrateExceptionHandling()
+        
+        // 轻量性演示 (注意: 这个会创建很多协程，需要一些时间)
+        println("\n准备演示10000个协程的轻量性...")
+        coroutineBasics.demonstrateCoroutineLightweight()
+        
+        // Android场景演示
+        androidExample.androidCoroutinePattern()
+    }
+    
+    println("\n协程基础演示完成！")
+}
+```
+
+**📝 编程任务检查点**:
+- [ ] **挂起函数理解**: 理解suspend关键字的作用和原理
+- [ ] **协程构建器**: 掌握launch、async、runBlocking的区别
+- [ ] **并发vs并行**: 体验协程的并发执行优势
+- [ ] **轻量性验证**: 观察10000个协程的内存和性能表现
+- [ ] **异常处理**: 理解协程中的异常传播机制
+- [ ] **Android集成**: 理解协程在Android开发中的应用场景
+- [ ] **代码位置**: `student_progress/JavaLearning/src/CoroutineBasics.kt`
+
+#### Task 1.3.2: Channel通信机制 + 生产者消费者模式 (5分钟) ⏰
+
+**🎯 Primary Level (新手友好)**
+- [] **什么是Channel**: 想象一个传送带，生产者放东西，消费者取东西
+- [] **简单理解**: Channel是协程之间传递数据的管道
+- [] **生活类比**: 就像餐厅的传菜窗口，厨师放菜，服务员取菜
+- [] **检查点**: 能说出"Channel如何实现协程间通信"
+
+**🚀 Hands-On Coding Exercise (强制编程练习)**
+```kotlin
+import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.*
+
+// 练习目标: 掌握Channel的使用和生产者-消费者模式
+class ChannelCommunication {
+    
+    // TODO: 学生实现基础的Channel通信
+    suspend fun basicChannelDemo() {
+        println("=== 基础Channel演示 ===")
+        
+        val channel = Channel<String>()
+        
+        // 生产者协程
+        launch {
+            println("生产者: 开始发送数据...")
+            for (i in 1..5) {
+                val message = "消息-$i"
+                channel.send(message)
+                println("生产者: 发送了 $message")
+                delay(500)  // 模拟生产耗时
+            }
+            channel.close()  // 关闭通道
+            println("生产者: 通道已关闭")
+        }
+        
+        // 消费者协程
+        launch {
+            println("消费者: 开始接收数据...")
+            for (message in channel) {  // 自动处理通道关闭
+                println("消费者: 接收到 $message")
+                delay(200)  // 模拟消费耗时
+            }
+            println("消费者: 接收完成")
+        }
+        
+        delay(4000)  // 等待演示完成
+    }
+    
+    // TODO: 学生实现多生产者多消费者模式
+    suspend fun multiProducerConsumerDemo() {
+        println("\n=== 多生产者多消费者演示 ===")
+        
+        val channel = Channel<String>(capacity = 10)  // 带缓冲的通道
+        
+        // 多个生产者
+        repeat(3) { producerId ->
+            launch {
+                repeat(5) { i ->
+                    val message = "P$producerId-M$i"
+                    channel.send(message)
+                    println("生产者$producerId: 发送 $message")
+                    delay((100..300).random().toLong())
+                }
+            }
+        }
+        
+        // 多个消费者
+        repeat(2) { consumerId ->
+            launch {
+                while (true) {
+                    try {
+                        val message = channel.receive()
+                        println("  消费者$consumerId: 处理 $message")
+                        delay((50..200).random().toLong())
+                    } catch (e: ClosedReceiveChannelException) {
+                        println("  消费者$consumerId: 通道已关闭")
+                        break
+                    }
+                }
+            }
+        }
+        
+        delay(3000)  // 让生产者完成
+        channel.close()
+        delay(1000)  // 让消费者完成处理
+    }
+    
+    // TODO: 学生实现不同类型的Channel
+    suspend fun channelTypesDemo() {
+        println("\n=== 不同类型Channel演示 ===")
+        
+        // 1. 无缓冲Channel (默认)
+        println("--- 无缓冲Channel ---")
+        val rendezvousChannel = Channel<String>()
+        
+        launch {
+            println("无缓冲: 准备发送")
+            rendezvousChannel.send("立即交换")  // 会阻塞直到有接收者
+            println("无缓冲: 发送完成")
+        }
+        
+        delay(100)  // 让发送者先运行
+        
+        launch {
+            println("无缓冲: 准备接收")
+            val msg = rendezvousChannel.receive()
+            println("无缓冲: 接收到 $msg")
+        }
+        
+        delay(500)
+        
+        // 2. 带缓冲Channel
+        println("--- 带缓冲Channel ---")
+        val bufferedChannel = Channel<String>(capacity = 3)
+        
+        launch {
+            repeat(5) { i ->
+                bufferedChannel.send("缓冲消息-$i")
+                println("缓冲发送: 消息-$i (缓冲区可能有空间)")
+            }
+        }
+        
+        delay(200)  // 让一些消息缓冲
+        
+        launch {
+            repeat(5) { i ->
+                val msg = bufferedChannel.receive()
+                println("缓冲接收: $msg")
+                delay(100)
+            }
+        }
+        
+        delay(1000)
+        
+        // 3. 无限容量Channel
+        println("--- 无限容量Channel ---")
+        val unlimitedChannel = Channel<String>(capacity = Channel.UNLIMITED)
+        
+        launch {
+            repeat(1000) { i ->
+                unlimitedChannel.send("无限消息-$i")
+                if (i % 100 == 0) {
+                    println("无限发送: 已发送${i + 1}条消息")
+                }
+            }
+        }
+        
+        delay(100)
+        
+        launch {
+            repeat(1000) { i ->
+                val msg = unlimitedChannel.receive()
+                if (i % 100 == 0) {
+                    println("无限接收: 已接收${i + 1}条消息")
+                }
+            }
+        }
+        
+        delay(2000)
+    }
+    
+    // Android场景: 实现图片下载队列
+    suspend fun imageDownloadQueueDemo() {
+        println("\n=== Android图片下载队列演示 ===")
+        
+        data class ImageRequest(val url: String, val imageId: Int)
+        data class ImageResult(val imageId: Int, val bitmap: String, val success: Boolean)
+        
+        val requestChannel = Channel<ImageRequest>(capacity = 50)
+        val resultChannel = Channel<ImageResult>(capacity = 10)
+        
+        // 图片下载工作者 (模拟多个下载线程)
+        repeat(3) { workerId ->
+            launch(Dispatchers.IO) {
+                while (true) {
+                    try {
+                        val request = requestChannel.receive()
+                        println("下载器$workerId: 开始下载 ${request.url}")
+                        
+                        // 模拟网络下载
+                        delay((500..1500).random().toLong())
+                        
+                        val success = (0..10).random() > 1  // 90%成功率
+                        val result = ImageResult(
+                            imageId = request.imageId,
+                            bitmap = if (success) "Bitmap-${request.imageId}" else "null",
+                            success = success
+                        )
+                        
+                        resultChannel.send(result)
+                        println("下载器$workerId: ${if (success) "下载成功" else "下载失败"} ${request.url}")
+                        
+                    } catch (e: ClosedReceiveChannelException) {
+                        println("下载器$workerId: 下载队列已关闭")
+                        break
+                    }
+                }
+            }
+        }
+        
+        // UI更新协程 (模拟主线程处理结果)
+        launch(Dispatchers.Main) {
+            while (true) {
+                try {
+                    val result = resultChannel.receive()
+                    if (result.success) {
+                        println("UI更新: 图片${result.imageId}加载成功，显示${result.bitmap}")
+                    } else {
+                        println("UI更新: 图片${result.imageId}加载失败，显示占位图")
+                    }
+                } catch (e: ClosedReceiveChannelException) {
+                    println("UI更新: 结果通道已关闭")
+                    break
+                }
+            }
+        }
+        
+        // 模拟添加下载请求
+        launch {
+            repeat(20) { i ->
+                val request = ImageRequest("https://example.com/image$i.jpg", i)
+                requestChannel.send(request)
+                println("请求队列: 添加下载任务 image$i.jpg")
+                delay(100)  // 模拟用户滚动速度
+            }
+            
+            delay(3000)  // 等待下载完成
+            requestChannel.close()
+            delay(1000)  // 等待工作者完成
+            resultChannel.close()
+        }
+        
+        delay(6000)  // 等待演示完成
+    }
+}
+
+fun main() {
+    val channelDemo = ChannelCommunication()
+    
+    runBlocking {
+        // 基础Channel使用
+        channelDemo.basicChannelDemo()
+        
+        // 多生产者多消费者
+        channelDemo.multiProducerConsumerDemo()
+        
+        // 不同类型的Channel
+        channelDemo.channelTypesDemo()
+        
+        // Android实际应用场景
+        channelDemo.imageDownloadQueueDemo()
+    }
+    
+    println("\nChannel通信机制演示完成！")
+}
+```
+
+**📝 编程任务检查点**:
+- [ ] **Channel基础**: 理解Channel的发送和接收机制
+- [ ] **缓冲策略**: 掌握不同容量Channel的使用场景
+- [ ] **多对多通信**: 实现多生产者多消费者模式
+- [ ] **异常处理**: 正确处理Channel关闭异常
+- [ ] **Android应用**: 理解Channel在图片加载等场景的应用
+- [ ] **性能考虑**: 观察不同缓冲策略的性能影响
+
+**🚀 Intermediate Level (实践验证)**  
+- [ ] **Flow数据流**: 进一步学习Flow的响应式编程
+- [ ] **协程上下文**: 理解Dispatchers和协程上下文切换
+- [ ] **结构化并发**: 掌握作用域管理和协程生命周期
+
+**🏆 Senior Level (架构思维)**
+- [ ] **Android架构**: 在MVVM架构中正确使用协程
+- [ ] **错误处理**: 设计健壮的协程错误处理机制
+- [ ] **性能优化**: 协程在大型Android项目中的性能优化策略

@@ -24,43 +24,43 @@
 
 Week 1 Tasks:
 □ Task 1.1.1: synchronized互斥锁原理 (90min)
-  • File: MICRO_TASK_C01_C02.md:Lines 45-120
+  • File: MICRO_TASK_C01.md:Lines 45-120
   • Coding: student_progress/c01/SynchronizedBasics.kt
   • Key: Understanding thread safety fundamentals
   
 □ Task 1.1.2: volatile内存可见性 (75min)
-  • File: MICRO_TASK_C01_C02.md:Lines 121-185
+  • File: MICRO_TASK_C01.md:Lines 121-185
   • Coding: student_progress/c01/VolatileMemoryModel.kt
   • Key: Memory visibility between threads
   
 □ Task 1.1.3: Thread.sleep线程休眠机制 (60min)
-  • File: MICRO_TASK_C01_C02.md:Lines 186-240
+  • File: MICRO_TASK_C01.md:Lines 186-240
   • Coding: student_progress/c01/ThreadSleepDemo.kt
   • Key: Thread lifecycle and timing
   
 □ Task 1.1.4: volatile可见性验证 (90min)
-  • File: MICRO_TASK_C01_C02.md:Lines 241-310
+  • File: MICRO_TASK_C01.md:Lines 241-310
   • Coding: student_progress/c01/VolatileVerification.kt
   • Key: Practical memory model testing
 
 Week 2 Tasks:
 □ Task 1.1.5: 锁升级机制观察 (105min)
-  • File: MICRO_TASK_C01_C02.md:Lines 311-395
+  • File: MICRO_TASK_C01.md:Lines 311-395
   • Coding: student_progress/c01/LockEscalationDemo.kt
   • Key: JVM lock optimization understanding
   
 □ Task 1.1.6: CAS和ABA问题实践 (120min)
-  • File: MICRO_TASK_C01_C02.md:Lines 396-485
+  • File: MICRO_TASK_C01.md:Lines 396-485
   • Coding: student_progress/c01/CasAndAbaDemo.kt
   • Key: Lock-free programming concepts
   
 □ Task 1.1.7: 生产级线程池实现 (150min)
-  • File: MICRO_TASK_C01_C02.md:Lines 486-590
+  • File: MICRO_TASK_C01.md:Lines 486-590
   • Coding: student_progress/c01/ProductionThreadPool.kt
   • Key: Enterprise-level concurrency management
   
 □ Task 1.1.8: 企业级线程安全缓存系统 (180min)
-  • File: MICRO_TASK_C01_C02.md:Lines 591-720
+  • File: MICRO_TASK_C01.md:Lines 591-720
   • Coding: student_progress/c01/ThreadSafeCacheSystem.kt
   • Key: Real-world concurrent data structures
 ```
@@ -78,39 +78,39 @@ Week 2 Tasks:
 
 **Learning Sequence**:
 ```
-📚 Source: micro_tasks/MICRO_TASK_C01_C02.md (Section 1.2)
+📚 Source: micro_tasks/MICRO_TASK_C01.md (Section 1.2)
 📊 Track: student_progress/c02/collections/
 🎯 Goal: Master Java collections internals and performance
 
 Week 3 Tasks:
 □ Task 1.2.1: ArrayList动态数组实现 (90min)
-  • File: MICRO_TASK_C01_C02.md:Lines 750-835
+  • File: MICRO_TASK_C01.md:Lines 750-835
   • Coding: student_progress/c02/CustomArrayList.kt
   • Key: Dynamic resizing and memory management
   
 □ Task 1.2.2: HashMap哈希表基础 (105min)
-  • File: MICRO_TASK_C01_C02.md:Lines 836-925
+  • File: MICRO_TASK_C01.md:Lines 836-925
   • Coding: student_progress/c02/CustomHashMap.kt
   • Key: Hash collision handling
   
 □ Task 1.2.3: HashMap扩容机制 (120min)
-  • File: MICRO_TASK_C01_C02.md:Lines 926-1020
+  • File: MICRO_TASK_C01.md:Lines 926-1020
   • Coding: student_progress/c02/HashMapResizing.kt
   • Key: Load factor and performance optimization
   
 □ Task 1.2.4: ConcurrentHashMap分段锁 (135min)
-  • File: MICRO_TASK_C01_C02.md:Lines 1021-1125
+  • File: MICRO_TASK_C01.md:Lines 1021-1125
   • Coding: student_progress/c02/ConcurrentHashMapDemo.kt
   • Key: High-performance concurrent collections
 
 Week 4 Tasks:
 □ Task 1.2.5: 生产级LRU缓存实现 (150min)
-  • File: MICRO_TASK_C01_C02.md:Lines 1126-1240
+  • File: MICRO_TASK_C01.md:Lines 1126-1240
   • Coding: student_progress/c02/LRUCacheImplementation.kt
   • Key: Memory management strategies
   
 □ Task 1.2.6: 布隆过滤器实现 (120min)
-  • File: MICRO_TASK_C01_C02.md:Lines 1241-1330
+  • File: MICRO_TASK_C01.md:Lines 1241-1330
   • Coding: student_progress/c02/BloomFilterDemo.kt
   • Key: Probabilistic data structures
 ```
@@ -128,34 +128,34 @@ Week 4 Tasks:
 
 **Learning Sequence**:
 ```
-📚 Source: micro_tasks/MICRO_TASK_C01_C02.md (Section 1.3)
+📚 Source: micro_tasks/MICRO_TASK_C01.md (Section 1.3)
 📊 Track: student_progress/c03/coroutines/
 🎯 Goal: Master Kotlin coroutines and Android integration
 
 Week 5 Tasks:
 □ Task 1.3.1: 协程基础概念 (75min)
-  • File: MICRO_TASK_C01_C02.md:Lines 1360-1440
+  • File: MICRO_TASK_C01.md:Lines 1360-1440
   • Coding: student_progress/c03/CoroutineBasics.kt
   • Key: Suspending functions and coroutine builders
   
 □ Task 1.3.2: Channel通信机制 (90min)
-  • File: MICRO_TASK_C01_C02.md:Lines 1441-1530
+  • File: MICRO_TASK_C01.md:Lines 1441-1530
   • Coding: student_progress/c03/ChannelCommunication.kt
   • Key: Producer-consumer patterns
   
 □ Task 1.3.3: 协程调度器原理 (105min)
-  • File: MICRO_TASK_C01_C02.md:Lines 1531-1625
+  • File: MICRO_TASK_C01.md:Lines 1531-1625
   • Coding: student_progress/c03/CoroutineDispatchers.kt
   • Key: Threading and context switching
 
 Week 6 Tasks:
 □ Task 1.3.4: Flow响应式流 (120min)
-  • File: MICRO_TASK_C01_C02.md:Lines 1626-1730
+  • File: MICRO_TASK_C01.md:Lines 1626-1730
   • Coding: student_progress/c03/FlowReactiveStream.kt
   • Key: Asynchronous data streams
   
 □ Task 1.3.5: Android生命周期协程 (135min)
-  • File: MICRO_TASK_C01_C02.md:Lines 1731-1840
+  • File: MICRO_TASK_C01.md:Lines 1731-1840
   • Coding: student_progress/c03/AndroidLifecycleCoroutines.kt
   • Key: Lifecycle-aware programming
 ```
@@ -175,7 +175,7 @@ Week 6 Tasks:
 
 **Learning Sequence**:
 ```
-📚 Source: micro_tasks/MICRO_TASK_C01_C02.md (Chapter 2 sections)
+📚 Source: micro_tasks/MICRO_TASK_C02.md (Chapter 2 sections)
 📊 Track: student_progress/c02_android/
 🎯 Goal: Master Android framework internals
 
@@ -220,7 +220,7 @@ Week 10 Focus Areas:
 
 **Learning Sequence**:
 ```
-📚 Source: micro_tasks/MICRO_TASK_C04_C05.md
+📚 Source: micro_tasks/MICRO_TASK_C04.md
 📊 Track: student_progress/c04_performance/
 🎯 Goal: Master performance analysis and optimization
 
@@ -243,7 +243,7 @@ Week 12 Tasks:
 
 **Learning Sequence**:
 ```
-📚 Source: micro_tasks/MICRO_TASK_C04_C05.md (Chapter 5)
+📚 Source: micro_tasks/MICRO_TASK_C05.md (Chapter 5)
 📊 Track: student_progress/c05_modern_ui/
 🎯 Goal: Master Jetpack Compose and modern UI patterns
 
@@ -281,7 +281,7 @@ Week 14 Focus Areas:
 
 **Learning Sequence**:
 ```
-📚 Source: micro_tasks/MICRO_TASK_C07_C08.md (Chapter 7)
+📚 Source: micro_tasks/MICRO_TASK_C07.md (Chapter 7)
 📊 Track: student_progress/c07_security/
 🎯 Goal: Master Android security and hardening
 
@@ -295,7 +295,7 @@ Week 15 Focus Areas:
 
 **Learning Sequence**:
 ```
-📚 Source: micro_tasks/MICRO_TASK_C07_C08.md (Chapter 8)
+📚 Source: micro_tasks/MICRO_TASK_C08.md (Chapter 8)
 📊 Track: student_progress/c08_engineering/
 🎯 Goal: Master modern Android engineering practices
 
@@ -377,28 +377,28 @@ Duration: 68 tasks, ~25 hours over 2 weeks
 
 ### **Junior → Mid-Level (Weeks 1-8)**
 **Skills Unlocked**:
-- ✅ Concurrent programming mastery
-- ✅ Data structure optimization
-- ✅ Asynchronous programming with coroutines
-- ✅ Android framework understanding
+-  Concurrent programming mastery
+-  Data structure optimization
+-  Asynchronous programming with coroutines
+-  Android framework understanding
 
 **Career Impact**: Can handle complex technical tasks independently
 
 ### **Mid-Level → Senior (Weeks 9-14)**
 **Skills Unlocked**:
-- ✅ Architectural decision making
-- ✅ Performance optimization expertise
-- ✅ Modern UI development mastery
-- ✅ Comprehensive testing strategies
+-  Architectural decision making
+-  Performance optimization expertise
+-  Modern UI development mastery
+-  Comprehensive testing strategies
 
 **Career Impact**: Can lead technical decisions and mentor others
 
 ### **Senior → Principal (Weeks 15-16+)**
 **Skills Unlocked**:
-- ✅ Security-first development
-- ✅ Engineering process optimization
-- ✅ Large-scale system design
-- ✅ Deep framework internals knowledge
+-  Security-first development
+-  Engineering process optimization
+-  Large-scale system design
+-  Deep framework internals knowledge
 
 **Career Impact**: Can architect enterprise-level solutions and drive technical strategy
 
@@ -411,7 +411,7 @@ Duration: 68 tasks, ~25 hours over 2 weeks
 ## Week 1, Day 1: Starting Task 1.1.1
 
 AI Assistant Tasks:
-1. Open: micro_tasks/MICRO_TASK_C01_C02.md:Lines 45-120
+1. Open: micro_tasks/MICRO_TASK_C01.md:Lines 45-120
 2. Create: student_progress/c01/SynchronizedBasics.kt
 3. Track: Start session "Task 1.1.1: synchronized互斥锁原理"
 4. Guide: Provide synchronized explanation and examples

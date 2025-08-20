@@ -1074,7 +1074,7 @@ public class TaskStackVisualizer {
               mistakes.append("    String data = getIntent().getStringExtra(\"key\");\n");
               mistakes.append("}\n\n");
               
-              mistakes.append("✅ 正确做法:\n");
+              mistakes.append(" 正确做法:\n");
               mistakes.append("@Override\n");
               mistakes.append("protected void onNewIntent(Intent intent) {\n");
               mistakes.append("    super.onNewIntent(intent);\n");
@@ -1181,9 +1181,9 @@ public class TaskStackVisualizer {
           
           analysis.append("技术选择: singleTask\n");
           analysis.append("原因:\n");
-          analysis.append("✅ 全局唯一实例，避免多个播放器\n");
-          analysis.append("✅ 从任何地方都能回到同一播放页面\n");
-          analysis.append("✅ clear top保证栈结构清晰\n");
+          analysis.append(" 全局唯一实例，避免多个播放器\n");
+          analysis.append(" 从任何地方都能回到同一播放页面\n");
+          analysis.append(" clear top保证栈结构清晰\n");
           analysis.append("❌ 如果用singleTop：可能创建多个实例\n");
           analysis.append("❌ 如果用standard：会有很多播放页面实例\n\n");
           
@@ -1633,7 +1633,7 @@ public class TaskStackVisualizer {
           answer.append("```\n\n");
           
           answer.append("用户体验影响:\n");
-          answer.append("✅ 正面影响:\n");
+          answer.append(" 正面影响:\n");
           answer.append("• 防止Activity栈过深，避免用户迷失\n");
           answer.append("• 确保关键页面的唯一性\n");
           answer.append("• 清晰的导航层次结构\n");
@@ -1694,10 +1694,10 @@ public class TaskStackVisualizer {
           answer.append("```\n\n");
           
           answer.append("4. 用户体验验证:\n");
-          answer.append("   ✅ 从音乐列表点击歌曲 -> 统一的播放器\n");
-          answer.append("   ✅ 从通知栏点击 -> 回到现有播放器\n");
-          answer.append("   ✅ 从其他应用分享音乐 -> 统一处理\n");
-          answer.append("   ✅ Back键行为 -> 返回音乐列表\n\n");
+          answer.append("    从音乐列表点击歌曲 -> 统一的播放器\n");
+          answer.append("    从通知栏点击 -> 回到现有播放器\n");
+          answer.append("    从其他应用分享音乐 -> 统一处理\n");
+          answer.append("    Back键行为 -> 返回音乐列表\n\n");
           
           answer.append("5. 替代方案对比:\n");
           answer.append("   ❌ standard: 会产生多个播放器实例\n");
@@ -1802,10 +1802,10 @@ public class TaskStackVisualizer {
           answer.append("```\n\n");
           
           answer.append("4. 需要自定义taskAffinity的情况:\n");
-          answer.append("   ✅ 创建独立的功能模块任务栈\n");
-          answer.append("   ✅ 实现多任务栈的应用架构\n");
-          answer.append("   ✅ 为某些Activity提供独立的导航体验\n");
-          answer.append("   ✅ 配合singleTask实现特定的任务栈管理\n\n");
+          answer.append("    创建独立的功能模块任务栈\n");
+          answer.append("    实现多任务栈的应用架构\n");
+          answer.append("    为某些Activity提供独立的导航体验\n");
+          answer.append("    配合singleTask实现特定的任务栈管理\n\n");
           
           answer.append("5. 验证taskAffinity效果:\n");
           answer.append("```bash\n");
@@ -2422,7 +2422,7 @@ public class TaskStackVisualizer {
           } else if (maxDepth > 7) {
               depthAnalysis.append("🔶 建议关注");
           } else {
-              depthAnalysis.append("✅ 良好");
+              depthAnalysis.append(" 良好");
           }
           
           showAnalysisDialog("层级深度分析", depthAnalysis.toString());
@@ -4545,10 +4545,10 @@ public class TaskStackVisualizer {
           answer.append("❌ 测量时进行复杂计算影响性能\n\n");
           
           answer.append("最佳实践:\n");
-          answer.append("✅ 为wrap_content提供默认大小\n");
-          answer.append("✅ 缓存测量结果避免重复计算\n");
-          answer.append("✅ 考虑padding和margin\n");
-          answer.append("✅ 处理所有测量模式\n");
+          answer.append(" 为wrap_content提供默认大小\n");
+          answer.append(" 缓存测量结果避免重复计算\n");
+          answer.append(" 考虑padding和margin\n");
+          answer.append(" 处理所有测量模式\n");
           
           showDetailedAnswer("MeasureSpec详解", answer.toString());
       }
@@ -4723,10 +4723,10 @@ public class TaskStackVisualizer {
           answer.append("❌ 频繁调用requestLayout()导致性能问题\n\n");
           
           answer.append("最佳实践:\n");
-          answer.append("✅ 根据改变的属性类型选择正确的方法\n");
-          answer.append("✅ 批量更新时只在最后调用一次\n");
-          answer.append("✅ 使用invalidate(Rect)进行局部重绘\n");
-          answer.append("✅ 避免不必要的重绘和重布局\n");
+          answer.append(" 根据改变的属性类型选择正确的方法\n");
+          answer.append(" 批量更新时只在最后调用一次\n");
+          answer.append(" 使用invalidate(Rect)进行局部重绘\n");
+          answer.append(" 避免不必要的重绘和重布局\n");
           
           showDetailedAnswer("invalidate vs requestLayout", answer.toString());
       }
@@ -4932,10 +4932,10 @@ public class TaskStackVisualizer {
           
           answer.append("6. 使用建议\n\n");
           answer.append("适用场景:\n");
-          answer.append("✅ 复杂的相对布局\n");
-          answer.append("✅ 需要扁平化的嵌套布局\n");
-          answer.append("✅ 响应式设计需求\n");
-          answer.append("✅ 动画和过渡效果\n\n");
+          answer.append(" 复杂的相对布局\n");
+          answer.append(" 需要扁平化的嵌套布局\n");
+          answer.append(" 响应式设计需求\n");
+          answer.append(" 动画和过渡效果\n\n");
           
           answer.append("不适用场景:\n");
           answer.append("❌ 简单的线性布局（LinearLayout更合适）\n");
@@ -5565,7 +5565,7 @@ public class EventInterceptValidator extends Activity {
         // 添加子View测试对象
         Button childButton = new Button(this);
         childButton.setText("我是子View，能收到事件吗？");
-        childButton.setOnClickListener(v -> logEvent("✅ 子View点击事件被触发！"));
+        childButton.setOnClickListener(v -> logEvent(" 子View点击事件被触发！"));
         
         interceptGroup.addView(childButton, new LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT, 200));
@@ -5575,7 +5575,7 @@ public class EventInterceptValidator extends Activity {
         interceptSwitch.setText("启用事件拦截");
         interceptSwitch.setOnCheckedChangeListener((v, isChecked) -> {
             interceptGroup.setInterceptEnabled(isChecked);
-            logEvent(isChecked ? "🚫 拦截已启用" : "✅ 拦截已禁用");
+            logEvent(isChecked ? "🚫 拦截已启用" : " 拦截已禁用");
         });
         
         // 日志显示区域
@@ -5981,7 +5981,7 @@ public class DynamicInterceptDemo extends Activity {
     private void logInterceptEvent(String action, boolean intercepted, String detail) {
         String timestamp = new SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault())
             .format(new Date());
-        String icon = intercepted ? "🚫" : "✅";
+        String icon = intercepted ? "🚫" : "";
         interceptLog.append(String.format("[%s] %s %s - %s\n", 
             timestamp, icon, action, detail));
         
@@ -9493,7 +9493,7 @@ public class HandlerMemoryLeakSolutions {
          */
     }
     
-    // ✅ 解决方案1 - 静态内部类 + 弱引用
+    //  解决方案1 - 静态内部类 + 弱引用
     public static class SafeActivity extends Activity {
         private TextView statusText;
         private SafeHandler safeHandler;
@@ -9513,9 +9513,9 @@ public class HandlerMemoryLeakSolutions {
                 if (activity != null && !activity.isFinishing()) {
                     // 安全访问Activity
                     activity.statusText.setText("安全更新: " + msg.what);
-                    Log.d(TAG, "✅ 安全Handler处理消息: " + msg.what);
+                    Log.d(TAG, " 安全Handler处理消息: " + msg.what);
                 } else {
-                    Log.d(TAG, "✅ Activity已销毁，忽略消息: " + msg.what);
+                    Log.d(TAG, " Activity已销毁，忽略消息: " + msg.what);
                 }
             }
         }
@@ -9528,7 +9528,7 @@ public class HandlerMemoryLeakSolutions {
             safeHandler = new SafeHandler(this);
             safeHandler.sendEmptyMessageDelayed(1, 30000);
             
-            Log.d(TAG, "✅ 安全Activity创建，使用弱引用Handler");
+            Log.d(TAG, " 安全Activity创建，使用弱引用Handler");
         }
         
         @Override
@@ -9538,11 +9538,11 @@ public class HandlerMemoryLeakSolutions {
             if (safeHandler != null) {
                 safeHandler.removeCallbacksAndMessages(null);
             }
-            Log.d(TAG, "✅ 安全Activity销毁，清理了所有Handler消息");
+            Log.d(TAG, " 安全Activity销毁，清理了所有Handler消息");
         }
     }
     
-    // ✅ 解决方案2 - 使用局部Handler + 生命周期管理
+    //  解决方案2 - 使用局部Handler + 生命周期管理
     public static class LifecycleAwareActivity extends Activity {
         private TextView statusText;
         private Handler lifecycleHandler;
@@ -9560,29 +9560,29 @@ public class HandlerMemoryLeakSolutions {
                     // 检查Activity生命周期状态
                     if (isActivityAlive && !isFinishing()) {
                         statusText.setText("生命周期感知更新: " + msg.what);
-                        Log.d(TAG, "✅ 生命周期Handler处理消息: " + msg.what);
+                        Log.d(TAG, " 生命周期Handler处理消息: " + msg.what);
                     } else {
-                        Log.d(TAG, "✅ Activity不活跃，忽略消息: " + msg.what);
+                        Log.d(TAG, " Activity不活跃，忽略消息: " + msg.what);
                     }
                 }
             };
             
             lifecycleHandler.sendEmptyMessageDelayed(1, 30000);
-            Log.d(TAG, "✅ 生命周期感知Activity创建");
+            Log.d(TAG, " 生命周期感知Activity创建");
         }
         
         @Override
         protected void onPause() {
             super.onPause();
             isActivityAlive = false;
-            Log.d(TAG, "✅ Activity暂停，标记为不活跃");
+            Log.d(TAG, " Activity暂停，标记为不活跃");
         }
         
         @Override
         protected void onResume() {
             super.onResume();
             isActivityAlive = true;
-            Log.d(TAG, "✅ Activity恢复，标记为活跃");
+            Log.d(TAG, " Activity恢复，标记为活跃");
         }
         
         @Override
@@ -9592,11 +9592,11 @@ public class HandlerMemoryLeakSolutions {
             if (lifecycleHandler != null) {
                 lifecycleHandler.removeCallbacksAndMessages(null);
             }
-            Log.d(TAG, "✅ 生命周期感知Activity销毁");
+            Log.d(TAG, " 生命周期感知Activity销毁");
         }
     }
     
-    // ✅ 解决方案3 - 现代化解决方案：使用ViewModel + LiveData
+    //  解决方案3 - 现代化解决方案：使用ViewModel + LiveData
     public static class ModernActivity extends Activity {
         private TextView statusText;
         private ModernViewModel viewModel;
@@ -9616,7 +9616,7 @@ public class HandlerMemoryLeakSolutions {
             public void startDelayedTask() {
                 handler.postDelayed(() -> {
                     statusLiveData.setValue("现代化更新: " + System.currentTimeMillis());
-                    Log.d(TAG, "✅ ViewModel Handler执行延时任务");
+                    Log.d(TAG, " ViewModel Handler执行延时任务");
                 }, 30000);
             }
             
@@ -9624,7 +9624,7 @@ public class HandlerMemoryLeakSolutions {
                 if (handler != null) {
                     handler.removeCallbacksAndMessages(null);
                 }
-                Log.d(TAG, "✅ ViewModel清理完成");
+                Log.d(TAG, " ViewModel清理完成");
             }
         }
         
@@ -9639,19 +9639,19 @@ public class HandlerMemoryLeakSolutions {
             viewModel.getStatusLiveData().observe(this, status -> {
                 if (status != null) {
                     statusText.setText(status);
-                    Log.d(TAG, "✅ 现代化Activity接收到状态更新");
+                    Log.d(TAG, " 现代化Activity接收到状态更新");
                 }
             });
             
             viewModel.startDelayedTask();
-            Log.d(TAG, "✅ 现代化Activity创建，使用ViewModel+LiveData");
+            Log.d(TAG, " 现代化Activity创建，使用ViewModel+LiveData");
         }
         
         @Override
         protected void onDestroy() {
             super.onDestroy();
             viewModel.cleanup();
-            Log.d(TAG, "✅ 现代化Activity销毁");
+            Log.d(TAG, " 现代化Activity销毁");
         }
     }
     
@@ -9673,7 +9673,7 @@ public class HandlerMemoryLeakSolutions {
                     Log.e(TAG, "❌ 检测到内存泄漏！Activity未被回收");
                     dumpMemoryInfo();
                 } else {
-                    Log.d(TAG, "✅ 内存正常，Activity已被回收");
+                    Log.d(TAG, " 内存正常，Activity已被回收");
                 }
             }, 5000);
         }
@@ -10810,18 +10810,18 @@ public class HandlerInterviewPreparation {
             Log.d(TAG, "解决方案对比：");
             
             Log.d(TAG, "方案1：静态内部类 + 弱引用");
-            Log.d(TAG, "✅ 优点：彻底断开强引用链，Activity可正常回收");
-            Log.d(TAG, "✅ 适用：长期存在的Handler，如后台任务处理");
+            Log.d(TAG, " 优点：彻底断开强引用链，Activity可正常回收");
+            Log.d(TAG, " 适用：长期存在的Handler，如后台任务处理");
             Log.d(TAG, "❌ 缺点：代码稍显复杂，需要null检查");
             
             Log.d(TAG, "方案2：生命周期管理");
-            Log.d(TAG, "✅ 优点：主动控制Handler生命周期，代码清晰");
-            Log.d(TAG, "✅ 适用：与Activity生命周期紧密相关的Handler");
+            Log.d(TAG, " 优点：主动控制Handler生命周期，代码清晰");
+            Log.d(TAG, " 适用：与Activity生命周期紧密相关的Handler");
             Log.d(TAG, "❌ 缺点：需要在多个生命周期方法中添加清理代码");
             
             Log.d(TAG, "方案3：现代架构组件(ViewModel + LiveData)");
-            Log.d(TAG, "✅ 优点：自动处理生命周期，架构清晰");
-            Log.d(TAG, "✅ 适用：现代Android开发，推荐使用");
+            Log.d(TAG, " 优点：自动处理生命周期，架构清晰");
+            Log.d(TAG, " 适用：现代Android开发，推荐使用");
             Log.d(TAG, "❌ 缺点：需要引入额外依赖，学习成本");
         }
         
@@ -11071,33 +11071,33 @@ public class HandlerInterviewPreparation {
             Log.d(TAG, "方案对比矩阵：");
             
             Log.d(TAG, "1. Handler机制");
-            Log.d(TAG, "   ✅ 优点：Android原生支持，性能优秀，功能完整");
-            Log.d(TAG, "   ✅ 适用：UI更新，定时任务，系统级通信");
+            Log.d(TAG, "    优点：Android原生支持，性能优秀，功能完整");
+            Log.d(TAG, "    适用：UI更新，定时任务，系统级通信");
             Log.d(TAG, "   ❌ 缺点：学习成本高，内存泄漏风险");
             
             Log.d(TAG, "2. AsyncTask (已弃用)");
-            Log.d(TAG, "   ✅ 优点：使用简单，自动线程切换");
+            Log.d(TAG, "    优点：使用简单，自动线程切换");
             Log.d(TAG, "   ❌ 缺点：内存泄漏，串行执行，API限制");
             Log.d(TAG, "   ❌ 状态：Android 11 API 30开始弃用");
             
             Log.d(TAG, "3. Thread + runOnUiThread");
-            Log.d(TAG, "   ✅ 优点：直观简单，学习成本低");
+            Log.d(TAG, "    优点：直观简单，学习成本低");
             Log.d(TAG, "   ❌ 缺点：缺乏定时功能，不支持消息队列");
             Log.d(TAG, "   ❌ 适用：简单的一次性UI更新");
             
             Log.d(TAG, "4. Executor + Runnable");
-            Log.d(TAG, "   ✅ 优点：线程池管理，支持并发控制");
+            Log.d(TAG, "    优点：线程池管理，支持并发控制");
             Log.d(TAG, "   ❌ 缺点：不支持延时，UI切换需要额外处理");
             Log.d(TAG, "   ❌ 适用：后台任务处理，不涉及UI更新");
             
             Log.d(TAG, "5. RxJava响应式编程");
-            Log.d(TAG, "   ✅ 优点：强大的操作符，支持复杂的异步流程");
+            Log.d(TAG, "    优点：强大的操作符，支持复杂的异步流程");
             Log.d(TAG, "   ❌ 缺点：库体积大，学习成本高，过度工程化");
             Log.d(TAG, "   ❌ 适用：复杂的异步数据流处理");
             
             Log.d(TAG, "6. Kotlin Coroutines");
-            Log.d(TAG, "   ✅ 优点：轻量级，语法简洁，支持结构化并发");
-            Log.d(TAG, "   ✅ 适用：现代Android开发，推荐使用");
+            Log.d(TAG, "    优点：轻量级，语法简洁，支持结构化并发");
+            Log.d(TAG, "    适用：现代Android开发，推荐使用");
             Log.d(TAG, "   ❌ 缺点：需要Kotlin支持，底层仍依赖Handler");
             
             Log.d(TAG, "选择建议：");
@@ -11566,76 +11566,76 @@ public class AndroidIPCRequirementsLab {
             Log.d(TAG, "1. 性能优化目标");
             
             Log.d(TAG, "一次拷贝机制:");
-            Log.d(TAG, "✅ 通过mmap减少数据拷贝");
-            Log.d(TAG, "✅ 用户空间直接访问内核缓冲区");
-            Log.d(TAG, "✅ 大幅提升大数据传输性能");
+            Log.d(TAG, " 通过mmap减少数据拷贝");
+            Log.d(TAG, " 用户空间直接访问内核缓冲区");
+            Log.d(TAG, " 大幅提升大数据传输性能");
             
             Log.d(TAG, "高效的线程模型:");
-            Log.d(TAG, "✅ Binder线程池复用");
-            Log.d(TAG, "✅ 避免频繁创建销毁线程");
-            Log.d(TAG, "✅ 支持并发处理多个请求");
+            Log.d(TAG, " Binder线程池复用");
+            Log.d(TAG, " 避免频繁创建销毁线程");
+            Log.d(TAG, " 支持并发处理多个请求");
             
             Log.d(TAG, "智能的缓存机制:");
-            Log.d(TAG, "✅ 对象引用缓存");
-            Log.d(TAG, "✅ 减少重复的代理对象创建");
-            Log.d(TAG, "✅ 优化频繁调用的性能");
+            Log.d(TAG, " 对象引用缓存");
+            Log.d(TAG, " 减少重复的代理对象创建");
+            Log.d(TAG, " 优化频繁调用的性能");
         }
         
         private static void analyzeSecurityGoals() {
             Log.d(TAG, "2. 安全强化目标");
             
             Log.d(TAG, "身份验证:");
-            Log.d(TAG, "✅ 基于UID/PID的强身份验证");
-            Log.d(TAG, "✅ 内核级别的身份信息传递");
-            Log.d(TAG, "✅ 防止身份伪造攻击");
+            Log.d(TAG, " 基于UID/PID的强身份验证");
+            Log.d(TAG, " 内核级别的身份信息传递");
+            Log.d(TAG, " 防止身份伪造攻击");
             
             Log.d(TAG, "权限控制:");
-            Log.d(TAG, "✅ 细粒度的权限检查");
-            Log.d(TAG, "✅ 与Android权限模型深度集成");
-            Log.d(TAG, "✅ 支持动态权限验证");
+            Log.d(TAG, " 细粒度的权限检查");
+            Log.d(TAG, " 与Android权限模型深度集成");
+            Log.d(TAG, " 支持动态权限验证");
             
             Log.d(TAG, "数据保护:");
-            Log.d(TAG, "✅ 内核空间的安全数据传输");
-            Log.d(TAG, "✅ 防止数据篡改和窃听");
-            Log.d(TAG, "✅ 支持数据加密传输");
+            Log.d(TAG, " 内核空间的安全数据传输");
+            Log.d(TAG, " 防止数据篡改和窃听");
+            Log.d(TAG, " 支持数据加密传输");
         }
         
         private static void analyzeUsabilityGoals() {
             Log.d(TAG, "3. 易用性目标");
             
             Log.d(TAG, "面向对象接口:");
-            Log.d(TAG, "✅ 类似本地方法调用的语法");
-            Log.d(TAG, "✅ 自动生成代理和存根代码");
-            Log.d(TAG, "✅ 透明的参数传递和返回值处理");
+            Log.d(TAG, " 类似本地方法调用的语法");
+            Log.d(TAG, " 自动生成代理和存根代码");
+            Log.d(TAG, " 透明的参数传递和返回值处理");
             
             Log.d(TAG, "异常处理:");
-            Log.d(TAG, "✅ 远程异常的本地化处理");
-            Log.d(TAG, "✅ 统一的错误处理机制");
-            Log.d(TAG, "✅ 详细的调试信息");
+            Log.d(TAG, " 远程异常的本地化处理");
+            Log.d(TAG, " 统一的错误处理机制");
+            Log.d(TAG, " 详细的调试信息");
             
             Log.d(TAG, "开发工具支持:");
-            Log.d(TAG, "✅ AIDL工具自动生成代码");
-            Log.d(TAG, "✅ 集成开发环境支持");
-            Log.d(TAG, "✅ 丰富的调试和监控工具");
+            Log.d(TAG, " AIDL工具自动生成代码");
+            Log.d(TAG, " 集成开发环境支持");
+            Log.d(TAG, " 丰富的调试和监控工具");
         }
         
         private static void analyzeReliabilityGoals() {
             Log.d(TAG, "4. 可靠性目标");
             
             Log.d(TAG, "故障隔离:");
-            Log.d(TAG, "✅ 进程级别的故障隔离");
-            Log.d(TAG, "✅ 服务重启机制");
-            Log.d(TAG, "✅ 自动重连和故障恢复");
+            Log.d(TAG, " 进程级别的故障隔离");
+            Log.d(TAG, " 服务重启机制");
+            Log.d(TAG, " 自动重连和故障恢复");
             
             Log.d(TAG, "资源管理:");
-            Log.d(TAG, "✅ 自动的资源清理");
-            Log.d(TAG, "✅ 防止资源泄漏");
-            Log.d(TAG, "✅ 内存使用限制和保护");
+            Log.d(TAG, " 自动的资源清理");
+            Log.d(TAG, " 防止资源泄漏");
+            Log.d(TAG, " 内存使用限制和保护");
             
             Log.d(TAG, "监控和诊断:");
-            Log.d(TAG, "✅ 详细的调用日志");
-            Log.d(TAG, "✅ 性能监控指标");
-            Log.d(TAG, "✅ 问题诊断工具");
+            Log.d(TAG, " 详细的调用日志");
+            Log.d(TAG, " 性能监控指标");
+            Log.d(TAG, " 问题诊断工具");
         }
     }
     
@@ -19189,7 +19189,7 @@ public class BinderThreadPoolLab {
         // 4. 死锁检测
         BinderDeadlockDetector.simulateAndDetectDeadlocks();
         
-        Log.i("BinderThreadPoolLab", "✅ Binder Thread Pool Analysis Complete");
+        Log.i("BinderThreadPoolLab", " Binder Thread Pool Analysis Complete");
     }
 }
 ```
@@ -19659,7 +19659,7 @@ public class BinderInterviewPreparationLab {
         
         // 1. 构建问答知识库
         List<BinderConceptQA.InterviewQuestion> questionBank = BinderConceptQA.buildQuestionBank();
-        Log.i("BinderInterviewLab", "✅ Question bank built with " + questionBank.size() + " core questions");
+        Log.i("BinderInterviewLab", " Question bank built with " + questionBank.size() + " core questions");
         
         // 2. 分析常见场景
         ScenarioAnalyzer.analyzeCommonScenarios();

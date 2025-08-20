@@ -109,7 +109,7 @@ This repository includes a comprehensive ADHD-friendly learning system:
 
 ### Usage Instructions for Claude Code
 When resuming learning sessions:
-1. Check folder [micro_tasks/]: `MICRO_TASK_C01_C02.md` (Chapters 1-2), `MICRO_TASK_C03.md` (Chapter 3), `MICRO_TASK_C04_C05.md` (Chapters 4-5),`MICRO_TASK_C06.md` (Chapter 6), `MICRO_TASK_C07_C08.md` (Chapters 7-8), `MICRO_TASKS_C09.md` (Chapter 9), `MICRO_TASKS_C10.md` (Chapter 10), `MICRO_TASKS_C11.md` (Chapter 11), or `MICRO_TASKS_C12.md` (Chapter 12) for current progress and next tasks
+1. Check folder [micro_tasks/]: `MICRO_TASK_C01.md` (Chapter 1), `MICRO_TASK_C02.md` (Chapter 2), `MICRO_TASK_C03.md` (Chapter 3), `MICRO_TASK_C04.md` (Chapter 4), `MICRO_TASK_C05.md` (Chapter 5), `MICRO_TASK_C06.md` (Chapter 6), `MICRO_TASK_C07.md` (Chapter 7), `MICRO_TASK_C08.md` (Chapter 8), `MICRO_TASK_C09.md` (Chapter 9), `MICRO_TASK_C10.md` (Chapter 10), `MICRO_TASK_C11.md` (Chapter 11), or `MICRO_TASK_C12.md` (Chapter 12) for current progress and next tasks
 2. Verify student work in `student_progress/` directory
 3. Act as supportive tutor providing explanations and checkpoint questions
 4. Maintain ADHD-friendly 5-minute task duration with progressive difficulty for primary→senior transition
@@ -124,7 +124,7 @@ When resuming learning sessions:
    - Address common pitfalls and best practices
    - **Goal**: Professional-level understanding
 
-9. **✅ Confirmation and Discussion**
+9. ** Confirmation and Discussion**
    - Learner explains concepts back in their own words
    - Give back explains to learner's answers 
    - Answer detailed questions about implementation choices
