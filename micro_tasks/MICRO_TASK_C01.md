@@ -29,10 +29,10 @@
 #### Task 1.1.1: JMM概念入门 + 首个编程实验 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是JMM**: 想象你有一个笔记本(工作内存)和一个公共图书馆(主内存)
-- [] **简单理解**: JMM就是Java定义的"多个程序员如何共享数据"的规则
-- [] **生活类比**: 就像办公室里多人共用一台打印机，需要排队规则一样
-- [] **检查点**: 能说出"JMM是用来解决什么问题的"
+- [ ] **什么是JMM**: 想象你有一个笔记本(工作内存)和一个公共图书馆(主内存)
+- [ ] **简单理解**: JMM就是Java定义的"多个程序员如何共享数据"的规则
+- [ ] **生活类比**: 就像办公室里多人共用一台打印机，需要排队规则一样
+- [ ] **检查点**: 能说出"JMM是用来解决什么问题的"
 - [ ] **文件**: 在`student_progress/`创建`jmm_notes.md`，用自己的话写下理解
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -101,10 +101,10 @@ public class MemoryVisibilityDemo {
 #### Task 1.1.2: happens-before原则 + 编程验证 (5分钟) ⏰  
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是happens-before**: 想象一个接力赛，前一个跑步者的成绩，后一个跑步者一定能看到
-- [] **简单理解**: "A发生在B之前"意味着"B能看到A的所有结果"
-- [] **记忆技巧**: happens-before = "发生在前面" + "结果可见"
-- [] **检查点**: 能用"接力赛"例子解释happens-before
+- [ ] **什么是happens-before**: 想象一个接力赛，前一个跑步者的成绩，后一个跑步者一定能看到
+- [ ] **简单理解**: "A发生在B之前"意味着"B能看到A的所有结果"
+- [ ] **记忆技巧**: happens-before = "发生在前面" + "结果可见"
+- [ ] **检查点**: 能用"接力赛"例子解释happens-before
 - [ ] **文件**: 在`jmm_notes.md`中用生活例子写下理解
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -181,10 +181,10 @@ public class HappensBeforeDemo {
 #### Task 1.1.3: synchronized基本原理 + 线程安全实战 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是synchronized**: 想象一个厕所门锁，一次只能一个人进去
-- [] **简单理解**: synchronized就是给代码加了一把锁，确保不会"撞车"
-- [] **生活类比**: 就像银行只有一个窗口，大家要排队一个一个来
-- [] **检查点**: 能说出"synchronized是用来防止什么问题的"
+- [ ] **什么是synchronized**: 想象一个厕所门锁，一次只能一个人进去
+- [ ] **简单理解**: synchronized就是给代码加了一把锁，确保不会"撞车"
+- [ ] **生活类比**: 就像银行只有一个窗口，大家要排队一个一个来
+- [ ] **检查点**: 能说出"synchronized是用来防止什么问题的"
 - [ ] **文件**: 在`student_progress/`创建`synchronized_notes.md`
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -302,10 +302,10 @@ public class SynchronizedDemo {
 #### Task 1.1.4: volatile基本原理 + 可见性验证 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是volatile**: 想象一个公告板，任何人更新后，所有人立即能看到
-- [] **简单理解**: volatile确保变量的"最新消息"能被所有线程看到
-- [] **常见错误**: volatile ≠ synchronized，它不能防止"撞车"
-- [] **检查点**: 能说出"volatile解决什么问题，不解决什么问题"
+- [ ] **什么是volatile**: 想象一个公告板，任何人更新后，所有人立即能看到
+- [ ] **简单理解**: volatile确保变量的"最新消息"能被所有线程看到
+- [ ] **常见错误**: volatile ≠ synchronized，它不能防止"撞车"
+- [ ] **检查点**: 能说出"volatile解决什么问题，不解决什么问题"
 - [ ] **文件**: 在`student_progress/`创建`volatile_notes.md`
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -1252,7 +1252,7 @@ public class HeavyweightLockDemo {
 - [ ] **Intermediate检查点**: 你的无锁栈在高并发下能保证数据一致性吗？
 - [ ] **性能对比测试**: 对比你的无锁栈 vs Java的ConcurrentLinkedDeque性能
 - [ ] **代码质量检查**: □ 解决了ABA问题 □ 处理了内存回收 □ 有性能测试
-- [ ] **文件**: `student_progress/c12/LockFreeStack.kt`
+- [ ] **文件**: `student_progress/c01/LockFreeStack.kt`
 
 #### Task 1.1.10: ReentrantLock与AQS框架 (5分钟) ⏰
 - [ ] **学习目标**: 理解Java并发包的核心框架AQS
@@ -1261,7 +1261,7 @@ public class HeavyweightLockDemo {
   - 理解ReentrantLock的公平锁和非公平锁实现
   - 掌握Condition条件变量的等待/通知机制
 - [ ] **检查点**: AQS如何实现不同类型的同步器？公平锁和非公平锁的区别？
-- [ ] **文件**: `student_progress/c12/reentrant_lock_aqs_analysis.md`
+- [ ] **文件**: `student_progress/c01/reentrant_lock_aqs_analysis.md`
 
 #### Task 1.1.11: [实践]读写锁优化方案 (5分钟) ⏰
 - [ ] **学习目标**: 实现高效的读写分离锁机制
@@ -1270,7 +1270,7 @@ public class HeavyweightLockDemo {
   - 处理写锁饥饿问题和公平性保证
   - 分析StampedLock的乐观读锁机制
 - [ ] **检查点**: 读写锁在什么场景下性能最好？如何防止写锁饥饿？
-- [ ] **文件**: `student_progress/c12/ReadWriteLockCache.kt`
+- [ ] **文件**: `student_progress/c01/ReadWriteLockCache.kt`
 
 #### Task 1.1.12: 线程安全的集合类 (5分钟) ⏰
 - [ ] **学习目标**: 分析并发集合的实现原理和性能特性
@@ -1279,7 +1279,7 @@ public class HeavyweightLockDemo {
   - 理解CopyOnWriteArrayList的写时复制机制
   - 掌握BlockingQueue的生产者-消费者模式
 - [ ] **检查点**: 不同并发集合的适用场景是什么？性能权衡如何？
-- [ ] **文件**: `student_progress/c12/concurrent_collections_analysis.md`
+- [ ] **文件**: `student_progress/c01/concurrent_collections_analysis.md`
 
 #### 1.1.13: [实践]高性能并发缓存 (5分钟) ⏰
 - [ ] **学习目标**: 实现线程安全的高性能缓存系统
@@ -1288,7 +1288,7 @@ public class HeavyweightLockDemo {
   - 使用分段锁减少锁竞争
   - 实现缓存的异步刷新和过期处理
 - [ ] **检查点**: 如何设计一个既线程安全又高性能的缓存？
-- [ ] **文件**: `student_progress/c12/HighPerformanceCache.kt`
+- [ ] **文件**: `student_progress/c01/HighPerformanceCache.kt`
 
 #### Task 1.1.14: 死锁检测与预防 (5分钟) ⏰
 - [ ] **学习目标**: 理解死锁的成因和预防策略
@@ -1297,7 +1297,7 @@ public class HeavyweightLockDemo {
   - 实现银行家算法进行死锁预防
   - 设计超时机制和死锁检测工具
 - [ ] **检查点**: 如何系统性地预防和检测死锁？有哪些实用策略？
-- [ ] **文件**: `student_progress/c12/deadlock_detection_prevention.md`
+- [ ] **文件**: `student_progress/c01/deadlock_detection_prevention.md`
 
 #### Task 1.1.15: [实践]协程与线程性能对比 (5分钟) ⏰
 - [ ] **学习目标**: 对比协程和线程在并发编程中的优劣
@@ -1306,7 +1306,7 @@ public class HeavyweightLockDemo {
   - 测试高并发场景下的内存使用和性能
   - 分析协程的调度开销和上下文切换成本
 - [ ] **检查点**: 协程相比线程有什么优势？什么场景下选择协程？
-- [ ] **文件**: `student_progress/c12/CoroutineVsThreadPerformance.kt`
+- [ ] **文件**: `student_progress/c01/CoroutineVsThreadPerformance.kt`
 
 #### Task 1.1.16: 内存一致性模型 (5分钟) ⏰
 - [ ] **学习目标**: 理解不同平台的内存一致性模型差异
@@ -1315,7 +1315,7 @@ public class HeavyweightLockDemo {
   - 分析内存重排序对程序正确性的影响
   - 理解内存屏障在不同架构上的实现
 - [ ] **检查点**: 为什么移动设备(ARM)上的并发问题可能更复杂？
-- [ ] **文件**: `student_progress/c12/memory_consistency_models.md`
+- [ ] **文件**: `student_progress/c01/memory_consistency_models.md`
 
 #### Task 1.1.17: [高级]无锁编程模式 (5分钟) ⏰
 - [ ] **学习目标**: 掌握高级的无锁编程技术和模式
@@ -1324,7 +1324,7 @@ public class HeavyweightLockDemo {
   - 设计RCU(Read-Copy-Update)模式的应用
   - 分析内存回收和hazard pointer技术
 - [ ] **检查点**: 无锁编程的主要挑战是什么？如何保证内存回收的安全性？
-- [ ] **文件**: `student_progress/c12/LockFreeProgramming.kt`
+- [ ] **文件**: `student_progress/c01/LockFreeProgramming.kt`
 
 #### Task 1.1.18: [设计]高并发系统架构 (5分钟) ⏰
 - [ ] **学习目标**: 设计支持高并发的系统架构
@@ -1333,7 +1333,7 @@ public class HeavyweightLockDemo {
   - 实现限流、熔断、降级等保护机制
   - 分析异步处理和事件驱动架构
 - [ ] **检查点**: 如何设计一个能处理高并发访问的移动后端系统？
-- [ ] **文件**: `student_progress/c12/high_concurrency_architecture.md`
+- [ ] **文件**: `student_progress/c01/high_concurrency_architecture.md`
 
 #### Task 1.1.19: [面试]并发编程综合应用 (5分钟) ⏰
 - [ ] **学习目标**: 准备并发编程相关的面试问题
@@ -1342,7 +1342,7 @@ public class HeavyweightLockDemo {
   - 准备线程安全问题的实战解决方案
   - 模拟设计题：设计高并发的数据处理系统
 - [ ] **检查点**: 如何展示对并发编程的深入理解和实践能力？
-- [ ] **文件**: `student_progress/c12/concurrent_programming_interview.md`
+- [ ] **文件**: `student_progress/c01/concurrent_programming_interview.md`
 
 #### Task 1.1.20: [总结]并发编程知识体系 (5分钟) ⏰
 - [ ] **学习目标**: 构建完整的并发编程知识框架
@@ -1351,7 +1351,7 @@ public class HeavyweightLockDemo {
   - 整理Android/移动端并发编程的最佳实践
   - 准备技术分享：《移动应用并发编程实战指南》
 - [ ] **检查点**: 能否独立设计和实现复杂的并发系统？
-- [ ] **文件**: `student_progress/c12/concurrent_programming_system.md`
+- [ ] **文件**: `student_progress/c01/concurrent_programming_system.md`
 
 ---
 
@@ -2706,10 +2706,10 @@ public class DistributedLockSystem {
 #### Task 1.2.1: ArrayList动态数组实现 + 内存管理 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是ArrayList**: 想象一个可以自动扩容的书架，书多了就换更大的书架
-- [] **简单理解**: 底层是数组，满了就创建更大数组并复制数据
-- [] **生活类比**: 就像搬家，房子小了就换大房子，把东西搬过去
-- [] **检查点**: 能说出"ArrayList如何实现动态扩容"
+- [ ] **什么是ArrayList**: 想象一个可以自动扩容的书架，书多了就换更大的书架
+- [ ] **简单理解**: 底层是数组，满了就创建更大数组并复制数据
+- [ ] **生活类比**: 就像搬家，房子小了就换大房子，把东西搬过去
+- [ ] **检查点**: 能说出"ArrayList如何实现动态扩容"
 - [ ] **文件**: 在`student_progress/`创建`collections_notes.md`，记录学习心得
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -2852,10 +2852,10 @@ public class MyArrayList<T> {
 #### Task 1.2.2: HashMap哈希表基础 + 冲突解决 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是HashMap**: 想象一个图书馆索引，通过书名快速找到书的位置
-- [] **简单理解**: 把key通过哈希函数转换成数组索引，实现O(1)查找
-- [] **生活类比**: 就像电话簿，通过姓名首字母快速定位到页码
-- [] **检查点**: 能说出"HashMap如何实现快速查找"
+- [ ] **什么是HashMap**: 想象一个图书馆索引，通过书名快速找到书的位置
+- [ ] **简单理解**: 把key通过哈希函数转换成数组索引，实现O(1)查找
+- [ ] **生活类比**: 就像电话簿，通过姓名首字母快速定位到页码
+- [ ] **检查点**: 能说出"HashMap如何实现快速查找"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -3112,10 +3112,10 @@ public class MyHashMap<K, V> {
 #### Task 1.2.3: LinkedList链表实现 + 双向链表操作 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是LinkedList**: 想象一串手链，每个珠子都知道下一个在哪里
-- [] **简单理解**: LinkedList用链表存储数据，插入删除快，访问慢
-- [] **生活类比**: 就像火车车厢，加车厢容易，但找特定车厢要一节节找
-- [] **检查点**: 能说出"LinkedList和ArrayList的区别"
+- [ ] **什么是LinkedList**: 想象一串手链，每个珠子都知道下一个在哪里
+- [ ] **简单理解**: LinkedList用链表存储数据，插入删除快，访问慢
+- [ ] **生活类比**: 就像火车车厢，加车厢容易，但找特定车厢要一节节找
+- [ ] **检查点**: 能说出"LinkedList和ArrayList的区别"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -3469,10 +3469,10 @@ public class MyLinkedList<T> {
 #### Task 1.2.4: HashMap扩容机制深入 + 重哈希优化 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是扩容**: 想象一个停车场，车太多了就需要扩建停车位
-- [] **简单理解**: HashMap满了就需要创建更大的数组，把所有数据重新放置
-- [] **生活类比**: 就像搬家到更大的房子，需要重新整理所有物品
-- [] **检查点**: 能说出"为什么HashMap扩容要重新哈希"
+- [ ] **什么是扩容**: 想象一个停车场，车太多了就需要扩建停车位
+- [ ] **简单理解**: HashMap满了就需要创建更大的数组，把所有数据重新放置
+- [ ] **生活类比**: 就像搬家到更大的房子，需要重新整理所有物品
+- [ ] **检查点**: 能说出"为什么HashMap扩容要重新哈希"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -3922,10 +3922,10 @@ public class HashMapResizingDeepDive {
 #### Task 1.2.5: ConcurrentHashMap分段锁机制 + 高并发优化 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是分段锁**: 想象一个大型停车场分成多个区域，每个区域独立管理
-- [] **简单理解**: ConcurrentHashMap把数据分成多个段，每个段独立加锁
-- [] **生活类比**: 就像银行多个窗口同时服务，不用排一个长队
-- [] **检查点**: 能说出"分段锁如何提高并发性能"
+- [ ] **什么是分段锁**: 想象一个大型停车场分成多个区域，每个区域独立管理
+- [ ] **简单理解**: ConcurrentHashMap把数据分成多个段，每个段独立加锁
+- [ ] **生活类比**: 就像银行多个窗口同时服务，不用排一个长队
+- [ ] **检查点**: 能说出"分段锁如何提高并发性能"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -4493,10 +4493,10 @@ public class ConcurrentHashMapSegmentation {
 #### Task 1.2.6: 生产级LRU缓存实现 + 内存优化策略 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是LRU缓存**: 想象一个书架，新书放前面，老书放后面，没地方就把最后面的书扔掉
-- [] **简单理解**: LRU = Least Recently Used，最近最少使用的数据首先被淘汰
-- [] **生活类比**: 就像手机后台程序管理，内存不够就关闭最久未用的应用
-- [] **检查点**: 能说出"LRU缓存的淘汰策略原理"
+- [ ] **什么是LRU缓存**: 想象一个书架，新书放前面，老书放后面，没地方就把最后面的书扔掉
+- [ ] **简单理解**: LRU = Least Recently Used，最近最少使用的数据首先被淘汰
+- [ ] **生活类比**: 就像手机后台程序管理，内存不够就关闭最久未用的应用
+- [ ] **检查点**: 能说出"LRU缓存的淘汰策略原理"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -5011,10 +5011,10 @@ public class ProductionLRUCache {
 #### Task 1.2.7: 布隆过滤器实现 + 概率数据结构优化 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是布隆过滤器**: 想象一个“大概率”回答的智能助手，说没有就真没有，说有可能有也可能没有
-- [] **简单理解**: 布隆过滤器用很小的内存快速判断元素是否存在，不会误报没有
-- [] **生活类比**: 就像门卫做初步筛查，说不在就真不在，说在还要进一步检查
-- [] **检查点**: 能说出"布隆过滤器的误报特性和优势"
+- [ ] **什么是布隆过滤器**: 想象一个“大概率”回答的智能助手，说没有就真没有，说有可能有也可能没有
+- [ ] **简单理解**: 布隆过滤器用很小的内存快速判断元素是否存在，不会误报没有
+- [ ] **生活类比**: 就像门卫做初步筛查，说不在就真不在，说在还要进一步检查
+- [ ] **检查点**: 能说出"布隆过滤器的误报特性和优势"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -5540,10 +5540,10 @@ public class BloomFilterImplementation {
 #### Task 1.3.1: 协程基础概念 + 首个挂起函数 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是协程**: 想象一个超级多任务的厨师，可以同时准备多道菜
-- [] **简单理解**: 协程是轻量级的"线程"，可以在执行过程中暂停和恢复
-- [] **生活类比**: 就像看书时接电话，放下书接电话，接完继续看书
-- [] **检查点**: 能说出"协程比线程轻量在哪里"
+- [ ] **什么是协程**: 想象一个超级多任务的厨师，可以同时准备多道菜
+- [ ] **简单理解**: 协程是轻量级的"线程"，可以在执行过程中暂停和恢复
+- [ ] **生活类比**: 就像看书时接电话，放下书接电话，接完继续看书
+- [ ] **检查点**: 能说出"协程比线程轻量在哪里"
 - [ ] **文件**: 在`student_progress/`创建`coroutines_notes.md`，记录理解
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -5766,10 +5766,10 @@ fun main() {
 #### Task 1.3.2: Channel通信机制 + 生产者消费者模式 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是Channel**: 想象一个传送带，生产者放东西，消费者取东西
-- [] **简单理解**: Channel是协程之间传递数据的管道
-- [] **生活类比**: 就像餐厅的传菜窗口，厨师放菜，服务员取菜
-- [] **检查点**: 能说出"Channel如何实现协程间通信"
+- [ ] **什么是Channel**: 想象一个传送带，生产者放东西，消费者取东西
+- [ ] **简单理解**: Channel是协程之间传递数据的管道
+- [ ] **生活类比**: 就像餐厅的传菜窗口，厨师放菜，服务员取菜
+- [ ] **检查点**: 能说出"Channel如何实现协程间通信"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```kotlin
@@ -6041,10 +6041,10 @@ fun main() {
 #### Task 1.3.3: Flow响应式编程 + 数据流转换 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是Flow**: 想象一条河流，数据像水一样持续流动
-- [] **简单理解**: Flow是协程版本的Observable，用于处理异步数据流
-- [] **生活类比**: 就像新闻直播，数据不断更新，观察者实时接收
-- [] **检查点**: 能说出"Flow与Channel的区别"
+- [ ] **什么是Flow**: 想象一条河流，数据像水一样持续流动
+- [ ] **简单理解**: Flow是协程版本的Observable，用于处理异步数据流
+- [ ] **生活类比**: 就像新闻直播，数据不断更新，观察者实时接收
+- [ ] **检查点**: 能说出"Flow与Channel的区别"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```kotlin
@@ -6373,10 +6373,10 @@ fun main() {
 #### Task 1.3.4: 协程作用域与结构化并发 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是作用域**: 想象一个公司部门，部门解散时所有员工都离开
-- [] **简单理解**: 协程作用域管理协程的生命周期，统一取消和异常处理
-- [] **生活类比**: 就像家长管理孩子，孩子不听话就一起惩罚
-- [] **检查点**: 能说出"为什么需要协程作用域"
+- [ ] **什么是作用域**: 想象一个公司部门，部门解散时所有员工都离开
+- [ ] **简单理解**: 协程作用域管理协程的生命周期，统一取消和异常处理
+- [ ] **生活类比**: 就像家长管理孩子，孩子不听话就一起惩罚
+- [ ] **检查点**: 能说出"为什么需要协程作用域"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```kotlin
@@ -6666,10 +6666,10 @@ fun main() {
 #### Task 1.3.5: 协程调度器原理 + 线程池模型深入 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是调度器**: 想象一个交通指挥员，决定哪辆车在哪条路上行驶
-- [] **简单理解**: Dispatcher决定协程在哪个线程上执行
-- [] **生活类比**: 就像餐厅经理安排服务员的工作区域
-- [] **检查点**: 能说出"不同Dispatcher的适用场景"
+- [ ] **什么是调度器**: 想象一个交通指挥员，决定哪辆车在哪条路上行驶
+- [ ] **简单理解**: Dispatcher决定协程在哪个线程上执行
+- [ ] **生活类比**: 就像餐厅经理安排服务员的工作区域
+- [ ] **检查点**: 能说出"不同Dispatcher的适用场景"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```kotlin
@@ -7066,10 +7066,10 @@ fun main() {
 #### Task 1.3.6: Android生命周期协程 + ViewModel集成 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [] **什么是生命周期协程**: 想象宠物跟着主人，主人离开宠物也要跟着离开
-- [] **简单理解**: 协程会随着Android组件的生命周期自动取消和清理
-- [] **生活类比**: 就像员工跟着部门，部门解散员工也要重新分配
-- [] **检查点**: 能说出"为什么需要生命周期感知的协程"
+- [ ] **什么是生命周期协程**: 想象宠物跟着主人，主人离开宠物也要跟着离开
+- [ ] **简单理解**: 协程会随着Android组件的生命周期自动取消和清理
+- [ ] **生活类比**: 就像员工跟着部门，部门解散员工也要重新分配
+- [ ] **检查点**: 能说出"为什么需要生命周期感知的协程"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```kotlin

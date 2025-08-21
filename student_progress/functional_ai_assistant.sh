@@ -681,7 +681,11 @@ generate_quick_report() {
     local total_minutes=$(tail -n +2 "$LOG_FILE" | cut -d',' -f4 | awk '{sum+=$1} END {print sum+0}')
     
     # This week's data
-    local current_week=$(date '+%Y-%m-%d' -d 'monday')
+    # 一个更稳健的获取本周一日期的方法
+    local day_of_week=$(date +%u) # 获取今天是周几 (1=周一, 7=周日)
+    local days_to_subtract=$((day_of_week - 1))
+    local current_week=$(date '+%Y-%m-%d' -d "-$days_to_subtract days")
+    # local current_week=$(date '+%Y-%m-%d' -d 'monday')
     local this_week_sessions=$(tail -n +2 "$LOG_FILE" | awk -F',' -v week="$current_week" '$1 >= week' | wc -l)
     
     echo "═══════════════════════════════════════════════════════"
@@ -725,7 +729,10 @@ generate_report() {
     avg_quality=$(tail -n +2 "$LOG_FILE" | cut -d',' -f5 | awk '{sum+=$1; count++} END {print sum/count}')
     
     # This week's data
-    current_week=$(date '+%Y-%m-%d' -d 'monday')
+    # 一个更稳健的获取本周一日期的方法
+    local day_of_week=$(date +%u) # 获取今天是周几 (1=周一, 7=周日)
+    local days_to_subtract=$((day_of_week - 1))
+    local current_week=$(date '+%Y-%m-%d' -d "-$days_to_subtract days")
     this_week_sessions=$(tail -n +2 "$LOG_FILE" | awk -F',' -v week="$current_week" '$1 >= week' | wc -l)
     
     # Recent streak

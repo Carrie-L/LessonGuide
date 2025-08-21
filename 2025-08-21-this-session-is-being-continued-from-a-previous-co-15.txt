@@ -1,0 +1,17 @@
+╭───────────────────────────────────────────────────╮
+│ ✻ Welcome to Claude Code!                         │
+│                                                   │
+│   /help for help, /status for your current setup  │
+│                                                   │
+│   cwd: /mnt/i/10_知识体系/面试练习                │
+╰───────────────────────────────────────────────────╯
+● Compact summary (ctrl+r to expand)
+  ⎿  Referenced file PROGRESS.md
+  ⎿  Referenced file micro_tasks/MICRO_TASK_C04.md
+  ⎿  Referenced file micro_tasks/MICRO_TASK_C05.md
+  ⎿  Referenced file micro_tasks/MICRO_TASK_C03.md
+  ⎿  Referenced file micro_tasks/MICRO_TASK_C02.md
+  ⎿  Todo list read (2 items)
+  ⎿  5-hour limit reached ∙ resets 6am
+     /upgrade to increase your usage limit.
+

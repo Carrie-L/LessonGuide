@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "micro_tasks/MICRO_TASK_C01.md",
+                "file": "PROGRESS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MICRO_TASK_C01"
+              "title": "PROGRESS"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "micro_tasks/MICRO_TASK_C01.md",
+                "file": "PROGRESS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for MICRO_TASK_C01"
+              "title": "Backlinks for PROGRESS"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "micro_tasks/MICRO_TASK_C01.md",
+                "file": "PROGRESS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from MICRO_TASK_C01"
+              "title": "Outgoing links from PROGRESS"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "micro_tasks/MICRO_TASK_C01.md",
+                "file": "PROGRESS.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of MICRO_TASK_C01"
+              "title": "Outline of PROGRESS"
             }
           }
         ],
@@ -160,6 +160,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -170,41 +171,41 @@
   },
   "active": "c8ae495a2f2779f2",
   "lastOpenFiles": [
-    "conversations/2025-08-20-please-complete-the-missing-content-of-chapter-2.txt",
-    "conversations/2025-08-20-this-session-is-being-continued-from-a-previous-co-14.txt",
-    "micro_tasks/MICRO_TASK_C01.md.tmp.228557.1755688608882",
-    "micro_tasks/MICRO_TASK_C01.md.tmp.228557.1755688459062",
-    "micro_tasks/MICRO_TASK_C01.md.tmp.228557.1755688349326",
-    "student_progress/learning_data/notes/Task_1_1_2_notes.md",
-    "micro_tasks/MICRO_TASK_C01.md.tmp.228557.1755688234617",
-    "micro_tasks/MICRO_TASK_C01.md.tmp.228557.1755688124671",
-    "student_progress/learning_data/current_task.tmp",
-    "student_progress/learning_data/session_start.tmp",
-    "student_progress/student_progress/c01/VolatileMemoryModel.kt",
-    "student_progress/learning_data/roadmap_progress.json",
-    "student_progress/learning_data/notes/Task_1_1_1_notes.md",
-    "micro_tasks/MICRO_TASK_C02.md",
+    "student_progress/demo_code/c01/MemoryVisibilityDemo.java",
+    "student_progress/demo_code/c01/MemoryVisibilityDemo.java.tmp.939.1755778489665",
+    "mentor_duty/LEARNING_ANALYTICS_SYSTEM.md",
+    "mentor_duty",
+    "New folder",
+    "micro_tasks/LEARNING_ANALYTICS_SYSTEM.md",
+    "micro_tasks/LEARNING_ANALYTICS_SYSTEM.md.crdownload",
+    "student_progress/demo_code/c01",
+    "student_progress/demo_code/New folder",
+    "student_progress/demo_code",
+    "student_progress/New folder",
+    "The FAANG Interview Express Route.md",
+    "TIMELINE.md",
     "micro_tasks/MICRO_TASK_C01.md",
-    "micro_tasks/MICRO_TASK_C12.md",
-    "micro_tasks/MICRO_TASKS_C12.md",
-    "micro_tasks/MICRO_TASK_C06.md",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md",
+    "COMPREHENSIVE_HANDS_ON_FRAMEWORK_SUMMARY.md",
+    "PROGRESS.md",
+    "student_progress/learning_data/notes/Task_5_1_1_notes.md",
+    "student_progress/learning_data/notes",
+    "student_progress/learning_data/current_task.tmp",
     "micro_tasks/MICRO_TASK_C05.md",
-    "micro_tasks/MICRO_TASK_C04.md",
     "micro_tasks/MICRO_TASK_C03.md",
-    "MICRO_TASK_C12_COMPARISON_RESULT.md",
+    "micro_tasks/MICRO_TASK_C02.md",
+    "micro_tasks/MICRO_TASK_C04.md",
     "micro_tasks/MICRO_TASK_C07.md",
+    "micro_tasks/MICRO_TASK_C12.md",
+    "micro_tasks/MICRO_TASK_C06.md",
+    "student_progress/learning_data/c01/Task_1_1_1_notes.md",
+    "student_progress/learning_data/c01/Task_1_1_2_notes.md",
+    "student_progress/learning_data/notes/Task_1_1_2_notes.md",
+    "student_progress/learning_data/notes/Task_1_1_1_notes.md",
+    "micro_tasks/MICRO_TASKS_C12.md",
+    "MICRO_TASK_C12_COMPARISON_RESULT.md",
     "micro_tasks/MICRO_TASK_C08.md",
     "micro_tasks/MICRO_TASK_C09.md",
-    "micro_tasks/MICRO_TASK_C10.md",
-    "micro_tasks/MICRO_TASK_C11.md",
-    "student_progress/notes/Task_1_1_2_notes.md",
-    "micro_tasks/CHAPTER_8_PROGRESS.md",
-    "student_progress/AUTOMATED_VERIFICATION.md",
-    "conversations/FEEDBACK_IMPROVEMENTS_IMPLEMENTED.md",
-    "conversations/ENHANCED_AI_ASSISTANT_FEATURES.md",
-    "conversations/DUPLICATE_CONTENT_ANALYSIS.md",
-    "conversations/DEMO_FUNCTIONAL_AI.md",
-    "conversations/ALL_7_FEEDBACK_IMPROVEMENTS_COMPLETE.md",
-    "HOW_TO_USE_ENHANCED_LEARNING.md"
+    "micro_tasks/MICRO_TASK_C10.md"
   ]
 }
