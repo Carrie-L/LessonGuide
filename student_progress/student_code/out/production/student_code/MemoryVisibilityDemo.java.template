@@ -1,0 +1,22 @@
+// TODO: 手动实现JMM内存可见性演示
+// 参考: ../demo_code/c01/MemoryVisibilityDemo.java
+// 目标: 理解JMM可见性问题的根本原因
+
+// 提示: 你需要创建一个类，包含：
+// 1. 两个静态变量：flag 和 counter (不使用volatile)
+// 2. main方法创建两个线程：读取者和写入者
+// 3. 观察可见性问题的现象
+
+// 开始编写你的代码 (删除此模板内容):
+
+public class MemoryVisibilityDemo {
+    // TODO: 声明共享变量
+    
+    public static void main(String[] args) throws InterruptedException {
+        // TODO: 实现读取者线程
+        
+        // TODO: 实现写入者线程
+        
+        // TODO: 观察和分析结果
+    }
+}

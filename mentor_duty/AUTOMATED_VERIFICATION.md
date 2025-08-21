@@ -19,8 +19,8 @@ This system provides automated verification to ensure all hands-on coding exerci
 # Verifies code quality, performance, and learning objectives
 
 TASK_ID=$1
-TASK_DIR="student_progress/JavaLearning/src"
-PERFORMANCE_LOG="student_progress/performance_results.json"
+TASK_DIR="student_progress/student_code"
+PERFORMANCE_LOG="student_progress/learning_data/performance_results.json"
 
 echo "🤖 Starting automated verification for Task $TASK_ID"
 echo "================================================"

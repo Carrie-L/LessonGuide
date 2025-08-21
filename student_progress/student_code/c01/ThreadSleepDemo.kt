@@ -11,11 +11,11 @@
  */
 
 fun main() {
-    println("Starting Task 1.1.3 implementation")
+//    println("Starting Task 1.1.3 implementation")
     
     // TODO: Add your implementation here
     
-    println("Task 1.1.3 completed")
+//    println("Task 1.1.3 completed")
 }
 
 // TODO: Add your classes and functions here

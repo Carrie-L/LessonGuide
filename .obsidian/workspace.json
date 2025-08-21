@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PROGRESS.md",
+                "file": "micro_tasks/MICRO_TASK_C01.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PROGRESS"
+              "title": "MICRO_TASK_C01"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PROGRESS.md",
+                "file": "micro_tasks/MICRO_TASK_C01.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of PROGRESS"
+              "title": "Outline of MICRO_TASK_C01"
             }
           }
         ],
@@ -171,41 +171,40 @@
   },
   "active": "c8ae495a2f2779f2",
   "lastOpenFiles": [
-    "student_progress/demo_code/c01/MemoryVisibilityDemo.java",
-    "student_progress/demo_code/c01/MemoryVisibilityDemo.java.tmp.939.1755778489665",
-    "mentor_duty/LEARNING_ANALYTICS_SYSTEM.md",
-    "mentor_duty",
-    "New folder",
-    "micro_tasks/LEARNING_ANALYTICS_SYSTEM.md",
-    "micro_tasks/LEARNING_ANALYTICS_SYSTEM.md.crdownload",
-    "student_progress/demo_code/c01",
+    "micro_tasks/MICRO_TASK_C04.md",
+    "student_progress/demo_code/c02",
     "student_progress/demo_code/New folder",
-    "student_progress/demo_code",
-    "student_progress/New folder",
-    "The FAANG Interview Express Route.md",
-    "TIMELINE.md",
-    "micro_tasks/MICRO_TASK_C01.md",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md",
-    "COMPREHENSIVE_HANDS_ON_FRAMEWORK_SUMMARY.md",
-    "PROGRESS.md",
-    "student_progress/learning_data/notes/Task_5_1_1_notes.md",
-    "student_progress/learning_data/notes",
-    "student_progress/learning_data/current_task.tmp",
+    "student_progress/student_code/c02",
+    "student_progress/student_code/New folder",
+    "student_progress/student_code/c01/README.md.tmp.27076.1755805724769",
+    "student_progress/student_code/c01/VolatileDemo.java.template.tmp.27076.1755805690360",
+    "student_progress/student_code/c01/VolatileDemo.java.template",
+    "student_progress/student_code/c01/SynchronizedDemo.java.template.tmp.27076.1755805657470",
+    "student_progress/student_code/c01/SynchronizedDemo.java.template",
+    "student_progress/student_code/c01/HappensBeforeDemo.java.template.tmp.27076.1755805620195",
     "micro_tasks/MICRO_TASK_C05.md",
     "micro_tasks/MICRO_TASK_C03.md",
     "micro_tasks/MICRO_TASK_C02.md",
-    "micro_tasks/MICRO_TASK_C04.md",
+    "chat/chat.md",
+    "CLAUDE_MEMORY_SYSTEM.md",
+    "student_progress/learning_data/reports/task_1_1_1_final_assessment.md",
+    "student_progress/learning_data/current_session_report.md",
+    "student_progress/demo_code/c01/ThreadLifecycleExplanation.md",
+    "student_progress/demo_code/c01/VisibilityExplanation.md",
+    "micro_tasks/MICRO_TASK_C01.md",
+    "mentor_duty/AUTOMATED_VERIFICATION.md",
+    "student_progress/student_code/out/production/student_code/README.md",
+    "PROGRESS.md",
+    "student_progress/student_code/c01/README.md",
+    "mentor_duty/LEARNING_ANALYTICS_SYSTEM.md",
+    "micro_tasks/LEARNING_ANALYTICS_SYSTEM.md",
+    "The FAANG Interview Express Route.md",
+    "TIMELINE.md",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md",
+    "COMPREHENSIVE_HANDS_ON_FRAMEWORK_SUMMARY.md",
+    "student_progress/learning_data/notes/Task_5_1_1_notes.md",
     "micro_tasks/MICRO_TASK_C07.md",
     "micro_tasks/MICRO_TASK_C12.md",
-    "micro_tasks/MICRO_TASK_C06.md",
-    "student_progress/learning_data/c01/Task_1_1_1_notes.md",
-    "student_progress/learning_data/c01/Task_1_1_2_notes.md",
-    "student_progress/learning_data/notes/Task_1_1_2_notes.md",
-    "student_progress/learning_data/notes/Task_1_1_1_notes.md",
-    "micro_tasks/MICRO_TASKS_C12.md",
-    "MICRO_TASK_C12_COMPARISON_RESULT.md",
-    "micro_tasks/MICRO_TASK_C08.md",
-    "micro_tasks/MICRO_TASK_C09.md",
-    "micro_tasks/MICRO_TASK_C10.md"
+    "micro_tasks/MICRO_TASK_C06.md"
   ]
 }

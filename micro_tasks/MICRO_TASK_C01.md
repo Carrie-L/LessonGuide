@@ -24,7 +24,7 @@
   - 理解happens-before关系的建立和传递性
   - 掌握内存屏障(Memory Barrier)的作用机制
 - [ ] **检查点**: happens-before关系如何保证内存可见性？有哪些建立方式？
-- [ ] **文件**: `student_progress/notes/ C01_java_memory_model_analysis.md`
+- [ ] **文件**: `student_progress/notes/C01_java_memory_model_analysis.md`
 
 #### Task 1.1.1: JMM概念入门 + 首个编程实验 (5分钟) ⏰
 
@@ -33,60 +33,68 @@
 - [ ] **简单理解**: JMM就是Java定义的"多个程序员如何共享数据"的规则
 - [ ] **生活类比**: 就像办公室里多人共用一台打印机，需要排队规则一样
 - [ ] **检查点**: 能说出"JMM是用来解决什么问题的"
-- [ ] **文件**: 在`student_progress/`创建`jmm_notes.md`，用自己的话写下理解
+- [ ] **文件**: 在`student_progress/notes/`创建`jmm_notes.md`，用自己的话写下理解
 
-**🚀 Hands-On Coding Exercise (强制编程练习)**
-```java
-// 练习目标: 亲眼看到"可见性问题"
-public class MemoryVisibilityDemo {
-    // 第一步: 创建一个简单的可见性问题演示
-    private static boolean flag = false;    // 注意: 不使用volatile
-    private static int counter = 0;
-    
-    public static void main(String[] args) throws InterruptedException {
-        // TODO: 学生手动输入以下代码，观察现象
-        
-        // 线程1: 读取者 - 等待flag变为true
-        Thread readerThread = new Thread(() -> {
-            System.out.println("读取者: 开始等待flag变为true...");
-            while (!flag) {
-                // 空循环 - 可能永远等待下去!
-            }
-            System.out.println("读取者: 检测到flag为true, counter=" + counter);
-        });
-        
-        // 线程2: 写入者 - 修改共享变量
-        Thread writerThread = new Thread(() -> {
-            try {
-                Thread.sleep(1000);  // 等待1秒
-                counter = 42;        // 先修改counter
-                flag = true;         // 再修改flag
-                System.out.println("写入者: 已设置flag=true, counter=" + counter);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-        
-        readerThread.start();
-        writerThread.start();
-        
-        // 等待3秒，观察是否出现死循环
-        Thread.sleep(3000);
-        if (readerThread.isAlive()) {
-            System.out.println("⚠️  JMM可见性问题重现! 读取者线程仍在等待");
-            readerThread.interrupt();
-        }
-        
-        writerThread.join();
-    }
-}
+**🚀 Learn by Doing - 编程实践**
+
+**步骤1: 查看演示代码** 📖
+- 先查看演示代码: `student_progress/demo_code/c01/MemoryVisibilityDemo.java`
+- 理解代码结构和实现目标
+- 阅读注释，理解JMM可见性问题的原理
+
+**步骤2: 手动编程实现** ✍️
+- **创建文件**: `student_progress/student_code/c01/MemoryVisibilityDemo.java`
+- **严禁复制粘贴**: 必须手动输入每一行代码
+- **编程指导**:
+  ```java
+  // 你需要实现的关键部分:
+  public class MemoryVisibilityDemo {
+      // TODO 1: 声明普通变量（不使用volatile）
+      private static boolean flag = false;
+      private static int counter = 0;
+      
+      public static void main(String[] args) throws InterruptedException {
+          // TODO 2: 创建读取者线程，等待flag变为true
+          Thread readerThread = new Thread(() -> {
+              // 在这里实现等待逻辑
+          });
+          
+          // TODO 3: 创建写入者线程，修改共享变量
+          Thread writerThread = new Thread(() -> {
+              // 在这里实现修改逻辑
+          });
+          
+          // TODO 4: 启动线程并观察结果
+      }
+  }
+  ```
+
+**编程任务要求**:
+1. 创建两个静态变量：`flag` 和 `counter` (不使用volatile)
+2. 实现读取者线程：等待flag变为true，然后输出counter的值
+3. 实现写入者线程：先设置counter=42，再设置flag=true
+4. 观察并分析JMM可见性问题
+
+**步骤3: 运行和验证** 🔬
+- 编译运行你的代码：`javac MemoryVisibilityDemo.java && java MemoryVisibilityDemo`
+- 观察是否出现可见性问题(读取者线程可能永远等待)
+- 理解为什么flag的修改对读取者线程不可见
+
+**步骤4: AI导师检查** 🤖
+完成后请求检查：
+```
+@AI导师 请检查我的代码:
+文件: student_progress/student_code/c01/MemoryVisibilityDemo.java
+任务: JMM可见性问题演示
+请分析我的代码质量、概念理解和实现正确性
 ```
 
-**📝 编程任务检查点**:
-- [ ] **手动输入**: 完整代码必须手动输入，体验每一行的含义
-- [ ] **运行验证**: 程序能运行并观察到可见性问题(读取者可能永远等待)
-- [ ] **现象理解**: 理解为什么flag的修改对读取者不可见
-- [ ] **代码位置**: `student_progress/JavaLearning/src/MemoryVisibilityDemo.java`
+`★ Insight ─────────────────────────────────────`
+**JMM内存可见性的核心概念**：
+- 每个线程都有自己的工作内存，是主内存的副本
+- 线程间的通信必须通过主内存，不能直接访问对方的工作内存
+- 没有同步机制时，JVM不保证一个线程的修改对其他线程可见
+`─────────────────────────────────────────────────`
 
 **🚀 Intermediate Level (实践验证)**  
 - [ ] **深入概念**: 理解"线程工作内存"和"主内存"的数据同步机制
@@ -105,68 +113,72 @@ public class MemoryVisibilityDemo {
 - [ ] **简单理解**: "A发生在B之前"意味着"B能看到A的所有结果"
 - [ ] **记忆技巧**: happens-before = "发生在前面" + "结果可见"
 - [ ] **检查点**: 能用"接力赛"例子解释happens-before
-- [ ] **文件**: 在`jmm_notes.md`中用生活例子写下理解
+- [ ] **文件**: 在`student_progress/notes/jmm_notes.md`中用生活例子写下理解
 
-**🚀 Hands-On Coding Exercise (强制编程练习)**
-```java
-// 练习目标: 验证happens-before规则
-public class HappensBeforeDemo {
-    private static int sharedData = 0;
-    private static boolean dataReady = false;
-    
-    public static void main(String[] args) throws InterruptedException {
-        
-        // 实验1: 无同步的数据竞争
-        System.out.println("=== 实验1: 无同步情况 ===");
-        testWithoutSynchronization();
-        
-        Thread.sleep(2000);
-        
-        // 实验2: 使用volatile保证happens-before
-        System.out.println("\n=== 实验2: volatile同步情况 ===");
-        testWithVolatile();
-    }
-    
-    // TODO: 学生手动实现这两个方法
-    private static void testWithoutSynchronization() throws InterruptedException {
-        sharedData = 0;
-        dataReady = false;
-        
-        // 写入者线程
-        Thread writer = new Thread(() -> {
-            sharedData = 42;      // 步骤1: 设置数据
-            dataReady = true;     // 步骤2: 设置标志 (无happens-before保证)
-            System.out.println("写入者: 数据已准备好");
-        });
-        
-        // 读取者线程  
-        Thread reader = new Thread(() -> {
-            while (!dataReady) {  // 等待数据准备好
-                Thread.yield();   // 让出CPU避免busy-wait
-            }
-            // 问题: 即使dataReady为true，sharedData可能还是0!
-            System.out.println("读取者看到的数据: " + sharedData);
-        });
-        
-        reader.start();
-        writer.start();
-        
-        writer.join();
-        reader.join();
-    }
-    
-    private static void testWithVolatile() {
-        // TODO: 学生修改上面的代码，给dataReady加上volatile
-        // 观察volatile如何建立happens-before关系
-    }
-}
+**🚀 Learn by Doing - 编程实践**
+
+**步骤1: 查看演示代码** 📖
+- 先查看演示代码: `student_progress/demo_code/c01/HappensBeforeDemo.java`
+- 理解happens-before关系的建立过程
+- 观察volatile如何解决数据竞争问题
+
+**步骤2: 手动编程实现** ✍️
+- **创建文件**: `student_progress/student_code/c01/HappensBeforeDemo.java`
+- **严禁复制粘贴**: 逐行手动输入，体验每个细节
+- **编程指导**:
+  ```java
+  public class HappensBeforeDemo {
+      // TODO 1: 声明无同步版本的变量
+      private static int data = 0;
+      private static boolean ready = false;
+      
+      // TODO 2: 声明volatile版本的变量
+      private static int volatileData = 0;
+      private static volatile boolean volatileReady = false;
+      
+      public static void main(String[] args) throws InterruptedException {
+          // TODO 3: 实现无同步版本测试
+          testWithoutSync();
+          // TODO 4: 实现volatile版本测试
+          testWithVolatile();
+      }
+      
+      private static void testWithoutSync() {
+          // 在这里实现无同步的测试逻辑
+      }
+      
+      private static void testWithVolatile() {
+          // 在这里实现volatile版本的测试逻辑
+      }
+  }
+  ```
+
+**编程任务要求**:
+1. 实现无同步版本：展示数据竞争问题
+2. 实现volatile版本：建立happens-before关系
+3. 对比两种情况的运行结果
+4. 理解volatile写-读如何保证可见性
+
+**步骤3: 运行和验证** 🔬
+- 多次运行程序，观察不同的结果
+- 验证volatile是否解决了数据一致性问题
+- 思考为什么volatile能建立happens-before关系
+
+**步骤4: AI导师检查** 🤖
+完成后请求检查：
+```
+@AI导师 请检查我的代码:
+文件: student_progress/student_code/c01/HappensBeforeDemo.java
+任务: happens-before关系验证
+请分析我对happens-before原则的理解和实现
 ```
 
-**📝 编程任务检查点**:
-- [ ] **手动输入**: 必须手动输入代码，理解每一行的作用
-- [ ] **对比实验**: 运行无同步版本，观察数据不一致问题
-- [ ] **volatile修复**: 为dataReady添加volatile，观察问题解决
-- [ ] **原理理解**: 理解volatile写-读如何建立happens-before关系
+`★ Insight ─────────────────────────────────────`
+**Happens-Before的核心规则**：
+- 程序顺序规则：同一线程中，前面的操作 happens-before 后面的操作
+- Volatile规则：volatile写 happens-before 后续的volatile读
+- 传递性：A→B, B→C ⟹ A→C，这是建立复杂同步关系的基础
+`─────────────────────────────────────────────────`
 
 **🚀 Intermediate Level (实践验证)**  
 - [ ] **技术定义**: 学习"如果A happens-before B，那么A的结果对B可见"
@@ -185,109 +197,68 @@ public class HappensBeforeDemo {
 - [ ] **简单理解**: synchronized就是给代码加了一把锁，确保不会"撞车"
 - [ ] **生活类比**: 就像银行只有一个窗口，大家要排队一个一个来
 - [ ] **检查点**: 能说出"synchronized是用来防止什么问题的"
-- [ ] **文件**: 在`student_progress/`创建`synchronized_notes.md`
+- [ ] **文件**: 在`student_progress/notes/`创建`synchronized_notes.md`
 
-**🚀 Hands-On Coding Exercise (强制编程练习)**
-```java
-// 练习目标: 先看到问题，再解决问题
-public class SynchronizedDemo {
-    private static int unsafeCounter = 0;      // 不安全的计数器
-    private static int safeCounter = 0;        // 安全的计数器
-    private static final Object lock = new Object();
-    
-    public static void main(String[] args) throws InterruptedException {
-        final int THREAD_COUNT = 10;
-        final int INCREMENT_COUNT = 1000;
-        
-        System.out.println("=== 步骤1: 展示数据竞争问题 ===");
-        testUnsafeIncrement(THREAD_COUNT, INCREMENT_COUNT);
-        
-        System.out.println("\n=== 步骤2: synchronized解决方案 ===");
-        testSafeIncrement(THREAD_COUNT, INCREMENT_COUNT);
-        
-        System.out.println("\n=== 步骤3: 性能对比分析 ===");
-        performanceComparison();
-    }
-    
-    // TODO: 学生手动实现不安全的递增操作
-    private static void testUnsafeIncrement(int threadCount, int incrementCount) 
-            throws InterruptedException {
-        unsafeCounter = 0;
-        Thread[] threads = new Thread[threadCount];
-        
-        long startTime = System.currentTimeMillis();
-        
-        // 创建多个线程同时对counter进行++操作
-        for (int i = 0; i < threadCount; i++) {
-            threads[i] = new Thread(() -> {
-                for (int j = 0; j < incrementCount; j++) {
-                    unsafeCounter++;  // 线程不安全！可能丢失数据
-                }
-            });
-            threads[i].start();
-        }
-        
-        // 等待所有线程完成
-        for (Thread thread : threads) {
-            thread.join();
-        }
-        
-        long endTime = System.currentTimeMillis();
-        
-        System.out.println("期望结果: " + (threadCount * incrementCount));
-        System.out.println("实际结果: " + unsafeCounter);
-        System.out.println("数据丢失: " + (threadCount * incrementCount - unsafeCounter));
-        System.out.println("执行时间: " + (endTime - startTime) + "ms");
-    }
-    
-    // TODO: 学生实现synchronized版本
-    private static void testSafeIncrement(int threadCount, int incrementCount) 
-            throws InterruptedException {
-        // 实现线程安全的版本，使用synchronized
-        safeCounter = 0;
-        Thread[] threads = new Thread[threadCount];
-        
-        long startTime = System.currentTimeMillis();
-        
-        for (int i = 0; i < threadCount; i++) {
-            threads[i] = new Thread(() -> {
-                for (int j = 0; j < incrementCount; j++) {
-                    synchronized (lock) {    // 关键: 同步块
-                        safeCounter++;       // 现在是线程安全的
-                    }
-                }
-            });
-            threads[i].start();
-        }
-        
-        for (Thread thread : threads) {
-            thread.join();
-        }
-        
-        long endTime = System.currentTimeMillis();
-        
-        System.out.println("期望结果: " + (threadCount * incrementCount));
-        System.out.println("实际结果: " + safeCounter);
-        System.out.println("数据正确: " + (safeCounter == threadCount * incrementCount));
-        System.out.println("执行时间: " + (endTime - startTime) + "ms");
-    }
-    
-    // TODO: 学生实现性能对比
-    private static void performanceComparison() {
-        // 比较不同同步策略的性能差异
-        // 1. 无同步 (不安全但快)
-        // 2. synchronized代码块 
-        // 3. synchronized方法
-        // 4. 不同锁粒度的影响
-    }
-}
+**🚀 Learn by Doing - 编程实践**
+
+**步骤1: 查看演示代码** 📖
+- 先查看演示代码: `student_progress/demo_code/c01/SynchronizedDemo.java`
+- 理解数据竞争问题的产生原因
+- 观察synchronized如何解决线程安全问题
+
+**步骤2: 手动编程实现** ✍️
+- **创建文件**: `student_progress/student_code/c01/SynchronizedDemo.java`
+- **严禁复制粘贴**: 必须手动输入每一行代码
+- **编程指导**:
+  ```java
+  public class SynchronizedDemo {
+      private static int unsafeCounter = 0;
+      private static int safeCounter = 0;
+      private static final Object lock = new Object();
+      
+      public static void main(String[] args) throws InterruptedException {
+          // TODO 1: 测试不安全的递增操作
+          testUnsafeIncrement(10, 1000);
+          // TODO 2: 测试synchronized安全版本
+          testSafeIncrement(10, 1000);
+      }
+      
+      private static void testUnsafeIncrement(int threadCount, int incrementCount) {
+          // TODO: 创建多个线程同时进行++操作，观察数据丢失
+      }
+      
+      private static void testSafeIncrement(int threadCount, int incrementCount) {
+          // TODO: 使用synchronized保证线程安全
+      }
+  }
+  ```
+
+**编程任务要求**:
+1. 实现不安全版本：多线程同时++操作，观察数据丢失
+2. 实现synchronized版本：使用同步块保证数据一致性
+3. 对比执行时间，理解同步的性能开销
+4. 尝试synchronized方法 vs synchronized代码块
+
+**步骤3: 运行和验证** 🔬
+- 运行代码观察数据丢失问题
+- 验证synchronized是否解决了数据竞争
+- 测量同步带来的性能开销
+
+**步骤4: AI导师检查** 🤖
+完成后请求检查：
+```
+@AI导师 请检查我的代码:
+文件: student_progress/student_code/c01/SynchronizedDemo.java
+任务: synchronized线程安全实战
+请分析我的实现和对synchronized原理的理解
 ```
 
-**📝 编程任务检查点**:
-- [ ] **问题重现**: 能够运行代码并观察到数据丢失问题
-- [ ] **解决方案**: 使用synchronized成功解决数据竞争
-- [ ] **性能理解**: 观察同步带来的性能开销
-- [ ] **多种方式**: 尝试synchronized方法 vs synchronized代码块
+`★ Insight ─────────────────────────────────────`
+**Synchronized的三重保证**：
+- 原子性：确保代码块作为一个整体执行，不会被打断
+- 可见性：修改后的值立即对其他线程可见（刷新到主内存）
+- 有序性：禁止synchronized块内外的指令重排序
+`─────────────────────────────────────────────────`
 
 **🚀 Intermediate Level (实践验证)**  
 - [ ] **技术细节**: 理解monitor机制，每个对象都有一个内置锁
@@ -306,130 +277,61 @@ public class SynchronizedDemo {
 - [ ] **简单理解**: volatile确保变量的"最新消息"能被所有线程看到
 - [ ] **常见错误**: volatile ≠ synchronized，它不能防止"撞车"
 - [ ] **检查点**: 能说出"volatile解决什么问题，不解决什么问题"
-- [ ] **文件**: 在`student_progress/`创建`volatile_notes.md`
+- [ ] **文件**: 在`student_progress/notes/`创建`volatile_notes.md`
 
-**🚀 Hands-On Coding Exercise (强制编程练习)**
-```java
-// 练习目标: 对比volatile和非volatile的差异
-public class VolatileDemo {
-    
-    // 实验1: 可见性问题演示
-    private static boolean normalFlag = false;          // 普通变量
-    private static volatile boolean volatileFlag = false;   // volatile变量
-    
-    // 实验2: 原子性问题演示  
-    private static volatile int volatileCounter = 0;    // volatile不保证原子性
-    
-    public static void main(String[] args) throws InterruptedException {
-        System.out.println("=== 实验1: 可见性对比 ===");
-        testVisibility();
-        
-        Thread.sleep(3000);
-        
-        System.out.println("\n=== 实验2: volatile不保证原子性 ===");
-        testAtomicity();
-    }
-    
-    // TODO: 学生手动实现可见性测试
-    private static void testVisibility() throws InterruptedException {
-        
-        // 测试普通变量的可见性问题
-        System.out.println("--- 测试普通变量 ---");
-        normalFlag = false;
-        
-        Thread readerThread1 = new Thread(() -> {
-            System.out.println("普通变量读取者: 开始等待...");
-            while (!normalFlag) {
-                // 可能永远循环下去！
-            }
-            System.out.println("普通变量读取者: 检测到flag变化!");
-        });
-        
-        Thread writerThread1 = new Thread(() -> {
-            try {
-                Thread.sleep(1000);
-                normalFlag = true;
-                System.out.println("普通变量写入者: 已设置flag=true");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-        
-        readerThread1.start();
-        writerThread1.start();
-        
-        // 等待2秒看是否有死循环
-        Thread.sleep(2000);
-        if (readerThread1.isAlive()) {
-            System.out.println("⚠️  普通变量可见性问题: 读取者仍在等待");
-            readerThread1.interrupt();
-        }
-        writerThread1.join();
-        
-        Thread.sleep(500);
-        
-        // 测试volatile变量
-        System.out.println("--- 测试volatile变量 ---");
-        volatileFlag = false;
-        
-        Thread readerThread2 = new Thread(() -> {
-            System.out.println("volatile读取者: 开始等待...");
-            while (!volatileFlag) {
-                // volatile保证可见性，会正常退出
-            }
-            System.out.println("volatile读取者: 检测到flag变化!");
-        });
-        
-        Thread writerThread2 = new Thread(() -> {
-            try {
-                Thread.sleep(1000);
-                volatileFlag = true;
-                System.out.println("volatile写入者: 已设置flag=true");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-        
-        readerThread2.start();
-        writerThread2.start();
-        readerThread2.join();
-        writerThread2.join();
-    }
-    
-    // TODO: 学生实现原子性测试
-    private static void testAtomicity() throws InterruptedException {
-        final int THREAD_COUNT = 10;
-        final int INCREMENT_COUNT = 1000;
-        
-        volatileCounter = 0;
-        Thread[] threads = new Thread[THREAD_COUNT];
-        
-        for (int i = 0; i < THREAD_COUNT; i++) {
-            threads[i] = new Thread(() -> {
-                for (int j = 0; j < INCREMENT_COUNT; j++) {
-                    volatileCounter++;  // volatile不保证原子性！
-                }
-            });
-            threads[i].start();
-        }
-        
-        for (Thread thread : threads) {
-            thread.join();
-        }
-        
-        System.out.println("期望结果: " + (THREAD_COUNT * INCREMENT_COUNT));
-        System.out.println("实际结果: " + volatileCounter);
-        System.out.println("数据丢失: " + (THREAD_COUNT * INCREMENT_COUNT - volatileCounter));
-        System.out.println("结论: volatile保证可见性，但不保证原子性");
-    }
-}
+**🚀 Learn by Doing - 编程实践**
+
+**步骤1: 查看演示代码** 📖
+- 先查看演示代码: `student_progress/demo_code/c01/VolatileDemo.java`
+- 理解volatile的可见性保证
+- 观察volatile不保证原子性的问题
+
+**步骤2: 手动编程实现** ✍️
+- **创建文件**: `student_progress/student_code/c01/VolatileDemo.java`
+- **严禁复制粘贴**: 逐行手动输入，体验每个细节
+- **编程指导**:
+  ```java
+  public class VolatileDemo {
+      // TODO 1: 声明普通变量和volatile变量
+      private static boolean normalFlag = false;
+      private static volatile boolean volatileFlag = false;
+      private static volatile int volatileCounter = 0;
+      
+      public static void main(String[] args) throws InterruptedException {
+          // TODO 2: 测试可见性对比
+          testVisibility();
+          // TODO 3: 测试volatile不保证原子性
+          testAtomicity();
+      }
+  }
+  ```
+
+**编程任务要求**:
+1. 对比普通变量和volatile变量的可见性
+2. 验证volatile在++操作中仍然会丢失数据
+3. 理解volatile适用于纯赋值，不适用于复合操作
+4. 测量volatile对性能的影响
+
+**步骤3: 运行和验证** 🔬
+- 观察普通变量的可见性问题
+- 验证volatile的解决效果
+- 确认volatile不保证原子性
+
+**步骤4: AI导师检查** 🤖
+完成后请求检查：
+```
+@AI导师 请检查我的代码:
+文件: student_progress/student_code/c01/VolatileDemo.java
+任务: volatile可见性验证
+请分析我对volatile原理的理解和实现
 ```
 
-**📝 编程任务检查点**:
-- [ ] **可见性验证**: 观察普通变量的可见性问题，volatile的解决效果
-- [ ] **原子性问题**: 验证volatile在++操作中仍然会丢失数据
-- [ ] **场景理解**: 理解volatile适用于纯赋值，不适用于复合操作
-- [ ] **代码位置**: `student_progress/JavaLearning/src/VolatileDemo.java`
+`★ Insight ─────────────────────────────────────`
+**Volatile的双重作用**：
+- 可见性：确保修改立即同步到主内存，其他线程立即可见
+- 有序性：禁止指令重排序，建立happens-before关系
+- 但不保证原子性：复合操作如++仍然可能出现数据竞争
+`─────────────────────────────────────────────────`
 
 **🚀 Intermediate Level (实践验证)**  
 - [ ] **两个作用**: 保证可见性 + 禁止指令重排序
@@ -440,7 +342,6 @@ public class VolatileDemo {
 - [ ] **内存屏障**: volatile如何通过内存屏障实现语义
 - [ ] **性能特点**: volatile vs synchronized的性能对比
 - [ ] **面试深度**: 能分析volatile在并发框架中的应用
-
 ### Phase 2: synchronized互斥锁原理 - 15分钟
 
 - [ ] **学习目标**: 理解synchronized的实现原理和性能特性
@@ -1160,7 +1061,7 @@ public class HeavyweightLockDemo {
   - 对比偏向锁、轻量级锁、重量级锁的切换开销
   - 分析锁粗化和锁消除优化的效果
 - [ ] **检查点**: 什么情况下synchronized性能最好？什么情况下性能很差？
-- [ ] **文件**: `student_progress/c01/SynchronizedPerformanceTest.kt`
+- [ ] **文件**: `student_code/c01/SynchronizedPerformanceTest.kt`
 #### Task 1.1.9: 🚀 Intermediate - 手动实现无锁栈 (5分钟) ⏰
 **实践目标**: 亲手打造高性能无锁数据结构 ⚡
 
@@ -1252,7 +1153,7 @@ public class HeavyweightLockDemo {
 - [ ] **Intermediate检查点**: 你的无锁栈在高并发下能保证数据一致性吗？
 - [ ] **性能对比测试**: 对比你的无锁栈 vs Java的ConcurrentLinkedDeque性能
 - [ ] **代码质量检查**: □ 解决了ABA问题 □ 处理了内存回收 □ 有性能测试
-- [ ] **文件**: `student_progress/c01/LockFreeStack.kt`
+- [ ] **文件**: `student_code/c01/LockFreeStack.kt`
 
 #### Task 1.1.10: ReentrantLock与AQS框架 (5分钟) ⏰
 - [ ] **学习目标**: 理解Java并发包的核心框架AQS
@@ -1261,7 +1162,7 @@ public class HeavyweightLockDemo {
   - 理解ReentrantLock的公平锁和非公平锁实现
   - 掌握Condition条件变量的等待/通知机制
 - [ ] **检查点**: AQS如何实现不同类型的同步器？公平锁和非公平锁的区别？
-- [ ] **文件**: `student_progress/c01/reentrant_lock_aqs_analysis.md`
+- [ ] **文件**: `student_code/c01/reentrant_lock_aqs_analysis.md`
 
 #### Task 1.1.11: [实践]读写锁优化方案 (5分钟) ⏰
 - [ ] **学习目标**: 实现高效的读写分离锁机制
@@ -1270,7 +1171,7 @@ public class HeavyweightLockDemo {
   - 处理写锁饥饿问题和公平性保证
   - 分析StampedLock的乐观读锁机制
 - [ ] **检查点**: 读写锁在什么场景下性能最好？如何防止写锁饥饿？
-- [ ] **文件**: `student_progress/c01/ReadWriteLockCache.kt`
+- [ ] **文件**: `student_code/c01/ReadWriteLockCache.kt`
 
 #### Task 1.1.12: 线程安全的集合类 (5分钟) ⏰
 - [ ] **学习目标**: 分析并发集合的实现原理和性能特性
@@ -1279,7 +1180,7 @@ public class HeavyweightLockDemo {
   - 理解CopyOnWriteArrayList的写时复制机制
   - 掌握BlockingQueue的生产者-消费者模式
 - [ ] **检查点**: 不同并发集合的适用场景是什么？性能权衡如何？
-- [ ] **文件**: `student_progress/c01/concurrent_collections_analysis.md`
+- [ ] **文件**: `student_code/c01/concurrent_collections_analysis.md`
 
 #### 1.1.13: [实践]高性能并发缓存 (5分钟) ⏰
 - [ ] **学习目标**: 实现线程安全的高性能缓存系统
@@ -1288,7 +1189,7 @@ public class HeavyweightLockDemo {
   - 使用分段锁减少锁竞争
   - 实现缓存的异步刷新和过期处理
 - [ ] **检查点**: 如何设计一个既线程安全又高性能的缓存？
-- [ ] **文件**: `student_progress/c01/HighPerformanceCache.kt`
+- [ ] **文件**: `student_code/c01/HighPerformanceCache.kt`
 
 #### Task 1.1.14: 死锁检测与预防 (5分钟) ⏰
 - [ ] **学习目标**: 理解死锁的成因和预防策略
@@ -1297,7 +1198,7 @@ public class HeavyweightLockDemo {
   - 实现银行家算法进行死锁预防
   - 设计超时机制和死锁检测工具
 - [ ] **检查点**: 如何系统性地预防和检测死锁？有哪些实用策略？
-- [ ] **文件**: `student_progress/c01/deadlock_detection_prevention.md`
+- [ ] **文件**: `student_code/c01/deadlock_detection_prevention.md`
 
 #### Task 1.1.15: [实践]协程与线程性能对比 (5分钟) ⏰
 - [ ] **学习目标**: 对比协程和线程在并发编程中的优劣
@@ -1306,7 +1207,7 @@ public class HeavyweightLockDemo {
   - 测试高并发场景下的内存使用和性能
   - 分析协程的调度开销和上下文切换成本
 - [ ] **检查点**: 协程相比线程有什么优势？什么场景下选择协程？
-- [ ] **文件**: `student_progress/c01/CoroutineVsThreadPerformance.kt`
+- [ ] **文件**: `student_code/c01/CoroutineVsThreadPerformance.kt`
 
 #### Task 1.1.16: 内存一致性模型 (5分钟) ⏰
 - [ ] **学习目标**: 理解不同平台的内存一致性模型差异
@@ -1315,7 +1216,7 @@ public class HeavyweightLockDemo {
   - 分析内存重排序对程序正确性的影响
   - 理解内存屏障在不同架构上的实现
 - [ ] **检查点**: 为什么移动设备(ARM)上的并发问题可能更复杂？
-- [ ] **文件**: `student_progress/c01/memory_consistency_models.md`
+- [ ] **文件**: `student_code/c01/memory_consistency_models.md`
 
 #### Task 1.1.17: [高级]无锁编程模式 (5分钟) ⏰
 - [ ] **学习目标**: 掌握高级的无锁编程技术和模式
@@ -1324,7 +1225,7 @@ public class HeavyweightLockDemo {
   - 设计RCU(Read-Copy-Update)模式的应用
   - 分析内存回收和hazard pointer技术
 - [ ] **检查点**: 无锁编程的主要挑战是什么？如何保证内存回收的安全性？
-- [ ] **文件**: `student_progress/c01/LockFreeProgramming.kt`
+- [ ] **文件**: `student_code/c01/LockFreeProgramming.kt`
 
 #### Task 1.1.18: [设计]高并发系统架构 (5分钟) ⏰
 - [ ] **学习目标**: 设计支持高并发的系统架构
@@ -1333,7 +1234,7 @@ public class HeavyweightLockDemo {
   - 实现限流、熔断、降级等保护机制
   - 分析异步处理和事件驱动架构
 - [ ] **检查点**: 如何设计一个能处理高并发访问的移动后端系统？
-- [ ] **文件**: `student_progress/c01/high_concurrency_architecture.md`
+- [ ] **文件**: `student_code/c01/high_concurrency_architecture.md`
 
 #### Task 1.1.19: [面试]并发编程综合应用 (5分钟) ⏰
 - [ ] **学习目标**: 准备并发编程相关的面试问题
@@ -1342,7 +1243,7 @@ public class HeavyweightLockDemo {
   - 准备线程安全问题的实战解决方案
   - 模拟设计题：设计高并发的数据处理系统
 - [ ] **检查点**: 如何展示对并发编程的深入理解和实践能力？
-- [ ] **文件**: `student_progress/c01/concurrent_programming_interview.md`
+- [ ] **文件**: `student_code/c01/concurrent_programming_interview.md`
 
 #### Task 1.1.20: [总结]并发编程知识体系 (5分钟) ⏰
 - [ ] **学习目标**: 构建完整的并发编程知识框架
@@ -1351,7 +1252,7 @@ public class HeavyweightLockDemo {
   - 整理Android/移动端并发编程的最佳实践
   - 准备技术分享：《移动应用并发编程实战指南》
 - [ ] **检查点**: 能否独立设计和实现复杂的并发系统？
-- [ ] **文件**: `student_progress/c01/concurrent_programming_system.md`
+- [ ] **文件**: `student_code/c01/concurrent_programming_system.md`
 
 ---
 
@@ -2706,10 +2607,10 @@ public class DistributedLockSystem {
 #### Task 1.2.1: ArrayList动态数组实现 + 内存管理 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是ArrayList**: 想象一个可以自动扩容的书架，书多了就换更大的书架
-- [ ] **简单理解**: 底层是数组，满了就创建更大数组并复制数据
-- [ ] **生活类比**: 就像搬家，房子小了就换大房子，把东西搬过去
-- [ ] **检查点**: 能说出"ArrayList如何实现动态扩容"
+- [] **什么是ArrayList**: 想象一个可以自动扩容的书架，书多了就换更大的书架
+- [] **简单理解**: 底层是数组，满了就创建更大数组并复制数据
+- [] **生活类比**: 就像搬家，房子小了就换大房子，把东西搬过去
+- [] **检查点**: 能说出"ArrayList如何实现动态扩容"
 - [ ] **文件**: 在`student_progress/`创建`collections_notes.md`，记录学习心得
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -2852,10 +2753,10 @@ public class MyArrayList<T> {
 #### Task 1.2.2: HashMap哈希表基础 + 冲突解决 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是HashMap**: 想象一个图书馆索引，通过书名快速找到书的位置
-- [ ] **简单理解**: 把key通过哈希函数转换成数组索引，实现O(1)查找
-- [ ] **生活类比**: 就像电话簿，通过姓名首字母快速定位到页码
-- [ ] **检查点**: 能说出"HashMap如何实现快速查找"
+- [] **什么是HashMap**: 想象一个图书馆索引，通过书名快速找到书的位置
+- [] **简单理解**: 把key通过哈希函数转换成数组索引，实现O(1)查找
+- [] **生活类比**: 就像电话簿，通过姓名首字母快速定位到页码
+- [] **检查点**: 能说出"HashMap如何实现快速查找"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -3112,10 +3013,10 @@ public class MyHashMap<K, V> {
 #### Task 1.2.3: LinkedList链表实现 + 双向链表操作 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是LinkedList**: 想象一串手链，每个珠子都知道下一个在哪里
-- [ ] **简单理解**: LinkedList用链表存储数据，插入删除快，访问慢
-- [ ] **生活类比**: 就像火车车厢，加车厢容易，但找特定车厢要一节节找
-- [ ] **检查点**: 能说出"LinkedList和ArrayList的区别"
+- [] **什么是LinkedList**: 想象一串手链，每个珠子都知道下一个在哪里
+- [] **简单理解**: LinkedList用链表存储数据，插入删除快，访问慢
+- [] **生活类比**: 就像火车车厢，加车厢容易，但找特定车厢要一节节找
+- [] **检查点**: 能说出"LinkedList和ArrayList的区别"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -3469,10 +3370,10 @@ public class MyLinkedList<T> {
 #### Task 1.2.4: HashMap扩容机制深入 + 重哈希优化 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是扩容**: 想象一个停车场，车太多了就需要扩建停车位
-- [ ] **简单理解**: HashMap满了就需要创建更大的数组，把所有数据重新放置
-- [ ] **生活类比**: 就像搬家到更大的房子，需要重新整理所有物品
-- [ ] **检查点**: 能说出"为什么HashMap扩容要重新哈希"
+- [] **什么是扩容**: 想象一个停车场，车太多了就需要扩建停车位
+- [] **简单理解**: HashMap满了就需要创建更大的数组，把所有数据重新放置
+- [] **生活类比**: 就像搬家到更大的房子，需要重新整理所有物品
+- [] **检查点**: 能说出"为什么HashMap扩容要重新哈希"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -3922,10 +3823,10 @@ public class HashMapResizingDeepDive {
 #### Task 1.2.5: ConcurrentHashMap分段锁机制 + 高并发优化 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是分段锁**: 想象一个大型停车场分成多个区域，每个区域独立管理
-- [ ] **简单理解**: ConcurrentHashMap把数据分成多个段，每个段独立加锁
-- [ ] **生活类比**: 就像银行多个窗口同时服务，不用排一个长队
-- [ ] **检查点**: 能说出"分段锁如何提高并发性能"
+- [] **什么是分段锁**: 想象一个大型停车场分成多个区域，每个区域独立管理
+- [] **简单理解**: ConcurrentHashMap把数据分成多个段，每个段独立加锁
+- [] **生活类比**: 就像银行多个窗口同时服务，不用排一个长队
+- [] **检查点**: 能说出"分段锁如何提高并发性能"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -4493,10 +4394,10 @@ public class ConcurrentHashMapSegmentation {
 #### Task 1.2.6: 生产级LRU缓存实现 + 内存优化策略 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是LRU缓存**: 想象一个书架，新书放前面，老书放后面，没地方就把最后面的书扔掉
-- [ ] **简单理解**: LRU = Least Recently Used，最近最少使用的数据首先被淘汰
-- [ ] **生活类比**: 就像手机后台程序管理，内存不够就关闭最久未用的应用
-- [ ] **检查点**: 能说出"LRU缓存的淘汰策略原理"
+- [] **什么是LRU缓存**: 想象一个书架，新书放前面，老书放后面，没地方就把最后面的书扔掉
+- [] **简单理解**: LRU = Least Recently Used，最近最少使用的数据首先被淘汰
+- [] **生活类比**: 就像手机后台程序管理，内存不够就关闭最久未用的应用
+- [] **检查点**: 能说出"LRU缓存的淘汰策略原理"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -5011,10 +4912,10 @@ public class ProductionLRUCache {
 #### Task 1.2.7: 布隆过滤器实现 + 概率数据结构优化 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是布隆过滤器**: 想象一个“大概率”回答的智能助手，说没有就真没有，说有可能有也可能没有
-- [ ] **简单理解**: 布隆过滤器用很小的内存快速判断元素是否存在，不会误报没有
-- [ ] **生活类比**: 就像门卫做初步筛查，说不在就真不在，说在还要进一步检查
-- [ ] **检查点**: 能说出"布隆过滤器的误报特性和优势"
+- [] **什么是布隆过滤器**: 想象一个“大概率”回答的智能助手，说没有就真没有，说有可能有也可能没有
+- [] **简单理解**: 布隆过滤器用很小的内存快速判断元素是否存在，不会误报没有
+- [] **生活类比**: 就像门卫做初步筛查，说不在就真不在，说在还要进一步检查
+- [] **检查点**: 能说出"布隆过滤器的误报特性和优势"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```java
@@ -5540,10 +5441,10 @@ public class BloomFilterImplementation {
 #### Task 1.3.1: 协程基础概念 + 首个挂起函数 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是协程**: 想象一个超级多任务的厨师，可以同时准备多道菜
-- [ ] **简单理解**: 协程是轻量级的"线程"，可以在执行过程中暂停和恢复
-- [ ] **生活类比**: 就像看书时接电话，放下书接电话，接完继续看书
-- [ ] **检查点**: 能说出"协程比线程轻量在哪里"
+- [] **什么是协程**: 想象一个超级多任务的厨师，可以同时准备多道菜
+- [] **简单理解**: 协程是轻量级的"线程"，可以在执行过程中暂停和恢复
+- [] **生活类比**: 就像看书时接电话，放下书接电话，接完继续看书
+- [] **检查点**: 能说出"协程比线程轻量在哪里"
 - [ ] **文件**: 在`student_progress/`创建`coroutines_notes.md`，记录理解
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
@@ -5766,10 +5667,10 @@ fun main() {
 #### Task 1.3.2: Channel通信机制 + 生产者消费者模式 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是Channel**: 想象一个传送带，生产者放东西，消费者取东西
-- [ ] **简单理解**: Channel是协程之间传递数据的管道
-- [ ] **生活类比**: 就像餐厅的传菜窗口，厨师放菜，服务员取菜
-- [ ] **检查点**: 能说出"Channel如何实现协程间通信"
+- [] **什么是Channel**: 想象一个传送带，生产者放东西，消费者取东西
+- [] **简单理解**: Channel是协程之间传递数据的管道
+- [] **生活类比**: 就像餐厅的传菜窗口，厨师放菜，服务员取菜
+- [] **检查点**: 能说出"Channel如何实现协程间通信"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```kotlin
@@ -6041,10 +5942,10 @@ fun main() {
 #### Task 1.3.3: Flow响应式编程 + 数据流转换 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是Flow**: 想象一条河流，数据像水一样持续流动
-- [ ] **简单理解**: Flow是协程版本的Observable，用于处理异步数据流
-- [ ] **生活类比**: 就像新闻直播，数据不断更新，观察者实时接收
-- [ ] **检查点**: 能说出"Flow与Channel的区别"
+- [] **什么是Flow**: 想象一条河流，数据像水一样持续流动
+- [] **简单理解**: Flow是协程版本的Observable，用于处理异步数据流
+- [] **生活类比**: 就像新闻直播，数据不断更新，观察者实时接收
+- [] **检查点**: 能说出"Flow与Channel的区别"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```kotlin
@@ -6373,10 +6274,10 @@ fun main() {
 #### Task 1.3.4: 协程作用域与结构化并发 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是作用域**: 想象一个公司部门，部门解散时所有员工都离开
-- [ ] **简单理解**: 协程作用域管理协程的生命周期，统一取消和异常处理
-- [ ] **生活类比**: 就像家长管理孩子，孩子不听话就一起惩罚
-- [ ] **检查点**: 能说出"为什么需要协程作用域"
+- [] **什么是作用域**: 想象一个公司部门，部门解散时所有员工都离开
+- [] **简单理解**: 协程作用域管理协程的生命周期，统一取消和异常处理
+- [] **生活类比**: 就像家长管理孩子，孩子不听话就一起惩罚
+- [] **检查点**: 能说出"为什么需要协程作用域"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```kotlin
@@ -6666,10 +6567,10 @@ fun main() {
 #### Task 1.3.5: 协程调度器原理 + 线程池模型深入 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是调度器**: 想象一个交通指挥员，决定哪辆车在哪条路上行驶
-- [ ] **简单理解**: Dispatcher决定协程在哪个线程上执行
-- [ ] **生活类比**: 就像餐厅经理安排服务员的工作区域
-- [ ] **检查点**: 能说出"不同Dispatcher的适用场景"
+- [] **什么是调度器**: 想象一个交通指挥员，决定哪辆车在哪条路上行驶
+- [] **简单理解**: Dispatcher决定协程在哪个线程上执行
+- [] **生活类比**: 就像餐厅经理安排服务员的工作区域
+- [] **检查点**: 能说出"不同Dispatcher的适用场景"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```kotlin
@@ -7066,10 +6967,10 @@ fun main() {
 #### Task 1.3.6: Android生命周期协程 + ViewModel集成 (5分钟) ⏰
 
 **🎯 Primary Level (新手友好)**
-- [ ] **什么是生命周期协程**: 想象宠物跟着主人，主人离开宠物也要跟着离开
-- [ ] **简单理解**: 协程会随着Android组件的生命周期自动取消和清理
-- [ ] **生活类比**: 就像员工跟着部门，部门解散员工也要重新分配
-- [ ] **检查点**: 能说出"为什么需要生命周期感知的协程"
+- [] **什么是生命周期协程**: 想象宠物跟着主人，主人离开宠物也要跟着离开
+- [] **简单理解**: 协程会随着Android组件的生命周期自动取消和清理
+- [] **生活类比**: 就像员工跟着部门，部门解散员工也要重新分配
+- [] **检查点**: 能说出"为什么需要生命周期感知的协程"
 
 **🚀 Hands-On Coding Exercise (强制编程练习)**
 ```kotlin
@@ -7448,3 +7349,50 @@ fun main() {
 - [ ] **内存泄漏防护**: 理解不使用生命周期协程的风险
 - [ ] **最佳实践**: 掌握Android协程的标准使用模式
 - [ ] **代码位置**: `student_progress/JavaLearning/src/AndroidLifecycleCoroutines.kt`
+
+
+
+### 🤖 AI导师检查流程
+
+每完成一个编程任务后，请按以下格式请求检查：
+
+```
+@AI导师 请检查我的代码:
+文件: student_progress/student_code/c01/[文件名]
+任务: [任务描述]
+请分析：
+1. 代码质量和正确性
+2. 对并发概念的理解深度
+3. 实现中的潜在问题
+4. 改进建议
+```
+
+### 📝 学习成果检验
+
+**理论理解检查点**:
+- [ ] 能画出JMM内存结构图
+- [ ] 能列出happens-before的5个规则
+- [ ] 能说出synchronized锁升级的3个阶段
+- [ ] 能解释volatile为什么不保证原子性
+
+**实践能力检查点**:
+- [ ] 能手写线程安全的计数器
+- [ ] 能实现简单的无锁数据结构
+- [ ] 能分析并发代码的潜在问题
+- [ ] 能选择合适的并发原语解决问题
+
+**面试准备检查点**:
+- [ ] 能从内存模型角度分析并发问题
+- [ ] 能对比不同同步机制的适用场景
+- [ ] 能设计线程安全的系统组件
+- [ ] 能优化高并发场景的性能
+
+---
+
+**🎯 下一步**: 完成所有编程任务后，进入 `MICRO_TASK_C02.md` 学习集合框架的并发实现。
+
+**💡 学习建议**: 
+- 每个代码都要手动输入，体验"肌肉记忆"的价值
+- 遇到问题先思考原理，再查阅资料
+- 把并发概念和Android开发实际场景联系起来
+- 定期总结和复习，构建完整的知识体系

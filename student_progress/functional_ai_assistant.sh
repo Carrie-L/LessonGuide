@@ -2,6 +2,13 @@
 
 # 🤖 Functional AI Roadmap Assistant - Actually DOES things!
 # Updated for correct file structure: MICRO_TASK_C01.md, MICRO_TASK_C02.md, etc.
+#
+# 🧠 INTEGRATED LEARNING ANALYTICS SYSTEM:
+# - Automatically runs AI performance analysis on task completion
+# - Generates detailed assessment reports with scoring
+# - Updates performance database for tracking progress
+# - Integrates with Claude's memory system for personalized learning
+# - Uses analytics/learning_performance_tracker.py for AI-powered analysis
 
 # Colors
 RED='\033[0;31m'
@@ -616,6 +623,53 @@ EOF
     if command -v code &> /dev/null; then
         echo -e "${BLUE}📖 Opening notes file in VS Code...${NC}"
         code "$note_file"
+    fi
+    
+    # === INTEGRATED LEARNING ANALYTICS SYSTEM ===
+    echo ""
+    echo -e "${BLUE}🧠 Running AI Learning Performance Analysis...${NC}"
+    
+    # Check if performance tracker exists
+    local analytics_script="analytics/learning_performance_tracker.py"
+    if [[ -f "$analytics_script" ]]; then
+        # Call the learning performance tracker
+        echo -e "${CYAN}🔍 Analyzing your learning performance...${NC}"
+        
+        # Run the performance analysis system
+        python3 "$analytics_script" --student carrie --task "$task_id" --completion-time "$duration_minutes" --session-data "learning_data/learning_log.csv"
+        
+        if [[ $? -eq 0 ]]; then
+            echo -e "${GREEN}✅ AI Performance Analysis completed successfully!${NC}"
+            
+            # Check if assessment report was generated
+            local assessment_file="learning_data/reports/task_${task_id//\./_}_final_assessment.md"
+            if [[ -f "$assessment_file" ]]; then
+                echo -e "${BLUE}📊 AI Assessment Report generated: $assessment_file${NC}"
+                
+                # Show quick score summary if available
+                local score=$(grep -o "[0-9]\+/100 (A[+-]\?)" "$assessment_file" | head -1)
+                if [[ -n "$score" ]]; then
+                    echo -e "${GREEN}🏆 Your AI-Generated Score: $score${NC}"
+                fi
+                
+                # Open assessment report in VS Code if available
+                if command -v code &> /dev/null; then
+                    echo -e "${BLUE}📖 Opening AI assessment in VS Code...${NC}"
+                    code "$assessment_file"
+                fi
+            fi
+        else
+            echo -e "${YELLOW}⚠️ AI Performance Analysis encountered an issue, but learning data was still saved${NC}"
+        fi
+    else
+        echo -e "${YELLOW}⚠️ AI Performance Tracker not found at: $analytics_script${NC}"
+        echo -e "${CYAN}💡 Your learning data is still being tracked in learning_log.csv${NC}"
+    fi
+    
+    # Update performance database if available
+    local performance_db="learning_data/performance_results.json"
+    if [[ -f "$performance_db" ]]; then
+        echo -e "${GREEN}📈 Performance database updated: $performance_db${NC}"
     fi
     
     # Clean up session files

@@ -1,0 +1,61 @@
+/**
+ * Task 1.1.1: JMM内存可见性问题演示
+ * 
+ * 学习目标：通过编程实践理解Java内存模型的可见性问题
+ * 
+ * 任务要求：
+ * 1. 创建两个静态变量：flag 和 counter (不使用volatile)
+ * 2. 实现读取者线程：等待flag变为true，然后输出counter的值
+ * 3. 实现写入者线程：先设置counter=42，再设置flag=true
+ * 4. 观察并分析JMM可见性问题
+ * 
+ * ⚠️ 严禁复制粘贴！请手动输入每一行代码以培养肌肉记忆
+ */
+public class MemoryVisibilityDemo {
+    
+    // TODO 1: 声明普通变量（不使用volatile）
+    // private static boolean flag = ?;
+    // private static int counter = ?;
+    
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("=== JMM内存可见性问题演示 ===");
+        
+        // TODO 2: 创建读取者线程，等待flag变为true
+        Thread readerThread = new Thread(() -> {
+            System.out.println("读取者线程: 开始等待flag变为true...");
+            
+            // TODO: 实现等待逻辑
+            // while (/* 条件 */) {
+            //     // 等待逻辑
+            // }
+            
+            System.out.println("读取者线程: 检测到flag=true, counter=" + counter);
+        }, "ReaderThread");
+        
+        // TODO 3: 创建写入者线程，修改共享变量
+        Thread writerThread = new Thread(() -> {
+            try {
+                // TODO: 等待确保读取者线程先启动
+                
+                // TODO: 修改共享变量
+                // counter = ?;
+                // flag = ?;
+                
+                System.out.println("写入者线程: 已设置counter=" + counter + ", flag=" + flag);
+                
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }, "WriterThread");
+        
+        // TODO 4: 启动线程并观察结果
+        // 启动线程
+        // 等待写入者完成
+        // 检查读取者是否能检测到变化
+        
+        System.out.println("\n=== 请分析观察到的现象 ===");
+        System.out.println("1. 读取者线程是否成功退出？");
+        System.out.println("2. 如果没有，这说明了什么问题？");
+        System.out.println("3. 从JMM角度如何解释这个现象？");
+    }
+}
