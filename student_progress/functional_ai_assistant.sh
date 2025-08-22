@@ -77,12 +77,12 @@ show_todays_tasks() {
             echo ""
             echo -e "${GREEN}1.${NC} Task 1.1.1: synchronized互斥锁原理 (90min)"
             echo -e "   📁 File: ${YELLOW}micro_tasks/MICRO_TASK_C01.md${NC}"
-            echo -e "   💻 Code: ${YELLOW}student_progress/c01/SynchronizedBasics.kt${NC}"
+            echo -e "   💻 Code: ${YELLOW}student_code/c01/SynchronizedBasics.kt${NC}"
             echo -e "   🎯 Key: Understanding thread safety fundamentals"
             echo ""
             echo -e "${GREEN}2.${NC} Task 1.1.2: volatile内存可见性 (75min)"
             echo -e "   📁 File: ${YELLOW}micro_tasks/MICRO_TASK_C01.md${NC}"
-            echo -e "   💻 Code: ${YELLOW}student_progress/c01/VolatileMemoryModel.kt${NC}"
+            echo -e "   💻 Code: ${YELLOW}student_code/c01/VolatileMemoryModel.kt${NC}"
             echo -e "   🎯 Key: Memory visibility between threads"
             ;;
         2)
@@ -101,7 +101,7 @@ show_todays_tasks() {
             echo ""
             echo -e "${GREEN}1.${NC} Task 2.1.1: ArrayList动态数组实现 (90min)"
             echo -e "   📁 File: ${YELLOW}micro_tasks/MICRO_TASK_C02.md${NC}"
-            echo -e "   💻 Code: ${YELLOW}student_progress/c02/CustomArrayList.kt${NC}"
+            echo -e "   💻 Code: ${YELLOW}student_code/c02/CustomArrayList.kt${NC}"
             ;;
         *)
             echo -e "${YELLOW}⚠️ Week $current_week - Check roadmap for specific tasks${NC}"
@@ -215,12 +215,10 @@ setup_workspace() {
             echo -e "${GREEN}📁 Creating: Week $week - Chapter 1 并发编程${NC}"
             
             # Create directories
-            mkdir -p student_progress/c01/basics
-            mkdir -p student_progress/c01/advanced  
-            mkdir -p student_progress/c01/production
+            mkdir -p student_code/c01/
             
             # Create README with actual content
-            cat > student_progress/c01/README.md << 'EOF'
+            cat > student_code/c01/README.md << 'EOF'
 # Chapter 1: 并发编程基础 (Concurrency Programming)
 
 ## Learning Goals
@@ -229,89 +227,59 @@ setup_workspace() {
 - Implement lock-free programming techniques
 - Build production-ready concurrent systems
 
-## Directory Structure
-- `basics/` - Fundamental synchronization concepts
-- `advanced/` - Advanced concurrency patterns  
-- `production/` - Enterprise-level implementations
-
 ## Progress Checklist
-- [ ] Task 1.1.1: synchronized互斥锁原理
-- [ ] Task 1.1.2: volatile内存可见性  
-- [ ] Task 1.1.3: Thread.sleep线程休眠机制
-- [ ] Task 1.1.4: volatile可见性验证
-- [ ] Task 1.1.5: 锁升级机制观察
-- [ ] Task 1.1.6: CAS和ABA问题实践
-- [ ] Task 1.1.7: 生产级线程池实现
-- [ ] Task 1.1.8: 企业级线程安全缓存系统
 
 ## Key Files
 - Review: `../micro_tasks/MICRO_TASK_C01.md`
 EOF
-            echo -e "${GREEN}✅ Created: student_progress/c01/README.md${NC}"
+            echo -e "${GREEN}✅ Created: student_code/c01/README.md${NC}"
             ;;
         3|4)
-            echo -e "${GREEN}📁 Creating: Week $week - Chapter 2 集合框架${NC}"
+            echo -e "${GREEN}📁 Creating: Week $week - 第二章：支柱篇 - 解构安卓框架内核${NC}"
             
-            mkdir -p student_progress/c02/collections
-            mkdir -p student_progress/c02/algorithms
-            mkdir -p student_progress/c02/performance
+            mkdir -p student_code/c02/art
+            mkdir -p student_code/c02/activity
+            mkdir -p student_code/c02/view
+            mkdir -p student_code/c02/handler
+            mkdir -p student_code/c02/ipc
             
-            cat > student_progress/c02/README.md << 'EOF'
-# Chapter 2: 集合框架深度 (Collections Framework)
-
-## Learning Goals  
-- Master Java collections internals
-- Implement custom data structures
-- Analyze performance characteristics
-- Optimize collection usage patterns
-
-## Progress Checklist
-- [ ] Task 2.1.1: ArrayList动态数组实现
-- [ ] Task 2.1.2: HashMap哈希表基础
-- [ ] Task 2.1.3: LinkedList双向链表
-- [ ] Task 2.1.4: TreeMap红黑树实现
+            cat > student_code/c02/README.md << 'EOF'
 
 ## Key Files
 - Review: `../micro_tasks/MICRO_TASK_C02.md`
 EOF
-            echo -e "${GREEN}✅ Created: student_progress/c02/README.md${NC}"
+            echo -e "${GREEN}✅ Created: student_code/c02/README.md${NC}"
             ;;
         5|6)
-            echo -e "${GREEN}📁 Creating: Week $week - Chapter 3 协程系统${NC}"
+            echo -e "${GREEN}📁 Creating: Week $week - 蓝图篇 - 高级架构与三方库原理${NC}"
             
-            mkdir -p student_progress/c03/coroutines
-            mkdir -p student_progress/c03/flow
-            mkdir -p student_progress/c03/android
+            mkdir -p student_code/c03/architecture
+            mkdir -p student_code/c03/okhttp
+            mkdir -p student_code/c03/rxjava
+            mkdir -p student_code/c03/glide
             
-            cat > student_progress/c03/README.md << 'EOF'
-# Chapter 3: 协程机制掌握 (Coroutines Mastery)
-
-## Learning Goals
-- Master Kotlin coroutines fundamentals
-- Implement asynchronous programming patterns
-- Integrate coroutines with Android lifecycle
-- Build reactive data flows
+            cat > student_code/c03/README.md << 'EOF'
 
 ## Key Files  
 - Review: `../micro_tasks/MICRO_TASK_C03.md` (if available)
 EOF
-            echo -e "${GREEN}✅ Created: student_progress/c03/README.md${NC}"
+            echo -e "${GREEN}✅ Created: student_code/c03/README.md${NC}"
             ;;
         *)
             echo -e "${YELLOW}📁 Creating: Week $week workspace${NC}"
-            mkdir -p "student_progress/week_$week"
-            echo "# Week $week Learning" > "student_progress/week_$week/README.md"
+            mkdir -p "student_code/week_$week"
+            echo "# Week $week Learning" > "student_code/week_$week/README.md"
             ;;
     esac
     
     echo ""
     echo -e "${GREEN}✅ Workspace ready for Week $week!${NC}"
-    echo -e "${CYAN}📂 Directory: student_progress/${NC}"
+    echo -e "${CYAN}📂 Directory: student_code/${NC}"
     
     # Show what was created
-    if [[ -d "student_progress" ]]; then
+    if [[ -d "student_code" ]]; then
         echo -e "${YELLOW}📋 Created structure:${NC}"
-        find student_progress -type d | head -10 | while read dir; do
+        find student_code -type d | head -10 | while read dir; do
             echo "   📁 $dir"
         done
     fi
@@ -346,23 +314,23 @@ start_task() {
     case "$task_id" in
         1.1.1)
             chapter_dir="c01"
-            code_file="student_progress/c01/SynchronizedBasics.kt"
+            code_file="student_code/c01/SynchronizedBasics.kt"
             ;;
         1.1.2) 
             chapter_dir="c01"
-            code_file="student_progress/c01/VolatileMemoryModel.kt"
+            code_file="student_code/c01/VolatileMemoryModel.kt"
             ;;
         1.1.3)
             chapter_dir="c01"
-            code_file="student_progress/c01/ThreadSleepDemo.kt"
+            code_file="student_code/c01/ThreadSleepDemo.kt"
             ;;
         2.1.1)
             chapter_dir="c02" 
-            code_file="student_progress/c02/CustomArrayList.kt"
+            code_file="student_code/c02/CustomArrayList.kt"
             ;;
         *)
             chapter_dir="misc"
-            code_file="student_progress/misc/Task_${task_id//\./_}.kt"
+            code_file="student_code/misc/Task_${task_id//\./_}.kt"
             ;;
     esac
     

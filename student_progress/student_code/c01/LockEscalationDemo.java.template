@@ -1,0 +1,122 @@
+/**
+ * Task 1.1.5: 锁升级机制观察实验
+ * 
+ * 任务要求：
+ * 1. 测试单线程偏向锁场景
+ * 2. 测试双线程轻量级锁场景  
+ * 3. 测试多线程重量级锁场景
+ * 4. 对比不同锁状态的性能表现
+ * 
+ * ⚠️ 严禁复制粘贴！请手动输入每一行代码
+ */
+public class LockEscalationDemo {
+    
+    // TODO 1: 声明共享锁对象和计数器
+    // private static final Object lock = ?;
+    // private static volatile int counter = ?;
+    
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("=== synchronized锁升级机制演示 ===");
+        
+        // TODO 2: 测试偏向锁
+        System.out.println("\n--- 场景1: 偏向锁测试 ---");
+        testBiasedLock();
+        
+        Thread.sleep(1000);
+        
+        // TODO 3: 测试轻量级锁
+        System.out.println("\n--- 场景2: 轻量级锁测试 ---");
+        testLightweightLock();
+        
+        Thread.sleep(1000);
+        
+        // TODO 4: 测试重量级锁
+        System.out.println("\n--- 场景3: 重量级锁测试 ---");
+        testHeavyweightLock();
+    }
+    
+    /**
+     * TODO: 实现偏向锁测试
+     * 单线程重复获取同一个锁
+     */
+    private static void testBiasedLock() {
+        final int ITERATIONS = 1000000;
+        
+        System.out.println("单线程重复获取锁 " + ITERATIONS + " 次...");
+        
+        // TODO: 记录开始时间
+        
+        // TODO: 循环获取锁并执行简单操作
+        // for (int i = 0; i < ITERATIONS; i++) {
+        //     synchronized (lock) {
+        //         counter++;
+        //     }
+        // }
+        
+        // TODO: 计算并输出性能数据
+    }
+    
+    /**
+     * TODO: 实现轻量级锁测试
+     * 两个线程交替获取锁
+     */
+    private static void testLightweightLock() throws InterruptedException {
+        final int ITERATIONS = 100000;
+        // TODO: 重置counter
+        
+        System.out.println("两个线程交替获取锁...");
+        
+        // TODO: 记录开始时间
+        
+        // TODO: 创建两个线程交替获取锁
+        // Thread thread1 = new Thread(() -> {
+        //     for (int i = 0; i < ITERATIONS; i++) {
+        //         synchronized (lock) {
+        //             counter++;
+        //             Thread.yield();
+        //         }
+        //     }
+        // });
+        
+        // TODO: 创建第二个线程
+        
+        // TODO: 启动线程并等待完成
+        
+        // TODO: 计算并输出性能数据
+    }
+    
+    /**
+     * TODO: 实现重量级锁测试
+     * 多线程激烈竞争同一个锁
+     */
+    private static void testHeavyweightLock() throws InterruptedException {
+        final int THREAD_COUNT = 10;
+        final int ITERATIONS = 50000;
+        // TODO: 重置counter
+        
+        System.out.println(THREAD_COUNT + "个线程激烈竞争同一个锁...");
+        
+        // TODO: 记录开始时间
+        
+        // TODO: 创建线程数组
+        
+        // TODO: 创建多个线程进行锁竞争
+        // for (int i = 0; i < THREAD_COUNT; i++) {
+        //     threads[i] = new Thread(() -> {
+        //         for (int j = 0; j < ITERATIONS; j++) {
+        //             synchronized (lock) {
+        //                 counter++;
+        //                 // 模拟一些工作
+        //                 for (int k = 0; k < 100; k++) {
+        //                     Math.sqrt(k);
+        //                 }
+        //             }
+        //         }
+        //     });
+        // }
+        
+        // TODO: 启动所有线程并等待完成
+        
+        // TODO: 计算并输出性能数据和锁升级分析
+    }
+}
