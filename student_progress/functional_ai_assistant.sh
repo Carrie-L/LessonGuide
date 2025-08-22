@@ -10,6 +10,69 @@
 # - Integrates with Claude's memory system for personalized learning
 # - Uses analytics/learning_performance_tracker.py for AI-powered analysis
 
+# `functional_ai_assistant.sh` 是一支“学习流程自动化管家”脚本，围绕你的 Android 面试微任务体系，提供了以下核心能力：
+
+# 1. 基础配置  
+#    • 颜色常量，文件路径常量（Roadmap、Micro-tasks、进度 JSON、日志 CSV 等）  
+#    • 自动创建 `learning_data/` 目录与 `roadmap_progress.json`（`initialize_progress`）
+
+# 2. 今日学习概览 – `show_todays_tasks`  
+#    • 读取 `roadmap_progress.json` 中的 `current_week`  
+#    • 根据周次打印当天推荐任务、对应 MD 文件与代码文件  
+#    • 列出可用的快捷命令
+
+# 3. 打开任务 – `open_task <task_id>`  
+#    • 根据任务号（如 1.1.5）定位对应的 `MICRO_TASK_Cxx.md`  
+#    • 打印任务所在章节、文件、行号，并预览 10 行上下文  
+#    • 给出后续行动提示
+
+# 4. 一键搭建周工作区 – `setup_workspace <week>`  
+#    • 按周次创建 `student_progress/c01、c02、c03 …` 等目录和 README  
+#    • 方便分类存放代码 / 笔记
+
+# 5. 全流程启动任务 – `start_task <task_id>`  
+#    Step-by-step 自动化：  
+#    a. 调用 `open_task` 预览任务  
+#    b. 生成代码文件（.kt / .java）及其目录，如果不存在则写入模板头；遵循“禁止复制粘贴”，留空 TODO  
+#    c. 创建会话跟踪文件 `session_start.tmp`、`current_task.tmp`  
+#    d. 根据文件类型 & 开发环境智能打开 IDE（Android Studio / IntelliJ / VS Code）  
+#    e. 提示结束后使用 `./ai f` 唯一命令完成任务
+
+# 6. 结束任务与评估 – `finish_task`  
+#    • 计算本次会话耗时（分钟）  
+#    • 交互式收集自评分（质量、难度、完成度、笔记）  
+#    • 追加一行到 `learning_data/learning_log.csv`（自动修复表头不一致）  
+#    • 生成学习笔记文件 `learning_data/notes/<task_id>_notes.md` 并自动打开  
+#    • 调用 `analytics/learning_performance_tracker.py` 做 AI 绩效分析，生成评估报告  
+#    • 输出下一个建议任务，打开路线图  
+#    • 展示快速统计 `generate_quick_report` 与学习日历 `show_calendar`  
+#    • 清理临时会话文件
+
+# 7. 数据分析与报告  
+#    • `generate_quick_report`：读取 CSV 统计总时长、平均质量、本周次数、挑战任务等  
+#    • `generate_report`：更详细的进度、平均分、Streak、洞察与建议  
+#    • `show_calendar`：过去 14 天学习打卡可视化
+
+# 8. 文件浏览器 – `browse_files`  
+#    • 罗列 `micro_tasks` 目录内所有 `MICRO_TASK_Cxx.md`，编号显示章节  
+#    • 支持输入数字预览文件前 50 行
+
+# 9. 命令调度器  
+#    • `./ai today`           → 今日任务  
+#    • `./ai o 1.1.1`        → 打开任务  
+#    • `./ai s 1.1.1`        → 全流程启动任务  
+#    • `./ai f`              → 完成任务并评估  
+#    • `./ai w 1`            → 建立周工作区  
+#    • `./ai b`              → 浏览文件  
+#    • `./ai help`           → 帮助
+
+# 10. 整体价值  
+#     • 把“读任务 → 创建代码 → 计时 → 评估 → 统计”流水线高度自动化  
+#     • 强化 No-copy-paste、定时 Session、AI 质量分析、学习数据可视化  
+#     • 让 5-分钟微任务的闭环操作只需几条命令完成，提高专注与反馈速度
+
+# 换言之，这个脚本就是你的“自助学习平台 + 进度打卡 + AI 教练”整合工具。
+
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -209,68 +272,48 @@ setup_workspace() {
     
     echo -e "${BLUE}🏗️ Setting up workspace for Week $week...${NC}"
     
-    # Create actual directories based on week
+    # 根据新的时间线映射 Week→Chapter
     case "$week" in
-        1|2)
-            echo -e "${GREEN}📁 Creating: Week $week - Chapter 1 并发编程${NC}"
-            
-            # Create directories
-            mkdir -p student_code/c01/
-            
-            # Create README with actual content
-            cat > student_code/c01/README.md << 'EOF'
-# Chapter 1: 并发编程基础 (Concurrency Programming)
-
-## Learning Goals
-- Master Java/Kotlin concurrency fundamentals
-- Understand thread safety and synchronization
-- Implement lock-free programming techniques
-- Build production-ready concurrent systems
-
-## Progress Checklist
-
-## Key Files
-- Review: `../micro_tasks/MICRO_TASK_C01.md`
-EOF
-            echo -e "${GREEN}✅ Created: student_code/c01/README.md${NC}"
+        1)
+            echo -e "${GREEN}📁 Week 1 → Chapters 1,2,3,9${NC}"
+            chapters=("c01" "c02" "c03" "c09")
             ;;
-        3|4)
-            echo -e "${GREEN}📁 Creating: Week $week - 第二章：支柱篇 - 解构安卓框架内核${NC}"
-            
-            mkdir -p student_code/c02/art
-            mkdir -p student_code/c02/activity
-            mkdir -p student_code/c02/view
-            mkdir -p student_code/c02/handler
-            mkdir -p student_code/c02/ipc
-            
-            cat > student_code/c02/README.md << 'EOF'
-
-## Key Files
-- Review: `../micro_tasks/MICRO_TASK_C02.md`
-EOF
-            echo -e "${GREEN}✅ Created: student_code/c02/README.md${NC}"
+        2)
+            echo -e "${GREEN}📁 Week 2 → Chapter 4${NC}"
+            chapters=("c04")
             ;;
-        5|6)
-            echo -e "${GREEN}📁 Creating: Week $week - 蓝图篇 - 高级架构与三方库原理${NC}"
-            
-            mkdir -p student_code/c03/architecture
-            mkdir -p student_code/c03/okhttp
-            mkdir -p student_code/c03/rxjava
-            mkdir -p student_code/c03/glide
-            
-            cat > student_code/c03/README.md << 'EOF'
-
-## Key Files  
-- Review: `../micro_tasks/MICRO_TASK_C03.md` (if available)
-EOF
-            echo -e "${GREEN}✅ Created: student_code/c03/README.md${NC}"
+        3)
+            echo -e "${GREEN}📁 Week 3 → Chapters 5,8${NC}"
+            chapters=("c05" "c08")
+            ;;
+        4)
+            echo -e "${GREEN}📁 Week 4 → Chapter 10${NC}"
+            chapters=("c10")
+            ;;
+        5)
+            echo -e "${GREEN}📁 Week 5 → Chapters 11,12${NC}"
+            chapters=("c11" "c12")
+            ;;
+        6)
+            echo -e "${GREEN}📁 Week 6 → Chapters 6,7${NC}"
+            chapters=("c06" "c07")
             ;;
         *)
-            echo -e "${YELLOW}📁 Creating: Week $week workspace${NC}"
-            mkdir -p "student_code/week_$week"
-            echo "# Week $week Learning" > "student_code/week_$week/README.md"
+            echo -e "${YELLOW}📁 Week $week - custom workspace${NC}"
+            chapters=("week_$week")
             ;;
     esac
+
+    # 批量创建目录与 README
+    for chapter in "${chapters[@]}"; do
+        mkdir -p "student_code/${chapter}"
+        readme="student_code/${chapter}/README.md"
+        if [[ ! -f "$readme" ]]; then
+            echo "# Workspace for ${chapter^^}" > "$readme"
+            echo "- Auto-generated by setup_workspace" >> "$readme"
+        fi
+        echo -e "${GREEN}✅ Ready: ${chapter}${NC}"
+    done
     
     echo ""
     echo -e "${GREEN}✅ Workspace ready for Week $week!${NC}"
