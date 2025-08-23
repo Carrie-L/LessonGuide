@@ -5,9 +5,10 @@
 
 ## 📋 Master Learning Path Overview
 
-**Total Duration**: 16-20 weeks (320-400 hours)  
+**Total Duration**: 16-20 weeks (320-450 hours)  
 **Goal**: Become a Senior Android Developer with deep technical expertise  
-**Approach**: Systematic progression from fundamentals to advanced architecture
+**Approach**: Systematic progression from fundamentals to advanced architecture  
+**Key Enhancement**: Integrated with detailed TIMELINE.md for precise daily scheduling
 
 ---
 
@@ -210,9 +211,10 @@
 
 ---
 
-## ⚡ Phase 3: 淬炼篇 - Performance & Stability (Weeks 2)
+## ⚡ Phase 4: Performance Optimization - 淬炼篇 
 
-### **Step 6: 性能优化专项** (Week 2, 48 tasks, ~22 hours)
+### **Step 6: 性能优化专项** (9/1-9/3, 60 tasks, ~22 hours)
+**详细时间安排**: 参考 `TIMELINE.md` Phase 4: Performance Optimization
 
 **Learning Sequence**:
 ```
@@ -220,41 +222,26 @@
 📊 Track: student_progress/c04_performance/
 🎯 Goal: Master performance analysis and optimization
 
-Week 11 Tasks:
-□ 4.1: ANR诊断与解决 (20 tasks, 12 hours)
-  • File: MICRO_TASK_C04_C05.md:Lines 1-450
-  • Key: Main thread performance optimization
-  
-□ 4.2: OOM内存分析 (15 tasks, 8 hours)
-  • File: MICRO_TASK_C04_C05.md:Lines 451-720
-  • Key: Memory leak detection and prevention
+9/1 (周一) - ANR诊断专项:
+□ 4.1.1-4.1.10: ANR产生原理与检测方法 (10 tasks, 4 hours)
+□ 4.1.11-4.1.20: ANR日志分析与解决策略 (10 tasks, 4 hours)
 
-Week 12 Tasks:
-□ 4.3: APK构建优化 (13 tasks, 6 hours)
-  • File: MICRO_TASK_C04_C05.md:Lines 721-920
-  • Key: Build performance and size optimization
-```
+9/2 (周二) - OOM分析专项:
+□ 4.2.1-4.2.8: 内存泄露检测与MAT分析 (8 tasks, 3.5 hours)
+□ 4.2.9-4.2.15: 内存优化策略与最佳实践 (7 tasks, 3.5 hours)
 
-### **Step 7: 现代Android UI** (Week 2, 36 tasks, ~15 hours)
-
-**Learning Sequence**:
-```
-📚 Source: micro_tasks/MICRO_TASK_C05.md (Chapter 5)
-📊 Track: student_progress/c05_modern_ui/
-🎯 Goal: Master Jetpack Compose and modern UI patterns
-
-Week 13 Tasks:
-□ 5.1: Compose核心原理 (16 tasks, 8 hours)
-  • Declarative UI paradigm
-□ 5.2: 状态管理模式 (20 tasks, 10 hours)
-  • State hoisting and unidirectional data flow
+9/3 (周三) - APK构建优化:
+□ 4.3.1-4.3.7: 构建性能优化 (7 tasks, 3 hours)
+□ 4.3.8-4.3.13: APK体积优化与签名策略 (6 tasks, 2.5 hours)
+□ Performance综合项目实战 (12 tasks, 2.5 hours)
 ```
 
 ---
 
-## 🧪 Phase 4: 测试利刃 - Testing Excellence (Week 14)
+## 🧪 Phase 6: Testing Mastery - 测试利刃
 
-### **Step 8: Android测试体系** (Week 14, 70 tasks, ~25 hours)
+### **Step 8: Android测试体系** (10/1-10/4, 70 tasks, ~32 hours)
+**详细时间安排**: 参考 `TIMELINE.md` Phase 6: Testing Mastery
 
 **Learning Sequence**:
 ```
@@ -262,30 +249,80 @@ Week 13 Tasks:
 📊 Track: student_progress/c06_testing/
 🎯 Goal: Master comprehensive testing strategies
 
-Week 14 Focus Areas:
-□ 6.1: 单元测试基石 (17 tasks, 8 hours)
-□ 6.2: 协程测试 (17 tasks, 7 hours)
-□ 6.3: UI测试 (18 tasks, 8 hours)
-□ 6.4: 集成测试 (18 tasks, 10 hours)
+10/1 (周二) - 单元测试基石:
+□ 6.1.1-6.1.9: JUnit 5与Mockito基础 (9 tasks, 4 hours)
+□ 6.1.10-6.1.17: Test Doubles与高级Mock技术 (8 tasks, 4 hours)
+
+10/2 (周三) - 协程测试专项:
+□ 6.2.1-6.2.9: runTest与TestDispatcher (9 tasks, 4 hours)
+□ 6.2.10-6.2.17: Flow测试与时间控制 (8 tasks, 4 hours)
+
+10/3 (周四) - UI测试实战:
+□ 6.3.1-6.3.10: Espresso与UI自动化 (10 tasks, 4 hours)
+□ 6.3.11-6.3.18: Compose Testing与Page Object (8 tasks, 4 hours)
+
+10/4 (周五) - 集成测试:
+□ 6.4.1-6.4.9: Robolectric与Hilt Testing (9 tasks, 4 hours)
+□ 6.4.10-6.4.18: Room、网络与端到端测试 (9 tasks, 4 hours)
 ```
 
 ---
 
-## 🛡️ Phase 5: 安全与工程 - Enterprise Readiness (Weeks 15-16)
+## 🚀 Phase 9: System Design - 系统设计
 
-### **Step 9: 安全防护** (Week 15, 69 tasks, ~20 hours)
+### **System Design Track** (10/6-10/12, 135 tasks, ~50 hours)
+**详细时间安排**: 参考 `TIMELINE.md` Phase 9: System Design
 
 **Learning Sequence**:
 ```
-📚 Source: micro_tasks/MICRO_TASK_C07.md (Chapter 7)
+📚 Source: micro_tasks/MICRO_TASK_C09.md
+📊 Track: student_progress/c09_system_design/
+🎯 Goal: Master large-scale Android system architecture
+
+10/6-10/12 (7天架构师训练):
+□ Day 1: 数据层架构基石 (22 tasks, 8 hours)
+□ Day 2: 实时通信架构 (26 tasks, 8 hours) 
+□ Day 3: 缓存架构与性能优化 (26 tasks, 8 hours)
+□ Day 4: 大型应用架构设计 (26 tasks, 8 hours)
+□ Day 5: 性能与扩展性优化 (27 tasks, 8 hours)
+□ Day 6: 综合架构实战 (4 tasks, 8 hours)
+□ Day 7: 架构师能力总结 (4 tasks, 8 hours)
+
+Progression: Primary → Intermediate → Senior 架构师能力建立
+```
+
+---
+
+## 🛡️ Phase 7: Security & Hardening - 安全防护
+
+### **Step 9: 安全防护** (10/13-10/15, 69 tasks, ~29 hours)  
+**详细时间安排**: 参考 `TIMELINE.md` Phase 7: Security & Hardening
+
+**Learning Sequence**:
+```
+📚 Source: micro_tasks/MICRO_TASK_C07.md
 📊 Track: student_progress/c07_security/
 🎯 Goal: Master Android security and hardening
 
-Week 15 Focus Areas:
-□ 7.1: 数据安全 (23 tasks, 8 hours)
-□ 7.2: 代码保护 (23 tasks, 8 hours)
-□ 7.3: 权限认证 (23 tasks, 8 hours)
+10/13 (周一) - 数据安全基石:
+□ 7.1.1-7.1.5: 安全威胁认知与加密基础 (5 tasks, 1.5 hours)
+□ 7.1.6-7.1.16: 加密实现与高级技术 (11 tasks, 3.5 hours)
+□ 7.1.17-7.1.23: 安全合规与审计 (7 tasks, 3 hours)
+
+10/14 (周二) - 代码保护与反调试:
+□ 7.2.1-7.2.5: 代码安全威胁认知 (5 tasks, 1.5 hours)
+□ 7.2.6-7.2.17: 混淆技术与反调试 (12 tasks, 4 hours)
+□ 7.2.18-7.2.23: 完整性校验与安全测试 (6 tasks, 2.5 hours)
+
+10/15 (周三) - 身份认证与权限管理:
+□ 7.3.1-7.3.12: 权限模型与OAuth2认证 (12 tasks, 4 hours)
+□ 7.3.13-7.3.23: 生物识别与多因子认证 (11 tasks, 4 hours)
+□ 7.3.S1: 企业级零信任安全架构 (1 task, 1 hour)
 ```
+
+---
+
+## 🏗️ Phase 8: 工程效能 - Engineering Excellence
 
 ### **Step 10: 工程效能** (Week 16, 68 tasks, ~20 hours)
 
@@ -302,23 +339,11 @@ Week 16 Focus Areas:
 □ 8.4: 性能监控 (17 tasks, 6 hours)
 ```
 
----
-
-## 🚀 Phase 6: 高级专项 - Senior Specialization (Optional Extension)
-
-### **Advanced Specializations** (Choose based on career focus)
-
-**System Design Track**:
-```
-📚 Source: micro_tasks/MICRO_TASKS_C09.md
-📊 Track: student_progress/c09_system_design/
-🎯 Goal: Master large-scale Android system architecture
-Duration: 135 tasks, ~50 hours over 4 weeks
-```
+### **Advanced Optional Tracks** (Choose based on career focus)
 
 **Framework Internals Track**:
 ```
-📚 Source: micro_tasks/MICRO_TASKS_C10.md
+📚 Source: micro_tasks/MICRO_TASK_C10.md
 📊 Track: student_progress/c10_internals/
 🎯 Goal: Deep Android framework and kernel understanding
 Duration: 106 tasks, ~40 hours over 3 weeks
@@ -326,7 +351,7 @@ Duration: 106 tasks, ~40 hours over 3 weeks
 
 **Design Patterns Track**:
 ```
-📚 Source: micro_tasks/MICRO_TASKS_C11.md
+📚 Source: micro_tasks/MICRO_TASK_C11.md
 📊 Track: student_progress/c11_patterns/
 🎯 Goal: Master advanced design patterns and code artistry
 Duration: 106 tasks, ~35 hours over 3 weeks
@@ -334,7 +359,7 @@ Duration: 106 tasks, ~35 hours over 3 weeks
 
 **Network & Infrastructure Track**:
 ```
-📚 Source: micro_tasks/MICRO_TASKS_C12.md
+📚 Source: micro_tasks/MICRO_TASK_C12.md
 📊 Track: student_progress/c12_infrastructure/
 🎯 Goal: Master computer infrastructure and networking
 Duration: 68 tasks, ~25 hours over 2 weeks
@@ -371,30 +396,64 @@ Duration: 68 tasks, ~25 hours over 2 weeks
 
 ## 🎯 Skill Progression Milestones
 
+## 🗓️ **Detailed Learning Timeline Overview**
+
+**Phase Schedule** (Based on TIMELINE.md comprehensive planning):
+
+### **Phase 1-2: 基石篇 + 支柱篇** (Weeks 1-8)
+- **Foundation**: 基础并发、集合框架、协程机制 
+- **Android Framework**: UI渲染、事件分发、Handler、Binder深度
+- **Architecture**: MVC到Clean Architecture演进，Repository模式
+
+### **Phase 4: Performance Optimization** (9/1-9/3, 3天集训)
+- **ANR诊断专项**: traces.txt分析、主线程优化、性能监控
+- **OOM分析专项**: MAT工具使用、内存泄露检测、最佳实践
+- **APK构建优化**: 构建性能、体积优化、签名策略
+
+### **Phase 6: Testing Mastery** (10/1-10/4, 4天集训)
+- **单元测试**: JUnit 5、Mockito、MockK、Test Doubles
+- **协程测试**: runTest、TestDispatcher、Flow测试、时间控制
+- **UI测试**: Espresso、Compose Testing、Page Object模式
+- **集成测试**: Robolectric、Hilt Testing、端到端测试
+
+### **Phase 9: System Design** (10/6-10/12, 7天架构师训练)
+- **数据架构**: Room数据库、网络协议选型、IM系统设计
+- **通信架构**: WebSocket集群、推送系统、实时特性优化
+- **缓存架构**: 多级缓存、视频应用缓存、一致性保证
+- **应用架构**: 微服务拆分、模块化设计、团队协作
+- **全局架构**: CDN部署、负载均衡、全球化架构
+
+### **Phase 7: Security & Hardening** (10/13-10/15, 3天集训)
+- **数据安全**: KeyStore、EncryptedSharedPreferences、Certificate Pinning
+- **代码保护**: ProGuard混淆、反调试技术、威胁建模
+- **身份认证**: OAuth2、JWT、生物识别、零信任架构
+
+---
+
 ### **Junior → Mid-Level (Weeks 1-8)**
 **Skills Unlocked**:
--  Concurrent programming mastery
--  Data structure optimization
--  Asynchronous programming with coroutines
--  Android framework understanding
+- ✅ Concurrent programming mastery (synchronized, volatile, JMM)
+- ✅ Data structure optimization (HashMap, ConcurrentHashMap)
+- ✅ Asynchronous programming with coroutines
+- ✅ Android framework understanding (UI, Event, Handler, Binder)
 
 **Career Impact**: Can handle complex technical tasks independently
 
-### **Mid-Level → Senior (Weeks 9-14)**
+### **Mid-Level → Senior (Performance + Testing + System Design, 9/1-10/12)**
 **Skills Unlocked**:
--  Architectural decision making
--  Performance optimization expertise
--  Modern UI development mastery
--  Comprehensive testing strategies
+- ⚡ **Performance optimization expertise** (ANR, OOM, APK优化) - 9/1-9/3
+- 🧪 **Comprehensive testing strategies** (单元、协程、UI、集成测试) - 10/1-10/4
+- 🚀 **System design mastery** (数据架构、实时通信、缓存策略) - 10/6-10/12
+- 🏗️ **Architectural decision making** (模式选择、系统设计)
 
 **Career Impact**: Can lead technical decisions and mentor others
 
-### **Senior → Principal (Weeks 15-16+)**
+### **Senior → Principal (Security + Engineering, 10/13-10/15+)**
 **Skills Unlocked**:
--  Security-first development
--  Engineering process optimization
--  Large-scale system design
--  Deep framework internals knowledge
+- 🔐 **Security-first development** (数据安全、代码保护、零信任) - 10/13-10/15
+- 🏗️ **Engineering excellence** (依赖注入、CI/CD、性能监控)
+- 👑 **Enterprise architecture** (零信任、全球化部署、合规性)
+- 🎯 **Strategic technical vision** (架构演进、团队培养)
 
 **Career Impact**: Can architect enterprise-level solutions and drive technical strategy
 
@@ -441,13 +500,25 @@ AI Assistant Tasks:
 ---
 
 `★ Insight ─────────────────────────────────────`
-Roadmap Design Principles:
-1. **Prerequisite-Based**: Each step builds on previous knowledge
+🎯 **Enhanced Roadmap Design Principles**:
+1. **Timeline-Integrated**: Synchronized with detailed TIMELINE.md scheduling
 2. **Skill-Focused**: Groups related technologies for deep learning
-3. **Career-Aligned**: Mirrors real senior developer responsibilities
-4. **AI-Optimized**: Clear instructions for AI assistant guidance
+3. **Career-Aligned**: Mirrors real senior developer responsibilities  
+4. **Intensive Training**: Strategic 3-7 day bootcamps for advanced skills
+5. **AI-Optimized**: Clear instructions for AI assistant guidance
+6. **Realistic Timing**: 4-5x multiplier for deep learning with coding practice
+
+**New Key Features**:
+• **精准时间规划**: 具体到每天的学习任务分配
+• **集训式学习**: Performance, Testing, Security, System Design专项集训
+• **渐进式难度**: Primary → Intermediate → Senior 能力建立
+• **实战导向**: 每个概念配合手动编程练习验证
 `─────────────────────────────────────────────────`
 
-This roadmap transforms you from junior to senior Android developer through systematic, AI-guided learning. The AI assistant can now simply follow this master plan and guide you step-by-step through each task! 🚀
+This enhanced roadmap transforms you from junior to senior Android developer through systematic, timeline-guided learning. The integration with TIMELINE.md provides precise daily scheduling for optimal learning progression! 🚀
 
-Ready to begin your journey to Android Senior Developer mastery? 🎯
+**Ready to begin your structured journey to Android Senior Developer mastery?** 🎯
+- 📅 Follow TIMELINE.md for daily task scheduling
+- 🤖 Use AI assistant for guided learning support  
+- 📊 Track progress through student_progress/ directory
+- 🏆 Complete intensive bootcamps for rapid skill advancement

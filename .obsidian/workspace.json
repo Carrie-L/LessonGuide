@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TIMELINE.md",
+                "file": "ANDROID_SENIOR_DEVELOPER_ROADMAP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TIMELINE"
+              "title": "ANDROID_SENIOR_DEVELOPER_ROADMAP"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TIMELINE.md",
+                "file": "ANDROID_SENIOR_DEVELOPER_ROADMAP.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of TIMELINE"
+              "title": "Outline of ANDROID_SENIOR_DEVELOPER_ROADMAP"
             }
           }
         ],
@@ -171,26 +171,27 @@
   },
   "active": "c8ae495a2f2779f2",
   "lastOpenFiles": [
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937841883",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937827955",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937810430",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937784006",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937776424",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937769859",
+    "TIMELINE.md",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755934318305",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755934300847",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755934272844",
+    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755934264557",
+    "TIMELINE.md.tmp.27076.1755933906307",
     "student_progress/student_code/c09/README.md",
-    "student_progress/student_code/c09",
     "student_progress/student_code/c03/README.md",
-    "student_progress/student_code/c03",
     "student_progress/student_code/c02/README.md",
     "ANDROID_SENIOR_DEVELOPER_ROADMAP.md",
-    "TIMELINE.md",
     "micro_tasks/MICRO_TASK_C07.md",
-    "2025-08-23-this-session-is-being-continued-from-a-previous-co-21.txt",
     "micro_tasks/MICRO_TASK_C08.md",
     "micro_tasks/MICRO_TASK_C09.md",
     "micro_tasks/MICRO_TASK_C06.md",
     "PROGRESS.md",
-    "TIMELINE.md.tmp.27076.1755887173569",
-    "TIMELINE.md.tmp.27076.1755887172106",
-    "TIMELINE.md.tmp.27076.1755887170679",
-    "TIMELINE.md.tmp.27076.1755887169258",
-    "TIMELINE.md.tmp.27076.1755887167590",
-    "TIMELINE.md.tmp.27076.1755887166171",
-    "TIMELINE.md.tmp.27076.1755887164765",
     "COMPREHENSIVE_HANDS_ON_FRAMEWORK_SUMMARY.md",
     "micro_tasks/MICRO_TASK_C01.md",
     "micro_tasks/MICRO_TASK_C10.md",
@@ -205,7 +206,6 @@
     "SYSTEM_TEST_RESULTS.md",
     "student_progress/PROGRESS_TRACKING_GUIDE.md",
     "chat/chat.md",
-    "CLAUDE_MEMORY_SYSTEM.md",
-    "student_progress/learning_data/reports/task_1_1_1_final_assessment.md"
+    "CLAUDE_MEMORY_SYSTEM.md"
   ]
 }
