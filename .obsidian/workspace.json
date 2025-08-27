@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "micro_tasks/MICRO_TASK_C07.md",
+                "file": "micro_tasks/MICRO_TASK_C11.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MICRO_TASK_C07"
+              "title": "MICRO_TASK_C11"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "micro_tasks/MICRO_TASK_C07.md",
+                "file": "micro_tasks/MICRO_TASK_C11.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of MICRO_TASK_C07"
+              "title": "Outline of MICRO_TASK_C11"
             }
           }
         ],
@@ -171,12 +171,13 @@
   },
   "active": "c8ae495a2f2779f2",
   "lastOpenFiles": [
+    "fix_missing_tasks.py",
+    "micro_tasks/MICRO_TASK_C07.md",
     "roadmap v3.md",
     "generate_roadmap_v3.py",
     "micro_tasks/MICRO_TASK_C06.md",
     "micro_tasks/MICRO_TASK_C11.md",
     "micro_tasks/MICRO_TASK_C12.md",
-    "micro_tasks/MICRO_TASK_C07.md",
     "micro_tasks/MICRO_TASK_C10.md",
     "micro_tasks/MICRO_TASK_C09.md",
     "micro_tasks/MICRO_TASK_C08.md",
@@ -205,7 +206,6 @@
     "student_progress/learning_data/notes/Task 1_1_notes.md",
     "GEMINI.md",
     "student_progress/demo_code/c01/VisibilityExplanation.md",
-    "student_progress/learning_data/notes/Task_1_1_5_notes.md",
-    "mentor_duty/MENTOR_TEACHING_GUIDE.md"
+    "student_progress/learning_data/notes/Task_1_1_5_notes.md"
   ]
 }

@@ -20,10 +20,10 @@ def extract_tasks_from_file(file_path: str) -> List[Tuple[str, str]]:
             content = f.read()
 
         # 使用正则表达式匹配Task行
-        # 匹配格式: #### Task x.y.z: 标题 (时间) ⏰
+        # 匹配格式: #### Task x.y.z: 标题 (时间) ⏰ [级别]
         # 也匹配: - [ ] **Task x.y.z: 标题 (时间) ⏰
-        task_pattern = r'^#{1,4}\s*Task\s+(\d+\.\d+\.\d+):\s*(.+?)\s*\(?\d*分钟\)?\s*⏰?$'
-        checkbox_pattern = r'^-\s*\[\s*\]\s*\*\*Task\s+(\d+\.\d+\.\d+):\s*(.+?)\s*\(?\d*分钟\)?\s*⏰?\*\*$'
+        task_pattern = r'^#{1,4}\s*Task\s+(\d+\.\d+\.\d+):\s*(.+?)\s*\(?(\d+分钟)?\)?\s*⏰?\s*(\[.*?\])?\s*$'
+        checkbox_pattern = r'^-\s*\[\s*\]\s*\*\*Task\s+(\d+\.\d+\.\d+):\s*(.+?)\s*\(?(\d+分钟)?\)?\s*⏰?\*\*\s*$'
 
         lines = content.split('\n')
 
@@ -33,6 +33,8 @@ def extract_tasks_from_file(file_path: str) -> List[Tuple[str, str]]:
             if match:
                 task_id = match.group(1)
                 title = match.group(2).strip()
+                # 清理标题，移除可能的时间和级别标记
+                title = re.sub(r'\s*\(\d+分钟\)\s*⏰?\s*(\[.*?\])?\s*$', '', title).strip()
                 tasks.append((task_id, title))
                 continue
 
@@ -41,6 +43,8 @@ def extract_tasks_from_file(file_path: str) -> List[Tuple[str, str]]:
             if match:
                 task_id = match.group(1)
                 title = match.group(2).strip()
+                # 清理标题，移除可能的时间标记
+                title = re.sub(r'\s*\(\d+分钟\)\s*⏰?\s*$', '', title).strip()
                 tasks.append((task_id, title))
 
     except Exception as e:
