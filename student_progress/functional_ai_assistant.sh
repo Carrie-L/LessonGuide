@@ -85,7 +85,12 @@ NC='\033[0m'
 # File paths - UPDATED for correct structure
 ROADMAP_FILE="../ANDROID_SENIOR_DEVELOPER_ROADMAP.md"
 MICRO_TASKS_DIR="../micro_tasks"
-PROGRESS_FILE="learning_data/roadmap_progress.json"
+# PROGRESS_FILE="learning_data/roadmap_progress.json"
+PROGRESS_FILE="../PROGRESS.md"
+TIMELINE_FILE="../TIMELINE.md"
+progress=$(grep -m1 -n "\- \[.\] Task" "$PROGRESS_FILE" | head -1)
+# 例如得到 “12|- [ ] Task 1.1.5”
+today_line=$(grep -n "$(date +%m/%d | sed 's/^0//')" "$TIMELINE_FILE" | head -1)
 
 # Get current date and time
 DATE=$(date '+%Y-%m-%d')
@@ -355,11 +360,11 @@ start_task() {
     local chapter_dir=""
     
     case "$task_id" in
-        1.1.1)
+        1.1)
             chapter_dir="c01"
-            code_file="student_code/c01/SynchronizedBasics.kt"
+            code_file="student_code/c01/"
             ;;
-        1.1.2) 
+        1.2) 
             chapter_dir="c01"
             code_file="student_code/c01/VolatileMemoryModel.kt"
             ;;
@@ -378,37 +383,37 @@ start_task() {
     esac
     
     # Create directory structure
-    mkdir -p "$(dirname "$code_file")"
+    # mkdir -p "$(dirname "$code_file")"
     
     # Create code file with template if it doesn't exist
-    if [[ ! -f "$code_file" ]]; then
-        cat > "$code_file" << EOF
-/**
- * Task $task_id Implementation
- * 
- * TODO: Implement the solution for Task $task_id
- * 
- * Key Requirements:
- * - [Add specific requirements from the task]
- * 
- * Learning Goals:
- * - [Add learning objectives]
- */
+#     if [[ ! -f "$code_file" ]]; then
+#         cat > "$code_file" << EOF
+# /**
+#  * Task $task_id Implementation
+#  * 
+#  * TODO: Implement the solution for Task $task_id
+#  * 
+#  * Key Requirements:
+#  * - [Add specific requirements from the task]
+#  * 
+#  * Learning Goals:
+#  * - [Add learning objectives]
+#  */
 
-fun main() {
-    println("Starting Task $task_id implementation")
+# fun main() {
+#     println("Starting Task $task_id implementation")
     
-    // TODO: Add your implementation here
+#     // TODO: Add your implementation here
     
-    println("Task $task_id completed")
-}
+#     println("Task $task_id completed")
+# }
 
-// TODO: Add your classes and functions here
-EOF
-        echo -e "${GREEN}✅ Created code file: $code_file${NC}"
-    else
-        echo -e "${YELLOW}📝 Code file already exists: $code_file${NC}"
-    fi
+# // TODO: Add your classes and functions here
+# EOF
+#         echo -e "${GREEN}✅ Created code file: $code_file${NC}"
+#     else
+#         echo -e "${YELLOW}📝 Code file already exists: $code_file${NC}"
+#     fi
     
     # Step 3: Start tracking
     echo ""
@@ -422,50 +427,50 @@ EOF
    
     
     # Step 4: Smart IDE Detection and Opening
-    echo -e "${BLUE}🚀 Step 4: Opening IDEs automatically...${NC}"
+    # echo -e "${BLUE}🚀 Step 4: Opening IDEs automatically...${NC}"
     
     # Open task file with positioning (VS Code or default text editor)
-    if command -v code &> /dev/null && [[ -n "$task_file" && -n "$line_number" ]]; then
-        echo -e "${GREEN}📖 Opening task file in VS Code at line $line_number...${NC}"
-        code --goto "$task_file:$line_number"
-    elif [[ -n "$task_file" ]]; then
-        echo -e "${YELLOW}📖 Task file: $task_file${NC}"
-    fi
+    # if command -v code &> /dev/null && [[ -n "$task_file" && -n "$line_number" ]]; then
+    #     echo -e "${GREEN}📖 Opening task file in VS Code at line $line_number...${NC}"
+    #     code --goto "$task_file:$line_number"
+    # elif [[ -n "$task_file" ]]; then
+    #     echo -e "${YELLOW}📖 Task file: $task_file${NC}"
+    # fi
     
     # Smart IDE detection for code files
-    echo -e "${GREEN}💻 Opening code file in appropriate IDE...${NC}"
+    # echo -e "${GREEN}💻 Opening code file in appropriate IDE...${NC}"
     
-    if [[ "$code_file" == *.kt ]]; then
-        # Kotlin files -> Android Studio
-        if [[ -f "/mnt/t/Android/AndroidStudio/bin/studio64.exe" ]]; then
-            echo -e "${GREEN}🤖 Opening Kotlin file in Android Studio...${NC}"
-            "/mnt/t/Android/AndroidStudio/bin/studio64.exe" "$code_file" &
-        elif command -v code &> /dev/null; then
-            echo -e "${YELLOW}📝 Android Studio not found, opening in VS Code...${NC}"
-            code "$code_file"
-        fi
-    elif [[ "$code_file" == *.java ]]; then
-        # Java files -> IntelliJ IDEA
-        if [[ -f "/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.4.1/bin/idea64.exe" ]]; then
-            echo -e "${GREEN}☕ Opening Java file in IntelliJ IDEA...${NC}"
-            "/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.4.1/bin/idea64.exe" "$code_file" &
-        elif command -v code &> /dev/null; then
-            echo -e "${YELLOW}📝 IntelliJ IDEA not found, opening in VS Code...${NC}"
-            code "$code_file"
-        fi
-    elif [[ -d "$(dirname "$code_file")/src" ]] || [[ -f "$(dirname "$code_file")/../build.gradle" ]]; then
-        # Android project structure detected -> Android Studio
-        if [[ -f "/mnt/t/Android/AndroidStudio/bin/studio64.exe" ]]; then
-            echo -e "${GREEN}🤖 Android project detected, opening in Android Studio...${NC}"
-            "/mnt/t/Android/AndroidStudio/bin/studio64.exe" "$(dirname "$code_file")/.." &
-        fi
-    else
-        # Fallback to VS Code
-        if command -v code &> /dev/null; then
-            echo -e "${GREEN}📝 Opening in VS Code...${NC}"
-            code "$code_file"
-        fi
-    fi
+    # if [[ "$code_file" == *.kt ]]; then
+    #     Kotlin files -> Android Studio
+    #     if [[ -f "/mnt/t/Android/AndroidStudio/bin/studio64.exe" ]]; then
+    #         echo -e "${GREEN}🤖 Opening Kotlin file in Android Studio...${NC}"
+    #         "/mnt/t/Android/AndroidStudio/bin/studio64.exe" "$code_file" &
+    #     elif command -v code &> /dev/null; then
+    #         echo -e "${YELLOW}📝 Android Studio not found, opening in VS Code...${NC}"
+    #         code "$code_file"
+    #     fi
+    # elif [[ "$code_file" == *.java ]]; then
+    #     # Java files -> IntelliJ IDEA
+    #     if [[ -f "/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.4.1/bin/idea64.exe" ]]; then
+    #         echo -e "${GREEN}☕ Opening Java file in IntelliJ IDEA...${NC}"
+    #         "/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.4.1/bin/idea64.exe" "$code_file" &
+    #     elif command -v code &> /dev/null; then
+    #         echo -e "${YELLOW}📝 IntelliJ IDEA not found, opening in VS Code...${NC}"
+    #         code "$code_file"
+    #     fi
+    # elif [[ -d "$(dirname "$code_file")/src" ]] || [[ -f "$(dirname "$code_file")/../build.gradle" ]]; then
+    #     # Android project structure detected -> Android Studio
+    #     if [[ -f "/mnt/t/Android/AndroidStudio/bin/studio64.exe" ]]; then
+    #         echo -e "${GREEN}🤖 Android project detected, opening in Android Studio...${NC}"
+    #         "/mnt/t/Android/AndroidStudio/bin/studio64.exe" "$(dirname "$code_file")/.." &
+    #     fi
+    # else
+    #     # Fallback to VS Code
+    #     if command -v code &> /dev/null; then
+    #         echo -e "${GREEN}📝 Opening in VS Code...${NC}"
+    #         code "$code_file"
+    #     fi
+    # fi
     
     # Step 6: Clear finish command instructions
     echo ""
@@ -562,9 +567,11 @@ finish_task() {
     
     # Determine task file
     local task_file=""
+    local note_file=""
     case "$task_id" in
         *"1.1."*|*"1.2."*|*"1.3."*)
             task_file="MICRO_TASK_C01.md"
+            note_file="notes/jmm_notes_carrie.md"
             ;;
         *"2."*)
             task_file="MICRO_TASK_C02.md"
@@ -580,7 +587,11 @@ finish_task() {
     # Create learning notes file
     local notes_dir="learning_data/notes"
     mkdir -p "$notes_dir"
-    local note_file="$notes_dir/${task_id//[^a-zA-Z0-9]/_}_notes.md"
+    # local note_file="$notes_dir/${task_id//[^a-zA-Z0-9]/_}_notes.md"
+    # 先截取掉最后一个点及其后面的所有内容，再把剩余的点替换成下划线
+    local base_name="${task_id%.*}"
+    note_file="$notes_dir/${base_name//./_}_notes.md"
+
     
     echo ""
     echo -e "${BLUE}📝 Creating learning notes file...${NC}"
@@ -946,11 +957,25 @@ browse_files() {
     fi
 }
 
+make_prompt() {
+    cat <<EOF
+🔖 你的当前进度: $progress
+📅 今日任务来自 TIMELINE.md: $today_line
+
+💡 Prompt:
+1. 阅读 micro_task 对应段落，先划出「概念要点」
+2. 手写代码完成模板文件
+3. 运行 ./ai f 触发 AI 评估
+4. 在 PROGRESS.md 勾选完成项
+EOF
+}
+
 # Main command dispatcher
 case "${1:-help}" in
     "today"|"roadmap-today")
         initialize_progress
         show_todays_tasks
+        make_prompt
         ;;
     "open-task")
         open_task "$2"

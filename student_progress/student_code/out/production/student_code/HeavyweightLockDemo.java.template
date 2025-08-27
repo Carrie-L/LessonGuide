@@ -1,0 +1,108 @@
+/**
+ * Task 1.1.7: 重量级锁与系统调用开销分析
+ * 
+ * 任务要求：
+ * 1. 观察线程状态变化(RUNNABLE, BLOCKED, WAITING)
+ * 2. 测量上下文切换开销
+ * 3. 理解等待队列和同步队列
+ * 4. 分析用户态vs内核态切换成本
+ * 
+ * ⚠️ 重点观察线程状态的变化过程
+ */
+import java.util.concurrent.CountDownLatch;
+
+public class HeavyweightLockDemo {
+    
+    // TODO 1: 声明重量级锁对象
+    // private static final Object heavyLock = ?;
+    
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("=== 重量级锁系统调用开销分析 ===");
+        
+        // TODO 2: 线程状态监控
+        System.out.println("\n--- 实验1: 线程状态变化监控 ---");
+        monitorThreadStates();
+        
+        Thread.sleep(2000);
+        
+        // TODO 3: 上下文切换开销测量
+        System.out.println("\n--- 实验2: 上下文切换开销测量 ---");
+        measureContextSwitchOverhead();
+        
+        Thread.sleep(2000);
+        
+        // TODO 4: 等待队列与同步队列分析
+        System.out.println("\n--- 实验3: 等待队列与同步队列 ---");
+        analyzeWaitingQueues();
+    }
+    
+    /**
+     * TODO: 实现线程状态监控
+     */
+    private static void monitorThreadStates() throws InterruptedException {
+        CountDownLatch startLatch = new CountDownLatch(1);
+        
+        // TODO: 创建持锁线程
+        // Thread lockHolder = new Thread(() -> {
+        //     synchronized (heavyLock) {
+        //         System.out.println("持锁线程: 获得锁，开始长时间工作...");
+        //         // 长时间持有锁
+        //         try {
+        //             Thread.sleep(3000);
+        //         } catch (InterruptedException e) { ... }
+        //     }
+        // });
+        
+        // TODO: 创建竞争线程，观察BLOCKED状态
+        
+        // TODO: 创建状态监控线程
+        // Thread monitor = new Thread(() -> {
+        //     for (int i = 0; i < 60; i++) {
+        //         System.out.println("线程状态: " + thread.getState());
+        //         Thread.sleep(100);
+        //     }
+        // });
+        
+        // TODO: 启动线程并观察状态变化
+    }
+    
+    /**
+     * TODO: 实现上下文切换开销测量
+     */
+    private static void measureContextSwitchOverhead() throws InterruptedException {
+        final int ITERATIONS = 10000;
+        
+        // TODO: 测试轻量级锁场景（无竞争）
+        // Object lightLock = new Object();
+        // 单线程循环获取锁，测量时间
+        
+        // TODO: 测试重量级锁场景（有竞争）
+        // 多线程竞争同一个锁，测量时间
+        
+        // TODO: 对比两种场景的性能差异
+    }
+    
+    /**
+     * TODO: 实现等待队列与同步队列分析
+     */
+    private static void analyzeWaitingQueues() throws InterruptedException {
+        final Object sharedResource = new Object();
+        
+        // TODO: 创建wait()等待的线程（进入等待队列）
+        // Thread waitingThread = new Thread(() -> {
+        //     synchronized (sharedResource) {
+        //         try {
+        //             System.out.println("进入等待队列");
+        //             sharedResource.wait();
+        //             System.out.println("被唤醒");
+        //         } catch (InterruptedException e) { ... }
+        //     }
+        // });
+        
+        // TODO: 创建synchronized阻塞的线程（进入同步队列）
+        
+        // TODO: 创建notify()唤醒线程
+        
+        // TODO: 监控不同队列中线程的状态变化
+    }
+}

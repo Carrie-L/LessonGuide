@@ -5,3 +5,6 @@ Date,Time,Task,Duration_Minutes,Quality_Self_Rating,Difficulty_Rating,Completion
 2025-08-20,18:58,Task 1.1.1,0,9,3,completed,no,MICRO_TASK_C01.md,Task 1.1.1
 2025-08-20,19:11,Task 1.1.2,2,9,3,completed,1,MICRO_TASK_C01.md,Task 1.1.2
 2025-08-21,03:01,Task 5.1.1,2,1,9,struggling,no start,Unknown,Task 5.1.1
+2025-08-24,16:52,Task 1.1.5,1279,./ai s 1.1.6,5,completed,cas,MICRO_TASK_C01.md,Task 1.1.5
+2025-08-24,17:39,Task 1.1.7,46,8,2,completed,CAS and atomic increasement,MICRO_TASK_C01.md,Task 1.1.7
+2025-08-25,15:51,Task 1.1.6,1331,10,6,completed,线程状态和CPU,MICRO_TASK_C01.md,Task 1.1.6

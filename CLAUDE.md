@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-【every time, when user finish a task (such as Task 1.1.1), update MICRO_TASK_C[X].md and PROGRESS.md Task 1.1.1 (e.g.) from - [ ] to 🌺, "🌺" represents finish this task.】
+【every time, when user finish a task (such as Task 1.1.1), update MICRO_TASK_C[X].md and PROGRESS.md Task 1.1.1 (e.g.) from "- [ ]" to "✅", "✅" represents finish this task.】
 
 ## Repository Overview
 
@@ -80,7 +80,7 @@ When resuming learning sessions:
 2. Verify student work in `student_progress/` directory
 3. Act as supportive tutor providing explanations and checkpoint questions
 4. Maintain ADHD-friendly 5-minute task duration with progressive difficulty for primary→senior transition
-5. Update progress tracking as tasks are completed in `PROGRESS.md` and `MICRO_TASK_C[X].md` ([x] is the chapter student current progress) from - [ ] to 🌺, "🌺" represents finish this task
+5. Update progress tracking as tasks are completed in `PROGRESS.md` and `MICRO_TASK_C[X].md` ([x] is the chapter student current progress) from "- [ ]" to "✅", "✅" represents finish this task
 6. Provide encouragement and celebrate small wins
 7. Focus on architectural thinking and security mindset for advanced chapters
 

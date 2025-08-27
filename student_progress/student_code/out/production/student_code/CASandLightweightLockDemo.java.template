@@ -1,0 +1,97 @@
+/**
+ * Task 1.1.6: CAS操作与轻量级锁深度实践
+ * 
+ * 任务要求：
+ * 1. 手写CAS操作模拟
+ * 2. 演示ABA问题
+ * 3. 实现自旋重试机制
+ * 4. 对比CAS vs synchronized性能
+ * 
+ * ⚠️ 手动输入代码，理解每个CAS操作的原理
+ */
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+
+public class CASandLightweightLockDemo {
+    
+    // TODO 1: 声明测试变量
+    // private static volatile int normalCounter = ?;
+    // private static AtomicInteger atomicCounter = ?;
+    
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("=== CAS操作与轻量级锁机制演示 ===");
+        
+        // TODO 2: CAS vs synchronized性能对比
+        System.out.println("\n--- 实验1: CAS vs Synchronized性能对比 ---");
+        performanceComparison();
+        
+        // TODO 3: 手写CAS操作模拟
+        System.out.println("\n--- 实验2: 手写CAS操作模拟 ---");
+        simulateCASOperation();
+        
+        // TODO 4: ABA问题演示
+        System.out.println("\n--- 实验3: ABA问题演示 ---");
+        demonstrateABAProblem();
+    }
+    
+    /**
+     * TODO: 实现CAS vs Synchronized性能对比
+     */
+    private static void performanceComparison() throws InterruptedException {
+        final int THREAD_COUNT = 4;
+        final int ITERATIONS = 250000;
+        
+        // TODO: 测试CAS性能
+        // atomicCounter.set(0);
+        // 创建线程使用 atomicCounter.incrementAndGet()
+        
+        // TODO: 测试synchronized性能
+        // normalCounter = 0;
+        // 创建线程使用 synchronized (lock) { normalCounter++; }
+        
+        // TODO: 对比并输出结果
+    }
+    
+    /**
+     * TODO: 实现手写CAS操作模拟
+     */
+    private static void simulateCASOperation() {
+        System.out.println("CAS操作原理演示:");
+        
+        // TODO: 创建SimpleCAS类
+        // class SimpleCAS {
+        //     private volatile int value;
+        //     
+        //     public boolean compareAndSet(int expected, int newValue) {
+        //         // TODO: 实现CAS逻辑
+        //     }
+        //     
+        //     public int incrementAndGet() {
+        //         // TODO: 实现自旋重试的递增
+        //     }
+        // }
+        
+        // TODO: 测试CAS操作的成功和失败情况
+    }
+    
+    /**
+     * TODO: 实现ABA问题演示
+     */
+    private static void demonstrateABAProblem() throws InterruptedException {
+        System.out.println("ABA问题演示:");
+        
+        // TODO: 使用AtomicReference模拟栈结构
+        // AtomicReference<Node> stackTop = new AtomicReference<>();
+        
+        // TODO: 创建线程1执行慢速CAS操作
+        // TODO: 创建线程2执行快速A→B→A操作序列
+        // TODO: 观察ABA问题的发生
+    }
+    
+    // TODO: 定义Node类用于ABA问题演示
+    // private static class Node {
+    //     final String data;
+    //     final Node next;
+    //     Node(String data, Node next) { ... }
+    // }
+}

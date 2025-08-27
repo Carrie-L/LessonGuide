@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ANDROID_SENIOR_DEVELOPER_ROADMAP.md",
+                "file": "micro_tasks/MICRO_TASK_C07.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ANDROID_SENIOR_DEVELOPER_ROADMAP"
+              "title": "MICRO_TASK_C07"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Task_",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 215.50260543823242
+    "width": 200
   },
   "right": {
     "id": "915a7cdb237b1db0",
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ANDROID_SENIOR_DEVELOPER_ROADMAP.md",
+                "file": "micro_tasks/MICRO_TASK_C07.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ANDROID_SENIOR_DEVELOPER_ROADMAP"
+              "title": "Outline of MICRO_TASK_C07"
             }
           }
         ],
@@ -156,7 +156,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 376.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -171,41 +171,41 @@
   },
   "active": "c8ae495a2f2779f2",
   "lastOpenFiles": [
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937841883",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937827955",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937810430",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937784006",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937776424",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755937769859",
-    "TIMELINE.md",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755934318305",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755934300847",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755934272844",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md.tmp.27076.1755934264557",
-    "TIMELINE.md.tmp.27076.1755933906307",
-    "student_progress/student_code/c09/README.md",
-    "student_progress/student_code/c03/README.md",
-    "student_progress/student_code/c02/README.md",
-    "ANDROID_SENIOR_DEVELOPER_ROADMAP.md",
-    "micro_tasks/MICRO_TASK_C07.md",
-    "micro_tasks/MICRO_TASK_C08.md",
-    "micro_tasks/MICRO_TASK_C09.md",
+    "roadmap v3.md",
+    "generate_roadmap_v3.py",
     "micro_tasks/MICRO_TASK_C06.md",
-    "PROGRESS.md",
-    "COMPREHENSIVE_HANDS_ON_FRAMEWORK_SUMMARY.md",
-    "micro_tasks/MICRO_TASK_C01.md",
-    "micro_tasks/MICRO_TASK_C10.md",
-    "micro_tasks/MICRO_TASK_C12.md",
     "micro_tasks/MICRO_TASK_C11.md",
+    "micro_tasks/MICRO_TASK_C12.md",
+    "micro_tasks/MICRO_TASK_C07.md",
+    "micro_tasks/MICRO_TASK_C10.md",
+    "micro_tasks/MICRO_TASK_C09.md",
+    "micro_tasks/MICRO_TASK_C08.md",
     "micro_tasks/MICRO_TASK_C04.md",
     "micro_tasks/MICRO_TASK_C05.md",
     "micro_tasks/MICRO_TASK_C03.md",
     "micro_tasks/MICRO_TASK_C02.md",
-    "CLAUDE.md",
+    "micro_tasks/MICRO_TASK_C01.md",
+    "PROGRESS.md",
+    "TIMELINE.md",
+    "ROADMAP V2.md",
+    "student_progress/demo_code/c01/ExecutorServicePerformanceTest.java",
+    "student_progress/demo_code/c01/ExecutorServiceDetailGuide.java",
     "The FAANG Interview Express Route.md",
-    "SYSTEM_TEST_RESULTS.md",
-    "student_progress/PROGRESS_TRACKING_GUIDE.md",
-    "chat/chat.md",
-    "CLAUDE_MEMORY_SYSTEM.md"
+    "学习提示词.md",
+    "student_progress/notes/jmm_notes_carrie.md",
+    "student_progress/demo_code/c01/SimplePerformanceTest.java",
+    "student_progress/demo_code/c01/SynchronizedPerformanceTest1.java",
+    "student_progress/student_code/c01/SynchronizedPerformanceTest.java",
+    "student_progress/student_code/c01/collections/MyArrayList.java~",
+    "student_progress/student_code/c01/collections/MyArrayList.java",
+    "student_progress/student_code/c01/collections",
+    "student_progress/student_code/c01/HeavyweightLockDemo.java~",
+    "QWEN.md",
+    "student_progress/student_code/out/production/student_code/README.md",
+    "student_progress/learning_data/notes/Task 1_1_notes.md",
+    "GEMINI.md",
+    "student_progress/demo_code/c01/VisibilityExplanation.md",
+    "student_progress/learning_data/notes/Task_1_1_5_notes.md",
+    "mentor_duty/MENTOR_TEACHING_GUIDE.md"
   ]
 }

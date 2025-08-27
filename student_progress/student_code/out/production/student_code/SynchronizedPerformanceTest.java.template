@@ -1,0 +1,123 @@
+/**
+ * Task 1.1.8: Synchronized性能测试深度分析
+ * 
+ * 任务要求：
+ * 1. 量化synchronized的性能开销
+ * 2. 对比不同同步粒度的影响
+ * 3. 分析锁竞争对性能的影响
+ * 4. 掌握性能优化策略
+ * 
+ * ⚠️ 重点理解不同优化策略的效果
+ */
+public class SynchronizedPerformanceTest {
+    
+    // TODO 1: 声明测试变量
+    // private static final int THREAD_COUNT = Runtime.getRuntime().availableProcessors();
+    // private static final int ITERATIONS = ?;
+    // private static volatile int volatileCounter = ?;
+    // private static int unsafeCounter = ?;
+    // private static int synchronizedCounter = ?;
+    
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("=== Synchronized性能测试分析 ===");
+        
+        // TODO 2: 基准性能测试
+        runPerformanceBenchmarks();
+        
+        // TODO 3: 锁粒度影响测试
+        testLockGranularity();
+        
+        // TODO 4: 锁竞争程度测试
+        testLockContention();
+        
+        // TODO 5: 优化策略测试
+        testOptimizationStrategies();
+    }
+    
+    /**
+     * TODO: 实现基准性能测试
+     */
+    private static void runPerformanceBenchmarks() throws InterruptedException {
+        System.out.println("\n--- 基准性能测试 ---");
+        
+        // TODO: 无同步基准测试
+        // long noSyncTime = measureTime("无同步", () -> {
+        //     // 多线程对unsafeCounter进行++操作
+        // });
+        
+        // TODO: Volatile测试
+        
+        // TODO: Synchronized测试
+        
+        // TODO: 输出性能对比结果
+    }
+    
+    /**
+     * TODO: 实现锁粒度测试
+     */
+    private static void testLockGranularity() throws InterruptedException {
+        System.out.println("\n--- 锁粒度影响测试 ---");
+        
+        // TODO: 创建粗粒度锁计数器类
+        // class CoarseGrainedCounter {
+        //     public synchronized void increment() {
+        //         count++;
+        //         Math.sqrt(count); // 额外工作
+        //     }
+        // }
+        
+        // TODO: 创建细粒度锁计数器类
+        // class FineGrainedCounter {
+        //     public void increment() {
+        //         // 非同步部分
+        //         Math.sqrt(System.nanoTime());
+        //         synchronized (lock) {
+        //             count++; // 只同步必要部分
+        //         }
+        //     }
+        // }
+        
+        // TODO: 对比两种粒度的性能
+    }
+    
+    /**
+     * TODO: 实现锁竞争程度测试
+     */
+    private static void testLockContention() throws InterruptedException {
+        System.out.println("\n--- 锁竞争程度测试 ---");
+        
+        // TODO: 测试不同持锁时间的影响
+        // testContention("低竞争", lock, 1);    // 短时间持锁
+        // testContention("中等竞争", lock, 10);   // 中等时间持锁
+        // testContention("高竞争", lock, 100);   // 长时间持锁
+        
+        // TODO: 分析竞争程度对性能的影响
+    }
+    
+    /**
+     * TODO: 实现优化策略测试
+     */
+    private static void testOptimizationStrategies() throws InterruptedException {
+        System.out.println("\n--- 锁优化策略测试 ---");
+        
+        // TODO: 锁分离策略
+        // testLockSeparation();
+        
+        // TODO: ThreadLocal策略
+        // testThreadLocal();
+        
+        // TODO: 对比优化效果
+    }
+    
+    /**
+     * TODO: 通用性能测量工具
+     */
+    private static long measureTime(String operation, Runnable task) {
+        // TODO: 实现性能测量逻辑
+        // System.gc();
+        // long startTime = System.currentTimeMillis();
+        // task.run();
+        // long endTime = System.currentTimeMillis();
+        // return endTime - startTime;
+    }
+}

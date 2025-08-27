@@ -8,8 +8,20 @@
 3. **面试模拟**: 模拟真实面试场景，练习表达和思路
 4. **深度思考**: 理解设计背后的原因和权衡
 5. **定期回顾**: 巩固已学知识，形成知识体系
+- 【只有当用户输入 “我懂了”， “I understand” 才进入下一步流程，总是确保用户是真的懂了，明白了，你作为导师可以提问确保用户真的懂了。当且只当用户输入 “懂了”才能进入下一步。每一个流程都要确保用户是真的懂了，才能进行下一步。】
+
+**🚨 强制性编程框架**:
+- 🏃 **Learn by Doing**: 每个概念必须通过编程验证
+- **不要直接给出完整代码**：给出代码模板和TODO，让学习者按照TODO指示来编写代码，导师检查代码后，再将完整代码输出到 [I:\10_知识体系\面试练习\student_progress\demo_code\]
+- ✋ **严禁复制粘贴**: 所有代码必须手动输入，培养肌肉记忆
+- ✋ **机械地抄写代码没有意义！学习者必须先思考代码实现**
+- 📊 **渐进复杂度**: 50行demo → 150行实现 → 300+行企业级系统
+- 导师编辑代码：“I:\10_知识体系\面试练习\student_progress\demo_code” ， 学生编辑代码：“I:\10_知识体系\面试练习\student_progress\student_code”
+- 导师职责： `mentor_duty/`
+- 每一个Task小结学习结束，运行 `student_progress/analytics/`
+
 ## 当前进度
-- [ ] Task 1.1.5
+- [ ] Task 1.1.7
 
 ## 第一章：基石篇 - Java & Kotlin 语言精要 (33个微任务)
 
@@ -22,9 +34,9 @@
 ✅ **Task 1.1.3**: synchronized基本原理 + 线程安全实战 (5分钟) ⏰
 ✅ **Task 1.1.4**: volatile基本原理 + 可见性验证 (5分钟) ⏰
 #### Phase 2: synchronized互斥锁原理 (4个微任务 - 20分钟)
-- [ ] **Task 1.1.5**: 锁升级机制理解 + JVM参数实验 (5分钟) ⏰
-- [ ] **Task 1.1.6**: 轻量级锁与CAS深度实践 (5分钟) ⏰
-- [ ] **Task 1.1.7**: 重量级锁与系统调用实验 (5分钟) ⏰
+✅ **Task 1.1.5**: 锁升级机制理解 + JVM参数实验 (5分钟) ⏰
+✅ **Task 1.1.6**: 轻量级锁与CAS深度实践 (5分钟) ⏰
+✅ **Task 1.1.7**: 重量级锁与系统调用实验 (5分钟) ⏰
 - [ ] **Task 1.1.8**: synchronized性能测试实践 (5分钟) ⏰`
 #### Phase 3: 高级并发编程 (11个微任务 - 55分钟)
 - [ ] **Task 1.1.9**: 🚀 手动实现无锁栈 (5分钟) ⏰
@@ -52,48 +64,9 @@
   - [ ] 理解死锁的四个必要条件和预防策略
   - [ ] **文件**: `learning_data/c01/deadlock_detection_prevention.md`
 
-- [ ] **Task 1.1.15**: 协程与线程性能对比 (5分钟) ⏰
-  - [ ] 对比协程和线程在并发编程中的优劣
-  - [ ] **文件**: `learning_data/c01/CoroutineVsThreadPerformance.kt`
-
-- [ ] **Task 1.1.16**: 内存一致性模型 (5分钟) ⏰
-  - [ ] 理解不同平台的内存一致性模型差异
-  - [ ] **文件**: `learning_data/c01/memory_consistency_models.md`
-
-- [ ] **Task 1.1.17**: 高级无锁编程模式 (5分钟) ⏰
-  - [ ] 掌握高级的无锁编程技术和模式
-  - [ ] **文件**: `learning_data/c01/LockFreeProgramming.kt`
-
-- [ ] **Task 1.1.18**: 高并发系统架构设计 (5分钟) ⏰
-  - [ ] 设计支持高并发的系统架构
-  - [ ] **文件**: `learning_data/c01/high_concurrency_architecture.md`
-
 - [ ] **Task 1.1.19**: 并发编程综合面试准备 (5分钟) ⏰
   - [ ] 准备并发编程相关的面试问题
   - [ ] **文件**: `learning_data/c01/concurrent_programming_interview.md`
-
-#### Phase 4: Senior Application (架构应用) (4个微任务 - 40分钟)
-- [ ] **Task 1.1.20**: 并发编程知识体系总结 (10分钟) ⏰
-  - [ ] 构建完整的并发编程知识框架
-  - [ ] **文件**: `learning_data/c01/concurrent_programming_system.md`
-
-- [ ] **Task 1.1.21**: 🏆 企业级线程安全组件设计 (10分钟) ⏰
-  - [ ] **综合项目**: 设计生产级的线程安全缓存系统 (200-300行)
-  - [ ] **技术栈**: ConcurrentHashMap + ReadWriteLock + AtomicLong + volatile + synchronized
-  - [ ] **强制编程**: `JavaLearning/src/com/concurrency/c01/EnterpriseThreadSafeCacheSystem.java` - 企业级缓存系统
-  - [ ] **功能特性**: TTL过期、LRU驱逐、统计监控、并发压力测试
-
-- [ ] **Task 1.1.22**: 🏆 性能基准测试框架 (10分钟) ⏰
-  - [ ] **测试框架**: 创建专业的并发性能测试框架
-  - [ ] **对比维度**: synchronized vs volatile vs CAS vs 无锁算法
-  - [ ] **强制编程**: `JavaLearning/src/com/concurrency/c01/ConcurrencyPerformanceBenchmark.java` - 性能基准测试
-  - [ ] **测试指标**: 吞吐量、延迟、可扩展性、稳定性分析
-
-- [ ] **Task 1.1.23**: 🏆 分布式锁系统实现 (10分钟) ⏰
-  - [ ] **最终项目**: 实现生产级分布式锁系统 (300+行)
-  - [ ] **技术特性**: 重入锁、公平锁队列、超时机制、锁续期、过期清理
-  - [ ] **强制编程**: `JavaLearning/src/com/concurrency/c01/DistributedLockSystem.java` - 企业级分布式锁
-  - [ ] **测试场景**: 基本功能、重入锁、并发竞争、超时过期、高并发压力测试
 
 ### 1.2 集合框架：HashMap & ConcurrentHashMap 源码剖析 (7个微任务)
 **🎯 学习目标**: 深度掌握Java集合框架核心实现和高级数据结构

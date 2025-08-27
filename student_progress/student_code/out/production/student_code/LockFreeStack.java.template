@@ -1,0 +1,131 @@
+/**
+ * Task 1.1.9: 无锁栈实现 - CAS高级应用
+ * 
+ * 任务要求：
+ * 1. 使用CAS实现线程安全的栈数据结构
+ * 2. 解决ABA问题，实现版本控制
+ * 3. 对比无锁vs加锁的性能差异
+ * 4. 理解内存回收在无锁结构中的挑战
+ * 
+ * ⚠️ 这是高难度任务，重点理解无锁编程的复杂性
+ */
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class LockFreeStack<T> {
+    
+    /**
+     * TODO: 定义栈节点类
+     */
+    private static class Node<T> {
+        // TODO: 声明数据字段和next指针
+        // final T data;
+        // volatile Node<T> next;
+    }
+    
+    // TODO 1: 声明栈顶引用和统计变量
+    // private final AtomicReference<Node<T>> top = ?;
+    // private final AtomicInteger pushRetries = ?;
+    // private final AtomicInteger popRetries = ?;
+    
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("=== 无锁栈实现与性能测试 ===");
+        
+        // TODO 2: 基本功能测试
+        testBasicOperations();
+        
+        // TODO 3: ABA问题演示
+        demonstrateABAProblem();
+        
+        // TODO 4: 性能对比测试
+        performanceComparison();
+    }
+    
+    /**
+     * TODO: 实现基本功能测试
+     */
+    private static void testBasicOperations() {
+        System.out.println("\n--- 基本功能测试 ---");
+        
+        // LockFreeStack<String> stack = new LockFreeStack<>();
+        // TODO: 测试push和pop操作
+    }
+    
+    /**
+     * TODO: 实现Push操作 - 使用CAS
+     */
+    public void push(T item) {
+        // Node<T> newNode = new Node<>(item, null);
+        
+        // TODO: 实现CAS重试循环
+        // while (true) {
+        //     Node<T> currentTop = top.get();
+        //     newNode.next = currentTop;
+        //     
+        //     if (top.compareAndSet(currentTop, newNode)) {
+        //         break;
+        //     }
+        //     pushRetries.incrementAndGet();
+        // }
+    }
+    
+    /**
+     * TODO: 实现Pop操作 - 使用CAS
+     */
+    public T pop() {
+        // TODO: 实现CAS重试循环
+        // while (true) {
+        //     Node<T> currentTop = top.get();
+        //     if (currentTop == null) return null;
+        //     
+        //     Node<T> newTop = currentTop.next;
+        //     if (top.compareAndSet(currentTop, newTop)) {
+        //         return currentTop.data;
+        //     }
+        //     popRetries.incrementAndGet();
+        // }
+    }
+    
+    /**
+     * TODO: 实现ABA问题演示
+     */
+    private static void demonstrateABAProblem() throws InterruptedException {
+        System.out.println("\n--- ABA问题演示 ---");
+        
+        // TODO: 创建初始栈 A->B->C
+        
+        // TODO: 创建线程1执行慢速pop操作
+        
+        // TODO: 创建线程2执行快速A->B->A操作序列
+        
+        // TODO: 观察ABA问题的发生
+    }
+    
+    /**
+     * TODO: 实现性能对比测试
+     */
+    private static void performanceComparison() throws InterruptedException {
+        System.out.println("\n--- 性能对比测试 ---");
+        
+        // TODO: 测试无锁栈性能
+        
+        // TODO: 测试同步栈性能
+        
+        // TODO: 对比结果并输出CAS重试统计
+    }
+    
+    /**
+     * TODO: 实现同步栈用于性能对比
+     */
+    static class SynchronizedStack<T> {
+        // private Node<T> top;
+        
+        // public synchronized void push(T item) {
+        //     TODO: 实现同步版本的push
+        // }
+        
+        // public synchronized T pop() {
+        //     TODO: 实现同步版本的pop
+        // }
+    }
+}

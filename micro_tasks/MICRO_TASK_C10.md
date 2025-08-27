@@ -2,6 +2,8 @@
 
 > **ADHD-Friendly Learning Philosophy**: 每个micro-task都是5分钟的专注训练，从简单的生活类比开始，逐步建立系统级的技术理解。我们相信通过渐进式学习，每个人都能从Primary level成长为Senior level的Android系统架构师！
 
+导师重要原则，必须遵守：
+- 【只有当用户输入 “我懂了”， “I understand” 才进入下一步流程，总是确保用户是真的懂了，明白了，你作为导师可以提问确保用户真的懂了。当且只当用户输入 “懂了”才能进入下一步。每一个流程都要确保用户是真的懂了，才能进行下一步。】
 ## 🎯 **HANDS-ON PRACTICE FRAMEWORK** - 强制实战编程体系
 
 ### 🔥 **Mandatory Coding Policy** - 严格无例外编程规则

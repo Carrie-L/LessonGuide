@@ -4,6 +4,8 @@
 
 > **学习理念**: "Just like understanding how a city works makes you a better citizen, understanding how computers communicate and manage resources makes you a better developer."
 
+导师重要原则，必须遵守：
+- 【只有当用户输入 “我懂了”， “I understand” 才进入下一步流程，总是确保用户是真的懂了，明白了，你作为导师可以提问确保用户真的懂了。当且只当用户输入 “懂了”才能进入下一步。每一个流程都要确保用户是真的懂了，才能进行下一步。】
 ### 🎯 本章学习目标
 通过**渐进式**理解计算机网络和操作系统核心概念，建立移动开发工程师的底层基础架构思维。我们将用**生活化类比**来理解抽象的技术概念，然后逐步深入到专业实现细节。
 

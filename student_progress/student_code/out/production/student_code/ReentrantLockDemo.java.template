@@ -1,0 +1,182 @@
+/**
+ * Task 1.1.10: ReentrantLock与AQS框架深度解析
+ * 
+ * 任务要求：
+ * 1. 掌握ReentrantLock的高级特性
+ * 2. 理解AQS(AbstractQueuedSynchronizer)框架原理
+ * 3. 对比ReentrantLock与synchronized的差异
+ * 4. 学习公平锁与非公平锁的实现
+ * 
+ * ⚠️ 重点理解ReentrantLock相比synchronized的优势
+ */
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.TimeUnit;
+
+public class ReentrantLockDemo {
+    
+    // TODO 1: 声明公平锁和非公平锁
+    // private static final ReentrantLock fairLock = ?;
+    // private static final ReentrantLock unfairLock = ?;
+    
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("=== ReentrantLock与AQS框架解析 ===");
+        
+        // TODO 2: 基本功能演示
+        demonstrateBasicFeatures();
+        
+        // TODO 3: 高级特性演示
+        demonstrateAdvancedFeatures();
+        
+        // TODO 4: 公平锁vs非公平锁
+        compareFairVsUnfairLock();
+        
+        // TODO 5: Condition条件变量
+        demonstrateCondition();
+    }
+    
+    /**
+     * TODO: 实现基本功能演示
+     */
+    private static void demonstrateBasicFeatures() throws InterruptedException {
+        System.out.println("\n--- ReentrantLock基本功能 ---");
+        
+        // ReentrantLock lock = new ReentrantLock();
+        
+        // TODO: 演示可重入性
+        // demonstrateReentrant(lock);
+        
+        // TODO: 演示可中断锁获取
+        // demonstrateInterruptible(lock);
+        
+        // TODO: 演示tryLock
+        // demonstrateTryLock(lock);
+    }
+    
+    /**
+     * TODO: 实现可重入性演示
+     */
+    private static void demonstrateReentrant(ReentrantLock lock) {
+        System.out.println("\n🔄 可重入性演示:");
+        
+        // TODO: 创建嵌套锁获取的方法
+        // class ReentrantTask {
+        //     void method1() {
+        //         lock.lock();
+        //         try {
+        //             System.out.println("Method1: 持有计数=" + lock.getHoldCount());
+        //             method2(); // 重入
+        //         } finally {
+        //             lock.unlock();
+        //         }
+        //     }
+        //     
+        //     void method2() {
+        //         TODO: 再次获取同一个锁
+        //     }
+        // }
+    }
+    
+    /**
+     * TODO: 实现可中断锁获取演示
+     */
+    private static void demonstrateInterruptible(ReentrantLock lock) throws InterruptedException {
+        System.out.println("\n⚡ 可中断锁获取演示:");
+        
+        // TODO: 主线程持有锁
+        // lock.lock();
+        
+        // TODO: 创建尝试获取锁的线程
+        // Thread interruptibleThread = new Thread(() -> {
+        //     try {
+        //         lock.lockInterruptibly(); // 可中断的锁获取
+        //         // 处理逻辑
+        //     } catch (InterruptedException e) {
+        //         System.out.println("被中断");
+        //     }
+        // });
+        
+        // TODO: 启动线程，然后中断它
+    }
+    
+    /**
+     * TODO: 实现tryLock演示
+     */
+    private static void demonstrateTryLock(ReentrantLock lock) throws InterruptedException {
+        System.out.println("\n🎯 尝试获取锁演示:");
+        
+        // TODO: 测试无参tryLock
+        // boolean acquired = lock.tryLock();
+        
+        // TODO: 测试带超时的tryLock
+        // boolean success = lock.tryLock(2, TimeUnit.SECONDS);
+    }
+    
+    /**
+     * TODO: 实现高级特性演示
+     */
+    private static void demonstrateAdvancedFeatures() {
+        System.out.println("\n--- ReentrantLock高级特性 ---");
+        
+        // TODO: 展示锁状态查询方法
+        // lock.isLocked()
+        // lock.isHeldByCurrentThread()
+        // lock.getQueueLength()
+        // lock.getHoldCount()
+    }
+    
+    /**
+     * TODO: 实现公平锁vs非公平锁对比
+     */
+    private static void compareFairVsUnfairLock() throws InterruptedException {
+        System.out.println("\n--- 公平锁 vs 非公平锁 ---");
+        
+        // TODO: 测试非公平锁的获取顺序
+        
+        // TODO: 测试公平锁的获取顺序
+        
+        // TODO: 对比两种锁的行为差异
+    }
+    
+    /**
+     * TODO: 实现Condition条件变量演示
+     */
+    private static void demonstrateCondition() throws InterruptedException {
+        System.out.println("\n--- Condition条件变量演示 ---");
+        
+        // TODO: 实现有界缓冲区
+        // BoundedBuffer<String> buffer = new BoundedBuffer<>(3);
+        
+        // TODO: 创建生产者线程
+        // 使用 buffer.put() 方法
+        
+        // TODO: 创建消费者线程
+        // 使用 buffer.take() 方法
+    }
+    
+    /**
+     * TODO: 实现有界缓冲区类
+     */
+    static class BoundedBuffer<T> {
+        // private final T[] buffer;
+        // private final ReentrantLock lock = new ReentrantLock();
+        // private final Condition notEmpty = lock.newCondition();
+        // private final Condition notFull = lock.newCondition();
+        
+        // public void put(T item) throws InterruptedException {
+        //     lock.lock();
+        //     try {
+        //         while (count == buffer.length) {
+        //             notFull.await(); // 等待不满条件
+        //         }
+        //         TODO: 添加元素并通知消费者
+        //     } finally {
+        //         lock.unlock();
+        //     }
+        // }
+        
+        // public T take() throws InterruptedException {
+        //     TODO: 实现take方法
+        // }
+    }
+}

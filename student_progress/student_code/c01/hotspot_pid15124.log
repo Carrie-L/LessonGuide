@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hotspot_log version='160 1' process='15124' time_ms='1755961062934'>
+<vm_version>
+<name>
+Java HotSpot(TM) 64-Bit Server VM
+</name>
+<release>
+17.0.11+7-LTS-207
+</release>
+<info>
+Java HotSpot(TM) 64-Bit Server VM (17.0.11+7-LTS-207) for windows-amd64 JRE (17.0.11+7-LTS-207), built on Mar 11 2024 19:01:50 by &quot;mach5one&quot; with MS VC++ 17.6 (VS2022)
+</info>
+</vm_version>
+<vm_arguments>
+<args>
+-XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:+PrintGCDetails </args>
+<command>
+LockEscalationDemo
+</command>
+<launcher>
+SUN_STANDARD
+</launcher>
+<properties>
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.version=17.0.11+7-LTS-207
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+jdk.debug=release
+sun.boot.library.path=C:\Program Files\Java\jdk-17\bin
+java.library.path=C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\windows\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\windows\bin;C:\Ruby33-x64\bin;C:\Program Files\Java\jdk-17\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\libnvvp;C:\Ruby32-x64\bin;C:\Program Files\PlasticSCM5\server;C:\Program Files\PlasticSCM5\client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\dotnet;C:\Program Files (x86)\Netease\MCLauncher\ext\7z;C:\Program Files\Git\cmd;C:\Program Files\Calibre2;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\Nsight Compute 2024.3.1;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;E:\softwares\ffmpeg-2024-09-16-git-76ff97cef5-full_build\bin;C:\Users\windows\.cargo\bin;C:\Users\windows\.local\bin;T:\Android\SDK\platform-tools;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\SMLNJ\bin;C:\Program Files\Cloudflare\Cloudflare WARP;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;T:\Program Files\Trae\bin;C:\Users\windows\.local\bin;C:\Users\windows\.cargo\bin;C:\Users\windows\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\windows\AppData\Local\Programs\Python\Python312;C:\Users\windows\AppData\Local\Microsoft\WindowsApps;C:\Users\windows\AppData\Roaming\npm;C:\Users\windows\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\windows\AppData\Roaming\Programs\Zero Install;C:\Users\windows\miniconda3;C:\Program Files\JetBrains\PyCharm Community Edition 2024.3\bin;C:\Users\windows\AppData\Local\Microsoft\WindowsApps;C:\Users\windows\AppData\Local\Programs\Ollama;C:\Users\windows\.lmstudio\bin;C:\Users\windows\AppData\Local\Programs\cursor\resources\app\bin;T:\Program Files\IntelliJ IDEA 2024.3.4.1\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.3.4.1\bin;T:\Program Files\Windsurf\bin;T:\Dev\flutter_windows_3.32.0-stable\flutter\bin;J:\Program Files\Kiro\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;.
+java.home=C:\Program Files\Java\jdk-17
+java.class.path=.
+jdk.boot.class.path.append=
+java.vm.info=mixed mode, sharing
+java.vm.specification.vendor=Oracle Corporation
+java.vm.specification.version=17
+java.vm.vendor=Oracle Corporation
+sun.java.command=LockEscalationDemo
+sun.java.launcher=SUN_STANDARD
+</properties>
+</vm_arguments>
+<tty>
+<writer thread='59056'/>
+<blob name='MethodHandlesAdapterBlob' size='4000'>
+<sect index='1' size='4000' free='3618'/>
+</blob>
+<writer thread='38684'/>
+<destroy_vm stamp='2.187'/>
+<tty_done stamp='2.191'/>
+</tty>
+<hotspot_log_done stamp='2.191'/>
+</hotspot_log>
