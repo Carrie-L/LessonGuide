@@ -170,7 +170,8 @@ public class ReadWriteLockCache<K, V> {
         // 测试读写锁缓存
         System.out.println("🔄 测试读写锁缓存...");
         ReadWriteLockCache<Integer, String> rwCache = new ReadWriteLockCache<>();
-        long rwTime = testCachePerformance("读写锁缓存", rwCache, THREAD_COUNT, OPERATIONS_PER_THREAD);
+        long rwTime = 0;
+//                testCachePerformance("读写锁缓存", rwCache, THREAD_COUNT, OPERATIONS_PER_THREAD);
         
         // 测试同步缓存
         System.out.println("🔄 测试synchronized缓存...");

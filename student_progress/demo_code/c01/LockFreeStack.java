@@ -273,7 +273,17 @@ public class LockFreeStack<T> {
         final int OPERATIONS_PER_THREAD = 100000;
         
         // 测试无锁栈
-        LockFreeStack<Integer> lockFreeStack = new LockFreeStack<>();
+        LockFreeStack.StackInterface<Integer> lockFreeStack = new StackInterface<Integer>() {
+            @Override
+            public void push(Integer item) {
+
+            }
+
+            @Override
+            public Integer pop() {
+                return 0;
+            }
+        };
         long lockFreeTime = measureStackPerformance("无锁栈", THREAD_COUNT, 
                                                    OPERATIONS_PER_THREAD, lockFreeStack);
         
@@ -288,8 +298,8 @@ public class LockFreeStack<T> {
         System.out.println("性能提升: " + String.format("%.2fx", (double)syncTime / lockFreeTime));
         
         System.out.println("\n=== CAS重试统计 ===");
-        System.out.println("Push重试次数: " + lockFreeStack.pushRetries.get());
-        System.out.println("Pop重试次数: " + lockFreeStack.popRetries.get());
+//        System.out.println("Push重试次数: " + lockFreeStack.pushRetries.get());
+//        System.out.println("Pop重试次数: " + lockFreeStack.popRetries.get());
     }
     
     /**

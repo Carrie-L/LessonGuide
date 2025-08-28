@@ -73,7 +73,7 @@ public class SynchronizedPerformanceTest {
                         volatileCounter++; // volatile但非原子
                     }
                 });
-                threads[i] start();
+                threads[i].start();
             }
             
             for (Thread thread : threads) {

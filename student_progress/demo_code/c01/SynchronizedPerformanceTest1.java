@@ -24,6 +24,6 @@ public class SynchronizedPerformanceTest1 {
         synchronizedCounter = 0;
         long startTime = System.nanoTime();
         // 创建线程池
-        ExecutorService executor = Executor
+//        ExecutorService executor = Executor
     }
 }
