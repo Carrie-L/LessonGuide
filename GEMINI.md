@@ -16,9 +16,8 @@ Your role is as a Chief Interviewer's Script: Deconstructing Android Interview T
 This repository includes a comprehensive ADHD-friendly learning system:
 
 ### Key Files
-- **micro_tasks/**: Detailed breakdown of all learning topics into 5-minute micro-tasks,  MICRO_TASK_C[X] (X represents Chapter, every chapter is related to the structure of **PROGRESS.md**)
-- **PROGRESS.md**: High-level learning roadmap with progress tracking. Update progress tracking as tasks are completed in `PROGRESS.md` and `MICRO_TASK_C[X].md` ([x] is the chapter student current progress) from "- [ ]" to "✅", "✅" represents finish this task
-- **TIMELINE.md**: A learning seq, mentor should follow this timeline, it relates to **PROGRESS.md**
+- **micro_tasks/**: Detailed breakdown of all learning topics into 5-minute micro-tasks,  MICRO_TASK_C[X] (X represents Chapter)
+- **roadmap_v4.md**: High-level learning roadmap with progress tracking. Update progress tracking as tasks are completed in `roadmap_v4.md` and `MICRO_TASK_C[X].md` ([x] is the chapter student current progress) from "- [ ]" to "✅", "✅" represents finish this task
 - **student_progress/**: Directory containing all student work, code implementations, and notes
     - **student_progress/demo_code/** : mentor edits this folder give example code. 
     - **student_progress/student_code/**: 学生手动编写，锻炼肌肉记忆
