@@ -11,6 +11,7 @@
 ✅ **清理行尾空格** - 移除不必要的尾随空格  
 ✅ **处理空格行** - 将只包含空格的行转为真正空行  
 ✅ **优化段落间距** - 将多行空行缩减为一行，保持紧凑但有呼吸感  
+✅ **移除分割线** - 删除所有markdown分割线（--- 或 ***），自动处理后续空行  
 
 ## 使用方法
 
@@ -98,6 +99,13 @@ class MarkdownFormatter:
         """清理行尾空格"""
         return re.sub(r'[ \t]+$', '', text, flags=re.MULTILINE)
 
+    def remove_dividers(self, text: str) -> str:
+        """移除markdown分割线（--- 或 ***）"""
+        # 移除独占一行的分割线
+        # 匹配：行首可能的空白 + 三个或更多的 - 或 * + 行尾可能的空白
+        text = re.sub(r'^\s*[-*]{3,}\s*$', '', text, flags=re.MULTILINE)
+        return text
+
     def clean_excessive_blank_lines(self, text: str) -> str:
         """将多行空行缩减为一行空行，保持内容分隔但更紧凑"""
         # 将连续的多个空行（2行或以上）替换为单个空行
@@ -116,15 +124,19 @@ class MarkdownFormatter:
         print("清理行尾空格...")
         text = self.clean_trailing_spaces(text)
 
-        # 3. 清理列表项之间的空行
+        # 3. 移除分割线
+        print("移除分割线...")
+        text = self.remove_dividers(text)
+
+        # 4. 清理列表项之间的空行
         print("清理列表项间距...")
         text = self.clean_list_spacing_only(text)
 
-        # 4. 清理多余的连续空行
+        # 5. 清理多余的连续空行（包括移除分割线后可能产生的多余空行）
         print("优化段落间距...")
         text = self.clean_excessive_blank_lines(text)
 
-        # 5. 确保文件结尾格式正确
+        # 6. 确保文件结尾格式正确
         text = text.strip()
         if text:
             text += '\n'

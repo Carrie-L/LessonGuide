@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "student_progress/notes/jmm_notes_carrie.md",
-                "mode": "preview",
+                "file": "student_progress/notes/Git Commit.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "jmm_notes_carrie"
+              "title": "Git Commit"
             }
           }
         ],
@@ -171,13 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "student_progress/notes/jmm_notes_carrie.md",
+                "file": "student_progress/notes/Git Commit.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of jmm_notes_carrie"
+              "title": "Outline of Git Commit"
             }
           }
         ],
@@ -200,9 +200,33 @@
   },
   "active": "484d0b17144b0c13",
   "lastOpenFiles": [
+    "d64e4297a5f06341b5a6eb6acb2b33dd.jpg",
+    "bg_black.jpg",
+    "bg_white.jpg",
+    "ab106a5e352bb97e3acbec8a45fcbc39.jpg",
+    "bg_pink.jpg",
+    "4eb89e7f4eb3588dab1685dca393f30e.jpg",
+    "student_progress/student_code/c05/UIParadigmComparison.md~",
+    "student_progress/student_code/c05/UIParadigmComparison.md",
+    "student_progress/student_code/c05/UIParadigmComparison",
+    "student_progress/student_code/c05",
+    "student_progress/demo_code/c05/UIParadigmComparison.md",
+    "student_progress/demo_code/c05",
+    "student_progress/demo_code/c01/UIParadigmComparison.md",
+    "bg_cyber.jpg",
+    "__pycache__/desktop_clock.cpython-312.pyc",
+    "__pycache__",
+    "student_progress/bg_cyber.jpg",
+    "student_progress/Weixin Image_20250829013507_24_296.jpg",
+    "todo_statistics.html",
+    "desktop_clock.py~",
+    "desktop_todos.json",
+    "student_progress/notes/test_divider.md",
+    "student_progress/notes/README.md",
+    "student_progress/notes/Git Commit.md",
+    "student_progress/notes/jmm_notes_carrie.md",
     "student_progress/notes/markdown.py",
     "student_progress/notes/test_spacing.md",
-    "student_progress/notes/README.md",
     "student_progress/notes/test_list_emoji_cleaned.md",
     "student_progress/notes/test_emoji_fixed.md",
     "student_progress/notes/test_perfect_result.md",
@@ -211,33 +235,16 @@
     "student_progress/notes/test_output2.md",
     "student_progress/notes/test_final_result2.md",
     "student_progress/notes/test_final_result.md",
-    "student_progress/notes/markdown_formatter_final.py",
     "student_progress/notes/test_result_v2.md",
     "student_progress/notes/test_sample.md",
-    "student_progress/notes/markdown_formatter_v2.py",
     "student_progress/notes/test_output1.md",
     "student_progress/notes/test_result.md",
     "student_progress/notes/test_input.md",
     "student_progress/notes/test_output.md",
-    "student_progress/notes/markdown_formatter.py",
     "test_formatted.md",
     "test_example.md",
-    "markdown_formatter.py",
     "student_progress/Untitled.md",
-    "student_progress/notes/jmm_notes_carrie.md",
     "Pasted image 20250828185046.png",
-    "backpressue logic map.svg",
-    "Pasted image 20250828183152.png",
-    "micro_tasks/weekly_plan_v1.md",
-    "micro_tasks/roadmap_v4.md",
-    "GEMINI.md",
-    "out/production/demo_code/VolatileDemo.class",
-    "out/production/demo_code/VolatileDemo$Singleton.class",
-    "out/production/demo_code/VolatileDemo$StatusFlag.class",
-    "out/production/demo_code/SynchronizedPerformanceTest1.class",
-    "out/production/demo_code/SynchronizedPerformanceTest.class",
-    "out/production/demo_code/SynchronizedPerformanceTest$1.class",
-    "out/production/demo_code/VisibilityExplanation.md",
-    "out/production/demo_code/ThreadLifecycleExplanation.md"
+    "backpressue logic map.svg"
   ]
 }
