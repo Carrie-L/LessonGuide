@@ -74,79 +74,16 @@ class DesktopClock:
         except:
             pass
     
-    def setup_background_image(self, image_path):
-        """在主Canvas上设置背景图片"""
-        if not PIL_AVAILABLE:
-            print("PIL/Pillow not installed. Cannot display background image.")
-            return
 
-        if not os.path.exists(image_path):
-            print(f"Background image not found: {image_path}")
-            return
-
-        try:
-            # 移除旧的背景图
-            self.remove_background_image()
-
-            # 加载并调整图片大小为窗口大小
-            img = Image.open(image_path).resize((1200, 500), Image.Resampling.LANCZOS)
-            self.bg_photo = ImageTk.PhotoImage(img)
-
-            # 在主Canvas上绘制背景图片（如果main_canvas已创建）
-            if hasattr(self, 'main_canvas'):
-                # 清除Canvas上的旧背景（如果有）
-                if hasattr(self, '_bg_image_id'):
-                    self.main_canvas.delete(self._bg_image_id)
-                
-                # 在Canvas上绘制新背景图片
-                self._bg_image_id = self.main_canvas.create_image(0, 0, image=self.bg_photo, anchor="nw")
-                
-                # 确保背景图在最底层
-                self.main_canvas.tag_lower(self._bg_image_id)
-            
-            print(f"🎨 背景图片 {image_path} 加载成功！")
-
-        except Exception as e:
-            print(f"Failed to load background image: {e}")
-            self.bg_photo = None
-
-    def remove_background_image(self):
-        """移除背景图片"""
-        try:
-            # 移除Canvas上的背景图片元素
-            if hasattr(self, '_bg_image_id') and hasattr(self, 'main_canvas'):
-                self.main_canvas.delete(self._bg_image_id)
-                delattr(self, '_bg_image_id')
-        except:
-            pass
-        try:
-            if hasattr(self, '_bg_canvas'):
-                if hasattr(self._bg_canvas, 'winfo_exists') and self._bg_canvas.winfo_exists():
-                    self._bg_canvas.destroy()
-                delattr(self, '_bg_canvas')
-        except:
-            pass
-        try:
-            if hasattr(self, '_bg_label'):
-                if hasattr(self._bg_label, 'winfo_exists') and self._bg_label.winfo_exists():
-                    self._bg_label.destroy()
-                delattr(self, '_bg_label')
-        except:
-            pass
-        try:
-            if hasattr(self, 'bg_photo'):
-                delattr(self, 'bg_photo')
-        except:
-            pass
     
     def create_widgets(self):
-        """创建时钟显示组件和TodoList - 使用Canvas布局"""
-        # 创建主Canvas，用于背景和组件布局
-        self.main_canvas = tk.Canvas(self.root, width=1200, height=500, highlightthickness=0, bd=0)
-        self.main_canvas.pack(fill="both", expand=True)
+        """创建时钟显示组件和TodoList - 使用简单Frame布局"""
+        # 创建主Frame，用于水平布局
+        self.main_frame = tk.Frame(self.root)
+        self.main_frame.pack(fill="both", expand=True)
         
-        # 创建时钟区域Frame（作为Canvas上的窗口）
-        self.clock_frame = tk.Frame(self.main_canvas, width=800, height=500)
+        # 创建时钟区域Frame
+        self.clock_frame = tk.Frame(self.main_frame, width=800, height=500)
         
         # 创建一个内部容器来实现垂直居中
         clock_container = tk.Frame(self.clock_frame)
@@ -172,17 +109,17 @@ class DesktopClock:
         
 
         
-        # 将时钟Frame放置在Canvas上
-        self.main_canvas.create_window(15, 0, anchor="nw", window=self.clock_frame)
+        # 使用pack布局将时钟Frame放在左侧
+        self.clock_frame.pack(side="left", fill="y", padx=(15, 5))
         
         # 创建分隔线Frame
-        separator = tk.Frame(self.main_canvas, width=3, height=500)
-        self.main_canvas.create_window(820, 0, anchor="nw", window=separator)
+        separator = tk.Frame(self.main_frame, width=3, height=500)
+        separator.pack(side="left", fill="y", padx=5)
         
-        # 右侧TodoList区域Frame - 进一步减少宽度，消除右侧空白
-        self.todo_main_frame = tk.Frame(self.main_canvas, width=350, height=500, bd=0, highlightthickness=0)
+        # 右侧TodoList区域Frame
+        self.todo_main_frame = tk.Frame(self.main_frame, width=350, height=500, bd=0, highlightthickness=0)
         self.todo_main_frame.pack_propagate(False)  # 防止子组件改变Frame大小
-        self.main_canvas.create_window(845, 0, anchor="nw", window=self.todo_main_frame)
+        self.todo_main_frame.pack(side="left", fill="both", expand=True, padx=(5, 15))
         
         # TodoList区域
         self.create_todolist()
@@ -505,7 +442,7 @@ class DesktopClock:
             fg=text_color,
             bg=colors["item_bg"],
             anchor='w',
-            wraplength=320,  # 适应新的TodoList宽度
+            wraplength=310,  # 适应新的TodoList宽度
             justify='left'
         )
         task_label.pack(side='left', fill='both', expand=True, padx=(0, 0))  # 进一步减少右边距
@@ -803,8 +740,8 @@ class DesktopClock:
             },
             "white": {  # 黑底白色
                 "bg": "#000000",
-                "time_fg": "#FFFFFF",
-                "date_fg": "#CCCCCC",
+                "time_fg": "#fff0f5",
+                "date_fg": "#fff0f5",
                 "title_fg": "#FFFFFF",
                 "entry_bg": "#2C2C2C",
                 "entry_fg": "#FFFFFF",
@@ -847,16 +784,15 @@ class DesktopClock:
         self.current_theme = theme
         colors = self.get_theme_colors(theme)
         
-        # 移除所有背景图片
-        self.remove_background_image()
+        # 纯色主题，无需背景图片处理
         
         # 设置窗口背景
         self.root.attributes('-alpha', 1.0)
         self.root.configure(bg=colors["bg"])
         
         # 更新所有组件样式 - 统一使用纯色背景
-        if hasattr(self, 'main_canvas'):
-            self.main_canvas.configure(bg=colors["bg"])
+        if hasattr(self, 'main_frame'):
+            self.main_frame.configure(bg=colors["bg"])
         
         if hasattr(self, 'clock_frame'):
             self.clock_frame.configure(bg=colors["bg"])
